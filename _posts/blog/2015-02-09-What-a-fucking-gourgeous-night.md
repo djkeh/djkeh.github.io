@@ -11,7 +11,7 @@ modified:
 ---
 
 I actually spent almost a day to make this page.  
-This was though.. much thougher than I expected.  
+This was tough.. much tougher than I expected.  
 So many flaws appeared during installation and initialization of jekyll, so simple theme and ruby gems.  
 Maybe It's always hard to do something at the first step, but this went too much.
 What the.. fucking gorgeous night..  
