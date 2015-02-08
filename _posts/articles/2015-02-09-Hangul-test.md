@@ -124,6 +124,9 @@ md 파일 안에서 다음의 코드를 이용한다.
 {% endraw %}
 {% endhighlight %}
 
+실험을 해보면 `linenos=li`도 작동한다. 모양은 table과 똑같다.  
+하지만 줄 번호와 코드 간격이 너무 넓어서 마음에는 안 든다..
+
 위 소스코드에서 `{$` 는 어떻게 넣었을까? `raw` 와 `endraw` 를 사용한다.
 
 {% highlight html linenos=table %}
