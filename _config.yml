@@ -1,7 +1,6 @@
 # Site wide configuration
 
 title: Uno's Blog
-locale: ko_KR
 description: Welcome to Uno's Blog.
 logo: site-logo.png
 search: true
@@ -32,7 +31,7 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 # Site owner
 owner:
   name: Uno Kim
-  avatar: bio-photo.jpg
+  avatar: Uno-photo.jpg
   email: uno@nhnent.com
   disqus-shortname: djkeh
   twitter: djkehh

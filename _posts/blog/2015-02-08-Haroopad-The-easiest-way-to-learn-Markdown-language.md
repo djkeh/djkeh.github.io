@@ -10,6 +10,7 @@ image:
   feature:
 date: 2015-02-08T20:39:51-09:00
 comments: true
+share: true
 ---
 
 ### Heroopad: The easiest way to learn Markdown language
