@@ -3,19 +3,21 @@ layout: post
 title: "What a fucking gorgeous night"
 categories: blog
 excerpt:
-tags: [haroopad]
+tags: [night sleep flaw fuck simple tough]
 image:
   feature:
 date: 2015-02-08T20:39:51-09:00
-modified:
+modified: 2015-02-09T07:58:30-09:00
 ---
 
 I actually spent almost a day to make this page.  
 This was tough.. much tougher than I expected.  
-So many flaws appeared during installation and initialization of jekyll, so simple theme and ruby gems.  
-Maybe It's always hard to do something at the first step, but this went too much.
-What the.. fucking gorgeous night..  
-time to go to sleep.  
-But this is not good enough.  
-This is gonna be "a" very long day..
 
+So many flaws appeared during installation and initialization of jekyll, so simple theme and ruby gems.  
+Perhaps It's always hard to do something at the first step, but this time it went too much.  
+So simple theme wasn't so simple enough. What a.. fucking gorgeous night..  
+
+If normal, it's time to go to sleep.  
+But this is not good enough.  
+It's gonna be "a" very long day.  
+Sleepless in Pangyo...
