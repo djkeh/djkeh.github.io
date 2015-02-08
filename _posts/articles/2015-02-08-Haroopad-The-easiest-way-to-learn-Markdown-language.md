@@ -3,7 +3,7 @@ layout: post
 title: "Haroopad: The easiest way to learn Markdown language"
 date: 2015-02-08T20:39:51-09:00
 modified: 2015-02-08T22:21:31-09:00
-categories: blog
+categories: articles
 excerpt:
 tags: [haroopad]
 image:

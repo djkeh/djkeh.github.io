@@ -20,6 +20,7 @@ If you'd like to fully understand my pages and postings here, please learn Korea
 <div style="margin-top:-6px;font-family:'나눔고딕',NanumGothic,'돋움',dotum,'굴림',Gulim,AppleGothic,sans-serif !important;line-height:16px !important">
 	<img src="http://static.nhnent.com/static/site/sign/img/sign/bar_1_v2.gif" width="12" height="12" alt="" style="border:0;vertical-align:middle">
 	<br />
+	<strong id="nameOrg" style="font-size:13px;color:#000;letter-spacing:-1px">김은호</strong>&nbsp;
 	<span id="nameEng" style="font-size:11px;color:#000">Uno Kim</span>
 	<br />
 	<span id="department" style="font-size:11px;color:#000">LoveTF</span>
