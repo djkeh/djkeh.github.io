@@ -4,15 +4,17 @@ title: About
 permalink: /about/
 ---
 
-Welcome to the Uno's Blog.
+Welcome to the Uno's Blog.  
+If you'd like to fully understand my entire pages and posts, please learn Korean generously :)
 
 
-Uno Kim
-loveTF / Rookie Programmer
-경기도 성남시 분당구 삼평동 629 NHN엔터테인먼트 플레이뮤지엄 463-400
-Mobile +821027785309 
-Email  uno@nhnent.com
-
+Uno Kim  
+loveTF / Rookie Programmer  
+629 Play Museum, NHN Entertainment,  
+Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do, Korea  
+ZIPCODE 463-400  
+Mobile +821027785309   
+Email  uno@nhnent.com  
 
 Talking about technical stuffs of this site-
 
