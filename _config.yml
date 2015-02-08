@@ -1,12 +1,51 @@
-# Site settings
-title: Uno's Blog
-email: uno@nhnent.com
-description: > # this means to ignore newlines until "baseurl:"
-  Welcome to the Uno's Blog.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://djkeh.github.io" # the base hostname & protocol for your site
-twitter_username: djkehh
-github_username:  djkeh
+# Site wide configuration
 
-# Build settings
-markdown: kramdown
+title: Uno's Blog
+locale: ko_KR
+description: Welcome to Uno's Blog.
+logo: site-logo.png
+search: true
+
+# Jekyll configuration
+
+permalink:   /:categories/:title/
+markdown:    kramdown
+highlighter: pygments
+sass:
+  sass_dir: _sass
+  style: compressed
+gems:
+  - jekyll-sitemap
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..2
+  use_coderay: false
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "vendor"]
+
+
+# Site owner
+owner:
+  name: Uno Kim
+  avatar: bio-photo.jpg
+  email: uno@nhnent.com
+  disqus-shortname:
+  twitter: djkehh
+  facebook: djkehh
+  github: djkeh
+  stackexchange: #http://stackoverflow.com/users/123456/username
+  linkedin: #username
+  instagram: #username
+  flickr: #username
+  tumblr: #username
+  google:
+    plus: #username
+    analytics:
+    verify:
+    ad-client:
+    ad-slot: 
+  bing-verify:
