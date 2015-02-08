@@ -1,0 +1,12 @@
+# Site settings
+title: Uno's Blog
+email: uno@nhnent.com
+description: > # this means to ignore newlines until "baseurl:"
+  Welcome to the Uno's Blog.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://djkeh.github.io" # the base hostname & protocol for your site
+twitter_username: djkehh
+github_username:  djkeh
+
+# Build settings
+markdown: kramdown
