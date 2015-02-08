@@ -11,7 +11,7 @@ image:
 
 Welcome to Uno's Blog.  
 This blog mainly deals with technical issues, my concerns, sstories and any other stuffs especially related to the computer programming.  
-If you'd like to fully understand my pages and postings here, please learn Koean language generously :)
+If you'd like to fully understand my pages and postings here, please learn Korean language generously :)
 
 
 
