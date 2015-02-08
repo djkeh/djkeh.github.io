@@ -3,7 +3,6 @@ layout: page
 title: About Uno
 excerpt: "About Uno and this blog"
 modified: 2015-08-08T19:44:38.564948-04:00
-author: uno_kim
 image:
   feature: so-simple-sample-image-4.jpg
   credit: WeGraphics
