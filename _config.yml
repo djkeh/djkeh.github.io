@@ -5,6 +5,7 @@ locale: ko_KR
 description: Welcome to Uno's Blog.
 logo: site-logo.png
 search: true
+comments: true
 
 # Jekyll configuration
 
@@ -33,7 +34,7 @@ owner:
   name: Uno Kim
   avatar: bio-photo.jpg
   email: uno@nhnent.com
-  disqus-shortname:
+  disqus-shortname: djkeh
   twitter: djkehh
   facebook: djkehh
   github: djkeh

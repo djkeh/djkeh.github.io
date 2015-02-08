@@ -1,7 +1,5 @@
 # Uno's Blog
 
----
-
 This blog deals with technical issues, info, and and kinda stuffs especially related to computer programming.
 
 * about Jekyll and "So Simple Theme"
