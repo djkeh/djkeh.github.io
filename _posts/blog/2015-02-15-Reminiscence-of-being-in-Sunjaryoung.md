@@ -7,7 +7,7 @@ tags: [tracking, Sunjaryoung]
 image:
   feature:
 date: 2015-02-15T20:39:51-09:00
-modified: 
+modified: 2015-02-15T22:42:12-09:00
 ---
 
 Going back to the last day of the regular training program for rookies,  
@@ -63,7 +63,7 @@ I wanted to take memorable photos from my colleagues, so I represented my will a
 	<figcaption>Moments of being in Sunjaryoung, taken by me</figcaption>
 </figure>
 
-As our journey ended, we could do nothing but just managing to load our completely discharged bodies on the bus. It started to move, and then there was only silence. At that moment I looked up, and found this bright light ahead of me. I calmly held up my phone and snapshotted this,.
+As our journey ended, we could do nothing but just managing to load our completely discharged bodies on the bus. It started to move, and then there was only silence. At that moment I looked up, and found this bright light ahead of me. I calmly held up my phone and snapshotted this.
 
 <figure>
 	<a href="/images/20150215_sunjaryoung/bus_to_heaven.jpg" class="image-popup">
@@ -71,3 +71,5 @@ As our journey ended, we could do nothing but just managing to load our complete
 	</a>
 	<figcaption>In the bus to the heaven</figcaption>
 </figure>
+
+Yes, we were going home.
