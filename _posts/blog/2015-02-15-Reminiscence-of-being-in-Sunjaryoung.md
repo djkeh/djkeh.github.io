@@ -11,10 +11,10 @@ modified:
 ---
 
 <figure>
-	<a href="/images/20150215_sunjaryoung/thumbnail/IMG_4120_600x400.JPG" class="image-popup">
-		<img src="/images/20150215_sunjaryoung/IMG_4120.JPG" alt="image">
+	<a href="/images/20150215_sunjaryoung/IMG_4120.JPG" class="image-popup">
+		<img src="/images/20150215_sunjaryoung/thumbnail/IMG_4120_600x400.JPG" alt="image">
 	</a>
-	<figcaption>Moments of SunjaRyoung by mez</figcaption>
+	<figcaption>Moments of SunjaRyoung by me</figcaption>
 </figure>
 
 
