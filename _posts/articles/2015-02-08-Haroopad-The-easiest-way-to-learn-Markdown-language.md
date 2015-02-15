@@ -11,7 +11,7 @@ image:
 share: true
 ---
 
-### Heroopad: The easiest way to learn Markdown language
+### Haroopad: The easiest way to learn Markdown language
 
 If it's your very first time to write something on the web using markdown language,  
 [Haroopad](http://pad.haroopress.com/) can help you learning it.  

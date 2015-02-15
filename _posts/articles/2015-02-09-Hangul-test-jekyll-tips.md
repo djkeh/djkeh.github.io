@@ -3,7 +3,7 @@ layout: post
 title: "Hangul test : 재킬(Jekyll)로 깃헙 블로그 만들기 요령 정리"
 categories: articles
 excerpt:
-tags: [hangul korean]
+tags: [hangul, korean, jekyll, tip, ruby, gem, frontmatter, pygments, numbering]
 image:
   feature:
 date: 2015-02-09T02:01:11-09:00
@@ -142,7 +142,7 @@ md 파일 안에서 다음의 코드를 이용한다.
 ___
 
 ##### 7. [Updated] 더 나은 Pygments 줄 번호 처리법 - thanks to [박현재](http://hyeonjae.github.io/)
-http://demisx.github.io/jekyll/2014/01/13/improve-code-highlighting-in-jekyll.html  
+[http://demisx.github.io/jekyll/2014/01/13/improve-code-highlighting-in-jekyll.html](http://demisx.github.io/jekyll/2014/01/13/improve-code-highlighting-in-jekyll.html)  
 이 사이트를 참고하면 linenos로 출력되는 줄번호를 소스코드 복사에서 제외시키고  
 보다 유려한 디자인으로  출력할 수 있다.
 
