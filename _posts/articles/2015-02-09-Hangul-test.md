@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hangul test"
+title: "Hangul test : 재킬(Jekyll)로 깃헙 블로그 만들기 요령 정리"
 categories: articles
 excerpt:
 tags: [hangul korean]
@@ -139,3 +139,22 @@ md 파일 안에서 다음의 코드를 이용한다.
 {% endraw %}
 {% endhighlight %}
 
+___
+
+##### 7. [Updated] 더 나은 Pygments 줄 번호 처리법 - thanks to [박현재](http://hyeonjae.github.io/)
+http://demisx.github.io/jekyll/2014/01/13/improve-code-highlighting-in-jekyll.html  
+이 사이트를 참고하면 linenos로 출력되는 줄번호를 소스코드 복사에서 제외시키고  
+보다 유려한 디자인으로  출력할 수 있다.
+
+결과물:
+
+{% highlight ruby linenos %}
+def show
+  puts "Outputting a very lo-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-ong lo-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-ong line"
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+{% endhighlight %}
