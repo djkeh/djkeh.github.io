@@ -43,7 +43,7 @@ block-level element 에 속하는 것은 `<div>, <table>, <pre>, <p>` 등이 있
 이들은 다른 문단과 반드시 한 개의 공백줄로 분리시켜야 한다. 예를 들면 이렇다.  
 
 {% highlight HTML %}
-첫번째 문단이다이 새끼들아
+첫번째 문단이다
 
 <table>
     <tr>
@@ -51,7 +51,7 @@ block-level element 에 속하는 것은 `<div>, <table>, <pre>, <p>` 등이 있
     </tr>
 </table>
 
-두번째 문단이다이 새끼들아
+두번째 문단이다
 {% endhighlight %}
 
 ___
@@ -158,3 +158,6 @@ def show
   end
 end
 {% endhighlight %}
+
+이밖에 여러 컬러 테마를 적용할 수 있지만  
+잘 되지 않아서 적용시키지는 않았다.
