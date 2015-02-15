@@ -49,13 +49,13 @@ I wanted to take memorable photos from my colleagues, so I represented my will a
 		<img src="/images/20150215_sunjaryoung/thumbnail/IMG_4214_300x400.JPG" alt="image">
 	</a>
 	<a href="/images/20150215_sunjaryoung/IMG_4215.JPG" class="image-popup">
-		<img src="/images/20150215_sunjaryoung/thumbnail/IMG_4215_600x400.JPG" alt="image">
+		<img src="/images/20150215_sunjaryoung/thumbnail/IMG_4215_300x400.JPG" alt="image">
 	</a>
 	<a href="/images/20150215_sunjaryoung/IMG_4225.jpg" class="image-popup">
 		<img src="/images/20150215_sunjaryoung/thumbnail/IMG_4225_600x400.jpg" alt="image">
 	</a>
 	<a href="/images/20150215_sunjaryoung/IMG_4237.JPG" class="image-popup">
-		<img src="/images/20150215_sunjaryoung/thumbnail/IMG_4237_300x400.JPG" alt="image">
+		<img src="/images/20150215_sunjaryoung/thumbnail/IMG_4237_600x400.JPG" alt="image">
 	</a>
 	<a href="/images/20150215_sunjaryoung/IMG_20150108_122858.jpg" class="image-popup">
 		<img src="/images/20150215_sunjaryoung/thumbnail/IMG_20150108_122858_300x400.jpg" alt="image">
