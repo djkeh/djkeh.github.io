@@ -11,7 +11,7 @@ image:
 share: true
 ---
 
-본 페이지는 IBM에서 소개하는 비동기 IO 문서를 알기 쉽게 요약하여 정보를 빠르게 전달함을 목적으로 하며, 원문은 [원문 링크](http://www.ibm.com/developerworks/library/l-async/)를 클릭하여 확인할 수 있다.
+본 페이지는 IBM에서 소개하는 비동기 IO 문서를 알기 쉽게 한글로 요약하여 정보를 전달함을 목적으로 하며, 원문은 [원문 링크](http://www.ibm.com/developerworks/library/l-async/)를 클릭하여 확인할 수 있다.
 
 ### 비동기 IO (AIO): 소개
 
@@ -57,5 +57,16 @@ share: true
 ##### 3. 비동기 정지 IO (Asynchronous blocking I/O)
 ![Alt text](http://www.ibm.com/developerworks/library/l-async/figure4.gif "그림 4. 비동기 정지 IO 모델의 전형적인 흐름도")
 
+- 비정지 IO(non-blocking IO) 는 설정되어 있다
+- "select()" 라는 시스템 함수 호출이 어플리케이션을 정지(block)시킨다
+- select() 는 IO 설명자(descriptor)에서 뭐 반응(activity)이 있나 보는데, 한 개가 아닌 여러 개의 IO 설명자에 대한 알림(cotification) 기능을 수행할 수 있는 것이 특징
+- select() 의 문제: 아직도 비효율적. 고성능 IO로는 비추천
+
 ##### 4. 비동기 비정지 IO (Asynchronous non-blocking I/O (AIO)) - 우리의 관심사
 ![Alt text](http://www.ibm.com/developerworks/library/l-async/figure5.gif "그림 5. 비동기 정지 IO 모델의 전형적인 흐름도")
+
+- 시스템 콜 요청(request)이 즉시 IO 개시 여부를 반환
+- 어플리케이션은 이제 하고 싶은 다른 일 한다. IO 는 백그라운드에서 실행
+- IO 응답(response)가 도착하면 신호(signal)나, 쓰레드 기반 콜백(callback)으로 IO 전달(transaction)을 완료
+- 단일 프로세스가 여러 개의 IO 요청이 예상되는 환경 속에서 컴퓨터 연산이나 IO 작업을 병렬 수행하는 기능은 처리 속도와 IO 속도 사이에 틈을 유발한다
+- IO 작업 한 개 이상이 처리 중 상태에 빠져있는 동안(pending), cpu는 다른 업무를 볼 수 있다
