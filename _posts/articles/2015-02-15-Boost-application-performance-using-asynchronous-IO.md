@@ -83,7 +83,7 @@ share: true
 
 리눅스 AIO 는 커널 버젼 2.5에 처음 소개되어 2.6에서 정식 표준으로 자리잡았다. 기존의 전통적인 IO 모델에서는 단일한 핸들로 식별되는 하나의 블로킹 IO가 있었고 이를 파일 설명자(descriptor)로 불렀으며 이들이 파일, 파이프, 소켓 등등에 모두 적용되었다. 사용자는 하나의 전달(transfer)을 하고 시스템 콜이 그에 대한 리턴을 해줬다.
 
-이제 AIO에서는 복수의 전달을 할 수 있다. 이를 위해 각각의 전달들을 식별하기 위한 식별자가 필요하고, 이것이 AIOCB(AIO Control Block) 구조로 구현된다. AIOCB는 전달에 관한 모든 정보를 담고 있고, 데이터에 관한 사용자 버퍼까지 포함하고 있다. 한 IO에서 알림이 발생하면(이를 완료(completion)라 부른다), 이를 유일하게 식별하기 위해 AIOCB 구조가 준비된다.
+이제 AIO에서는 복수의 전달을 할 수 있다. 이를 위해 각각의 전달들을 식별하기 위한 식별자가 필요하고, 이것이 AIOCB(AIO Control Block) 구조체로 구현된다. AIOCB는 전달에 관한 모든 정보를 담고 있고, 데이터에 관한 사용자 버퍼까지 포함하고 있다. 한 IO에서 알림이 발생하면(이를 완료(completion)라 부른다), 이를 유일하게 식별하기 위해 AIOCB 구조체가 준비된다.
 
 ### AIO API
 
@@ -97,3 +97,27 @@ share: true
 | aio_cancel | 비동기 IO 요청을 취소한다. |
 | lio_listio | IO 작업 리스트를 개시한다. |
 
+##### AIOCB 구조체
+
+{% highlight c linenos %}
+struct aiocb {
+
+  int aio_fildes;               // File Descriptor
+  int aio_lio_opcode;           // Valid only for lio_listio (r/w/nop)
+  volatile void *aio_buf;       // Data Buffer
+  size_t aio_nbytes;            // Number of Bytes in Data Buffer
+  struct sigevent aio_sigevent; // Notification Structure
+
+  /* Internal fields */
+  ...
+
+};
+{% endhighlight %}
+
+### AIO 를 위한 시스템 튜닝
+proc 파일 시스템은 두 개의 파일이 있는데, 이들을 비동기 IO 퍼포먼스를 높이기 위해 튜닝할 수 있다.  
+- /proc/sys/fs/aio-nr: 현재 시스템 단위의 비동기 IO 요청(request) 숫자를 보여준다.
+- /proc/sys/fs/aio-max-nr: 허용 가능한 동시성 요청의 최대 크기를 갖고 있다. 최대값은 보통 64KB 이고, 이 값은 대부분의 어플리케이션에 잘 맞는다.
+
+### 요약
+비동기 IO 를 사용하면 더 빠르고 효율적인 IO 어플리케이션을 만들 수 있다.
