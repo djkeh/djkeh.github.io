@@ -20,13 +20,15 @@ share: true
  - 장점: cpu 필요없다
  - 문제의식: 종종 다른 프로세스 IO 요청을 겹쳐 받을(overlap) 필요성을 느낌
  - posix의 AIO(Asynchronous IO) API(Application Program Interface)가 이를 지원 ([※ POSIX(Portable Operating System Interface)](http://ko.wikipedia.org/wiki/POSIX): 이식 가능 운영 체제 인터페이스)
- 
- ### AIO(Asynchronous IO) 란?
+  
+  
+### AIO(Asynchronous IO) 란?
 
  - 비교적 최근 삽입된 리눅스 AIO는 2.6 버젼 커널부터 표준 스펙, 그러나 2.4 버젼도 패치로 이용가능
  - 기본 개념: 한 프로세스가 몇 개의 IO 작업을 하는 것을, 일단 세우거나(block) 다른 넘 끝날 때까지 기다리기(wait) 없이 허용하기
  - 시간이 지나거나 IO 완료를 알림받은 뒤에, 프로세스는 IO 결과를 받을 수 있다
-
+  
+  
 ### IO 모델
 
 ![Alt text](http://www.ibm.com/developerworks/library/l-async/figure1.gif "그림 1. 리눅스 IO 모델 간략 구조")
