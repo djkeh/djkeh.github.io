@@ -97,22 +97,104 @@ share: true
 | aio_cancel | 비동기 IO 요청을 취소한다. |
 | lio_listio | IO 작업 리스트를 개시한다. |
 
+### AIO API 실 사용 코드와 사용 예
+
 ##### AIOCB 구조체
 
 {% highlight c linenos %}
 struct aiocb {
 
-  int aio_fildes;               // File Descriptor
-  int aio_lio_opcode;           // Valid only for lio_listio (r/w/nop)
-  volatile void *aio_buf;       // Data Buffer
-  size_t aio_nbytes;            // Number of Bytes in Data Buffer
-  struct sigevent aio_sigevent; // Notification Structure
-
+  int aio_fildes;               // 파일 설명자(descriptor)
+  int aio_lio_opcode;           // lio_listio 하고만 관계 있는 변수 (r/w/nop)
+  volatile void *aio_buf;       // 데이터 버퍼
+  size_t aio_nbytes;            // 데이터 버퍼 속 바이트 수
+  struct sigevent aio_sigevent; // 알림(notification) 구조체
+ 
   /* Internal fields */
   ...
 
 };
 {% endhighlight %}
+
+
+##### aio_read
+
+`int aio_read( struct aiocb *aiocbp );`
+
+##### aio_error
+
+`int aio_error( struct aiocb *aiocbp );`
+
+##### aio_return
+
+`ssize_t aio_return( struct aiocb *aiocbp );`
+
+##### aio_write
+
+`int aio_write( struct aiocb *aiocbp );`
+
+##### aio_suspend
+
+`int aio_suspend( const struct aiocb *const cblist[], int n, const struct timespec *timeout );`
+
+##### aio_cancel
+
+`int aio_cancel( int fd, struct aiocb *aiocbp );`
+
+##### lio_listio
+
+`int lio_listio( int mode, struct aiocb *list[], int nent, struct sigevent *sig );`
+
+##### 샘플 코드: aio_read() 를 사용해 비동기 읽기
+```
+#include <aio.h>
+
+...
+
+  int fd, ret;
+  struct aiocb my_aiocb;
+
+  fd = open( "file.txt", O_RDONLY );
+  if (fd < 0) perror("open");
+
+  /* Zero out the aiocb structure (recommended) */
+  bzero( (char *)&my_aiocb, sizeof(struct aiocb) );
+
+  /* Allocate a data buffer for the aiocb request */
+  my_aiocb.aio_buf = malloc(BUFSIZE+1);
+  if (!my_aiocb.aio_buf) perror("malloc");
+
+  /* Initialize the necessary fields in the aiocb */
+  my_aiocb.aio_fildes = fd;
+  my_aiocb.aio_nbytes = BUFSIZE;
+  my_aiocb.aio_offset = 0;
+
+  ret = aio_read( &my_aiocb );
+  if (ret < 0) perror("aio_read");
+
+  while ( aio_error( &my_aiocb ) == EINPROGRESS ) ;
+
+  if ((ret = aio_return( &my_iocb )) > 0) {
+    /* got ret bytes on the read */
+  } else {
+    /* read failed, consult errno */
+  }
+```
+
+##### aio_suspend() 함수 사용해서 비동기 IO 블록 걸기
+```
+struct aioct *cblist[MAX_LIST]
+
+/* Clear the list. */
+bzero( (char *)cblist, sizeof(cblist) );
+
+/* Load one or more references into the list */
+cblist[0] = &my_aiocb;
+
+ret = aio_read( &my_aiocb );
+
+ret = aio_suspend( cblist, MAX_LIST, NULL );
+```
 
 ### AIO 를 위한 시스템 튜닝
 proc 파일 시스템은 두 개의 파일이 있는데, 이들을 비동기 IO 퍼포먼스를 높이기 위해 튜닝할 수 있다.  
@@ -120,4 +202,4 @@ proc 파일 시스템은 두 개의 파일이 있는데, 이들을 비동기 IO 
 - /proc/sys/fs/aio-max-nr: 허용 가능한 동시성 요청의 최대 크기를 갖고 있다. 최대값은 보통 64KB 이고, 이 값은 대부분의 어플리케이션에 잘 맞는다.
 
 ### 요약
-비동기 IO 를 사용하면 더 빠르고 효율적인 IO 어플리케이션을 만들 수 있다.
+비동기 IO 를 사용하면 더 빠르고 효율적인 IO 어플리케이션을 만들 수 있다. 이 모델은 대부분의 리눅스 어플리케이션에서 발견되는 전통적인 블록킹 패턴과는 다르긴 하지만, 비동기 알림(notification) 모델은 개념적으로 단순하고 디자인을 단순하게 만들어줄 수 있다.

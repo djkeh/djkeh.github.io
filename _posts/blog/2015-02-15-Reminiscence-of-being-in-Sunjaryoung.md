@@ -69,7 +69,7 @@ As our journey ended, we could do nothing but just managing to load our complete
 	<a href="/images/20150215_sunjaryoung/bus_to_heaven.jpg" class="image-popup">
 		<img src="/images/20150215_sunjaryoung/thumbnail/bus_to_heaven_540x400.jpg" alt="image">
 	</a>
-	<figcaption>In the bus to the heaven</figcaption>
+	<figcaption>In the bus to heaven</figcaption>
 </figure>
 
-Yes, we were going home.
+We were going home.
