@@ -147,7 +147,7 @@ struct aiocb {
 
 ##### 샘플 코드: aio_read() 를 사용해 비동기 읽기
 
-```
+{% highlight c linenos %}
 #include <aio.h>
 
 ...
@@ -180,11 +180,11 @@ struct aiocb {
   } else {
     /* read failed, consult errno */
   }
-```
+{% endhighlight %}
 
 ##### aio_suspend() 함수 사용해서 비동기 IO 블록 걸기
 
-```
+{% highlight c linenos %}
 struct aioct *cblist[MAX_LIST]
 
 /* Clear the list. */
@@ -196,7 +196,7 @@ cblist[0] = &my_aiocb;
 ret = aio_read( &my_aiocb );
 
 ret = aio_suspend( cblist, MAX_LIST, NULL );
-```
+{% endhighlight %}
 
 ### AIO 를 위한 시스템 튜닝
 proc 파일 시스템은 두 개의 파일이 있는데, 이들을 비동기 IO 퍼포먼스를 높이기 위해 튜닝할 수 있다.  
