@@ -146,6 +146,7 @@ struct aiocb {
 `int lio_listio( int mode, struct aiocb *list[], int nent, struct sigevent *sig );`
 
 ##### 샘플 코드: aio_read() 를 사용해 비동기 읽기
+
 ```
 #include <aio.h>
 
@@ -182,6 +183,7 @@ struct aiocb {
 ```
 
 ##### aio_suspend() 함수 사용해서 비동기 IO 블록 걸기
+
 ```
 struct aioct *cblist[MAX_LIST]
 
