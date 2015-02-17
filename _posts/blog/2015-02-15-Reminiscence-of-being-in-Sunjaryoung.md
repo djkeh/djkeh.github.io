@@ -1,13 +1,14 @@
 ---
 layout: post
-title: "Reminiscence Of Being in SunjaRyoung"
 categories: blog
-excerpt:
+title: "Reminiscence Of Being in SunjaRyoung"
+excerpt: "and some beautiful moments of photos"
 tags: [tracking, Sunjaryoung]
-image:
-  feature:
 date: 2015-02-15T20:39:51-09:00
 modified: 2015-02-15T22:42:12-09:00
+image:
+  feature:
+share: false
 ---
 
 Going back to the last day of the regular training program for rookies,  

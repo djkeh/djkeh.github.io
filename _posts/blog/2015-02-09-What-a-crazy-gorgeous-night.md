@@ -1,13 +1,14 @@
 ---
 layout: post
-title: "What a crazy gorgeous night"
 categories: blog
-excerpt:
+title: "What a crazy gorgeous night"
+excerpt: 
 tags: [night, sleep, flaw, simple, tough]
-image:
-  feature:
 date: 2015-02-08T20:39:51-09:00
 modified: 2015-02-09T07:58:30-09:00
+image:
+  feature:
+share: false
 ---
 
 I actually spent almost a day to make this page.  
