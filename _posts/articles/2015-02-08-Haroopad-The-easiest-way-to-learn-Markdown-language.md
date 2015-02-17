@@ -17,7 +17,7 @@ If it's your very first time to write something on the web using markdown langua
 [Haroopad](http://pad.haroopress.com/) can help you learning it.  
 Made by a Korean programmer, this beautiful markdown text editor does amlost everything for you doing markdown.
 
-![Quick look of Haroopad interface](/images/20150208_haroopad/haroopad.png)
+![haroopad](/images/20150208_haroopad/haroopad.png "Quick look of Haroopad interface")
 
 Nothing much to say, Just have a try!
 
