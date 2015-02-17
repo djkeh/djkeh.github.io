@@ -1,13 +1,14 @@
 ---
 layout: post
-title: "Hangul test : 재킬(Jekyll)로 깃헙 블로그 만들기 요령 정리"
 categories: articles
-excerpt:
-tags: [hangul, korean, jekyll, tip, ruby, gem, frontmatter, pygments, numbering]
-image:
-  feature:
+title: "Hangul test : 지킬(Jekyll)로 깃헙 블로그 만들기 요령 정리"
+excerpt: "한글 테스트 + 지킬(Jekyll)로 블로그 만들면서 부딪쳤던 문제들 정리"
+tags: [hangul, korean, jekyll, tip, ruby, gem, frontmatter, pygments, numbering, 지킬, 블로그, 정리]
 date: 2015-02-09T02:01:11-09:00
 modified:
+image:
+  feature:
+share: false
 ---
 
 이 포스팅은 한글 출력이 잘 되는지를 시험할 겸 이 깃헙 블로그를 만들면서 만났던 문제점을 한글로 정리한다.

@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Asynchronous IO 개념 정리"
-date: 2015-02-15T20:39:51-09:00
-modified:
 categories: articles
+title: "Asynchronous IO 개념 정리"
 excerpt: "Boost application performance using asynchronous IO"
 tags: [async, asynchronous, io, boost, performance, intel, posix, aio, api, ibm]
+date: 2015-02-15T20:39:51-09:00
+modified:
 image:
   feature:
 share: true
