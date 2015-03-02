@@ -16,7 +16,7 @@ Today was my first day of being arranged to a new team in my company.
 I found it was there in the manual actually, and the name went, "prank".
 p..rank..
 
-![This is prank.](/images/20150302_prank/prank.JPG)
+![This is prank.](/images/20150302_prank/prank.png)
 
 What a prank.. lol Is it a joke!?
 hahaha... oh god.
