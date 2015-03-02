@@ -5,7 +5,7 @@ title: "Naming Episode 1"
 excerpt: "How would you shorten the name, \"Page Rank\"?"
 tags: [page, rank, prank, shorten, abbreviate, abbreviation]
 date: 2015-03-02T14:51:00-09:00
-modified: 
+modified: 2015-03-02T16:58:00-09:00
 image:
   feature:
 share: false
@@ -19,4 +19,4 @@ p..rank..
 ![This is prank.](/images/20150302_prank/prank.png)
 
 What a prank.. lol Is it a joke!?
-hahaha... oh god.
+hahaha oh god
