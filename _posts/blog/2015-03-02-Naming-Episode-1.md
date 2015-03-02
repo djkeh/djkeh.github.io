@@ -16,5 +16,10 @@ Today was my first day of being arranged to a new team in my company.
 I found it was there in the manual actually, and the name went, "prank".
 p..rank..
 
+<figure>C:\Users\NHNENT.AD0\Documents\djkeh.github.io\images\
+	<img src="/images/20150302_prank/prank.JPG" alt="image">
+	<figcaption>This is a prank.</figcaption>
+</figure>
+
 What a prank.. lol Is it a joke!?
 hahaha... oh god.
