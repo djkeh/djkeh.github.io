@@ -1,10 +1,14 @@
-.highlight code, .highlight pre {
-    color: #fdce93;
+.highlight {
     background-color: #3f3f3f;
     font-family: $code-font;
+    color: #fdce93;
     margin-bottom: 1.5em;
-    padding: 1em;
     @include rounded($border-radius);
+    pre {
+        position: relative;
+        margin: 0;
+        padding: 1em;
+    }
 }
 
 .highlight .hll {
