@@ -1,15 +1,6 @@
 .highlight code, .highlight pre {
     color: #fdce93;
     background-color: #3f3f3f
-    font-family: $code-font;
-    margin-bottom: 1.5em;
-    padding: 1em;
-    @include rounded($border-radius);
-}
-
-.highlight .lineno {
-    padding-right: 24px;
-    color: lighten(#333332,50)
 }
 
 .highlight .hll {
