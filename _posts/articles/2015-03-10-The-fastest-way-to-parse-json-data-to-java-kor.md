@@ -60,7 +60,7 @@ REST API는 JSON 스트링 형태로 결과 데이터를 출력해주는데, 이
 ##### 5. Json-io
 - 초경량 라이브러리
 - JsonReader, JsonWriter 두 클래스로 구성 -> 직렬화 담당하는 stream 객체가 필요 없음
-- [메이븐 저장소]("http://search.maven.org/#search|ga|1|json-io") 지원
+- [메이븐 저장소](http://search.maven.org/#search&verbar;ga&verbar;1&verbar;json-io) 지원
 - 대부분의 경우 JDK의 ObjectInputStream, ObjectOutputStream보다 빠른 직렬화 성능을 제공
 
 ##### 6. Genson
