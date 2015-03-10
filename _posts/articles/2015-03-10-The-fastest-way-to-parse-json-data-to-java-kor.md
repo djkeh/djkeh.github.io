@@ -21,13 +21,13 @@ REST API는 JSON 스트링 형태로 결과 데이터를 출력해주는데, 이
 
 벤치마크 대상이 된 라이브러리 목록은 다음과 같다.
 
-- Jackson
-- Google-Gson
-- JSON-lib
-- Flexjson
-- Json-io
-- Genson
-- JSONij
+* Jackson
+* Google-gson
+* JSON-lib
+* Flexjson
+* Json-io
+* Genson
+* JSONij
 
 각 라이브러리의 특징을 기사 내용을 바탕으로 리스트 형식으로 간략하게 요약한다.
 
