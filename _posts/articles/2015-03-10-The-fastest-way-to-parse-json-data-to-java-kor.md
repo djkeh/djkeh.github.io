@@ -77,20 +77,25 @@ REST API는 JSON 스트링 형태로 결과 데이터를 출력해주는데, 이
 다음은 위 7종의 라이브러리를 사용한 테스트 결과를 그래프로 나타낸 것이다.
 
 ![figure 1.](/images/20150310_json_library/benchmark1.png "그림 1. 작은 용량 직렬화/비직렬화")
+
 - 직렬화(Object->JSON, 실질적 내보내기) 1, 2등: Flexjson, gson
 - 종합 1, 2등: gson, genson
 
 ![figure 1.](/images/20150310_json_library/benchmark2.png "그림 1. 작은 용량 전체 시간")
+
 - 1, 2등: gson, genson
 
 ![figure 1.](/images/20150310_json_library/benchmark3.png "그림 1. 큰 용량 직렬화/비직렬화")
+
 - 직렬화(Object->JSON, 실질적 내보내기) 1, 2등: Jackson, JSON-lib
 - 종합 1, 2등: Jackson, JSON-lib
 
 ![figure 1.](/images/20150310_json_library/benchmark4.png "그림 1. 큰 용량 전체 시간")
+
 - 1, 2등: Jackson, JSON-lib
 
 ![figure 1.](/images/20150310_json_library/benchmark5.png "그림 1. 라이브러리 전체 사이즈")
+
 - 1, 2등: json-io, Flexjson
 
 ### 결론
