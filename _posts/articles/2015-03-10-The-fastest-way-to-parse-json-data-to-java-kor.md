@@ -99,7 +99,7 @@ REST API는 JSON 스트링 형태로 결과 데이터를 출력해주는데, 이
 - 1, 2등: json-io, Flexjson
 
 ### 결론
-난 Gson!
+난 gson!
 
 참조: [developer.com - Top 7 Open-Source JSON-Binding Providers Available Today](http://www.developer.com/lang/jscript/top-7-open-source-json-binding-providers-available-today.html)
 
