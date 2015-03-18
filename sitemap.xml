@@ -1,78 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/articles/Why-cant-I-use-javax-json-library-on-java-8-kor/</loc>
-    <lastmod>2015-03-11T00:11:16+09:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>/articles/The-fastest-way-to-parse-json-data-to-java-kor/</loc>
-    <lastmod>2015-03-11T00:08:19+09:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>/blog/Naming-Episode-1/</loc>
-    <lastmod>2015-03-03T08:51:00+09:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>/blog/Reminiscence-of-being-in-Sunjaryoung/</loc>
-    <lastmod>2015-02-16T14:39:51+09:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>/articles/Boost-application-performance-using-asynchronous-IO-kor/</loc>
-    <lastmod>2015-02-16T14:39:51+09:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>/articles/Hangul-test-jekyll-tips-kor/</loc>
-    <lastmod>2015-02-09T20:01:11+09:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>/blog/What-a-crazy-gorgeous-night/</loc>
-    <lastmod>2015-02-09T14:39:51+09:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>/articles/Haroopad-The-easiest-way-to-learn-Markdown-language/</loc>
-    <lastmod>2015-02-09T14:39:51+09:00</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>/</loc>
-    <lastmod>2015-03-18T09:46:22+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2015-03-18T09:46:22+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2015-03-18T09:46:22+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>/blog/</loc>
-    <lastmod>2015-03-18T09:46:22+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>/articles/</loc>
-    <lastmod>2015-03-18T09:46:22+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>/googleef8c95a288a56fd4.html</loc>
-    <lastmod>2015-03-16T13:50:53+09:00</lastmod>
-    <priority>0.6</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for post in site.posts %}
+    <url>
+        <loc>{{ site.url }}{{ post.url | remove: 'index.html' }}</loc>
+    </url>
+    {% endfor %}
+
+    {% for page in site.pages %}
+    {% if page.layout != nil %}
+    {% if page.layout != 'redirect' %}
+    <url>
+        <loc>{{ site.url }}{{ page.url | remove: 'index.html' }}</loc>
+    </url>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
 </urlset>
