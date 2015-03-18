@@ -205,3 +205,6 @@ proc 파일 시스템은 두 개의 파일이 있는데, 이들을 비동기 IO 
 
 ### 요약
 비동기 IO 를 사용하면 더 빠르고 효율적인 IO 어플리케이션을 만들 수 있다. 이 모델은 대부분의 리눅스 어플리케이션에서 발견되는 전통적인 블록킹 패턴과는 다르긴 하지만, 비동기 알림(notification) 모델은 개념적으로 단순하고 디자인을 단순하게 만들어줄 수 있다.
+
+{% assign author_data = site.data.authors | where:"id", page.author %}
+{% assign author = author_data | first %}
