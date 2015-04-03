@@ -29,7 +29,7 @@ http://blog.woniper.net/231
  - spring STS 는 gradle 관련 플러그인이 이미 설치되어 있을텐데 gradle 플젝을 못 읽어요
   => gradle 이 설치되어 있을 것
   => build.gradle 파일 안에 apply plugin: 'eclipse' 구문이 있는지 확인할 것
-  => 해당 플젝 루트 폴더에서 gradle eclipse -> .projects 생성됨
+  => 윈도우즈 cmd -> 해당 플젝 루트 폴더에서 gradle eclipse -> .projects 생성됨
   => import > general > existing projects 로 로드
 
  - spring 으로 REST api 를 설계하고 싶어요
@@ -62,3 +62,10 @@ http://blog.woniper.net/231
   => 따라서 다른 곳에서 다른 방법으로 연 cmd 에는 이 저장 내용이 반영되지 않는다.
   => 방법은 lnk 파일을 만들어 그것을 실행하는 것. lnk로 실행할 때의 cmd 설정이 레지스트리에 남는다.
   => lnk를 용도에 따라 만들고 모두 설정을 잡은 후, batch로 모아서 실행시키면 편리
+
+ - 스프링으로 주기적인 반복 작업(스케쥴링)이 가능한가요?
+  => 예 가능합니다
+  => @EnableScheduling
+  => @Scheduled
+  => http://spring.io/guides/gs/scheduling-tasks/#scratch
+  => http://docs.spring.io/spring-framework/docs/3.2.0.M1/api/org/springframework/scheduling/annotation/Scheduled.html#fixedRate()
