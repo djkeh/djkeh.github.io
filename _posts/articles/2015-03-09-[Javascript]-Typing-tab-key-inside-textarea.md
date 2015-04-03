@@ -3,7 +3,7 @@ layout: post
 categories: articles
 title:  "[Javascript] Typing tab key inside textarea"
 excerpt: "and speculation of better way to compose a javascript source code"
-tags: [javascript, tab,  key, input, textarea, object]
+tags: [javascript, tab,  key, input, textarea]
 date: 2015-03-09 01:25:23
 modified: 2015-03-09 01:25:23
 image:
