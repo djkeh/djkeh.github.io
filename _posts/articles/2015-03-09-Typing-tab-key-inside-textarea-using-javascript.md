@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: articles
-title:  "[Javascript] Typing tab key inside textarea"
+title:  "Typing tab key inside textarea using javascript"
 excerpt: "and speculation of better way to compose a javascript source code"
 tags: [javascript, tab,  key, input, textarea]
 date: 2015-03-09 01:25:23
@@ -487,7 +487,7 @@ $('textarea').on('keydown', function(event) {
 
 #### Conclusion
 
-~~0. Study~~
+~~0. Study~~  
 1. Make TabManager.js and copy-paste full javascript object code above into the file.
 2. Embed into the html file.
 3. call `TabManager.enableTab(this, event)`.
