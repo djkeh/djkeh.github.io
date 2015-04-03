@@ -11,7 +11,6 @@ image:
   credit:
   creditlink:
 share: true
-sitemap: false
 ---
 
 In some cases you may want to make a simple text editor using `<textarea>` tag on the web page. If it is a normal text editor, you expect it would work to accept almost every keyboard inputs or whatever the user would be likely to put in. However, the reality doesn't precisely work like that.
