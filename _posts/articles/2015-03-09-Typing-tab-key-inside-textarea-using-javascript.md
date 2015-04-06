@@ -99,7 +99,7 @@ var TabManager = {
 
 ##### iii) Use it! The javascript object name is `TabManager`, and the member method name is `enableTab(textBox, keyEvent)`. 
 
-{% highlight jQuery linenos %}
+{% highlight javascript linenos %}
 // jQuery approach
 $('textarea').on('keydown', function(keyEvent) {
     TabManager.enableTab(this, keyEvent);
