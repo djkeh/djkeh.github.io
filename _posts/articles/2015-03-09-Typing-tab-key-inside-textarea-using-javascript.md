@@ -15,9 +15,9 @@ share: true
 
 In some cases you may want to make a simple text editor using `<textarea>` tag on the web page. If it is a normal text editor, you expect it would work to accept almost every keyboard inputs or whatever the user would be likely to put in. However, the reality doesn't precisely work like that.
 
-One fair example is **"tab"** key. In the web page tab key works as an html element navigator, which means if you push the tab key button, it moves current element focus to the next element. This can be kind of hassle to the user of certain web based text editor, especially to the programmer. Many programmers use tab key in the text editor to have indentation in the context or in the codelet. They basically can't put tab inputs into the `<textarea>`. This is also part of the html document element so if they push a tab key into the textarea, nothing pushs in but instead it makes textarea focused out to the next element.
+One fair example is **"tab"** key. In the web page tab key works as an html element navigator, which means if you push the tab key button, it moves current element focus to the next element. This can be kind of hassle to the user of certain web based text editor, especially to the programmer. Many programmers use tab key in the text editor to have indentation in the context or in the codelet, but for the reason above they basically can't, as you notice that the `<textarea>` is also a part of html document element. Hence if the user push a tab key into the `<textarea>`, nothing pushs in but instead it makes textarea focused out to the next element.
 
-Here I present you the step-by-step solution for this. Doing this javascript programming you will be able to make your web text editor allow tab keyboard input.
+Here I present you very detailed solution for this using javascript. This has been done with my research and practice, and by doing this you will be able to make your web based text editor allow tab keyboard input.
 
 ##### 0. The quick answer
 For those who are lazy programmers and who just need to hurry, here's my complete answer.
@@ -93,13 +93,13 @@ var TabManager = {
 
 ###### ii) Include the javascript file into the end of `<body>` element.
 
-{% highlight html linenos %}
+{% highlight html %}
 <script type='text/javascript' src='resources/js/TabManager.js'></script>
 {% endhighlight %}
 
-##### iii) Use it! The javascript object name is `TabManager`, and the member method name is `enableTab(textBox, keyEvent)`. 
+##### iii) Use it! The javascript object name is "TabManager", and the member method name is "enableTab(textBox, keyEvent)".
 
-{% highlight javascript linenos %}
+{% highlight html linenos %}
 // jQuery approach
 $('textarea').on('keydown', function(keyEvent) {
     TabManager.enableTab(this, keyEvent);
@@ -131,13 +131,14 @@ ___
 If you're enthusiastic programmer and ready to learn something new in detail, here's my step-by-step explanation.
 
 ##### 1. Cancelling out the default action
-This would sound a little bit weird but, The first step is to cancel out the keyboard input. In this case we're gonna block the tab key so the focus can't move towards the next element. You can achieve this by using `preventDefault()` javascript method. You need keyEvent object to use this method, so the javascript code goes like this:
 
-{% highlight javascript linenos %}
+This would sound a little bit weird from the beginning but, The first and important idea is to cancel out the keyboard input. In this case we're gonna block just the tab key so the focus can't move towards the next element. You can achieve this by using `preventDefault()` javascript method. You need keyEvent object to use this method, so the javascript code goes like this:
+
+{% highlight javascript %}
 keyEvent.preventDefault();
 {% endhighlight %}
 
-But this won't work on every browswer. You have to check whether you can actually use this key event method, so let's use if clause to check this availability.
+But this won't work on every browswer. You have to check whether you can actually use this key event method, so let's use `if` clause to check this availability.
 
 {% highlight javascript linenos %}
 if(keyEvent.preventDefault) {
@@ -148,9 +149,9 @@ else {
 }
 {% endhighlight %}
 
-In some old browsers they use member variable called `returnValue`. Hence the above code will enhance the browser compatibility.
+In some old browsers they use member variable called `returnValue`. Therefore the above code will enhance the browser compatibility.
 
-Let's package this code into the javascript function.
+Let's package this code into one javascript function.
 
 {% highlight javascript linenos %}
 function blockKeyEvent(keyEvent) {
@@ -169,20 +170,20 @@ End of step 1.
 
 tossing tab key input in the middle of the textarea paragraph is pretty much tougher than you expect. You need to understand this 3 facts:
 
-- Browser doesn't know where to put the tab input even if the cursor is blinking right there!
-- Browser doesn't know how to insert a single certain word between former and latter sentences.
-- Browser doesn't remember where the cursor is supposed be after doing the job.
+- *Browser doesn't know where to put the tab key even if the cursor is blinking right there!*
+- *Browser doesn't know how to insert a single certain word between former and latter sentences.*
+- *Browser doesn't remember where the cursor is supposed be after doing the job.*
 
-Moreover what really pisses me off if that:
+Moreover what really pisses me off is that:
 
-- Browsers support different methods to solve these issues.
+- **Browsers support different methods to solve these issues.**
 
 Yikes.. we have to take care of all these things ourselves.  
 End of step 2. 
 
 ##### 3. Getting the keyboard cursor position
 
-It's time for doing "divide and conquer" strategy. We're gonna solve one by one, and make each step simpler. Now we're getting the current keyboard input cursor position inside the `<textarea>` element. Below is the code for relatively new browsers to do the job. You have to keep the `<textarea>` element to javascript object. In this code its name is "textBox".
+It's time for doing "divide and conquer" strategy. We're getting the current keyboard input cursor position inside `<textarea>` element. Below is the code for relatively new browsers to do the job. We have to keep the `<textarea>` element as a javascript object. In this code its name is "textBox".
 
 {% highlight javascript linenos %}
 var caretPosition = 0;
@@ -205,7 +206,7 @@ if(document.selection) {
 }
 {% endhighlight %}
 
-By returning `caretPosition`, we'll get the current keyboard cursor position. Let's wrap it to a clean method.
+By returning `caretPosition`, we'll get the current keyboard cursor position. Let's wrap it into a clean method.
 
 {% highlight javascript linenos %}
 function getCaretPosition(textBox) {
@@ -251,7 +252,7 @@ End of step 4.
 
 ##### 5. Putting keyboard cursor back to the original position
 
-I guess you'll think "Now, what the hell is this?" at a glance, but you will need this step. What you actually did wasn't like you insert a key input in the middle of the string, instead you made the entire string with a tab key put in the middle of it and pasted it into the `<textarea>` element as a value attribute. Think what happens then. You instantly lose your original caret position because it worked like you put a sentence into the empty `<tesxtarea>` element. You'll see cursor is blinking at unexpected position like very front of the sentence, end of the sentence or somewhere. I believe this is out of your intention if you're building a decent text editor. So you have to memorize the original cursor position before doing a task inserting a tab key, and then after doing the task you have to go back there using your memory.
+I guess you'll think "Now, what the hell is this?" at a glance, but you will need this step. What you actually did wasn't like you insert a key input in the middle of the string, instead you made the entire string with a tab key which was put in the middle of it and pasted it into the `<textarea>` element as a value attribute. Think what happens then. You instantly lose your original caret position because it worked like you put a sentence into an empty `<tesxtarea>` element. You'll see cursor is blinking at unexpected position like very front or end of the sentence or wherever. I believe this is out of your intention if you're building a decent text editor. So you have to memorize the original cursor position before inserting a tab key, and then after doing it you have to go back there using your memory.
 
 This is the code for it in the latest browsers.
 
@@ -298,7 +299,7 @@ function getCaretPosition(textBox, caretPosition) {
 
 ##### 6. Abstraction
 
-Now it seems like we've fulfilled the minimum requirements to do "tab key insertion". I'm afraid you might feel stressed and confused as Those are just too much. We need abstraction to make more readable, available, useful and simple code. The every former steps were the preperation for this step. Let's pack it together and make a beautiful, easy function! ...or am I the only one feeling like that? Well.. Please look at this code.
+Seems like we've fulfilled the minimum requirements to do "tab key insertion". I'm afraid you might feel stressed and confused as those were just too much. We want abstraction to make more readable, available, useful and simple code. The every former steps were the preperation for this step. Let's pack it together and make a beautiful and easy function! ...or am I the only one feeling like that? Well.. Please look at this code.
 
 {% highlight javascript linenos %}
 function insertTab(textBox) {
@@ -312,7 +313,7 @@ function insertTab(textBox) {
 }
 {% endhighlight %}
 
-In this step we put every step into one function. Thanks to this abstraction, you can put a tab key in a desirable place by simply calling `insertTab()` any time you want. This function will faithfully perform following jobs in order:
+In this code we put every step into one function. Thanks to this abstraction, you can put a tab key in a desirable place by simply calling `insertTab()` any time you want. This function will faithfully perform following jobs in order:
 
 1. Get the current keyboard position.
 2. Split the text from the current position into 2 front and back texts.
@@ -323,7 +324,7 @@ Make sure you put every implemented functions from the start to this in a same p
 
 ##### 7. Second abstraction, and enabling it in a certain condition
 
-We made `insertTab()`. This will imediately insert a tab key into the text. But when you'd like to do it? Now we need to define it. Fortunately we already know the answer, which was standing at the very beginning of this article. This code will call `insertTab()` when "we push tab key inside the `<textarea>`". That logic would flow like this:
+We made `insertTab()`. This will imediately insert a tab key into the text. But when you'd like to do it? We need to define it. Fortunately we already know the answer, which was standing at the very beginning of this article. This code will call `insertTab()` when "we push a tab key inside `<textarea>`". That logic would flow like this:
 
 {% highlight javascript linenos %}
 function enableTab(textBox, keyEvent) {
@@ -337,7 +338,7 @@ function enableTab(textBox, keyEvent) {
 }
 {% endhighlight %}
 
-The enableTab() knows two things: `<textarea>` element, and `actual keyboard event` which happened at the right moment in this element. This function has them as two parameters "textBox" and "keyEvent".
+The `enableTab()` knows two things: `<textarea>` element, and **actual keyboard event** which happened at the right moment in this element. This function has them as two parameters "textBox" and "keyEvent".
 
 The "If" condition statement means that the keyboard input was same as the input `ASCII` code number 9, which means "tab key". This is very important, because html event handler will catch every moment of pressing any keyboard input and will react to it. We want this function work only with the tab key. That's how the if statement works.
 
@@ -347,7 +348,7 @@ Almost done.
 
 ##### 8. Calling `enableTab()` on keyboard event
 
-Okay, Let's call the function on the keyboard event handler! This code is presentation of using keyboard event handler in the `<textarea>` called `onkeydown` event handler, using jQuery.
+Okay, Let's call the function on the keyboard event handler! This code is the presentation of using keyboard event handler in the `<textarea>` called `onkeydown` event handler, using jQuery.
 
 {% highlight javascript linenos %}
 $('textarea').on('keydown', function(event) {
@@ -363,9 +364,9 @@ Now the working code is prepared. Test the code and see how it works.
 
 We ain't done yet. We're gonna use powerful javascript object feature and contain everything in the object. This would be the most exciting moment.
 
-First, Prepare a javascript file named `TabManager.js`. We're making `TabManager object`. the "TabManager.js" file has only one thing. It is TabManager object. The file starts like this:
+First, Prepare a javascript file named `TabManager.js`. We're making **TabManager object**. the "TabManager.js" file has only one thing. It is TabManager object. The file starts like this:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var TabManager = {};
 {% endhighlight %}
 
@@ -389,7 +390,7 @@ var TabManager = {
 };
 {% endhighlight %}
 
-The way to define a javascript object member method is to write the name, colon and `function()`. Put parameters in parenthesis if you need. Then it's followed by braces to implement its function. `this` means the object itself, so `this.tabkey` means the tabkey is the member of this object, and therefore writing `this.` is necessary.
+The way to define a javascript object member method is to write the name, colon and `function()`. Put parameters in the parenthesis if you need. Then it's followed by braces to implement its function. `this` means the object itself, so `this.tabkey` means the tabkey is the member of this object, and therefore writing `this.` is necessary.
 
 So, how would these members take an effect? Behold the change below:
 
@@ -477,7 +478,7 @@ var TabManager = {
 };
 {% endhighlight %}
 
-That's more like it. How it works is that you just go like `TabManager.enableTab()`. This is how it looks like in the event handler code, represented by jQuery.
+That's more like it. The way it works is that you just go like `TabManager.enableTab()`. This is how it looks like in the event handler code, represented by jQuery.
 
 {% highlight javascript linenos %}
 $('textarea').on('keydown', function(event) {
@@ -486,8 +487,6 @@ $('textarea').on('keydown', function(event) {
 {% endhighlight %}
 
 #### Conclusion
-
-~~0. Study~~
 
 1. Make TabManager.js and copy-paste full javascript object code above into the file.
 2. Embed into the html file.
