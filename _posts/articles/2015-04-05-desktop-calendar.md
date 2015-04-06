@@ -14,13 +14,13 @@ share: true
 ---
 
 <figure>
-    <a href="http://www.desktopcal.com/images/default/macbook_border.png?t=20141111" class="image-popup">
-        <img src="http://www.desktopcal.com/images/default/macbook_border.png?t=20141111" alt="Desktop Calendar on your windows desktop">
+    <a href="http://www.desktopcal.com/images/default/first_look_bid_usa.jpg" class="image-popup">
+        <img src="http://www.desktopcal.com/images/default/first_look_bid_usa.jpg" alt="Desktop Calendar on your windows desktop">
     </a>
     <figcaption>Desktop Calendar on your windows desktop</figcaption>
 </figure>
 
-http://www.desktopcal.com/
+!["http://www.desktopcal.com/"](http://www.desktopcal.com/)
 
 A good software recommandation.
 
