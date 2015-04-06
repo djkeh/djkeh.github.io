@@ -15,7 +15,7 @@ share: true
 
 In some cases you may want to make a simple text editor using `<textarea>` tag on the web page. If it is a normal text editor, you expect it would work to accept almost every keyboard inputs or whatever the user would be likely to put in. However, the reality doesn't precisely work like that.
 
-One fair example is **"tab"** key. In the web page tab key works as an html element navigator, which means that if you push tab key button, it moves the focus to the next element. This can be kind of hassle for the text editor and its user, especially programmer. Many programmers use tab key to make indentation to the context or codelet. They basically can't put tab inputs into the `<textarea>`. This is also part of the html document element so if they push a tab key into the textarea, nothing pushs in but instead it makes textarea focused out to the next element.
+One fair example is **"tab"** key. In the web page tab key works as an html element navigator, which means if you push the tab key button, it moves current element focus to the next element. This can be kind of hassle to the user of certain web based text editor, especially to the programmer. Many programmers use tab key in the text editor to have indentation in the context or in the codelet. They basically can't put tab inputs into the `<textarea>`. This is also part of the html document element so if they push a tab key into the textarea, nothing pushs in but instead it makes textarea focused out to the next element.
 
 Here I present you the step-by-step solution for this. Doing this javascript programming you will be able to make your web text editor allow tab keyboard input.
 
