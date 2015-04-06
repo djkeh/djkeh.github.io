@@ -20,8 +20,8 @@ share: true
     <figcaption>Desktop Calendar on your windows desktop</figcaption>
 </figure>
 
-!["http://www.desktopcal.com/"](http://www.desktopcal.com/)
+[http://www.desktopcal.com/](http://www.desktopcal.com/)
 
-A good software recommandation.
+My recommandation of a good software.
 
 If you're looking for a fancy, new and hot windows calendar, or if you're not, this is it. Please have a look at the link. The only matter for me is this is too good to have for free. It's somewhat weird and suspicious.
