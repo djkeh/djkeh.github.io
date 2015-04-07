@@ -69,3 +69,6 @@ http://blog.woniper.net/231
   => @Scheduled
   => http://spring.io/guides/gs/scheduling-tasks/#scratch
   => http://docs.spring.io/spring-framework/docs/3.2.0.M1/api/org/springframework/scheduling/annotation/Scheduled.html#fixedRate()
+
+ - toast cloud wdi, centOS 6.5 에 git 최신 버전 깔기
+ https://www.digitalocean.com/community/tutorials/how-to-install-git-on-a-centos-6-4-vps
