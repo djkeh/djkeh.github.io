@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: articles
-title:  "Desktop Calendar for Windows"
+title:  "Desktop Calendar"
 excerpt: "Very useful on-screen desktop calendar for Windows"
 tags: [desktop, calendar, desktopcal, windows, cal]
 date: 2015-04-05 10:03:07
