@@ -35,7 +35,7 @@ http://blog.woniper.net/231
  - spring 으로 REST api 를 설계하고 싶어요
   => http://spring.io/guides/gs/rest-service/
   => 여기서 배울 수 있는 것:
-   ==> @RestController
+   ==> @RestController vs. @Controller
    ==> Application.java 의 존재
    ==> @SpringBootApplication = @Configuration + @EnableAutoConfiguration + @EnableWebMvc + @ComponentScan
    ==> 스프링 빈을 @Bean 으로 Application.java 소스 파일 안에서 정의하는 법
@@ -71,4 +71,45 @@ http://blog.woniper.net/231
   => http://docs.spring.io/spring-framework/docs/3.2.0.M1/api/org/springframework/scheduling/annotation/Scheduled.html#fixedRate()
 
  - toast cloud wdi, centOS 6.5 에 git 최신 버전 깔기
- https://www.digitalocean.com/community/tutorials/how-to-install-git-on-a-centos-6-4-vps
+  => 우선 curl 깔기: https git repo 접근이 가능해짐 (yum install curl-devel)
+  => https://www.digitalocean.com/community/tutorials/how-to-install-git-on-a-centos-6-4-vps
+
+ - tmux, centos 6.5 에서 1.6 이하 버젼 말고 최신으로 깔기 (2.0)
+  => git 최신 깔기
+  => ncurses 모듈 깔기 (libncurses, ncurses, ncurses-devel 등 관련 몽땅)
+  => https://github.com/libevent/libevent : libevent 최신 깃 클론 하고 깔기
+  => http://sourceforge.net/p/tmux/tmux-code/ci/master/tree/ : tmux 최신 깃 클론 하고 깔기
+  => cannot open shared object file -> http://www.nigeldunn.com/2011/12/11/libevent-2-0-so-5-cannot-open-shared-object-file-no-such-file-or-directory/ (ln -s /usr/local/lib/libevent-2.0.so.5 /usr/lib64/libevent-2.0.so.5)
+  => screen 보다 좋은 이유: vertical split ㅋㅋ
+  => 최신 버젼의 이점: zoom mode (1.8 이상)
+
+ - classpath 알아내는 법
+  => http://www.mkyong.com/java/how-to-print-out-the-current-project-classpath/
+
+ - popup 에 iframe 을 넣으려는데 막힐 때?
+  => http://stackoverflow.com/questions/28647136/how-to-disable-x-frame-options-response-header-in-spring-security
+ 
+ - 현재 url을 알아내는법, 자바스크립트
+  => http://stackoverflow.com/questions/1034621/get-current-url-in-web-browser
+  => window.location.href: 풀네임
+  => window.location.origin: http://호스트 까지만
+  => window.location.host: 호스트 이름만
+
+ - AtomicLong 은 ==도, equals()도 뜻대로 안 동작한다. 왜일까.
+
+ - 오버 엔지니어링: 엔지니어링은 투자, 적정한 비용을 들여 투자하는 계획을 산정하고 업무하는 것이 개발자의 역량
+  => http://minslovey.tistory.com/117
+
+ - linux : kill, pkill, killall
+  => http://blog.naver.com/khc00013/220257187281
+
+ - heredoc?
+  => http://blog.naver.com/questzz/220191312933
+  => php 에서도 사용한다. heredoc, nowdoc
+
+ - linux 문자열 split을 하는 방법
+  => http://stackoverflow.com/questions/918886/how-do-i-split-a-string-on-a-delimiter-in-bash
+   ==> tr 명령어로 실행하는 법이 있는데 이해하기는 쉬운 편
+   ==> IFS 를 잠시 변조해서 알아서 ';' 를 delimiter로 사용하게끔 하여 split 하는 방식이 더 우아해 보인다.
+  => IFS: Internal field separator. 대부분의 Unix 셸(CLI) 프로그램에서 지원. bash 도 지원(man bash 참조). 셸 변수 항목에서 보여주고 있다. 즉 셸 기본 매개변수. ${IFS}로 사용 가능. 기본값은 대부분 tab, space, newline.
+   ==> http://en.wikipedia.org/wiki/Internal_field_separator

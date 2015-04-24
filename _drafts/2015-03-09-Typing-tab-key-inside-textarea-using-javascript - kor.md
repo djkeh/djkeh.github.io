@@ -1,19 +1,22 @@
 ---
 layout: post
 categories: articles
-title: "Typing tab key inside textarea using javascript"
-excerpt: "and the consideration of composing a better javascript code"
-tags: [javascript, tab,  key, input, textarea]
-date: 2015-03-09 01:25:23
-modified: 2015-03-09 01:25:23
+title: "자바스크립트로 textarea에 탭 키 입력하기"
+excerpt: "그리고 더 나은 자바스크립트로 구현하는 것에 대한 고찰"
+tags: [자바스크립트, 탭, 탭키, javascript, tab,  key, input, textarea]
+date: 2015-04-09 15:00:23
+modified: 2015-04-09 15:00:23
 image:
   feature:
   credit:
   creditlink:
 share: true
+sitemap: false
 ---
 
-In some cases you may want to make a simple text editor using `<textarea>` tag on the web page. If it is a normal text editor, you expect it would work to accept almost every keyboard inputs or whatever the user would be likely to put in. However, the reality doesn't precisely work like that.
+종종 html에서 `<textarea>` 엘리먼트를 이용해 간단한 텍스트 편집기를 만들고 싶을 때가 있다. 보통의 텍스트 에디터라면, 아마 대부분의 키보드 입력을 받아들이는 것을 상상할 것이다. 하지만, 현실은 그렇게까지 잘 구현되지 않는다.
+
+한 가지 좋은 예가 **"탭키"** 입력이다. 뭐 이정도도 안 들어가는 편집기냐 싶겠지만, 탭키는 웹 화면에서 기본적으로 html 엘리먼트 탐색 버튼으로 동작한다. 이 말인 즉슨 
 
 One fair example is **"tab"** key. In the web page tab key works as an html element navigator, which means if you push the tab key button, it moves current element focus to the next element. This can be kind of hassle to the user of certain web based text editor, especially to the programmer. Many programmers use tab key in the text editor to have indentation in the context or in the codelet, but for the reason above they basically can't, as you notice that the `<textarea>` is also a part of html document element. Hence if the user push a tab key into the `<textarea>`, nothing pushs in but instead it makes textarea focused out to the next element.
 
