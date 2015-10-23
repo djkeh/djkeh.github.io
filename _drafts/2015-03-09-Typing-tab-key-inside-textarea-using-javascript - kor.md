@@ -14,18 +14,16 @@ share: true
 sitemap: false
 ---
 
-종종 html에서 `<textarea>` 엘리먼트를 이용해 간단한 텍스트 편집기를 만들고 싶을 때가 있다. 보통의 텍스트 에디터라면, 아마 대부분의 키보드 입력을 받아들이는 것을 상상할 것이다. 하지만, 현실은 그렇게까지 잘 구현되지 않는다.
+종종 html에서 `<textarea>` 엘리먼트를 이용해 간단한 텍스트 편집기를 만들고 싶을 때가 있다. 보통의 텍스트 에디터라면, 아마 대부분의 키보드 입력을 받아들이는 것을 상상할 것이다. 하지만, 실제로는 그렇게 잘 구현되지 않는다.
 
-한 가지 좋은 예가 **"탭키"** 입력이다. 뭐 이정도도 안 들어가는 편집기냐 싶겠지만, 탭키는 웹 화면에서 기본적으로 html 엘리먼트 탐색 버튼으로 동작한다. 이 말인 즉슨 
+한 가지 좋은 예가 **"탭 키"** 입력이다. 뭐 탭 키도 안 눌리는 편집기냐 싶겠지만, 탭 키는 웹 화면에서 기본적으로 html 엘리먼트 탐색 버튼으로 동작한다. 이 말인즉슨 사용자가 탭 키를 누르면, 웹 엘리먼트 포커스가 이동한다. 이건 웹 기반 편집기 사용자, 특히 프로그래머에게 다소 짜증나는 일이 될 수 있다. 많은 프로그래머들이 코드 내부에서 들여쓰기를 하기 위해 탭 키를 사용하고 있지만, 기본적으로 위의 이유 때문에 그들은 탭 키를 사용할 수 없게 된다. 눈치챘겠지만 `<textarea>` 또한 html 문서 엘리먼트 중에 하나다. 그러므로 `<textarea>` 안에서 탭 키를 누르면, 되라는 탭 키 입력은 되지 않고 그 대신 포커스가 다음 엘리먼트로 빠져나가 버릴 것이다.
 
-One fair example is **"tab"** key. In the web page tab key works as an html element navigator, which means if you push the tab key button, it moves current element focus to the next element. This can be kind of hassle to the user of certain web based text editor, especially to the programmer. Many programmers use tab key in the text editor to have indentation in the context or in the codelet, but for the reason above they basically can't, as you notice that the `<textarea>` is also a part of html document element. Hence if the user push a tab key into the `<textarea>`, nothing pushs in but instead it makes textarea focused out to the next element.
+여기 자바스크립트를 이용해 이 문제를 해결하는 방법을 소개한다. 이하 코드는 개인적인 연습과 공부로 만들어졌으며, 이 코드를 통해 여러분은 여러분의 html 문서 편집기가 탭 키를 입력받을 수 있도록 만들 수 있을 것이다.
 
-Here I present you very detailed solution for this using javascript. This has been done with my research and practice, and by doing this you will be able to make your web based text editor allow tab keyboard input.
+##### 0. 답부터 간단하게
+게으른 프로그래머, 혹은 그저 급한 사람들을 위해, 정답부터 공개한다.
 
-##### 0. The quick answer
-For those who are lazy programmers and who just need to hurry, here's my complete answer.
-
-###### i) Save the entire code below to 'tapManager.js' and place it to your decent project subfolder.
+###### i) 이하 코드를 'tapManager.js' 파일로 저장하고 본인이 사용하는 프로젝트의 적당한 하위 폴더에 넣는다.
 
 {% highlight javascript linenos %}
 var TabManager = {
@@ -94,13 +92,13 @@ var TabManager = {
 };
 {% endhighlight %}
 
-###### ii) Include the javascript file into the end of `<body>` element.
+###### ii) 웹 텍스트 편집기가 있는 html 문서 `<body>` 엘리먼트 끝자락에 이하의 코드처럼 본 자바스크립트를 포함시킨다.
 
 {% highlight html %}
 <script type='text/javascript' src='resources/js/TabManager.js'></script>
 {% endhighlight %}
 
-##### iii) Use it! The javascript object name is "TabManager", and the member method name is "enableTab(textBox, keyEvent)".
+###### iii) 다양한 방법으로 쓴다! 자바스크립트 객체명은 "TabManager"이고, 메소드 이름은 "enableTab(textBox, keyEvent)" 이다.
 
 {% highlight html linenos %}
 // jQuery approach
@@ -131,17 +129,17 @@ function myFunction(keyEvent) {
 
 ___
 
-If you're enthusiastic programmer and ready to learn something new in detail, here's my step-by-step explanation.
+만약 당신이 열정적인 프로그래머고 뭔가 자세히 살펴볼 요량이라면, 밑의 자세한 단계를 따라가보기 바란다.
 
-##### 1. Cancelling out the default action
+##### 1. 기본 동작을 취소시키기
 
-This would sound a little bit weird from the beginning but, The first and important idea is to cancel out the keyboard input. In this case we're gonna block just the tab key so the focus can't move towards the next element. You can achieve this by using `preventDefault()` javascript method. You need keyEvent object to use this method, so the javascript code goes like this:
+시작부터 이상하게 들릴지 모르겠지만, 첫번째로 해야할 가장 중요한 일은 키보드 입력을 취소시키는 것이다. 이번 경우 우리는 탭 키를 막을 것이다. 이것으로 포커스 이동이 일어나지 않게 하려는 의도이다. 자바스크립트 메소드에는 이를 위해 `preventDefault()` 가 준비되어 있다. 이 메소드 사용을 위해 키보드 입력을 했을 당시의 키 이벤트 객체가 필요하며, 코드는 다음과 같이 된다:
 
 {% highlight javascript %}
 keyEvent.preventDefault();
 {% endhighlight %}
 
-But this won't work on every browswer. You have to check whether you can actually use this key event method, so let's use `if` clause to check this availability.
+그러나 이 코드는 모든 브라우저에서 동작하지 않는다. 이 메소드가 지금 브라우져에서 실제 사용 가능한지 검사해야 하므로, `if` 절을 사용해본다.
 
 {% highlight javascript linenos %}
 if(keyEvent.preventDefault) {
@@ -152,9 +150,9 @@ else {
 }
 {% endhighlight %}
 
-In some old browsers they use member variable called `returnValue`. Therefore the above code will enhance the browser compatibility.
+일부 구형 브라우져는 `returnValue` 라는 멤버 변수를 사용한다. 이제 위의 코드는 좀 더 향상된 브라우져 호환성을 제공할 것이다.
 
-Let's package this code into one javascript function.
+이제 이를 하나의 자바스크립트 함수로 감싸보자.
 
 {% highlight javascript linenos %}
 function blockKeyEvent(keyEvent) {
@@ -167,26 +165,26 @@ function blockKeyEvent(keyEvent) {
 }
 {% endhighlight %}
 
-End of step 1.
+1단계 끝.
 
-##### 2. Realizing 3+1 shitty matters
+##### 2. 3+1가지 거시기한 문제 인지하기
 
-tossing tab key input in the middle of the textarea paragraph is pretty much tougher than you expect. You need to understand this 3 facts:
+당연히 되어야 할 것 같은 문단 중간에 탭 키 삽입하기는 당신 생각보다 훨씬 어렵다. 다음의 3가지 사실을 인식하기 바란다:
 
-- *Browser doesn't know where to put the tab key even if the cursor is blinking right there!*
-- *Browser doesn't know how to insert a single certain word between former and latter sentences.*
-- *Browser doesn't remember where the cursor is supposed be after doing the job.*
+- *브라우져는 탭 키를 어디에 집어넣어야 할지 모른다! 심지어 커서가 거기 깜빡이고 있는데!*
+- *브라우져는 문장 가운데에 글씨를 집어넣는 방법을 모른다!*
+- *브라우져는 글씨를 삽입한 뒤에 커서가 어디서 깜빡이고 있어야 하는지를 기억하지 못한다!*
 
-Moreover what really pisses me off is that:
+이거보다 날 정말 빡치게 하는 것은:
 
-- **Browsers support different methods to solve these issues.**
+- **브라우져마다 이 문제들을 해결하도록 제공하는 방법들이 서로 다르다.**
 
-Yikes.. we have to take care of all these things ourselves.  
-End of step 2. 
+어이쿠.. 우리는 이 문제들을 모두 관리해야 한다.
+2단계 끝.
 
-##### 3. Getting the keyboard cursor position
+##### 3. 키보드 커서 위치 얻기
 
-It's time for doing "divide and conquer" strategy. We're getting the current keyboard input cursor position inside `<textarea>` element. Below is the code for relatively new browsers to do the job. We have to keep the `<textarea>` element as a javascript object. In this code its name is "textBox".
+이제 "분할 정복" 전략을 써야 할 시간이다. 우리는 먼저 현재 키보드 커서 위치를 `<textarea>` 엘리먼트 안에서 얻어낼 것이다. 이하 코드는 비교적 최신 브라우져에서 이를 하는 방법이다. `<textarea>` 엘리먼트는 자바스크립트 객체로 계속 가지고 있어야 한다. 이하 코드에서는 이를 "textBox"로 명명한다.
 
 {% highlight javascript linenos %}
 var caretPosition = 0;
@@ -197,7 +195,7 @@ if(textBox.selectionStart || textBox.selectionStart == '0') {
 }
 {% endhighlight %}
 
-For older browsers like IE8 or IE9, you can use this code.
+IE8, 9 같은 구형 브라우져는 다음의 코드를 쓴다.
 
 {% highlight javascript linenos %}
 // ~IE9 Support
@@ -209,7 +207,7 @@ if(document.selection) {
 }
 {% endhighlight %}
 
-By returning `caretPosition`, we'll get the current keyboard cursor position. Let's wrap it into a clean method.
+`caretPosition`을 반환하는 것으로, 우리는 현재 키보드 커서 위치를 얻을 수 있다. 깨끗하게 함수로 감싸보자.
 
 {% highlight javascript linenos %}
 function getCaretPosition(textBox) {
@@ -231,18 +229,18 @@ function getCaretPosition(textBox) {
 }
 {% endhighlight %}
 
-End of step 3.
+3단계 끝.
 
-##### 4. Putting in actual tab key
+##### 4. 탭 키 실제로 집어넣기
 
-Now we know where to put the tab key. But how? We've got entire content string and the cursor position, but there's no way to put a single character in the middle of a string object. What we're gonna do in this step is to divide a string into two front and back strings. Now you get it? This is the idea.
+이제 탭 키를 넣을 위치를 알았다. 그러나 어떻게? 우리에겐 전체 문장과 커서 위치가 있다. 하지만 문자 하나를 스트링 객체 한가운데에 집어넣을 방법은 없다. 우리가 할 일은 전체 문장을 둘로 쪼개는 것이다. 눈치 챘는가? 이것이 그 아이디어다.
 
 ```
 Result = front string + 'tab' + back string
 ```
 
-So we have to first split the string, put a tab key in the middle of it and then concatenate things together in order.
-Here's the implementation.
+그러니까 먼저 문장을 커서 위치를 기준으로 나누고, 탭 키 문자를 가운데에 집어넣은 후 전체를 순서대로 다시 이어붙이는 것이다.
+구현은 아래와 같다.
 
 {% highlight javascript linenos %}
 var preText = textBox.value.substring(0, caretPosition);
@@ -251,13 +249,13 @@ var postText = textBox.value.substring(caretPosition, textBox.value.length);
 textBox.value = preText + "\t" + postText;
 {% endhighlight %}
 
-End of step 4.
+4단계 끝.
 
-##### 5. Putting keyboard cursor back to the original position
+##### 5. 키보드 커서를 원래 위치로 되돌려놓기
 
-I guess you'll think "Now, what the hell is this?" at a glance, but you will need this step. What you actually did wasn't like you insert a key input in the middle of the string, instead you made the entire string with a tab key which was put in the middle of it and pasted it into the `<textarea>` element as a value attribute. Think what happens then. You instantly lose your original caret position because it worked like you put a sentence into an empty `<tesxtarea>` element. You'll see cursor is blinking at unexpected position like very front or end of the sentence or wherever. I believe this is out of your intention if you're building a decent text editor. So you have to memorize the original cursor position before inserting a tab key, and then after doing it you have to go back there using your memory.
+내 생각에 여러분은 아마 "이 단계는 대체 뭐야?"  라고 할 거 같은데, 우리는 이 단계가 필요하다. 우리가 직전 단계에서 한 일은 문장 중간에 탭 키를 곱게 삽입한게 아니라, 문장 전체를 꺼내 탭 키를 중간에 삽입하여 재조립한 다음 통째로 `<textarea>` 엘리먼트 안에 value 어트리뷰트로 다시 붙여 넣은 것이다. 이렇게 빈 `<textarea>` 객체 안으로 문장을 붙여넣었으니 원래의 커서 위치가 사라지는 것은 당연하다. 커서는 당초 예상과는 달리 문장의 맨 앞이나 맨 뒤에서 깜박이게 될 것이고, 그 곳은 우리가 의도한 위치가 아니다. 때문에 우리는 탭 키를 삽입할 때 원래의 커서 위치를 기억해 두었다가, 작업이 끝나고 나서 이를 이용해 원래 자리로 커서를 되돌려놔야 한다.
 
-This is the code for it in the latest browsers.
+이하가 이를 위한 최신 브라우저용 코드다.
 
 {% highlight javascript linenos %}
 // Firefox, Chrome, IE9~ Support
@@ -267,7 +265,7 @@ if(textBox.setSelectionRange) {
 }
 {% endhighlight %}
 
-This is for shitty browsers.
+이것은 낡아빠진 브라우저용이다.
 
 {% highlight javascript linenos %}
 // ~IE9 Support
@@ -280,7 +278,7 @@ else if (textBox.createTextRange) {
 }
 {% endhighlight %}
 
-Time to wrap them up.
+잘 정리해보자.
 
 {% highlight javascript linenos %}
 function getCaretPosition(textBox, caretPosition) {
@@ -300,9 +298,9 @@ function getCaretPosition(textBox, caretPosition) {
 }
 {% endhighlight %}
 
-##### 6. Abstraction
+##### 6. 추상화
 
-Seems like we've fulfilled the minimum requirements to do "tab key insertion". I'm afraid you might feel stressed and confused as those were just too much. We want abstraction to make more readable, available, useful and simple code. The every former steps were the preperation for this step. Let's pack it together and make a beautiful and easy function! ...or am I the only one feeling like that? Well.. Please look at this code.
+이제 "탭 키 입력"을 하기 위한 최소한의 조건을 만족시킨 것 같다. 아마 과정이 너무 많아서 제법 스트레스를 받았으리라 염려되지만, 우리는 더 읽기 좋고, 가용성 높고, 쓸모 있고 단순한 코드를 만들기 위해 추상화를 해야 한다. 지난 모든 스텝은 이 과정을 위한 준비 작업에 해당한다. 이제 모든 것을 하나에 담고 아름답고 쉬운 함수로 뽑아내보자! ...나만 이렇게 해야 한다고 느끼나.. 워 코드는 아래에 있다.
 
 {% highlight javascript linenos %}
 function insertTab(textBox) {
@@ -316,18 +314,18 @@ function insertTab(textBox) {
 }
 {% endhighlight %}
 
-In this code we put every step into one function. Thanks to this abstraction, you can put a tab key in a desirable place by simply calling `insertTab()` any time you want. This function will faithfully perform following jobs in order:
+위 코드로 우리는 모든 과정을 하나의 함수에 담을 수 있다. 추상화 덕분에, 이제 탭 키를 원하는 위치에 삽입하는 기능을 단순히 `insertTab()` 함수 호출 한 번을 통해 사용할 수 있다. 이 함수는 이하의 기능을 순서대로 확실히 실행할 것이다:
 
-1. Get the current keyboard position.
-2. Split the text from the current position into 2 front and back texts.
-3. Insert a tab key in the middle, Put them altogether in a complete text.
-4. Get back to last keyboard position.
+1. 현재 키보드 커서 위치를 가져온다.
+2. 현재 커서 위치서부터 글을 2개로 나눈다.
+3. 중간에 탭키를 삽입하고, 하나의 완성된 문장으로 만든다.
+4. 마지막 키보드 커서 위치로 돌아간다.
 
-Make sure you put every implemented functions from the start to this in a same place or in a same javascript file. Well, except the step 1. We actually didn't bring `blockKeyEvent()` onto the table yet, because we think this action is not directly related to doing "Inserting tab key". Two are logically independent actions, so we're not abstracting it into a function. We're gonna deal with it very soon.
+위에서 처음부터 구현했던 모든 함수들을 같은 파일 취이나 자바스크립트 파일 안에 담는다. 1단계만 빼고. `blockKeyEvent()` 는 아직 안으로 가져오지 않았는데, 이유는 "탭 키를 삽입한다"는 동작과는 직접 연관이 있어보이지 않기 때문이다. 둘은 논리적으로 독립적인 동작이므로, 이것을 하나의 함수로 추상화하지 말고, 조만간 처리하기로 한다. 
 
-##### 7. Second abstraction, and enabling it in a certain condition
+##### 7. 2번째 추상화, 그리고 동작 조건 달기
 
-We made `insertTab()`. This will imediately insert a tab key into the text. But when you'd like to do it? We need to define it. Fortunately we already know the answer, which was standing at the very beginning of this article. This code will call `insertTab()` when "we push a tab key inside `<textarea>`". That logic would flow like this:
+이제 `insertTab()`이 만들어졌다. 이것은 즉시 텍스트 가운데에 탭 키를 삽입할 것이다. 하지만 언제 그렇게 해야 하는가? 이것을 정할 필요가 있다. 다행히도 답은 이미 맨 처음부터 정해져있다.  이하의 코드는 `insertTab()`을 "`<textarea>` 안에서 탭 키를 눌렀을 때" 실행시킬 것이다.
 
 {% highlight javascript linenos %}
 function enableTab(textBox, keyEvent) {
@@ -341,15 +339,17 @@ function enableTab(textBox, keyEvent) {
 }
 {% endhighlight %}
 
-The `enableTab()` knows two things: `<textarea>` element, and **actual keyboard event** which happened at the right moment in this element. This function has them as two parameters "textBox" and "keyEvent".
+`enableTab()`은 두 가지를 안다: `<tedxtares>` 엘리먼트와, 이 엘리먼트 안에서 방금 일어났던 **실제 키 입력 이벤트**다. 각각은 "textBox"와 "keyEvent" 파라미터로 담겨있다.
 
-The "If" condition statement means that the keyboard input was same as the input `ASCII` code number 9, which means "tab key". This is very important, because html event handler will catch every moment of pressing any keyboard input and will react to it. We want this function work only with the tab key. That's how the if statement works.
+"if" 조건문의 내용이 의미하는 것은 키입력이 `ASCII` 코드 9번과 일치하는지를 검사하라는 것인데, 이것이 "탭 키"를 의미한다. 이것은 아주 중요한데, html 이벤트 핸들러는 모든 키보드 입력을 잡아내서 반응하기 때문이다. 이 함수는 오로지 탭 키에만 반응하도록 한다. 그것이 if 조건문이 동작하는 방식이다.
 
-Then it will insert a tab key using `insertTab()`, and then block the original tab key event using `blockKeyEvent()`. Does it look clear?
+다음 `insertTab()` 함수를 통해 탭 키를 삽입하고는, 원래의 탭 키 입력을 `blockKeyEvent()` 함수를 이용해 막아버린다. 선명하게 보이는가?
 
-Almost done.
+거의 다 왔다.
 
-##### 8. Calling `enableTab()` on keyboard event
+##### 8. `enableTab()` 을 키보드 이벤트 때 호출하기
+
+
 
 Okay, Let's call the function on the keyboard event handler! This code is the presentation of using keyboard event handler in the `<textarea>` called `onkeydown` event handler, using jQuery.
 

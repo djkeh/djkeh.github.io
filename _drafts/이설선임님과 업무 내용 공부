@@ -1,0 +1,137 @@
+---
+layout: post
+categories: articles
+title:  "title"
+excerpt: "excerpt"
+tags: []
+date: 2015-10-02 23:41:42
+modified: 2015-10-02 23:41:42
+image: 
+  feature: filename
+  credit: image owner
+  creditlink: original link
+share: true
+sitemap: true
+---
+
+1. mysql
+ - 그냥 yum이나 rpm 등의 패키지 마스터로 설치해서 실행하는 mysql은 root 권한으로 실행하므로 한 서버에서 여러 유저가 독립적인 DB를 운영하기 불편한 구조
+ - 만약 그냥 mysql을 사용하면 내 DB 파일이 상대방에 의해 변경되거나 나도 실수를 할 수 있음
+ - 따라서 별도로 mysql을 설치해서 독립적인 id로 실행하는 것이 안전
+ - 방법
+  i) sss repo (10.24.142.197)에 있는 mysql 패키지를 rxync로 받아서 푼다. (::R/naver/pkgs/mysql)
+   => mysql community edition(무료 오픈 버젼)을 직접 다운 받고 싶지만 모두 yum repo, 혹은 rpm 패키징 되어있어 맘에 드는 곳에 맘대로 설치하는 방법을 모르겠다.
+  ii) $LD_LIBRARY_PATH를 등록한다
+   => ~/.bashrc에 등록하거나 셸 스크립트 안에 집어넣는다.
+   => export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$MYSQL_HOME/lib/mysql
+  iii) mysql을 실행하기 위해서는 mysql db를 우선 생성해야 한다
+   => $MYSQL_HOME/bin/mysql_install_db --basedir=$MYSQL_HOME --datadir=$PROJECT_HOME/mysql_data/data
+  iv) my.cnf로 별도의 설정 파일도 준비한다. 네이버 패키지의 경우는 bin 폴더의 mysqld_safe 스크립트 안에 경로가 하드 코딩 되어있는 경우도 있으므로 확인하여 바꿔줘야 한다.
+   => my.cnf, db data, mysql.sock 등 관련 설정 파일은 $MYSQL_PATH 하위에 두지 않는 것이 좋다. 다른 이용자에 의해 변경될 가능성이 있기 때문이다. 작업하는 프로젝트에 별도 공간을 마련하는 것이 좋다. (ex: $PROJECT_HOME/mysql_data/etc/my.cnf)
+   => my.cnf 에 들어가는 정보
+        [mysqld]
+        datadir=$PROJECT_HOME/mysql_data/data
+        socket=$PROJECT_HOME/mysql_data/var/socket/mysql.sock
+        user=mysql
+        symbolic-links=1
+        server-id=1
+        log-bin=mysql-bin
+        default-storage-engine=innodb
+        character-set-server=utf8
+        collation-server=utf8_bin
+        port=$PORT
+
+        [mysqld_safe]
+        log-error=$PROJECT_HOME/var/log/mysqld.log
+        pid-file=$PROJECT_HOME/var/pid/mysqld.pid
+  v) 접근 제한 오류가 날 경우 디렉토리 권한도 살펴야 한다
+  vi) mysql(서버)을 백그라운드로 실행한다
+   => mysqld_safe를 이용한 방법: $MYSQL_HOME/bin/mysqld_safe --defaults-file=$PROJECT_HOME/mysql_data/etc/my.cnf --datadir=$PROJECT_HOME/mysql_data/data --socket=$PROJECT_HOME/mysql_data/var/socket/mysql.sock --port=$PORT --log-error=$PROJECT_HOME/mysql_data/var/log/mysqld.log --pid-file=$PROJECT_HOME/mysql_data/var/pid/mysqld.pid &
+   => mysqld_safe 관련 정보: http://linuxism.tistory.com/239
+   => mysqld_safe 관련, mysql 시작과 종료: http://database.sarang.net/?inc=read&aid=23265&criteria=mysql&subcrit=tutorials&id=&limit=20&keyword=&page=2
+   => init.d 의 데몬 관리를 받는 방법: /etc/init.d/mysqld start -> 일반적인 방법이지만 독립적인 mysql 서버의 실행에는 응용할 수 없다.
+  vii) 클라이언트로 접속한다
+   => $MYSQL_HOME/bin/mysql -S $PROJECT_HOME/mysql_data/var/socket/mysql.sock -P $PORT -h localhost
+ - http://www.koreapoly.co.kr/view.php?q=%EB%A6%AC%EB%88%85%EC%8A%A4mysql%EC%84%A4%EC%B9%98
+ - http://wnstjqdl.tistory.com/18
+ - centOS 6.5 yum 의 mysql 버젼은 5.1 이므로 업그레이드가 필요하다면 다음의 절차를 따라라.
+  => irteamsu 계정으로 로그인한다.
+  => http://dev.mysql.com/downloads/repo/yum/ 에서 적절한 yum repo 패키지를 wget 다운로드한다. centOS 6.5, linux 2.6 이라면 Red Hat Enterprise Linux 6 / Oracle Linux 6로 할 수 있다.
+  => sudo yum localinstall mysql-community-release-el6-5.noarch.rpm
+  => yum install mysql-server -> 이것으로 디펜던시까지 모두 설치 완료된다.
+  => 설명: http://fsteam.tistory.com/94
+ - 계정 만들기: grant로 한방에 만들 수도 있고 create user로 만든 후 grant 권한을 줄 수도 있는데 mysql은 후자를 추천
+  => root 계정이나 계정 관리 권한을 가진 계정으로 mysql 접속
+  => create user 'newuser'@'localhost' identified by 'password';
+  => grant all (privileges) on dbname.tablename to 'newuser'@'localhost' (identified by 'password') with grant option;
+  => alter, create, drop, select, insert, update, delete == 일반 사용자 권한
+  => reload, shutdown == 관리자 권한
+  => all == 그냥 총 권한
+  => usage == no privileges 와 동의어
+  => 계정 생성 혹은 권한 변경 직후 권한 적용: flush privileges;
+  => http://blog.naver.com/imju1196/20164852786
+  => http://blog.naver.com/marundubu/120166942800
+ - 계정 삭제: drop user 'user'@'localhost'
+ - mysql 테이블 복제(dump)
+  i) 복사: mysqldump -u'root' -p -h'localhost' -S /socket 경로/mysql.sock (--default-character-set=utf8) DB명 테이블명(, 테이블명..) > 파일.sql
+  ii) 붙이기: mysql -S /소켓 경로/mysql.sock (--default-character-set=utf8) db명 < 파일.sql
+  => 서로 다른 이름의 DB 간 복사 가능
+  => root 계정은 그냥 되니까 편리
+  => 사용자 계정으로 할 경우 꼭 필요한 grant 권한: SELECT, SHOW VIEW, RELOAD, REPLICATION CLIENT(, EVENT, TRIGGER)
+  => event, trigger는 없어도 되는 거 같고 넣으면 오류를 일으킨다. 정확한 것은 더 조사 필요
+  => reload, replication client는 global 전용 권한이기 때문에 특정 데이터베이스만을 설정해서 할 수는 없다.
+  => http://www.fromdual.com/privileges-of-mysql-backup-user-for-mysqldump
+  => https://dev.mysql.com/doc/refman/5.1/en/grant.html
+ - 특정 사용자 계정 권한 보기: show grants for username;
+ - 현재 기본 설정 보기: status; -> 언어 설정도 일부 보여준다
+ - 현재 언어 설정 보기: show variables like "char%", show variables like "collation%" -> 한 줄에 되는 더 좋은 방법이 있었던 거 같은데 까먹음
+ - UTF8 맞추기
+  => server, client 모두 utf8로 맞아야 한다.
+  => client의 경우: SET character_set_client = charset_name; SET character_set_results = charset_name; SET character_set_connection = charset_name;
+  => 이걸 한 줄에 하는 것: set names utf8;
+  => auto-reconnect가 enabled 되어있을 때 더욱 추천되는 명령어: charset utf8 (https://dev.mysql.com/doc/refman/5.0/en/charset-connection.html)
+  => 그러나 이걸 my.cnf 에 넣으면 mysql client가 제대로 작동 안 하고 원인은 모름
+
+
+2. 리눅스 테크닉
+ 1) for + seq
+  - for i in `seq 10`; do echo ${i}; done
+  - http://www.snoopybox.co.kr/m/post/1680
+ 2) Command substitution
+  - 명령줄 안에서 독립적인 명령문을 실행하는 기법
+  - 셸 명령 실행 결과를 변수로 저장하거나 echo 커맨드를 이용해 출력한다는 것이 기본 의미
+  - 방법
+   i) grave accent (`): `echo "haha"`
+   ii) 괄호 감싸기 ($()): $(echo "haha") -> "`" 는 중복시킬 수 없는데 이것은 중복이 가능하므로 다중 커맨드가 가능
+    => ex) sort -m `for i in $(seq -w 11); do echo "file${i} "; done` | uniq > output
+  - http://bash.cyberciti.biz/guide/Command_substitution
+ 3) sed, tr
+  - 둘 다 text 치환 프로그램
+  - sed: 단일 문자열 스트림 처리. 문자열, 정규식 특화
+   => 기본 구분자는 "/". (ex: echo "test sentence" | sed s/abc/123/g)
+   => 구분자 변경 가능. (ex: echo "test sentence" | sed 's-/home/greenfish/-/home2/greenfish/-' -> 구분자로 "-"가 사용되었다. 디렉토리 경로 처리할 때 유용)
+   => -e: 스크립트 하나를 추가한다. 즉 여러 개의 명령을 처리하고 싶을 때 사용 가능 (ex: sed -e s/francois/FRANCOIS/g -e s/chris/CHRIS/g < myfile.txt)
+  - tr: 문자열 처리. 단일 문자 특화
+   => 기본: echo "I'm your father." | tr f F -> f를 F로 치환
+   => -d: 문자 삭제 (ex: echo "1234 1234" | tr -d " ")
+   => 범위지정: a-z, A-Z, a-Z, A-z, [:lower:], [:upper:] (ex: echo "asdf SDF SD2345" | tr a-z A-Z 혹은 tr [:lower:] [:upper:])
+  - http://greenfishblog.tistory.com/66
+ 4) 문장 길이로 정렬하기
+  - cat file | awk '{ print length, $0 }' | sort -n
+  - http://stackoverflow.com/questions/5917576/sort-a-text-file-by-line-length-including-spaces
+ 5) 특정 줄만 선택하기
+  - head + tail 조합은 파일이 크면 느릴 수도 있다. cat의 -n 옵션이 라인 번호를 붙여주는 점을 이용한다.
+  - cat -n file | grep "^ *3" -> 3번째 줄을 선택한다.
+  - awk 'NR==3' file
+  - sed -n '5p' file
+  - http://www.unix.com/unix-for-dummies-questions-and-answers/44651-see-specific-line-file.html
+ 6) nmap, netstat, lsof: 포트 확인하기 (새로운 서버 서비스를 시작할 때 비어있어서 사용할 수 있는 포트를 확인하기 위해)
+  - nmap: 어떤 포트가 열려있는지 확인해준다.
+   => nmap -sT -O localhost
+  - netstat: 포트 정보를 보여준다.
+   => netstat -anp
+  - lsof: 찾아볼 것.
+   => lsof -i
+  - https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/3/html/Security_Guide/s1-server-ports.html
+
+3. hadoop
