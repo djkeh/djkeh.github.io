@@ -220,4 +220,27 @@ http://blog.woniper.net/231
   => 해결3: 제대로 설정하기 -> 워닝 부분에서 ctrl+1 로 해결책을 선택하는데 자바 컴파일러로 생성하기를 눌러 만들 수 있다.
   => 추가: JSON과 XML 직렬화 역직렬화 성능은 JSON이 보통 빠르다. Microsoft C#만 예외적으로 XML parsing 성능이 높아 JSON보다 빠르다. http://blog.naver.com/angelkum/130154155881
 
-  
+ - linux screen
+  => tmux 못 깔 때 대안
+  => 모든 단축키는 ctrl+a 로 시작이 기본 (cf: tmux는 ctrl+b, 물론 변경 가능)
+  => screen -S "sessionName": sessionName 세션 생성
+  => screen -r (번호.sessionName): 이미 만들어진 세션에 재접속. detached 세션이 하나 뿐이면 자동으로, 2개 이상이면 열고 싶은 세션을 지정해줘야 한다.
+  => screen -list: 현재 있는 세션들 목록 출력. 번호.sessionName 을 알 수 있다.
+  => ctrl+d: screen 종료
+  => ctrl+a, d: 세션 detach
+  => ctrl+a, c: 새 윈도우 생성
+  => ctrl+a, n: 윈도우 변경
+  => ctrl+a, 0~9: 번호로 윈도우 이동
+  => ctrl+a, S: 화면 수평 분할. tmux와 달리 분할 화면은 아무것도 없으므로 새 세션을 별도로 생성해 줘야 한다. ctrl+a, c. 이걸 눌러 세션을 만든 뒤 이제 비로소 사용 가능.
+  => ctrl+a, |: 화면 수직 분할. 버젼에 따라 지원하지 않는다. (4.00.03 은 안 되는 듯)
+  => ctrl+a, Q: 화면 분할 다시 합치기
+  => ctrl+a, tab: 분할된 화면 이동
+  => ctrl+a, A: 윈도우 이름 변경
+  => ctrl+a, :: screen 콘솔입력. 여러 세부 옵션을 명령어로 실행할 수 있다.
+   -> source /경로/.screenrc: screenrc를 스크린 끄지 않고 리로드.
+  => tmux와 달리 세션, 윈도우, 패널 개념이 아니라 세션, 윈도우까지만 있음. 분할된 윈도우는 서로 다른 윈도우. 윈도우 이동을 누르면 같은 화면 안에서 이동이 이뤄진다. 즉 두 분할된 화면이 같은 윈도우 번호를 보고 있는 것도 가능. 이건 해보는 편이 빠른듯.
+  => ctrl+a, ": 윈도우 리스트 표시. 리스트에서 윈도우 선택하여 이동
+  => https://www.rackaid.com/blog/linux-screen-tutorial-and-how-to/
+  => http://unix.stackexchange.com/questions/7453/how-to-split-the-terminal-into-more-than-one-view
+  => ~/.screenrc: 설정파일. ~/.tmux.conf 와 같은 원리.
+  => 쓸만한 기본 screenrc: https://gist.github.com/ChrisWills/1337178 -> 24번 줄 메일 기능을 주석처리하는게 좋다

@@ -72,7 +72,7 @@ sitemap: true
   => http://blog.naver.com/imju1196/20164852786
   => http://blog.naver.com/marundubu/120166942800
  - 계정 삭제: drop user 'user'@'localhost'
- - mysql 테이블 복제(dump)
+ - mysql 테이블 복제(dump, migration)
   i) 복사: mysqldump -u'root' -p -h'localhost' -S /socket 경로/mysql.sock (--default-character-set=utf8) DB명 테이블명(, 테이블명..) > 파일.sql
   ii) 붙이기: mysql -S /소켓 경로/mysql.sock (--default-character-set=utf8) db명 < 파일.sql
   => 서로 다른 이름의 DB 간 복사 가능
@@ -84,13 +84,13 @@ sitemap: true
   => https://dev.mysql.com/doc/refman/5.1/en/grant.html
  - 특정 사용자 계정 권한 보기: show grants for username;
  - 현재 기본 설정 보기: status; -> 언어 설정도 일부 보여준다
- - 현재 언어 설정 보기: show variables like "char%", show variables like "collation%" -> 한 줄에 되는 더 좋은 방법이 있었던 거 같은데 까먹음
+ - 현재 언어 설정 보기: show variables like "char%", show variables like "collation%" -> 한 줄에 되는 방법은 "c%"
  - UTF8 맞추기
   => server, client 모두 utf8로 맞아야 한다.
   => client의 경우: SET character_set_client = charset_name; SET character_set_results = charset_name; SET character_set_connection = charset_name;
   => 이걸 한 줄에 하는 것: set names utf8;
   => auto-reconnect가 enabled 되어있을 때 더욱 추천되는 명령어: charset utf8 (https://dev.mysql.com/doc/refman/5.0/en/charset-connection.html)
-  => 그러나 이걸 my.cnf 에 넣으면 mysql client가 제대로 작동 안 하고 원인은 모름
+     그러나 이걸 my.cnf 에 넣으면 mysql client가 제대로 작동 안 하고 원인은 모름
 
 
 2. 리눅스 테크닉
