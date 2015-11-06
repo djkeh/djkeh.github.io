@@ -26,6 +26,10 @@ http://blog.woniper.net/231
   => .projects 만들어줘야 하는데 이걸 만들어주는 플러그인이 별도로 있거나 방법이 있다. 이 쪽으로 검색
   => Spring STS에서 만든 maven 빌드의 플젝인가여? 그럼 메뉴가 틀림. import > maven > existing maven projects
 
+ - 이클립스(STS)-메이븐 쓰는데 .gitignore 에 "/target/" 이 자꾸 중복 추가된다.
+  => properties -> git -> projects -> "Automaticaly ignore derived resouces by adding them to .gitignore" 체크 해제
+  => http://stackoverflow.com/questions/19816918/eclipse-or-maven-add-target-to-gitignore
+
  - spring STS 는 gradle 관련 플러그인이 이미 설치되어 있을텐데 gradle 플젝을 못 읽어요
   => gradle 이 설치되어 있을 것
   => build.gradle 파일 안에 apply plugin: 'eclipse' 구문이 있는지 확인할 것
@@ -220,6 +224,34 @@ http://blog.woniper.net/231
   => 해결3: 제대로 설정하기 -> 워닝 부분에서 ctrl+1 로 해결책을 선택하는데 자바 컴파일러로 생성하기를 눌러 만들 수 있다.
   => 추가: JSON과 XML 직렬화 역직렬화 성능은 JSON이 보통 빠르다. Microsoft C#만 예외적으로 XML parsing 성능이 높아 JSON보다 빠르다. http://blog.naver.com/angelkum/130154155881
 
+ - 자바 테크닉: static member class
+  => 외곽 클래스의 인스턴스를 사용할 필요가 없는 멤버 클래스를 선언한다면, 항상 static 멤버 클래스로 만들자.
+   -> Why?) static을 생략시 각 인스턴스가 외곽 클래스의 인스턴스 참조를 갖게 되며 이러한 참조 저장은 시간과 메모리가 소요 되며, 가비지 컬렉션 대상이 될 외곽 클래스의 인스턴스가 메모리에 계속 남아 있게 된다.
+  => http://rego.tistory.com/46
+
+ - 자바 테크닉: 맵 공부, 자바 맵 종류간 비교
+  => HashMap: Entry<K, V> 객체의 array 저장. 해싱은 String의 경우 sun.misc.Hashing.stringHash32 함수, 일반 Object는 내부 hashcode 함수 + 비트연산. hash 값에 따라 키순서가 정해지므로 특정 규칙 없이 출력
+  => TreeMap: RedBlack Tree로 저장. 키값에 대한 Compartor 구현으로 정렬 순서 변경 가능. 기본은 키값 알파벳 순서 정렬
+  => LinkedHashMap: 링크드 리스트 저장. 입력 순으로 출력
+  => 특별한 이유가 없다면 검색 성능이 좋은(O(1)) HashMap을 사용
+  => 키값이 일정한 수준대로 iterate 하려고 한다면 TreeMap 을 사용 (랜덤 접근 성능: O(logn))
+  => 입력 순서가 의미있다면 LinkedHashMap 을 사용 (랜덤 접근 성능: O(n))
+  => 비교: http://rangken.github.io/blog/2015/java.map/
+  => 기본 공부: http://levin01.tistory.com/233
+
+ - 자바 테크닉: Scanner vs. StringTokenizer vs. String.Split
+  => 속도가 빠르게: StringTokenizer
+  => 정규식 표현, 더 직관적이고 보기 좋은 코드: split
+  => http://stackoverflow.com/questions/691184/scanner-vs-stringtokenizer-vs-string-split
+
+ - 자바 파일 입출력
+  => 사용 클래스의 진화(입력의 예): File -> FileReader -> FileInputStream -> DataInputStream -> BufferedInputStream -> BufferedReader
+  => http://blog.naver.com/highkrs/220513596942
+
+ - 그래들(gradle)
+  => 메이븐과 같은 빌드 도구. xml이 난무하지 않아서 더 좋은 듯.
+  => http://kwonnam.pe.kr/wiki/gradle
+
  - linux screen
   => tmux 못 깔 때 대안
   => 모든 단축키는 ctrl+a 로 시작이 기본 (cf: tmux는 ctrl+b, 물론 변경 가능)
@@ -244,3 +276,7 @@ http://blog.woniper.net/231
   => http://unix.stackexchange.com/questions/7453/how-to-split-the-terminal-into-more-than-one-view
   => ~/.screenrc: 설정파일. ~/.tmux.conf 와 같은 원리.
   => 쓸만한 기본 screenrc: https://gist.github.com/ChrisWills/1337178 -> 24번 줄 메일 기능을 주석처리하는게 좋다
+
+ - linux: jar 파일 읽기
+  => jar tf filename.jar
+  => http://stackoverflow.com/questions/320510/viewing-contents-of-a-jar-file

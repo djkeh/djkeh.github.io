@@ -74,6 +74,12 @@ sitemap: true
  - 계정 삭제: drop user 'user'@'localhost'
  - mysql 테이블 복제(dump, migration)
   i) 복사: mysqldump -u'root' -p -h'localhost' -S /socket 경로/mysql.sock (--default-character-set=utf8) DB명 테이블명(, 테이블명..) > 파일.sql
+  => mysqldump: mysql bin folder안에 있는 실행파일
+  => user id. '-u'와 user id를 붙여 써야 한다. (예: -umyid)
+  => -p : 비밀번호를 지정. (예: -p1234)
+  => -h : mysql이 실행중인 컴퓨터의 address. local인 경우 이 옵션을 사용하지 않는다. (예: -h192.168.5.46)
+  => -t : 데이터만 덤프 받는다.
+  => -d : schema만 덤프 받는다.
   ii) 붙이기: mysql -S /소켓 경로/mysql.sock (--default-character-set=utf8) db명 < 파일.sql
   => 서로 다른 이름의 DB 간 복사 가능
   => root 계정은 그냥 되니까 편리
@@ -91,6 +97,13 @@ sitemap: true
   => 이걸 한 줄에 하는 것: set names utf8;
   => auto-reconnect가 enabled 되어있을 때 더욱 추천되는 명령어: charset utf8 (https://dev.mysql.com/doc/refman/5.0/en/charset-connection.html)
      그러나 이걸 my.cnf 에 넣으면 mysql client가 제대로 작동 안 하고 원인은 모름
+ - charset vs. collation
+  => character set: 심볼(글자)과 인코딩의 묶음
+  => collation: 문자셋의 문자들을 비교하는 규칙
+  => http://kwonnam.pe.kr/wiki/database/mysql/charset
+  => https://dev.mysql.com/doc/refman/5.0/en/charset-connection.html
+ - 인코딩 변경 관련: http://ra2kstar.tistory.com/97
+
 
 
 2. 리눅스 테크닉
@@ -135,3 +148,109 @@ sitemap: true
   - https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/3/html/Security_Guide/s1-server-ports.html
 
 3. hadoop
+ - 아파치 맵리듀스 튜토리얼 번역: http://cafe.naver.com/hadoopmania/32
+ - 메이븐 리포지토리에 관련 패키지가 너무 많은데 뭘 써야 하나? -> org.apache.hadoop hadoop-client 쓰면 된다.
+ - 하둡 버젼 1 -> 2로 올라가면서 바뀐 이름들 레퍼런스: https://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml
+ - 과거 버젼 모음: http://archive.apache.org/dist/hadoop/core/
+ - centOS 6.5 에서 하둡 깔고 제대로 64bit native library 올리기: 실패 ㅜㅜㅜ
+  => 제작법 아파치 홈피 가이드: https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/NativeLibraries.html#Download
+  => 블로거 가이드1: http://www.ercoppa.org/Linux-Compile-Hadoop-220-fix-Unable-to-load-native-hadoop-library.htm
+  => 블로거 가이드2: http://bloodguy.tistory.com/entry/Hadoop-%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C-%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EB%B9%8C%EB%93%9C-build-native-library
+  => protocol buffers(protoc): https://github.com/google/protobuf/releases?after=v2.6.0
+  => gnu libtool: http://www.gnu.org/software/libtool/
+
+
+ 1) 아직 안 찾아본 것
+  - mapreduce.inputformat.class org.apache.hadoop.mapreduce.lib.input.DelegatingInputFormat
+ 2) Streaming MR
+  - 자바 외에 다른 스크립트 언어로 MR(MapReduce)을 짜서 돌릴 수 있다
+  - 편리하다
+  - 세밀한 제어에 한계가 있다
+  - http://bloodguy.tistory.com/965
+ 3) Sort Comparator 구현
+  - http://huskdoll.tistory.com/175
+ 4) MultipleInputs
+  - http://www.lichun.cc/blog/2012/05/hadoop-multipleinputs-usage/
+ 5) Counter
+  - http://10.24.58.46:50030/jobdetailshistory.jsp?logFile=file:/nhnent/cslog/var/log/hadoop/history/done/version-1/tcshphdp-01b101_1446084138722_/2015/11/03/000000/job_201510291102_0891_1446512122737_irteam_oozie%253Aaction%253AT%253Dmap-reduce%253AW%253Dmerge%253AA%253Duniq-app-count
+  - 하둡 잡 트래커가 카운터 데이터를 파싱해서 내놓는 api도 있다는데 아직 모르겠다. 조사 필요.
+  - http://develop.sunshiny.co.kr/899
+
+4. oozie
+ - 하둡의 워크플로우 스케쥴러 시스템
+ - 단위 작업을 나타내는 워크플로우(workflow)와 워크플로우를 자동으로 작동 및 반복시키는 코디네이터(coordinator)로 구성
+ - 코디네이터는 시간 빈도와 데이터 가용 여부로 작동 가능
+ - 데이터 가용 여부를 조건으로 걸었는데 데이터가 없을 때 기본 동작: 만들어질 때까지 큐에서 기다림
+ - 워크플로우도, 코디네이터도 하나의 잡(job)으로 부름
+ - xml로 작성
+ - 변수, 함수 사용 가능. 글로벌 변수, 함수 존재
+  => 사용 포맷: ${startTime}, ${punk}, ${global.date}
+  => 정의 포맷: startTime=60, punk=beautiful
+ - https://github.com/yahoo/oozie, http://oozie.apache.org/
+ 1) 워크플로우
+ 2) 코디네이터
+  - 코디네이터 앱(app) = coordinator.xml(코디네이저 잡의 정의) + coordinator.properties(코디네이터 잡에 넘기고 싶은 설정값)
+  - properties에서 변수를 설정해서 xml에서 사용할 수 있다
+  - 코드 설명 (coordinator.xml)
+    <coordinator-app name="MY_APP" frequency="60" start="2009-02-01T05:00Z" end="2009-02-01T06:00Z" timezone="UTC" xmlns="uri:oozie:coordinator:0.1">
+    => "MY_APP" 이름으로 코디네이터 잡을 등록하고 시간은 60분, 09. 2. 1. 5시부터(이상) 6시까지(미만) 1시간동안 실행하므로 총 1회 실행. 타임존은 UTC. xmlns로 xml 문서 타입 지정
+      <datasets>
+      => 모든 입력 데이터셋의 메타데이터 정의
+        <dataset name="input1" frequency="60" initial-instance="2009-01-01T00:00Z" timezone="UTC">
+        => 데이터셋 설명: input1 이름으로 접근 가능한 데이터셋은 09.1.1 UTC시각으로 0시에 첫번째 데이터가 있으며 60분마다 데이터가 있음
+          <uri-template>hdfs://localhost:9000/tmp/revenue_feed/${YEAR}/${MONTH}/${DAY}/${HOUR}</uri-template>
+          => 데이터셋의 HDFS 디렉토리 구조. 여기까지만 지정하면 디렉토리 존재유무 검사가 됨. 데이터가 든 디렉토리가 없으면 대기.
+          => /tmp/revenue_feed/2009/01/01/00/
+          => /tmp/revenue_feed/2009/01/01/01/
+          => /tmp/revenue_feed/2009/01/01/02/
+          => ...
+          <done-flag>trigger.dat</done-flag>
+          => 파일명 지정. 여기까지 지정하면 파일 존재유무 검사가 됨. 데이터가 없으면 대기.
+        </dataset>
+      </datasets>
+      <input-events>
+      => 입력 파일 이벤트 설정
+        <data-in name="coordInput1" dataset="input1">
+        => dataset으로 input1을 바라보는 coordInput1 이름의 입력 데이터 정보를 작성
+          <start-instance>${coord:current(-23)}</start-instance>
+          => 시작 데이터는 데이터셋에서 23째로 오래된 데이터 -> coordinator-app 시작 시간이 09. 2. 1. 5시이므로 시작 데이터는 09. 1. 31. 6시
+          <end-instance>${coord:current(0)}</end-instance>
+          => 끝 데이터는 데이터셋 가장 최근 데이터 -> 시작데이터부터 지금 가장 최근 데이터 09. 2. 1. 0시까지.
+        </data-in>
+      </input-events>
+      <action>
+      => 동작 지정
+        <workflow>
+        => 워크플로우 지정
+          <app-path>hdfs://localhost:9000/tmp/workflows</app-path>
+          => 워크플로우 파일이 저장된 하둡 위치
+          <configuration>
+          => 워크플로우로 넘겨줄 설정 모음
+            <property>
+            => 워크플로우에 사용될 설정
+              <name>input_files</name>
+              => 이름은 input_files
+              <value>${coord:dataIn('coordInput1')}</value>
+              => <data-in>에서 설정했던 coordInput1 이름의 입력 데이터 hdfs 파일 경로 전부를 내보냄
+            </property>
+          </configuration>
+        </workflow>
+        <sla:info> ... <sla:info>
+        => SLA compliance를 평가하기 위해 필요한 이벤트들을 기록하는 옵션이라는데 SLA가 뭔지 도무지 모르겠다. 해서 내부 조사 생략
+        
+      </action>
+    </coordinator-app>
+  - 코드 설명 (coordinator.properties)
+   => 반드시 어느 코디네이터 xml을 가리키는지 파일 위치로 정의해야 한다. 이 한줄이 필요 -> oozie.coord.application.path=hdfs://localhost:9000/job/coord
+   => 이하는 변수를 정의하고, xml에서 ${} 로 호출한다.
+  - 글로벌 변수
+    ${coord:days(1)} : 하루
+    ${coord:months(1)} : 한 달
+    ${YEAR} : 년. YYYY
+    ${MONTH} : 월. MM
+    ${DAY} : 일. DD
+    ${HOUR} : 시. HH
+  - 글로벌 함수
+    ${coord:current(0)} : 데이터셋에서 가장 최근 데이터를 리턴
+    ${coord:current(-23)} : 데이터셋에서 23번째로 오래된 데이터를 리턴
+    ${coord:dataIn('coordInput1')} : dataIn() 함수는 <data-in> 엘리먼트를 호출하는 함수로 보임. coordInput1 이름으로 엘리먼트를 찾음
