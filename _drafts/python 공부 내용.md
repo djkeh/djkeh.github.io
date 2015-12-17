@@ -18,7 +18,23 @@
   => https://docs.python.org/2/tutorial/controlflow.html
  - pass: 파이썬의 null 동작. 이걸 실행해도 아무 일이 일어나지 않는다. 일단 존재해야 하는 코드이지만 당장 할 일이 없거나, 아직 구현되지 않은 부분, 수도 코드, stub 코드 등등에 사용.
   => http://www.tutorialspoint.com/python/python_pass_statement.htm
- 
+ - is vs. ==
+  => is: 두 객체가 같은 것을 가리키나? ex: a = [1, 2, 3]; b = a; a is b -> True; b = a[:]; a is b -> False
+  => ==: 두 객체가 가리키는 변수 값이 같나? ex: 위 두 경우 모두 a == b  -> True
+  => http://stackoverflow.com/questions/132988/is-there-a-difference-between-and-is-in-python
+ - print without newine
+  => 공통: import sys; sys.stdout.write('.')
+  => python 2: print('.'), # 희한한 문법이지만 통한다. 단 끝에 스페이스바 하나 추가
+  => python 3: print('.', end="")
+  => python 3, buffer trouble: print('.', end="", flush=True)
+  => http://stackoverflow.com/questions/493386/how-to-print-in-python-without-newline-or-space
+ - isinstance(string, unicode): string이 유니코드인지 검사하는 함수. 기본 제공인 듯.
+  => http://stackoverflow.com/questions/5259135/check-for-valid-utf8-string-in-python
+ - stderr
+  => sys.stderr.write("string")
+ - 삼항연산자
+  => var = condition and True or False
+  => var = True if condition else False (2.5 버젼 이상)
 
 2. 문자열 함수
  - a.translate(None, ".#?/:") -> (결과 문자, 대상 문자). 문자열 내 문자 치환. 소스는 바이트 문자열만 해당. 여러 문자는 그냥 쭉 나열하여 적음
@@ -51,7 +67,7 @@
  - line by line 파일 읽기 비교 - java vs. jython
   => http://bzimmer.ziclix.com/presentations/jython-intro/slide-14.html
 
-4. 파일 읽기/쓰기/붙이기
+4. 파일 읽기/쓰기/붙이기/삭제
  - 읽기/쓰기/붙이기: r/w/a
  - 적절한 읽고 닫기는 파일 포인터 선언, open(), close()가 try - finally 에서 구현되는 것.
   => f = None
@@ -85,6 +101,11 @@
   => os.path.isdir(디렉토리 이름 포함 풀 경로) -> 디렉토리 검사.
   => http://stackoverflow.com/questions/82831/check-whether-a-file-exists-using-python
   => https://docs.python.org/2/library/os.path.html
+ - 파일/디렉토리 삭제
+  => os.remove(file): 파일
+  => os.rmdir(dir): 디렉토리 삭제 (비어있는)
+  => os.rmtree(dir): 디렉토리와 컨텐츠 전부 삭제
+  => http://stackoverflow.com/questions/6996603/how-do-i-delete-a-file-or-folder-in-python
 
 5. 파이썬 쓰레드
  - 기본: thread 모듈 사용
@@ -230,7 +251,7 @@
  - html 파서. 최신 버젼 4.
  - http://www.crummy.com/software/BeautifulSoup/
  - 설치: pip install beautifulsoup4
- - 사용: import bs4 from BeautifulSoup
+ - 사용: from bs4 import BeautifulSoup
  - 사용 주의사항
   => lxml: 뷰티풀수프 해석기. 설치 필수
   => http://lxml.de/
@@ -246,19 +267,19 @@
  
 12. gzip, zlib, base64
  - gzip: gzip 파일 입출력을 다루게 해주는 모듈.
- - https://docs.python.org/2/library/gzip.html
- - 주의사항: GzipFile() 클래스는 2.6 버젼 이하에서 __enter__(), __exit__()가 기본 구현되어있지 않다. 따라서 with 명령어를 쓸 수 없다. -> 전통적인 try except finally로 파일 처리하고 close() 해줘야 한다.
+  => https://docs.python.org/2/library/gzip.html
+  => 주의사항: GzipFile() 클래스는 2.6 버젼 이하에서 __enter__(), __exit__()가 기본 구현되어있지 않다. 따라서 with 명령어를 쓸 수 없다. -> 전통적인 try except finally로 파일 처리하고 close() 해줘야 한다.
   => https://mail.python.org/pipermail/tutor/2009-November/072957.html
  - zlib: zlib 압축 알고리즘을 사용하게 해주는 모듈.
- - zlib의 압축 알고리즘은 사실 gzip의 알고리즘과 같으며 두 프로그램의 제작자는 동일인물이다. zlib은 gzip 압축파일을 다루는 일부 메소드를 제공한다.
+  => zlib의 압축 알고리즘은 사실 gzip의 알고리즘과 같으며 두 프로그램의 제작자는 동일인물이다. zlib은 gzip 압축파일을 다루는 일부 메소드를 제공한다.
   => http://www.zlib.net/
- - 주요 메소드: zlib.compress(string, 압축밀도번호(0~9가 제일 강한 압축)), zlib.decompress(string)
+  => 주요 메소드: zlib.compress(string, 압축밀도번호(0~9. 9가 제일 강한 압축)), zlib.decompress(string)
   => https://docs.python.org/2/library/zlib.html
  - base64: base64 인코딩 모듈
- - 스트링은 인코딩에 따라 무슨 문자가 나올지 모르며 일부 unprintable한 문자는 셸에서 버그를 일으킬 수 있다. 따라서 표현가능한 문자로 바꿔야 하는데 base64를 쓴다. 다만 덩치가 30%정도 커진다.
- - 압축을 적용하고 -> base64로 인코딩하여 오류 소지를 없애는게 기본 사용법.
- - 주요 사용 메소드: base64.b64encode(string), base64.b64decode(string)
- - ex) outputFile = base64.b64encode(zlib.compress(inputString, 9))
+  => 스트링은 인코딩에 따라 무슨 문자가 나올지 모르며 일부 unprintable한 문자는 셸에서 버그를 일으킬 수 있다. 따라서 표현가능한 문자로 바꿔야 하는데 base64를 쓴다. 다만 덩치가 30%정도 커진다.
+  => 압축을 적용하고 -> base64로 인코딩하여 오류 소지를 없애는게 기본 사용법.
+  => 주요 사용 메소드: base64.b64encode(string), base64.b64decode(string)
+  => ex) outputFile = base64.b64encode(zlib.compress(inputString, 9))
 
 
 13. http 웹 리소스 가져오기
@@ -289,6 +310,7 @@
   - response = conn.getresponse()
   - data = response.read()
   - conn.close()
+  
 14. python object(객체) 안의 멤버 메소드들 살피기
  - methodList = [method for method in dir(object) if callable(getattr(object, method))]
  - http://stackoverflow.com/questions/34439/finding-what-methods-an-object-has
@@ -330,11 +352,14 @@
     finally:
         if con:
             con.close()
+ - sql 문에 변수를 넣어줄 때: 변환명세는 %s. execute(sql, data) 순으로 넣는다. 이때 type(data) == Tuple. 원소가 하나라도 Tuple 형식로 넣는다 (ex: (one, ))
+  => ex: sql = "update table set value=%s where id=%s"; data = (value, id); execute(sql, data)
  - http://banasun.tistory.com/46
  - MySQLdb 문서: http://mysql-python.sourceforge.net/MySQLdb.html
  - insert 문 예제: http://dev.mysql.com/doc/connector-python/en/connector-python-example-cursor-transaction.html
  - 한글 깨질 때 참조했던 링크: http://stackoverflow.com/questions/8365660/python-mysql-unicode-and-encoding
  - select 제외하고 db에 변화를 주는 놈들은 commit() 해야 한다.
+  => 특히 성공이든 실패했든, 특히 실패할 경우에 분기 처리를 잘해서 반드시 커밋 롤백 둘 중 하나를 해야 락이 걸리지 않고 다른 곳에서 mysql 접근 중에 멈추지 않는다.
 
 16. 정규표현식
  - import re
@@ -356,4 +381,123 @@
  - http://stackoverflow.com/questions/134934/display-number-with-leading-zeros
 
 20. 파이썬 예외처리
+ - try:, except:, finally:
+ - 사용자 정의한 예외 클래스로 except 받기도 가능
+ - 여러개 except 묶어 받기: except (Exception1, Exception2):
+ - 예외 메시지 활용: except Exception, e: -> str(e) 로 확인
+ - raise: 예외 던지기(==throw) (ex: raise Exception, raise UserException())
+  => raise만 단독으로 쓰면 예외를 처리할 except를 만들 순 없고 단지 예외만 던진다. 이 때 예외명은 직전 발생한 예외가 된다
+  => ex:
+    >>> try:
+    ...     raise NameError('HiThere')
+    ... except NameError:
+    ...     print 'An exception flew by!'
+    ...     raise
+    ...
+    An exception flew by!
+    Traceback (most recent call last):
+    File "<stdin>", line 2, in ?
+    NameError: HiThere
  - https://docs.python.org/2/tutorial/errors.html
+ - KeyboardInterrupt: 내장 예외 중 하나. 사용자가 ctrl+c 등으로 키보드 인터럽트 걸었을 때를 캐치해준다. 유용한듯.
+  => 
+  => http://effbot.org/zone/stupid-exceptions-keyboardinterrupt.htm
+
+21. 파이썬 클래스
+ - object: 레퍼런스 정확히 안 찾아봤는데 모종의 파이썬 최상위 클래스인 듯.
+ - self: 메소드 내에서 인스턴스 속성을 가리킴
+ - 인스턴스 속성은 동일 클래스로부터 생성되었어도 서로 다른 인스턴스 간에는 상호 접근 불가능
+ - dir(인스턴스명): 인스턴스의 모든 속성을 받기
+ - 스크립트 스타일에 익숙해지자. 파이썬 클래스는 일종의 dict로 생각하자. 미리 속성(멤버 변수) 만들 필요 없다.
+ - 특별 메소드
+    __init__ : 인스턴스 생성 초기화 작업 위해 자동 호출.
+    __del__ : 인스턴스 소명 시 호출. gc가 자동정리 하므로 많이 사용되지는 않음
+ - __slots__
+    => 사용할 속성명을 미리 지정하는 기법
+    => 이외의 self 속성을 맘대로 정할 수 없다
+    => 클래스를 많이 만들어 메모리를 많이 차지하고 gc가 일어날 때 메모리 사용을 줄여 퍼포먼스를 높이는 튜닝 방법
+    => 클래스 안에서 정의하여 사용한다.
+    => 예
+        class Test(object):
+            __slots__ = ("attr1", "attr2")
+ - 예문
+    class Name(parent class): #부모 클래스 생략가능, 괄호까지 통째로 생략 가능. 생략 문법은 python 2 문법인듯. python 3부터는 생략하지 않는 것을 권고하는 듯.
+        attr1 = 10 #클래스 속성(멤버변수)
+        def __init__(self, hey): #특별 메소드: 생성자
+            Name.attr = hey
+        def func1(self, n): #메소드
+            self.attr2 = 20 #인스턴스 속성
+            return n+1
+    >>> Name.attr1
+    10
+    >>> a = Name()
+    >>> a.attr1
+    10
+    >>> a.func1(10)
+    11
+    >>> a.attr2
+    20
+ - https://wikidocs.net/28
+ - https://wikidocs.net/1076
+ - http://www.dongwun.com/tc/142
+ - 제너레이터(generator): https://docs.python.org/2/tutorial/classes.html#generators
+
+22. 파이썬 모듈
+ - 단일 클래스나 함수로 구성된 .py 파일을 모듈로 부르는 법
+  => test.py 내용(변수, 함수, 클래스) 전체 가져오기: import test
+  => test.py -> TestClass 가져오기: from test import TestClass
+  => 별명달기: from test import TestClass as abc
+ - 이렇게 하면 스크립트 루트에 .pyc, .pyo 파일이 생긴다. 컴파일된 바이트코드
+  => 딱히 이것을 미리 만들어 쓴다고 성능 업은 없는 것으로 알려짐
+  => 불필요하다
+ - 삭제 / 관리
+  => 버젼관리(git): .gitignore에 .pyc, .pyo 추가
+  => 커맨드: rm *.pyc *.pyo 삭제, find . -name "*.pyc" -exec rm -rf {} \;, find . | grep '.pyc$\|.pyo$' | xargs rm
+  => pyclean: 이런 이름의 모듈이 있는 것 같다
+  => sys.dont_write_bytecode = True: 파이썬 소스레벨 제어. 이후 임포트된 파일은 pyc가 생기지 않는다. 좋은 듯
+  => http://stackoverflow.com/questions/785519/how-do-i-remove-all-pyc-files-from-a-project
+  => http://stackoverflow.com/questions/154443/how-to-avoid-pyc-files
+  => http://blog.bluekyu.me/2012/10/pyc-pyo.html
+  => https://wikidocs.net/77
+
+23. 커맨드라인 인자 전달
+ - sys.argv
+ - 들어온 인자 수 조사: len(sys.argv), 기본적으로 sys.argv[0]이 스크립트 파일명이므로 기대하는 인자 수 조사는 기대값 + 1 이어야 한다.
+
+24. 파이썬 람다
+ - 입력 받아 결과를 리턴
+ - (lambda 인자1(, 인자2, ...): 표현식)(입력1(, 입력2, ...))
+ - ex: str = (lambda x: "result")("nothing")
+ - ex: doubleIt = (lambda x: x*2 )(30)
+ - ex: concat_result = (lambda x, y: x+y)("concat", "string")
+ - https://wiki.python.org/moin/Powerful%20Python%20One-Liners
+ - https://wikidocs.net/64
+ - http://jinson.tistory.com/208
+
+25. 간단한 한 줄짜리 if
+ - 버전 2.5 이상
+ - variable = value_when_true if condition else value_when_false
+ - ex: data = "yes" if x == 0 else "no"
+ - http://stackoverflow.com/questions/2802726/putting-a-simple-if-then-statement-on-one-line
+
+26. url encoding & decoding
+ - import urllib
+ - decoding: urllib.unquote(url), urllib.unquote_plus(url)
+  => unquote_plus() 는 unquote() 동작에 "+" 기호를 스페이스로 바꿔주는 것까지 한다
+  => 한번에 안 되면 여러번 해봐라. encoding을 중첩해서 저장하는 사례가 있다.
+ - encoding: urllib.urlencode({'param1': 1, 'param2': 2})
+  => 특이하게도 완성된 스트링을 encode해주는게 아니라 dict으로 받아서 encoding된 스트링을 조합해주는 식
+ - https://docs.python.org/2/library/urllib.html
+
+27. url 파싱
+ - import urlparse
+ - url을 분석하기: urlparse.urlparse(url)
+  => url을 프로토콜, 호스트네임, 포트, 파라미터 등으로 분석하여 튜플로 내어준다.
+  => urlparse.urlsplit(url)도 유사한 동작을 하는데 URL로부터 파라미터를 파싱하지 않는 차이가 있다. 언제 구분해서 쓸 지는 아직 잘 이해 안됐다.
+ - hostname 추출하기: hostname = urlsplit("http://www.naver.com/etc").hostname -> "www.naver.com"
+ - https://docs.python.org/2/library/urlparse.html
+ 
+28. 디버깅
+ - import pdb
+ - 자세한건 나중에 공부해보자
+ - https://docs.python.org/2/library/pdb.html

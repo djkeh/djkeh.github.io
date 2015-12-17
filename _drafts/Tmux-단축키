@@ -1,0 +1,60 @@
+---
+layout: post
+categories: articles
+title:  "Tmux 단축키"
+excerpt: "excerpt"
+tags: []
+date: 2015-12-02 20:50:10
+modified: 2015-12-02 20:50:10
+image: 
+  feature: filename
+  credit: image owner
+  creditlink: original link
+share: true
+sitemap: false
+---
+
+http://nodeqa.com/nodejs_ref/99
+(url 끝에 99번부터 104번까지)
+
+실행 - tmux
+실행 + session 이름 - tmux new -s 세션이름
+session 이름 변경 - ctrl + b + $
+콘솔 - ctrl + b + :
+- tmux.conf 다시 읽기 - (콘솔 모드에서) source-file ~/.tmux.conf
+그냥 종료 - ctrl + d (조심!)
+내용을 살리고 빠져나오기(detach) - ctrl + b + d
+세션 목록 - tmux ls
+세션 실행(attach) - tmux attach -t 세션이름
+세션 지우기 - tmux kill-session -t 세션이름
+
+window 생성 - ctrl + b + c
+window 이름 변경 - ctrl + b + ,
+window 삭제 - ctrl + d
+window 이동 - ctrl + b + 번호(0~9)
+window 전후이동 - ctrl + b + n, p
+마지막 window - ctrl + b + l
+window 리스트 - ctrl + b + w
+window 이름 검색 - ctrl + b + f
+    
+pane 나누기 가로 - ctrl + b + "
+pane 나누기 세로 - ctrl + b + %
+pane 이동 - ctrl + b + q, 번호(0~9)
+pane 차례 이동 - ctrl + b + o
+pane 인접 이동 - ctrl + b + 방향키
+pane 위치 바꾸기 - ctrl + b + (ctrl 유지한 채로)o
+pane 삭제 - ctrl + b + d
+pane 크기 조절 - ctrl + b + alt + 방향키
+tmux 자동 pane layout - ctrl + b + spacebar
+pane 줌, 줌 나오기 - ctrl + b + z
+
+copy mode 돌입 - ctrl + b + [
+copy modfe 붙여넣기 - ctrl + b + ]
+copy mode 종료 - q
+copy mode 에서 vim 이동키 적용 - ~/.tmux.conf 에 다음 추가 => setw -g mode-keys vi
+http://blog.nacyot.com/articles/2014-07-29-linux-terminal-and-copy-integration/
+http://nodeqa.com/nodejs_ref/104
+- vim키 적용 이후 간축키:
+-- 선택 - spacebar
+-- 상하좌우 - h, j, k, l
+-- 복사 - enter

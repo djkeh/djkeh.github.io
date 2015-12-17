@@ -123,6 +123,7 @@ http://blog.woniper.net/231
   => https://github.com/libevent/libevent : libevent 최신 깃 클론 하고 깔기 (클론 링크: https://github.com/libevent/libevent.git)
   => http://sourceforge.net/p/tmux/tmux-code/ci/master/tree/ : tmux 최신 깃 클론 하고 깔기 (https://github.com/tmux/tmux, 클론 링크: https://github.com/tmux/tmux.git)
   => cannot open shared object file -> http://www.nigeldunn.com/2011/12/11/libevent-2-0-so-5-cannot-open-shared-object-file-no-such-file-or-directory/ (ln -s /usr/local/lib/libevent-2.1.so.5 /usr/lib64/libevent-2.1.so.5)
+  => 버젼 확인으로 설치 확인: tmux -V
   => screen 보다 좋은 이유: vertical split ㅋㅋ
   => 최신 버젼의 이점: zoom mode (1.8 이상)
 
