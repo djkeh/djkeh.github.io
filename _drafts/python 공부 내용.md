@@ -310,6 +310,25 @@
   - response = conn.getresponse()
   - data = response.read()
   - conn.close()
+ 4) requests
+  - urllib2를 대체할 만한 모듈. 더 편하다
+  - http://docs.python-requests.org/en/latest/
+  - 예제:
+    >>> r = requests.get('https://api.github.com/user', auth=('user', 'pass'))
+    >>> r.status_code
+    200
+    >>> r.headers['content-type']
+    'application/json; charset=utf8'
+    >>> r.encoding
+    'utf-8'
+    >>> r.text
+    u'{"type":"User"...'
+    >>> r.json()
+    {u'private_gists': 419, u'total_private_repos': 77, ...}
+  - json 날릴 때 유의사항
+   => 꼭 넣어야 하는 헤더 파라미터: headers={'Content-Type': 'application/json', 'Content-Encoding': 'UTF-8'}
+   => json 포맷의 스트링을 넣을 때 파라미터: data
+   => 파이썬 오브젝트로 넣을 때 파라미터: json
   
 14. python object(객체) 안의 멤버 메소드들 살피기
  - methodList = [method for method in dir(object) if callable(getattr(object, method))]
@@ -501,3 +520,10 @@
  - import pdb
  - 자세한건 나중에 공부해보자
  - https://docs.python.org/2/library/pdb.html
+
+29. json 모듈
+ - 오브젝트 <-> json 포맷 스트링 변환
+ - import json
+ - json 스트링 변환: json.dumps(파이썬 사전 객체)
+ - 파이썬 오브젝트 변환: json.loads(json 포맷 스트링)
+ - https://docs.python.org/2/library/json.html

@@ -26,7 +26,7 @@ If you'd like to fully understand my pages and postings here, please learn Korea
 	<span id="nameEng" style="font-size:11px;color:#000">Uno Kim</span>
 	<br />
 	<span id="department" style="font-size:11px;color:#000">Search Engineering Team</span>
-	<span id="grade" style="font-size:11px;color:#000">/ Staff</span>
+	<span id="grade" style="font-size:11px;color:#000">/ Programmer</span>
 
 	<div id="contactInfo" style="color:#7d7d7d;margin-top:7px">
 		<span id="address" style="font-family:나눔고딕, NanumGothic, 돋움, dotum, 굴림, Gulim, AppleGothic, sans-serif;font-size:11px;line-height:14px">629 Play Museum, NHN Entertainment<br />
