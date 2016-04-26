@@ -93,13 +93,13 @@ var TabManager = {
 
 ###### ii) Include the javascript file into the end of `<body>` element.
 
-{% highlight html %}
+``` html
 <script type='text/javascript' src='resources/js/TabManager.js'></script>
 ```
 
 ##### iii) Use it! The javascript object name is "TabManager", and the member method name is "enableTab(textBox, keyEvent)".
 
-{% highlight html linenos %}
+``` html linenos
 // jQuery approach
 $('textarea').on('keydown', function(keyEvent) {
     TabManager.enableTab(this, keyEvent);
@@ -134,7 +134,7 @@ If you're enthusiastic programmer and ready to learn something new in detail, he
 
 This would sound a little bit weird from the beginning but, The first and important idea is to cancel out the keyboard input. In this case we're gonna block just the tab key so the focus can't move towards the next element. You can achieve this by using `preventDefault()` javascript method. You need keyEvent object to use this method, so the javascript code goes like this:
 
-{% highlight javascript %}
+``` javascript
 keyEvent.preventDefault();
 ```
 
@@ -366,7 +366,7 @@ We ain't done yet. We're gonna use powerful javascript object feature and contai
 
 First, Prepare a javascript file named `TabManager.js`. We're making **TabManager object**. the "TabManager.js" file has only one thing. It is TabManager object. The file starts like this:
 
-{% highlight javascript %}
+``` javascript
 var TabManager = {};
 ```
 
