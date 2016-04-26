@@ -5,7 +5,7 @@ title: "Typing tab key inside textarea using javascript"
 excerpt: "and the consideration of composing a better javascript code"
 tags: [javascript, tab,  key, input, textarea]
 date: 2015-03-09 01:25:23
-modified: 2015-03-09 01:25:23
+modified: 2016-04-26 21:56:00
 image:
   feature:
   credit:
@@ -24,7 +24,7 @@ For those who are lazy programmers and who just need to hurry, here's my complet
 
 ###### i) Save the entire code below to 'tapManager.js' and place it to your decent project subfolder.
 
-{% highlight javascript linenos %}
+``` javascript
 var TabManager = {
     tabKey: 9, // This number means tab key ascii input.
     enableTab: function(textBox, keyEvent) {
@@ -89,13 +89,13 @@ var TabManager = {
         }
     }
 };
-{% endhighlight %}
+```
 
 ###### ii) Include the javascript file into the end of `<body>` element.
 
 {% highlight html %}
 <script type='text/javascript' src='resources/js/TabManager.js'></script>
-{% endhighlight %}
+```
 
 ##### iii) Use it! The javascript object name is "TabManager", and the member method name is "enableTab(textBox, keyEvent)".
 
@@ -124,7 +124,7 @@ function myFunction(keyEvent) {
     TabManager.enableTab(textBox, keyEvent);
 }
 </script>
-{% endhighlight %}
+```
 
 ___
 
@@ -136,24 +136,24 @@ This would sound a little bit weird from the beginning but, The first and import
 
 {% highlight javascript %}
 keyEvent.preventDefault();
-{% endhighlight %}
+```
 
 But this won't work on every browswer. You have to check whether you can actually use this key event method, so let's use `if` clause to check this availability.
 
-{% highlight javascript linenos %}
+``` javascript
 if(keyEvent.preventDefault) {
     keyEvent.preventDefault();
 }
 else {
     keyEvent.returnValue = false;
 }
-{% endhighlight %}
+```
 
 In some old browsers they use member variable called `returnValue`. Therefore the above code will enhance the browser compatibility.
 
 Let's package this code into one javascript function.
 
-{% highlight javascript linenos %}
+``` javascript
 function blockKeyEvent(keyEvent) {
     if(keyEvent.preventDefault) {
         keyEvent.preventDefault();
@@ -162,7 +162,7 @@ function blockKeyEvent(keyEvent) {
         keyEvent.returnValue = false;
     }
 }
-{% endhighlight %}
+```
 
 End of step 1.
 
@@ -185,18 +185,18 @@ End of step 2.
 
 It's time for doing "divide and conquer" strategy. We're getting the current keyboard input cursor position inside `<textarea>` element. Below is the code for relatively new browsers to do the job. We have to keep the `<textarea>` element as a javascript object. In this code its name is "textBox".
 
-{% highlight javascript linenos %}
+``` javascript
 var caretPosition = 0;
 
 // Firefox, Chrome, IE9~ Support
 if(textBox.selectionStart || textBox.selectionStart == '0') {
     caretPosition = textBox.selectionStart;
 }
-{% endhighlight %}
+```
 
 For older browsers like IE8 or IE9, you can use this code.
 
-{% highlight javascript linenos %}
+``` javascript
 // ~IE9 Support
 if(document.selection) {
     textBox.focus();
@@ -204,11 +204,11 @@ if(document.selection) {
     sel.moveStart('character', -textBox.value.length);
     caretPosition = sel.text.length;
 }
-{% endhighlight %}
+```
 
 By returning `caretPosition`, we'll get the current keyboard cursor position. Let's wrap it into a clean method.
 
-{% highlight javascript linenos %}
+``` javascript
 function getCaretPosition(textBox) {
     var caretPosition = 0;
 
@@ -226,7 +226,7 @@ function getCaretPosition(textBox) {
 
     return caretPosition;
 }
-{% endhighlight %}
+```
 
 End of step 3.
 
@@ -241,12 +241,12 @@ Result = front string + 'tab' + back string
 So we have to first split the string, put a tab key in the middle of it and then concatenate things together in order.
 Here's the implementation.
 
-{% highlight javascript linenos %}
+``` javascript
 var preText = textBox.value.substring(0, caretPosition);
 var postText = textBox.value.substring(caretPosition, textBox.value.length);
 
 textBox.value = preText + "\t" + postText;
-{% endhighlight %}
+```
 
 End of step 4.
 
@@ -256,17 +256,17 @@ I guess you'll think "Now, what the hell is this?" at a glance, but you will nee
 
 This is the code for it in the latest browsers.
 
-{% highlight javascript linenos %}
+``` javascript
 // Firefox, Chrome, IE9~ Support
 if(textBox.setSelectionRange) {
     textBox.focus();
     textBox.setSelectionRange(caretPosition, caretPosition);
 }
-{% endhighlight %}
+```
 
 This is for shitty browsers.
 
-{% highlight javascript linenos %}
+``` javascript
 // ~IE9 Support
 else if (textBox.createTextRange) {
     var range = textBox.createTextRange();
@@ -275,11 +275,11 @@ else if (textBox.createTextRange) {
     range.moveStart('character', caretPosition);
     range.select();
 }
-{% endhighlight %}
+```
 
 Time to wrap them up.
 
-{% highlight javascript linenos %}
+``` javascript
 function getCaretPosition(textBox, caretPosition) {
     // Firefox, Chrome, IE9~ Support
     if(textBox.setSelectionRange) {
@@ -295,13 +295,13 @@ function getCaretPosition(textBox, caretPosition) {
         range.select();
     }
 }
-{% endhighlight %}
+```
 
 ##### 6. Abstraction
 
 Seems like we've fulfilled the minimum requirements to do "tab key insertion". I'm afraid you might feel stressed and confused as those were just too much. We want abstraction to make more readable, available, useful and simple code. The every former steps were the preperation for this step. Let's pack it together and make a beautiful and easy function! ...or am I the only one feeling like that? Well.. Please look at this code.
 
-{% highlight javascript linenos %}
+``` javascript
 function insertTab(textBox) {
     var caretPosition = getCaretPosition(textBox);
     var preText = textBox.value.substring(0, caretPosition);
@@ -311,7 +311,7 @@ function insertTab(textBox) {
 
     setCaretPosition(textBox, caretPosition + 1);
 }
-{% endhighlight %}
+```
 
 In this code we put every step into one function. Thanks to this abstraction, you can put a tab key in a desirable place by simply calling `insertTab()` any time you want. This function will faithfully perform following jobs in order:
 
@@ -326,7 +326,7 @@ Make sure you put every implemented functions from the start to this in a same p
 
 We made `insertTab()`. This will imediately insert a tab key into the text. But when you'd like to do it? We need to define it. Fortunately we already know the answer, which was standing at the very beginning of this article. This code will call `insertTab()` when "we push a tab key inside `<textarea>`". That logic would flow like this:
 
-{% highlight javascript linenos %}
+``` javascript
 function enableTab(textBox, keyEvent) {
     if(keyEvent.keyCode == 9) {
         // Put tab key into the current cursor(caret) position.
@@ -336,7 +336,7 @@ function enableTab(textBox, keyEvent) {
         blockKeyEvent(keyEvent);   
     }
 }
-{% endhighlight %}
+```
 
 The `enableTab()` knows two things: `<textarea>` element, and **actual keyboard event** which happened at the right moment in this element. This function has them as two parameters "textBox" and "keyEvent".
 
@@ -350,11 +350,11 @@ Almost done.
 
 Okay, Let's call the function on the keyboard event handler! This code is the presentation of using keyboard event handler in the `<textarea>` called `onkeydown` event handler, using jQuery.
 
-{% highlight javascript linenos %}
+``` javascript
 $('textarea').on('keydown', function(event) {
     enableTab(this, event);
 } );
-{% endhighlight %}
+```
 
 jQuery `.on()` is one of the easiest way to use event handler. The other ways like pure javascript or inline html attribute are shown on the early part of this page.
 
@@ -368,33 +368,33 @@ First, Prepare a javascript file named `TabManager.js`. We're making **TabManage
 
 {% highlight javascript %}
 var TabManager = {};
-{% endhighlight %}
+```
 
 Then we're going to put repeating, meaningful and useful member variables. What could it be? Sure it's tab key ascii code. People can't really recognize just a digit number 9 actually means a tab key.
 
-{% highlight javascript linenos %}
+``` javascript
 var TabManager = {
     tabKey: 9
 };
-{% endhighlight %}
+```
 
 The way to define a javascript object member variable is to write the name, colon and the value. If there are many members, the delimiter is comma.  
 What else? Well, maybe we can abstract if condition. `keyEvent.keyCode == 9` doesn't really look intuitive, does it? How about this:
 
-{% highlight javascript linenos %}
+``` javascript
 var TabManager = {
     tabKey: 9,
     isTabKeyInput: function(keyEvent) {
         return keyEvent.keyCode == this.tabKey; 
     }
 };
-{% endhighlight %}
+```
 
 The way to define a javascript object member method is to write the name, colon and `function()`. Put parameters in the parenthesis if you need. Then it's followed by braces to implement its function. `this` means the object itself, so `this.tabkey` means the tabkey is the member of this object, and therefore writing `this.` is necessary.
 
 So, how would these members take an effect? Behold the change below:
 
-{% highlight javascript linenos %}
+``` javascript
 var TabManager = {
     tabKey: 9,
     enableTab : function(textBox, keyEvent) {
@@ -407,14 +407,14 @@ var TabManager = {
         return keyEvent.keyCode == this.tabKey; 
     }
 };
-{% endhighlight %}
+```
 
 How do you feel? The `enableTab()` member function looks more beautiful and readable.  
 Here I present you the complete `TabManager` object code.
 
 **FINAL CODE!!!**
 
-{% highlight javascript linenos %}
+``` javascript
 var TabManager = {
     tabKey: 9,
     enableTab : function(textBox, keyEvent) {
@@ -476,15 +476,15 @@ var TabManager = {
         }
     }
 };
-{% endhighlight %}
+```
 
 That's more like it. The way it works is that you just go like `TabManager.enableTab()`. This is how it looks like in the event handler code, represented by jQuery.
 
-{% highlight javascript linenos %}
+``` javascript
 $('textarea').on('keydown', function(event) {
     TabManager.enableTab(this, event);
 } );
-{% endhighlight %}
+```
 
 #### Conclusion
 
