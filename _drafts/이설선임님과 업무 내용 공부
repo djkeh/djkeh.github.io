@@ -73,7 +73,7 @@ sitemap: true
   => http://blog.naver.com/marundubu/120166942800
  - 계정 삭제: drop user 'user'@'localhost'
  - mysql 테이블 복제(dump, migration)
-  i) 복사(백업): mysqldump -u'root' -p -h'localhost' -S /socket 경로/mysql.sock (--default-character-set=utf8) DB명 테이블명( 테이블명) > 파일.sql
+  i) 복사(백업): mysqldump -u'root' -p -h'localhost' -S /socket_경로/mysql.sock (--default-character-set=utf8) DB명 테이블명( 테이블명) > 파일.sql
   => mysqldump: mysql bin folder안에 있는 실행파일
   => user id. '-u'와 user id를 붙여 써야 한다. (예: -umyid)
   => -p : 비밀번호를 지정. (예: -p1234)
@@ -94,6 +94,9 @@ sitemap: true
   => 다양한 파라미터: into outfile 'file' fields terminated by ',' enclosed by '"' lines terminated by '\n'
   => 주의: 유저에게 write 권한이 있어야 한다. grant를 잘 체크할 것
   => http://www.tech-recipes.com/rx/1475/save-mysql-query-results-into-a-text-or-csv-file/
+ - DB 안에서 쿼리로 database 사이즈 보기
+  => SELECT table_schema "Data Base Name", sum( data_length + index_length ) / 1024 / 1024 "Data Base Size in MB" FROM information_schema.TABLES GROUP BY table_schema;
+  => http://forums.mysql.com/read.php?108,201578,201578
  - 특정 사용자 계정 권한 보기: show grants for username;
  - 현재 기본 설정 보기: status; -> 언어 설정도 일부 보여준다
  - 현재 언어 설정 보기: show variables like "char%", show variables like "collation%" -> 한 줄에 되는 방법은 "c%"
@@ -150,7 +153,7 @@ sitemap: true
     default-character-set=utf8mb4
 
     [mysqld]
-    datadir=/naver/appGuard/googlePlayParser/mysql_data/data
+    datadir=/naver/appGuard/goo/glePlayParser/mysql_data/data
     socket=/naver/appGuard/googlePlayParser/mysql_data/var/socket/mysql.sock
     user=irteam
     # Disabling symbolic-links is recommended to prevent assorted security risks
@@ -227,6 +230,9 @@ sitemap: true
   => https://dev.mysql.com/doc/refman/5.7/en/purge-binary-logs.html
   => http://blog.daum.net/moon0sool/83
   => http://blog.naver.com/tainow/120211674213
+ - 커맨드 라인에 쿼리 입력 중 취소하고 싶을 때: 그냥 언제든 맨 끝에 "\c" 를 타이핑하고 엔터
+ - 한 테이블의 내용을 다른 테이블에 insert
+  => insert into table1 (col) select col from table2;
 
 2. 리눅스 테크닉
  1) for + seq
@@ -676,4 +682,8 @@ sitemap: true
     mapred.input.dir.formats(->mapreduce.input.multipleinputs.dir.formats): 잡 입력 포맷이 MultipleInput일 경우 읽고자 하는 경로와 읽는 포맷 방식을 설정한다. 경로와 포맷 페어는 구분자 세미콜론, 페어간 구분자는 콤마
     mapred.input.dir.mappers(->mapreduce.input.multipleinputs.dir.mappers): 매퍼 입력 포맷이 MultipleInput일 경우 읽고자 하는 경로와 읽는 포맷 방식을 설정한다. 경로와 포맷 페어는 구분자 세미콜론, 페어간 구분자는 콤마
 
-
+5. libcurl
+ - `curl` 을 c 프로그래밍으로 사용할 수 있다.
+ - 튜토리얼: http://www.joinc.co.kr/w/Site/Web/documents/UsedCurl
+ - libcurl 에러코드표: http://linux.die.net/man/3/libcurl-errors
+ 

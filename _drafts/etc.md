@@ -22,6 +22,15 @@ http://blog.woniper.net/231
   => http://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html#boot-features-external-config-profile-specific-properties
   => http://blog.woniper.net/231
 
+ - 이클립스 : 깃헙 마크다운 에디터, 칼라링
+  => 컨플루언스와 같은 위키 마크다운 문서는 General > Editors > Text Editors > WikiText 에서 색상 편집 가능한 것으로 보이나 깃헙 마크다운 문법에는 적용 안 됨
+   - http://stackoverflow.com/questions/28504137/how-can-i-edit-the-markdown-font-colors-in-eclipse-luna
+  => 마켓플레이스에서 다음의 플러그인 다운로드
+  => Markdown Text Editor 1.2.0 : *.md 파일 전용 편집기 플러그인 (재시작 후 *.md 파일이 자동으로 이 편집기로 열림)
+   - General > Editors > Text Editors > Markdown 에서 색상 편집 가능
+  => Github Flavored Markdown viewer plugin 1.8.3: 깃헙 마크다운 파일의 렌더링 결과를 미리 볼 수 있는 플러그인
+   - 파일 우클릭 > show in GFM view 클릭
+
  - github 안에 있는 플젝이 분명 이클립스 플젝인데 이클립스 import > general > existing projects.. 안돼요
   => .projects 만들어줘야 하는데 이걸 만들어주는 플러그인이 별도로 있거나 방법이 있다. 이 쪽으로 검색
   => Spring STS에서 만든 maven 빌드의 플젝인가여? 그럼 메뉴가 틀림. import > maven > existing maven projects
@@ -245,6 +254,16 @@ http://blog.woniper.net/231
   => 정규식 표현, 더 직관적이고 보기 좋은 코드: split
   => http://stackoverflow.com/questions/691184/scanner-vs-stringtokenizer-vs-string-split
 
+ - 자바 테크닉: loop 방법 비교, for-each vs. iterator
+  => 둘은 기본적으로 같다
+  => for-each가 iterator를 밑에서 사용하고 있는 구조인 그저 새로운 문법
+  => 가독성을 위해 for-each를 선택하자
+  => http://stackoverflow.com/questions/2113216/which-is-more-efficient-a-for-each-loop-or-an-iterator
+ 
+ - 자바 테크닉: java 8, Iterable 객체의 .forEach(람다) loop 에서 continue, break 사용
+  => 불가능하다. 그게 함수형 람다식에서 목적과 다르기 때문. 자세한 것은 이해하지 못했다
+  => http://stackoverflow.com/questions/23308193/how-to-break-or-return-from-java8-lambda-foreach
+
  - 자바 파일 입출력
   => 사용 클래스의 진화(입력의 예): File -> FileReader -> FileInputStream -> DataInputStream -> BufferedInputStream -> BufferedReader
   => http://blog.naver.com/highkrs/220513596942
@@ -281,3 +300,35 @@ http://blog.woniper.net/231
  - linux: jar 파일 읽기
   => jar tf filename.jar
   => http://stackoverflow.com/questions/320510/viewing-contents-of-a-jar-file
+
+ - jenkins
+  - 홈페이지: http://jenkins-ci.org/
+  - 설치: https://wiki.jenkins-ci.org/display/JENKINS/Installing+Jenkins
+   - 자바가 필요
+   - sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+   - sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+   - sudo yum install jenkins
+   - sudo service jenkins [start|stop|restart]
+   - sudo chkconfig jenkins on
+  - jenkins 관리 -> configure global security에서 실수로 anonymous에게 권한 안 주고 저장했다가 홈피 접근 안 될때
+   - vi $JENKINS_HOME(/var/lib/jenkins by default)/config.xml
+   - <useSecurity>true</useSecurity> -> false
+   - sudo service jenkins restart
+   => https://issues.jenkins-ci.org/browse/JENKINS-19010
+
+ - C언어, C++ 테크닉
+  i) 문자 배열 변수의 초기화
+   - char ch[10] = "";, char ch[10] = {0, }; 는 배열 전체를 0으로 초기화하는 꽤 괜찮은 방법이다.
+   - "C++표준에 의하면, 집합 타입의 초기값이 집합의 명시된 크기보다 작다면, 명시적으로 초기화되지 않은 멤버는 기본값으로 초기화되어야 한다" - (ISO14882 - 8.5.2 Aggregates)
+   - VC2005에서 어셈블리 리스팅에서 배열 선언과 동시에 memset()을 호출하는 구문을 자동으로 넣어주는 것으로 확인
+   - http://www.gpgstudy.com/forum/viewtopic.php?p=96640
+   - http://www.gamedevforever.com/188
+
+ - notepad++
+  i) 특수기호 중 띄어쓰기 기호(점)를 더 크게 보이게 하기
+   - Python scripting add on for Notepad++ from SourceForge 다운로드(http://sourceforge.net/projects/npppythonscript/files/Python%20Script%201.0.8.0/PythonScript_1.0.8.0.msi/download)
+   - {Notepad++ main install directory}\plugins\PythonScript\scripts\startup.py 열기
+   - editor.setWhitespaceSize(3) 추가
+   - notepad++ Plugins -> Python Script -> Configuration -> Initialisation 을 ATSTARTUP 으로 설정
+   - 재시작
+   - http://superuser.com/questions/843286/improve-display-of-whitespace-on-notepad
