@@ -19,7 +19,7 @@ gems:
 
 # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
 kramdown:
-#  input: GFM
+  input: GFM
   syntax_highlighter: rouge
 #  syntax_highlighter_opts:
 #    # Rouge Options › https://github.com/jneen/rouge#full-options
