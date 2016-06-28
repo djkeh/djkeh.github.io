@@ -116,6 +116,7 @@ http://blog.woniper.net/231
    # Optional.
    git config --global user.name "Your Name Here"
    git config --global user.email "your_email@example.com"
+   git config --global alias.lg "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold red)%h%C(reset) : %C(bold green)(%ar)%C(reset) - %C(cyan)<%an>%C(reset)%C(bold yellow)%d%C(reset)%n%n%w(90,1,2)%C(white)%B%C(reset)%n'"
    git config --list
 
  - git flow 설치

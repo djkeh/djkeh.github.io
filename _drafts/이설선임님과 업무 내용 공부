@@ -687,3 +687,22 @@ sitemap: true
  - 튜토리얼: http://www.joinc.co.kr/w/Site/Web/documents/UsedCurl
  - libcurl 에러코드표: http://linux.die.net/man/3/libcurl-errors
  
+6. R
+ - 무료 통계 그래프 그려주는 프로그램
+ - 단순, 강력
+ - https://www.r-project.org/
+ - for문: http://www.r-bloggers.com/how-to-write-the-first-for-loop-in-r/
+ - if문: https://stat.ethz.ch/pipermail/r-help/2005-September/079001.html
+ - 그래프에 찍는 점의 사이즈 조절: http://stackoverflow.com/questions/2579995/control-the-size-of-points-in-an-r-scatterplot
+ - as.hexmode(num), 숫자를 16진수로: https://stat.ethz.ch/R-manual/R-devel/library/base/html/hexmode.html
+ - 자료형 - 데이터 프레임, 벡터
+  - http://www.tutorialspoint.com/r/r_data_types.htm
+  - http://www.r-tutor.com/r-introduction/data-frame/data-frame-column-vector
+ - val <- c(), 벡터에 값 집어넣기: http://stackoverflow.com/questions/22235809/append-value-to-empty-vector-in-r
+ - read.table("filename"), 외부 파일을 데이터 프레임으로 가져오기: http://www.r-tutor.com/r-introduction/data-frame/data-import
+ - head, tail: http://rfunction.com/archives/699
+ - factor(data), 사분범위 표시: http://127.0.0.1:23814/library/base/html/factor.html
+ - 한글 튜토리얼
+  - http://rstudio-pubs-static.s3.amazonaws.com/24275_7554c7b09c5c4a7fb85801316a6955cc.html
+  - http://allaboutmoon.tistory.com/entry/R%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B7%B8%EB%9E%98%ED%94%84-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0
+  - http://blog.naver.com/kist125/90157253230

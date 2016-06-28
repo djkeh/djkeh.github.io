@@ -527,3 +527,25 @@
  - json 스트링 변환: json.dumps(파이썬 사전 객체)
  - 파이썬 오브젝트 변환: json.loads(json 포맷 스트링)
  - https://docs.python.org/2/library/json.html
+
+30. colout
+ - https://nojhan.github.io/colout/
+ - https://github.com/nojhan/colout
+ - 리눅스를 쓴다면 진짜 끝내주는 파이썬 스크립트
+ - 파이프라인을 통해 출력물에 칼라링을 해준다. 심지어 칼라링 이후 파이프를 계속 해도 칼라가 살아있음
+ - python3, pygments가 필요
+ - 사용법: colout (option) REGEX COLOR STYLE
+  - REGEX: 정규표현식으로 컬러링 대상을 잡는다. grep과 유사한 상황
+  - COLOR: 색을 색상 숫자 혹은 예약어로 지정한다. (ex: red)
+  - STYLE: colout이 지원하는 폰트 스타일을 적용한다.
+ - 사용예
+  - tail -f ./log | colout ".*" green underline -> 로그 출력 전체에 녹색, 밑줄 추가
+  - tail -r all -> colout 에서 사용할 수 있는 STYLE, 테마 등등 예약어 확인
+  - cat ./source.cpp | colout -s cpp | more -> 소스파일을 pygments가 이해하는 cpp 스타일로 칼라링하고 more 적용
+   - make install | colout -t cmake | colout -t g++ -> make 실행 출력물에 cmake 테마, g++ 테마를 적용
+
+31. gprof
+ - 프로그램에 대한 함수들의 사용빈도, 사용시간등을 측정할 수 있는 툴
+ - 맞춤법검사기의 추천어에 따른 속도 이슈를 파악하는 데 사용됨
+ - https://kldp.org/node/32606?destination=node%2F32606
+
