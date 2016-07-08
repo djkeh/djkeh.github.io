@@ -333,3 +333,8 @@ http://blog.woniper.net/231
    - notepad++ Plugins -> Python Script -> Configuration -> Initialisation 을 ATSTARTUP 으로 설정
    - 재시작
    - http://superuser.com/questions/843286/improve-display-of-whitespace-on-notepad
+
+ - tree
+  - 리눅스 파일 구조를 예쁘게 트리로 출력해주는 프로그램
+  - 파일을 다 볼 수도, 디렉토리만 볼 수도 있음
+  - http://mama.indstate.edu/users/ice/tree/
