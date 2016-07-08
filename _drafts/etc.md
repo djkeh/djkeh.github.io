@@ -338,3 +338,7 @@ http://blog.woniper.net/231
   - 리눅스 파일 구조를 예쁘게 트리로 출력해주는 프로그램
   - 파일을 다 볼 수도, 디렉토리만 볼 수도 있음
   - http://mama.indstate.edu/users/ice/tree/
+
+ - 앵귤러js 공부
+  - Angular.js는 왜 좋은가? (영문): http://angular-tips.com/blog/2013/08/why-does-angular-dot-js-rock/
+  - Angular.js는 왜 좋은가? (한글): https://blog.outsider.ne.kr/975

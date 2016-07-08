@@ -706,3 +706,5 @@ sitemap: true
   - http://rstudio-pubs-static.s3.amazonaws.com/24275_7554c7b09c5c4a7fb85801316a6955cc.html
   - http://allaboutmoon.tistory.com/entry/R%EC%9D%84-%ED%99%9C%EC%9A%A9%ED%95%9C-%EA%B7%B8%EB%9E%98%ED%94%84-%EC%9E%91%EC%84%B1%ED%95%98%EA%B8%B0
   - http://blog.naver.com/kist125/90157253230
+ - 기타
+  - scatter plot에서 점 크기 조절: http://stackoverflow.com/questions/2579995/control-the-size-of-points-in-an-r-scatterplot
