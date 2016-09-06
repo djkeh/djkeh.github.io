@@ -549,3 +549,7 @@
  - 맞춤법검사기의 추천어에 따른 속도 이슈를 파악하는 데 사용됨
  - https://kldp.org/node/32606?destination=node%2F32606
 
+32. python3 설치 중 `make` 단계에서 에러나면
+ - 메시지: Fatal Python error: Py_Initialize: can't initialize sys standard streams, LookupError: unknown encoding: EUC-KR
+ - 해결: LC_ALL=C make, LC_ALL=C make install
+ - http://blog.naver.com/PostView.nhn?blogId=jinkalee_new&logNo=70128795973
