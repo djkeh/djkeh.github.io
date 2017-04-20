@@ -540,7 +540,7 @@
   - STYLE: colout이 지원하는 폰트 스타일을 적용한다.
  - 사용예
   - tail -f ./log | colout ".*" green underline -> 로그 출력 전체에 녹색, 밑줄 추가
-  - tail -r all -> colout 에서 사용할 수 있는 STYLE, 테마 등등 예약어 확인
+  - colout -r all -> colout 에서 사용할 수 있는 STYLE, 테마 등등 예약어 확인
   - cat ./source.cpp | colout -s cpp | more -> 소스파일을 pygments가 이해하는 cpp 스타일로 칼라링하고 more 적용
    - make install | colout -t cmake | colout -t g++ -> make 실행 출력물에 cmake 테마, g++ 테마를 적용
 
