@@ -343,3 +343,28 @@ http://blog.woniper.net/231
  - 앵귤러js 공부
   - Angular.js는 왜 좋은가? (영문): http://angular-tips.com/blog/2013/08/why-does-angular-dot-js-rock/
   - Angular.js는 왜 좋은가? (한글): https://blog.outsider.ne.kr/975
+ 
+ - git 테크닉
+  - 커밋 메시지 고치기
+   - https://help.github.com/articles/changing-a-commit-message/
+   - 아직 푸시하지 않은 최근 1 커밋의 변경: git commit --amend
+   - 아직 푸시하지 않은 최근 n 커밋의 변경
+    - n 커밋의 시작점에 새로운 브랜치 생성: git branch new-branch "시작 커밋 SHA"
+    - git commit --amend
+    - git cherry-pick "다음 커밋 SHA"
+    - git commit --amend
+    - 반복
+    - 작업이 끝나면 고치기 전 브랜치 삭제
+  - dangling blobs, commits
+   - 브랜치를 만들고 삭제하고 HEAD를 이동하면서 링크를 잃어버린 commit들이 존재
+   - 잃어버린 커밋을 복원할 때 중요한 단서가 됨
+   - 방치하면 용량, 속도 문제가 발생하므로 나중에 정리할 필요
+   - 최근 했던 모든 commit 행동 확인
+    - git reflog
+   - 댕글링 커밋의 확인
+    - git fsck --full
+    - git fsck --lost-found
+   - 댕글링 커밋의 삭제
+    - git reflog expire --expire=now --all
+    - git gc --prune=now
+    - https://tekkie.ro/news/howto-remove-all-dangling-commits-from-your-git-repository/
