@@ -351,13 +351,14 @@ http://blog.woniper.net/231
    - 아직 푸시하지 않은 최근 n 커밋의 변경
     - n 커밋의 시작점에 새로운 브랜치 생성: git branch new-branch "시작 커밋 SHA"
     - git commit --amend
-    - git cherry-pick "다음 커밋 SHA"
+    - git cherry-pick "다음 커밋 SHA" // 체리픽은 == 싱글 커밋 rebase
     - git commit --amend
     - 반복
     - 작업이 끝나면 고치기 전 브랜치 삭제
   - dangling blobs, commits
-   - 브랜치를 만들고 삭제하고 HEAD를 이동하면서 링크를 잃어버린 commit들이 존재
+   - 브랜치를 만들고 삭제하고 HEAD를 이동하면서(ex: git reset HEAD~2) 링크를 잃어버린 commit들이 존재
    - 잃어버린 커밋을 복원할 때 중요한 단서가 됨
+    - https://git-scm.com/book/ko/v2/Git%EC%9D%98-%EB%82%B4%EB%B6%80-%EC%9A%B4%EC%98%81-%EB%B0%8F-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B3%B5%EA%B5%AC
    - 방치하면 용량, 속도 문제가 발생하므로 나중에 정리할 필요
    - 최근 했던 모든 commit 행동 확인
     - git reflog
@@ -368,3 +369,10 @@ http://blog.woniper.net/231
     - git reflog expire --expire=now --all
     - git gc --prune=now
     - https://tekkie.ro/news/howto-remove-all-dangling-commits-from-your-git-repository/
+  - 커밋 전략: https://sethrobertson.github.io/GitBestPractices/
+
+ - Log4j2
+  - 그냥 쓰면 안되고 log4j2.xml, .json 형태로 설정 파일이 있어야 동작
+  - 설정 파일 작성 참고: https://logging.apache.org/log4j/2.x/manual/configuration.html
+  - 로그 포맷 참고: https://logging.apache.org/log4j/2.x/manual/layouts.html
+  - 기본 위치: src/main/resources
