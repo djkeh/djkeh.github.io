@@ -11,7 +11,7 @@ image:
   credit: image owner
   creditlink: original link
 share: true
-sitemap: true
+sitemap: false
 ---
 
 1. mysql
