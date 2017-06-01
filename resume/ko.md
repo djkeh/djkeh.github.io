@@ -29,6 +29,20 @@ search_omit: true
 
 #### TOAST Meetup *(2017년 3월 ~ 현재)*
 
+* 주사용기술: Java(Spring Boot), 웹프로그래밍(HTML/CSS/Javascript), MySQL, Git(GitHub)
+
+TOAST Meetup은 NHN 엔터테인먼트에서 운영하는 기술 블로그입니다. 외부 개발자 트래픽 유입 및 TOAST Cloud 상품 이용을 유도하려는 목적을 가지고 있습니다.
+
+[http://meetup.toast.com](http://meetup.toast.com)
+
+우선순위가 밀려 그간 잘 운영되지 못했던 서비스의 운영 및 리뉴얼을 기획, 개발하는 업무를 맡았습니다.  
+본 프로젝트는 다음의 단계로 진행 중입니다.
+
+1. 새로운 기술 문서를 발굴하여 컨텐츠 확보
+2. 발굴한 기술 문서들을 검수하여 일정 수준 이상의 컨텐츠 품질 확보
+3. TOAST Meetup V2 프로젝트 기획: 현재 블로그의 문제점과 사용성을 개선한 웹서비스 설계
+4. TOAST Meetup V2 개발
+
 #### 운수도원, 친구 추천 이벤트 *(2017년 1월 ~ 2017년 3월)*
 
 * 주사용기술: Java(Spring), 웹프로그래밍(HTML/CSS/Javascript), Shell Script, Python, MySQL, Git(GitHub)
