@@ -16,20 +16,20 @@ search_omit: true
 
 # 학력
 
-### 숭실대, 졸업 *(2005년 3월 ~ 2014년 2월)*
+## 숭실대, 졸업 *(2005년 3월 ~ 2014년 2월)*
 
 * 정보통신전자공학부
 
 
 # 주업무 경험
 
-### NHN 엔터테인먼트 *(2015년 1월 ~재직중)*
+## NHN 엔터테인먼트 *(2015년 1월 ~재직중)*
 
-##### 서버 프로그래머
+### 서버 프로그래머
 
-###### TOAST Meetup *(2017년 3월 ~ 현재)*
+#### TOAST Meetup *(2017년 3월 ~ 현재)*
 
-###### 운수도원, 친구 추천 이벤트 *(2017년 1월 ~ 2017년 3월)*
+#### 운수도원, 친구 추천 이벤트 *(2017년 1월 ~ 2017년 3월)*
 
 * 주사용기술: Java(Spring), 웹프로그래밍(HTML/CSS/Javascript), Shell Script, Python, MySQL, Git(GitHub)
 
@@ -51,7 +51,7 @@ search_omit: true
 * 추첨 및 당첨자 리스트 출력 로직 개발 (4일)
 * DB로부터 당첨자를 뽑아 배송을 위한 개인정보를 매칭하여 출력하는 스크립트 개발
 
-###### TOAST Cloud Health Dashboard *(2016년 11월 ~ 2016년 12월)*
+#### TOAST Cloud Health Dashboard *(2016년 11월 ~ 2016년 12월)*
 
 * 주사용기술: Java(Spring), 웹프로그래밍(HTML/CSS/Javascript), MySQL, Git(GitHub)
 
@@ -59,7 +59,7 @@ TOAST Cloud([http://cloud.toast.com](http://cloud.toast.com)) 클라우드 서�
 
 [http://cloud.toast.com/dashboard](http://cloud.toast.com/dashboard)
 
-###### 맞춤법 검사기 API *(2016년 1월 ~ 2016년 7월)*
+#### 맞춤법 검사기 API *(2016년 1월 ~ 2016년 7월)*
 
 * 주사용기술: C/C++(아파치 모듈 프로그래밍), Java(Spring), 웹프로그래밍(HTML/CSS/Javascript), Git(GitHub)
 
@@ -68,9 +68,9 @@ TOAST Cloud 부속 상품인 맞춤법 검사기 API 개발 프로젝트입니�
 기존 네이버 맞춤법 검사기의 소스코드를 분석한 뒤 프로젝트 요구사항에 맞춰 RESTful한 아파치 모듈 API로 개발하였습니다. 이 외에 토스트 클라우드의 콘솔 화면에 보이는 제품 사용 화면, 제품 소개 및 샘플 화면을 개발하였고, 업무를 위한 내부 위키 문서와 사용자를 위한 설명 문서를 작성하였습니다. 개발 이후는 지속적인 서비스 운영 업무를 맡았습니다.
 
 * 제품 설명: [https://cloud.toast.com/service/spellchecker](https://cloud.toast.com/service/spellchecker)
-* 사용자 도움말: [http://docs.cloud.toast.com/ko/Upcoming%20Products/Spell%20Checker/Overview/#upcoming-products-spell-checker-overview](http://docs.cloud.toast.com/ko/Upcoming%20Products/Spell%20Checker/Overview/#upcoming-products-spell-checker-overview)
+* 사용자 도움말: [http://docs.cloud.toast.com/ko/Upcoming%20Products/Spell%20Checker/ko/Overview](http://docs.cloud.toast.com/ko/Upcoming%20Products/Spell%20Checker/ko/Overview)
 
-###### 페이코 초기 사용자 결제/질의 로그 분석 *(2015년 10월 ~ 2016년 1월)*
+#### 페이코 초기 사용자 결제/질의 로그 분석 *(2015년 10월 ~ 2016년 1월)*
 
 * 주사용기술: Java(Hadoop MR, Streaming), 웹프로그래밍(HTML/CSS/Javascript), Python, Shell Script, Git(GitHub)
 
@@ -78,7 +78,7 @@ TOAST Cloud 부속 상품인 맞춤법 검사기 API 개발 프로젝트입니�
 
 또한 상부 보고용 단발성 프로젝트로 검색 질의 로그의 분석 결과 화면을 설계하였습니다.
 
-###### 도로명 주소 통합 검색 API *(2015년 4월 ~ 2016년 7월)*
+#### 도로명 주소 통합 검색 API *(2015년 4월 ~ 2016년 7월)*
 
 * 주사용기술: C++(넥서스 검색엔진), Java(Spring Boot), 웹프로그래밍(HTML/CSS/Javascript), Python, Shell Script, Git(GitHub)
 
@@ -97,44 +97,44 @@ TOAST Cloud 부속 상품인 도로명 주소 통합 검색 API 개발 프로젝
 이밖에 업무를 위한 내부 위키 문서와 사용자를 위한 설명서를 작성하였고, 개발 이후는 계속 서비스 운영 업무를 맡았습니다.
 
 * 제품 설명: [https://cloud.toast.com/service/addresssearch](https://cloud.toast.com/service/addresssearch)
-* 사용자 매뉴얼: [http://docs.cloud.toast.com/ko/Common/Address%20Search/Overview](http://docs.cloud.toast.com/ko/Common/Address%20Search/Overview)
+* 사용자 매뉴얼: [http://docs.cloud.toast.com/ko/Common/Address%20Search/ko/Overview](http://docs.cloud.toast.com/ko/Common/Address%20Search/ko/Overview)
 
 
 # 기타 업무 경험 (인턴쉽 & 기타)
 
-### BC 카드 *(2014년 6월 – 2014년 8월)*
+## BC 카드 *(2014년 6월 – 2014년 8월)*
 
-##### 인턴
+### 인턴
 
 * 테스트 모듈 개발 (C++, Pro*C, Oracle)
 * 200여 개의 SQL 트랜잭션 수행용 서브프로그램을 테스트하는 QA 업무 수행
 
-### NAVER 인턴 *(2013년 9월 ~ 2014년 1월)*
+## NAVER 인턴 *(2013년 9월 ~ 2014년 1월)*
 
-##### 자연어처리팀, 인턴
+### 자연어처리팀, 인턴
 
 * 맞춤법 검사기 리소스 관리 시스템 개발 (HTML, PHP, Javascript, MySQL)
 * 전체 사용 방법을 정리한 기술 문서 작성
 * 완성 후 팀 회의에서 데모 수행
 
-### NAVER 소프트웨어 멤버쉽 *(2013년 2월 – 2013년 8월)*
+## NAVER 소프트웨어 멤버쉽 *(2013년 2월 – 2013년 8월)*
 
-##### K3 트로젝트 – 웹기반 작곡 서비스
+### K3 트로젝트 – 웹기반 작곡 서비스
 * Web Audio API를 이용해 실시간 작곡 서비스 개발
 * 아이디어 제안, 구체화 및 작곡 모듈 개발 담당
 * 데모 : [http://youtu.be/dcpifU3yHms](http://youtu.be/dcpifU3yHms)
 
-### Concept One Accessories *(Feb 2011 – Jul 2010)*
+## Concept One Accessories *(Feb 2011 – Jul 2010)*
 
-##### MIS/Operations 부서, 인턴
+### MIS/Operations 부서, 인턴
 
 * 엑셀 스프레드시트 보고서를 포함한 각종 업무 문서 담당
 * VBA 스크립트언어를 이용한 일간/주간/월간 보고서 자동화
 * 각종 IT 지원 업무 수행
 
-### 보습학원 영어강사 *(2006년 12월 – 2007년 12월)*
+## 보습학원 영어강사 *(2006년 12월 – 2007년 12월)*
 
-* 중고등학생 영어 강습
+* 중고등학생 영어 강의
 
 
 # 주요 기술
@@ -161,7 +161,7 @@ TOAST Cloud 부속 상품인 도로명 주소 통합 검색 API 개발 프로젝
 * 형상관리
   * Git
 * 자격증
-  * 정보처리기사, 한국산업인력공단, 2013-12-13
+  * 정보처리기사: 2013-12-13
 
 
 # 언어
@@ -174,7 +174,7 @@ TOAST Cloud 부속 상품인 도로명 주소 통합 검색 API 개발 프로젝
 
 # 과외 활동
 
-### 아틀라시안 비트비커 한글화 *(2016년 11월 ~ 진행중)*
+## 아틀라시안 비트비커 한글화 *(2016년 11월 ~ 진행중)*
 
 비트비커(Bitbeaker)는 Atlassian Bitbucket의 안드로이드 클라이언트입니다.
 
@@ -186,7 +186,7 @@ TOAST Cloud 부속 상품인 도로명 주소 통합 검색 API 개발 프로젝
 * 이슈: [https://bitbucket.org/bitbeaker-dev-team/bitbeaker/issues/366/korean-translation](https://bitbucket.org/bitbeaker-dev-team/bitbeaker/issues/366/korean-translation)
 * 번역도구: [https://crowdin.com/project/bitbeaker/ko#](https://crowdin.com/project/bitbeaker/ko#)
 
-### 오픈캠프 해커톤, 중앙대 제로페이지 *(2014년 4월)*
+## 오픈캠프 해커톤, 중앙대 제로페이지 *(2014년 4월)*
 
 * 12팀 중 1위, 안드로이드 앱
 * 프로젝트: 하모니, 길거리 소음을 기반으로 한 동적 볼륨 조절기
@@ -197,7 +197,7 @@ TOAST Cloud 부속 상품인 도로명 주소 통합 검색 API 개발 프로젝
   * 전체 업무 지휘 및 분배
   * 코어 알고리즘 개발: 로우 패스 필터를 이용한 동적 볼륨 조절 알고리즘
 
-### 동아리 전시, 숭실대 SSCC *(2005년 9월 ~ 2011년 9월)*
+## 동아리 전시, 숭실대 SSCC *(2005년 9월 ~ 2011년 9월)*
 
 * 다양한 C언어 프로그래밍 프로젝트를 리드하고 전시회를 3회 수행
 
