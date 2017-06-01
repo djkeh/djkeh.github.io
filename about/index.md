@@ -14,4 +14,4 @@ share: false
 Welcome to Uno's Blog.  
 This blog mainly deals with technical issues, my concerns, stories and any other stuffs especially related to the computer programming. Postings are written in Korean and English, so if you want to understand all my postings here, please learn Korean :P
 
-You can also read my resume here: [Resume](http://djkeh.github.io/resume/)
+You can also read my resume here: [Resume](http://djkeh.github.io/resume/ko)

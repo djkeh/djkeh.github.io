@@ -16,39 +16,64 @@ Server Programmer (Java, Spring)
 
 # Education
 
-* Graduate, Soongsil University, Seoul, South Korea *(Feb 2014 – Mar 2005)*
-  * A Bachelor Degree in Telecommunications & Electronic Engineering
+### Graduate, Soongsil University, Seoul, South Korea *(Feb 2014 – Mar 2005)*
+
+* A Bachelor Degree in Telecommunications & Electronic Engineering
 
 
 # Work Experience (Major)
 
+### NHN Entertainment, Gyeonggi-do, South Korea *(Now – Jan 2015)*
+
+##### Server Programmer
+
+###### TOAST Meetup *(Now - Mar 2017)*
+
+###### Unsudowon, Friend Recommendation Event *(Mar 2017 - Jan 2017)*
+
+###### TOAST Cloud Health Dashboard *(Nov 2016 - Dec 2017)*
+
+###### Spell Checker API *(Jul 2016 - Jan 2016)*
+
+###### PAYCO Data Analysis *(Jan 2016 - Oct 2015)*
+
+###### Address Search API *(Jul 2016 - Apr 2015)*
+
 
 # Work Experience (Internship & Etc.)
 
-## NAVER Intern, Gyeonggi-do, South Korea *(Jan 2014 – Sep 2013)*
+### BC Card, Seoul, South Korea *(Aug 2014 – June 2014)*
 
-### Natural Language Processing Team IT Assistant
+##### Intern
 
-* Developed spell check resource management system (HTML/PHP/JAVASCRIPT/MYSQL)
+* Developed test modules (C++, Pro*C, Oracle)
+* Performed test QA more than 200 subprograms containing SQL transactions
+
+### NAVER Intern, Gyeonggi-do, South Korea *(Jan 2014 – Sep 2013)*
+
+##### Natural Language Processing Team IT Assistant
+
+* Developed spell check resource management system (HTML, PHP, Javascript, MySQL)
 * Directed editing technical document about overall functions and usage of the system
 * Demonstrated complete system in front of the team
 
-## NAVER Software Membership, Seoul, South Korea *(Aug 2013 – Feb 2013)*
+### NAVER Software Membership, Seoul, South Korea *(Aug 2013 – Feb 2013)*
 
-### Project K3 – Web Based Music Composition Program
+##### Project K3 – Web Based Music Composition Program
+
 * Developed real-time music composition program based on Web Audio API
 * Assumed composition module development part
-* Work Demo : http://youtu.be/dcpifU3yHms
+* Demo: [http://youtu.be/dcpifU3yHms](http://youtu.be/dcpifU3yHms)
 
-## Concept One Accessories Intern, New York, United States *(Feb 2011 – Jul 2010)*
+### Concept One Accessories Intern, New York, United States *(Feb 2011 – Jul 2010)*
 
-### MIS/Operations department IT Assistant
+##### MIS/Operations department IT Assistant
 
 * Managed various kind of documents, reports and Excel spreadsheets
 * Automated producing reports and conducting tasks using VBA script language
-* Managed databases of the company using SQL database language
+* Performed various kind of IT support
 
-## Private Tutor, Cram School, Seoul, South Korea *(Dec 2007 – Dec 2006)*
+### Private Tutor, Cram School, Seoul, South Korea *(Dec 2007 – Dec 2006)*
 
 * Taught English to middle/high school students
 
@@ -58,9 +83,9 @@ Server Programmer (Java, Spring)
 * Programming languages
   * C/C++
   * Java
-  * Linux shellscript
+  * Linux Shell Script
   * Python
-  * Html5/Css3/Javascript
+  * HTML5/CSS3/Javascript
   * PHP
 * Frameworks
   * Spring
@@ -84,23 +109,37 @@ Server Programmer (Java, Spring)
 
 * Korean, native
 * English, extra fluent
-  * TOEIC: 855, acquired in 2013-05-25
-  * OPIc: IH, acquired in 2012-09-22
+  * TOEIC: 855, 2013-05-25
+  * OPIc: IH, 2012-09-22
 
 
 # Extracurricular Activity
 
-* Club Festival Exhibition, SoongSil Computer Club of Soongsil University *(Sep 2011 - Sep 2005)*
-  * Directed various C programming project exhibitions 3 times
-* Hackathon, Opencamp, Zeropage of Chung-Ang University *(Apr 2014)*
-  * Won 1st place out of 12 teams for making an Android app 
-  * Project name: Harmony, dynamic volume controller based on the street noise
-  * Role: Project Leader
-  * Detail
-    * Performed project idea presentation to public
-    * Selected 3 members(2 app programmers, 1 designer)
-    * Directed entire work and distributed roles to members
-    * Programmed core algorithm: dynamic volume controller using low-pass filter
+### Korean Translation, Atlassian Bitbeaker *(Now - Nov 2016)*
+
+* Bitbeaker: Android client for Atlassian Bitbucket
+* Proposed Korean Translation on Nov.
+* Initiated Translation on Feb.
+* Released Alpha version on Mar.
+* Committed first polished revision on Apr.
+* Expecting to publish release version on milestone v3.3
+* Issue: [https://bitbucket.org/bitbeaker-dev-team/bitbeaker/issues/366/korean-translation](https://bitbucket.org/bitbeaker-dev-team/bitbeaker/issues/366/korean-translation)
+* Translation: [https://crowdin.com/project/bitbeaker/ko#](https://crowdin.com/project/bitbeaker/ko#)
+
+### Hackathon, Opencamp, Zeropage of Chung-Ang University *(Apr 2014)*
+
+* Won 1st place out of 12 teams for making an Android app 
+* Project: Harmony, dynamic volume controller based on the street noise
+* Role: Project Leader
+* Detail
+  * Performed project idea presentation to public
+  * Selected 3 members(2 app programmers, 1 designer)
+  * Directed entire work and distributed roles to members
+  * Programmed core algorithm: dynamic volume controller using low-pass filter
+
+### Club Festival Exhibition, SoongSil Computer Club of Soongsil University *(Sep 2011 - Sep 2005)*
+
+* Directed various C programming project exhibitions 3 times
 
 
 # Interest
