@@ -133,7 +133,7 @@ TOAST Cloud 부속 상품인 도로명 주소 통합 검색 API 개발 프로젝
 
 ## NAVER 소프트웨어 멤버쉽 *(2013년 2월 – 2013년 8월)*
 
-### K3 트로젝트 – 웹기반 작곡 서비스
+### K3 프로젝트 – 웹기반 작곡 서비스
 * Web Audio API를 이용해 실시간 작곡 서비스 개발
 * 아이디어 제안, 구체화 및 작곡 모듈 개발 담당
 * 데모 : [http://youtu.be/dcpifU3yHms](http://youtu.be/dcpifU3yHms)
