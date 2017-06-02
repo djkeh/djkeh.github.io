@@ -28,15 +28,15 @@ body {
 body {
 	font-family: $base-font;
 	color: $text-color;
-	@include font-size($doc-font-size);
+	@include font-size(16);
 }
 
 p {
-	@include font-size($doc-font-size + 2, yes, 20);
+	@include font-size(18, yes, 28);
 }
 
 li {
-	@include font-size($doc-font-size, 6, 16);
+	@include font-size(16, 12, 24);
 }
 
 // Headings
