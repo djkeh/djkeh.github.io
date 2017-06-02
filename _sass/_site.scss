@@ -32,11 +32,11 @@ body {
 }
 
 p {
-	@include font-size($doc-font-size + 2, yes, 28);
+	@include font-size($doc-font-size + 2, yes, 20);
 }
 
 li {
-	@include font-size($doc-font-size, 12, 24);
+	@include font-size($doc-font-size, 6, 16);
 }
 
 // Headings
@@ -224,6 +224,7 @@ blockquote {
 
 tt, code, kbd, samp, pre {
 	font-family: $code-font;
+	padding: 15px 10px;
 }
 p,
 li { 
