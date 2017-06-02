@@ -117,7 +117,7 @@ function myFunction(keyEvent) {
 ```
 
 ```html
-<!--html onkeydown event approach-->
+<!-- html onkeydown event approach -->
 <textarea onkeydown="myFunction(keyEvent)"></textarea>
 
 <script type='text/javascript'>
