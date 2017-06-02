@@ -28,39 +28,45 @@ body {
 body {
 	font-family: $base-font;
 	color: $text-color;
-	@include font-size(16);
+	@include font-size($doc-font-size);
 }
 
 p {
-	@include font-size(18,yes,28);
+	@include font-size($doc-font-size + 2, yes, 28);
 }
 
 li {
-	@include font-size(16,12,24);
+	@include font-size($doc-font-size, 12, 24);
 }
 
 // Headings
 h1, h2, h3, h4, h5, h6 {
 	font-family: $heading-font;
 	text-rendering: optimizeLegibility; // Fix the character spacing for headings
+	margin-top: 0px + ($doc-line-height + 20);
+	margin-top: 0rem + (($doc-line-height + 20) / ($doc-font-size + 20));
 }
 h1 {
-	@include font-size(36);
+	@include font-size(28);
+	padding-bottom: 5px;
+	border-bottom: 1px solid $h-line-color;
 }
 h2 {
-	@include font-size(32);
+	@include font-size(24);
+	padding-bottom: 5px;
+	border-bottom: 1px solid $h-line-color;
 }
 h3 {
-	@include font-size(28);
+	@include font-size(22);
 }
 h4 {
-	@include font-size(24);
-}
-h5 {
 	@include font-size(20);
 }
-h6 {
+h5 {
 	@include font-size(18);
+}
+h6 {
+	@include font-size(16);
 }
 
 u,
