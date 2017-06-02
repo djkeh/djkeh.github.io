@@ -43,8 +43,7 @@ li {
 h1, h2, h3, h4, h5, h6 {
 	font-family: $heading-font;
 	text-rendering: optimizeLegibility; // Fix the character spacing for headings
-	margin-top: 0px + ($doc-line-height + 20);
-	margin-top: 0rem + (($doc-line-height + 20) / ($doc-font-size + 20));
+	margin-top: 0px + ($doc-line-height * 2);
 }
 h1 {
 	@include font-size(28);
