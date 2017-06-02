@@ -49,8 +49,8 @@ h1 {
 	@include font-size(28);
 }
 h1:not([class]) {
-	padding-bottom: 5px;
-	border-bottom: 1px solid $h-line-color;
+	padding-bottom: 7px;
+	border-bottom: 3px double $h-line-color;
 }
 h2 {
 	@include font-size(24);
