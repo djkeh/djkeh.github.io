@@ -31,11 +31,11 @@ body {
 		float: left;
 		list-style: none;
 		text-align: center;
-		@include font-size(24,no);
+		@include font-size(20, no);
 		text-transform: uppercase;
 		color: $white;
 		@include media($medium) {
-			@include font-size(14,no);
+			@include font-size(13, no);
 		}
 		a:hover {
 			@include box-shadow($shadow: inset 0 0 1px $white);
@@ -171,13 +171,13 @@ body {
 .site-description {
 	margin-top: 0;
 	font-family: $alt-font;
-	@include font-size(16);
+	@include font-size(15);
 	font-weight: 400;
 	font-style: italic;
 	@include animation-duration(1s);
     @include animation-delay(1s);
 	@include media($medium) {
-		@include font-size(20);
+		@include font-size(18);
 	}
 }
 
@@ -211,7 +211,7 @@ body {
 	display: block;
 	margin-top: 2em;
 	text-transform: uppercase;
-	@include font-size(16);
+	@include font-size(14);
 	font-weight: 600;
 	a { 
 		color: $text-color; 
@@ -223,7 +223,7 @@ span + .entry-title {
 .entry-title {
 	font-family: $alt-font;
 	font-style: italic;
-	@include font-size(36,yes,36);
+	@include font-size(32, yes, 34);
 	font-weight: 400;
 	line-height: 1;
 	letter-spacing: -3px;
@@ -232,10 +232,10 @@ span + .entry-title {
 		text-decoration: underline;
 	}
 	@include media($medium) {
-		@include font-size(52,yes,54);
+		@include font-size(48, yes, 52);
 	}
 	@include media($large) {
-		@include font-size(68,yes,72);
+		@include font-size(64, yes, 70);
 	}
 }
 .entry-wrapper {
@@ -248,7 +248,7 @@ span + .entry-title {
 .entry-meta {
 	@include span-columns(12);
 	text-transform: uppercase;
-	@include font-size(14);
+	@include font-size(13);
 	a { 
 		color: $text-color; 
 	}
@@ -330,14 +330,14 @@ span + .entry-title {
 		padding: 8px 0;
 		border-bottom: 1px solid lighten($black,80);
 		border-bottom: 1px solid rgba($black,.10);
-		@include font-size(18,no);
+		@include font-size(16, no);
 		@include clearfix;
 	}
 	a > span {
 		float: right;
 	}
 	.entry-date {
-		@include font-size(14,no);
+		@include font-size(13, no);
 		text-transform: uppercase;
 		display: none;
 		@include media($medium) {
@@ -348,7 +348,7 @@ span + .entry-title {
 	.excerpt {
 		display: block;
 		float: none;
-		@include font-size(14, no, 16);
+		@include font-size(12, no, 14);
 		@include media($medium) {
 			width: 70%;
 		}
@@ -366,7 +366,7 @@ span + .entry-title {
 	@include clearfix;
 	&.inline li {
 		float: left;
-		@include font-size(14);
+		@include font-size(13);
 		line-height: 2.5;
 	}
 	a { 
@@ -377,7 +377,7 @@ span + .entry-title {
 		text-decoration: none;
 		span { 
 			vertical-align: super;
-			@include font-size(10);
+			@include font-size(9);
 		}
 	}
 }
@@ -395,7 +395,7 @@ span + .entry-title {
   	padding-left: 0;
   }
   li {
-    @include font-size(16,no,18);
+    @include font-size(14, no, 16);
     border-bottom: 1px solid $border-color;
     list-style-type: none;
   }
@@ -425,7 +425,7 @@ span + .entry-title {
 	margin: 2em auto;
 	text-align: center;
 	font-family: $alt-font;
-	@include font-size(14);
+	@include font-size(13);
 	font-style: italic;
 	color: lighten($text-color,20);
 	a {
@@ -486,7 +486,7 @@ span + .entry-title {
 	width: auto;
 	margin-right: 10px;
 	padding: 8px 10px;
-	@include font-size(14);
+	@include font-size(13);
 	border-width: 2px;
 	border-radius: $border-radius;
 }
