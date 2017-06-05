@@ -31,11 +31,11 @@ body {
 		float: left;
 		list-style: none;
 		text-align: center;
-		@include font-size(20, no);
+		@include font-size(18, no);
 		text-transform: uppercase;
 		color: $white;
 		@include media($medium) {
-			@include font-size(13, no);
+			@include font-size(12, no);
 		}
 		a:hover {
 			@include box-shadow($shadow: inset 0 0 1px $white);
@@ -235,7 +235,7 @@ span + .entry-title {
 		@include font-size(48, yes, 52);
 	}
 	@include media($large) {
-		@include font-size(64, yes, 70);
+		@include font-size(58, yes, 68);
 	}
 }
 .entry-wrapper {
@@ -337,7 +337,7 @@ span + .entry-title {
 		float: right;
 	}
 	.entry-date {
-		@include font-size(13, no);
+		@include font-size(12, no);
 		text-transform: uppercase;
 		display: none;
 		@include media($medium) {
@@ -348,7 +348,7 @@ span + .entry-title {
 	.excerpt {
 		display: block;
 		float: none;
-		@include font-size(12, no, 14);
+		@include font-size(11, no, 14);
 		@include media($medium) {
 			width: 70%;
 		}
