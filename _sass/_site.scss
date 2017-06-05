@@ -46,21 +46,21 @@ h1, h2, h3, h4, h5, h6 {
 	margin-top: 0px + ($doc-line-height * 2);
 }
 h1 {
-	@include font-size(24);
+	@include font-size(28);
 }
 h1:not([class]) {
 	padding-bottom: 7px;
 	border-bottom: 3px double $h-line-color;
 }
 h2 {
-	@include font-size(22);
+	@include font-size(24);
 }
 h2:not([class]) {
 	padding-bottom: 5px;
 	border-bottom: 1px solid $h-line-color;
 }
 h3 {
-	@include font-size(20);
+	@include font-size(21);
 }
 h4 {
 	@include font-size(18);
