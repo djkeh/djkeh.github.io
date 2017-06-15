@@ -1,0 +1,3 @@
+User-Agent: *
+Disallow: /resume
+Sitemap: http://djkeh.github.io/sitemap.xml
