@@ -16,6 +16,7 @@ sass:
   style: compressed
 gems:
   - jekyll-sitemap
+production: true # custom-made robots.txt uses this variable
 
 # Rouge Highlighter in Kramdown › http://kramdown.gettalong.org/syntax_highlighter/rouge.html
 kramdown:
