@@ -5,6 +5,12 @@ excerpt: "이력서 - 김은호"
 search_omit: true
 ---
 
+{% if site.production == true and page.sitemap != false  %}
+    <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+{% else %}
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+{% endif %}
+
 # 기본정보
 
 김은호 (Eunho Kim)  
@@ -27,7 +33,7 @@ search_omit: true
 
 ### 서버 프로그래머
 
-#### TOAST Meetup *(2017년 3월 ~ 현재)*
+#### TOAST Meetup *(2017년 4월 ~ 현재)*
 
 * 주사용기술: Java(Spring Boot), 웹프로그래밍(HTML/CSS/Javascript), MySQL, Git(GitHub)
 
@@ -60,10 +66,10 @@ TOAST Meetup은 NHN 엔터테인먼트에서 운영하는 기술 블로그입니
 이에 다음과 같이 프로젝트에 참여하였고, 기한에 맞춰 무사히 이벤트 진행하였습니다.
 
 * 이벤트 페이지 개발 (4일)
-* 웹, 웹뷰에 보여지는 화면 및 내부 api 개발 
-* 페이코 회원 정보 조회를 위해 타부서의 페이코 회원 api 연동 
+  * 웹, 웹뷰에 보여지는 화면 및 내부 api 개발 
+  * 페이코 회원 정보 조회를 위해 타부서의 페이코 회원 api 연동 
 * 추첨 및 당첨자 리스트 출력 로직 개발 (4일)
-* DB로부터 당첨자를 뽑아 배송을 위한 개인정보를 매칭하여 출력하는 스크립트 개발
+  * DB로부터 당첨자를 뽑아 배송을 위한 개인정보를 매칭하여 출력하는 스크립트 개발
 
 #### TOAST Cloud Health Dashboard *(2016년 11월 ~ 2016년 12월)*
 
@@ -192,6 +198,11 @@ TOAST Cloud 부속 상품인 도로명 주소 통합 검색 API 개발 프로젝
 
 비트비커(Bitbeaker)는 Atlassian Bitbucket의 안드로이드 클라이언트입니다.
 
+[https://play.google.com/store/apps/details?id=fi.iki.kuitsi.bitbeaker](https://play.google.com/store/apps/details?id=fi.iki.kuitsi.bitbeaker)
+
+이 안드로이트 클라이언트의 전체 내용을 한글화하는 작업입니다.  
+현재 100% 번역 및 1차 알파 테스트, 수정 배포까지 완료하였고, 마일스톤 일정에 따라 리얼 릴리즈를 기다리고 있습니다.
+
 * 11월 한글화 작업 제안
 * 2월 본격적으로 착수
 * 3월 알파 릴리즈
@@ -201,6 +212,8 @@ TOAST Cloud 부속 상품인 도로명 주소 통합 검색 API 개발 프로젝
 * 번역도구: [https://crowdin.com/project/bitbeaker/ko#](https://crowdin.com/project/bitbeaker/ko#)
 
 ## 오픈캠프 해커톤, 중앙대 제로페이지 *(2014년 4월)*
+
+대학교 컴퓨터동아리배 해커톤 행사에서 안드로이드 앱을 이용한 아이디어 앱으로 1위를 하였습니다.
 
 * 12팀 중 1위, 안드로이드 앱
 * 프로젝트: 하모니, 길거리 소음을 기반으로 한 동적 볼륨 조절기
