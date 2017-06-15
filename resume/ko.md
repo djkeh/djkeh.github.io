@@ -71,9 +71,9 @@ TOAST Meetup은 NHN 엔터테인먼트에서 운영하는 기술 블로그입니
 
 * 주사용기술: Java(Spring), 웹프로그래밍(HTML/CSS/Javascript), MySQL, Git(GitHub)
 
-TOAST Cloud([http://cloud.toast.com](http://cloud.toast.com)) 클라우드 서비스의 인프라를 포함해 내부에 있는 전 부가 상품들의 서버 상태를 모니터링하기 위한 대시보드 서비스 개발 건입니다. TOAST Cloud의 하위 서비스 형태로 진행했으며, 상품 기획부터 서버 - 프론트엔드까지 직접 설계하였습니다. 모니터링 기능은 사내 운영 중인 별도의 와치독 api를 활용하였습니다.
+TOAST Cloud([https://cloud.toast.com](https://cloud.toast.com)) 클라우드 서비스의 인프라를 포함해 내부에 있는 전 부가 상품들의 서버 상태를 모니터링하기 위한 대시보드 서비스 개발 건입니다. TOAST Cloud의 하위 서비스 형태로 진행했으며, 상품 기획부터 서버 - 프론트엔드까지 직접 설계하였습니다. 모니터링 기능은 사내 운영 중인 별도의 와치독 api를 활용하였습니다.
 
-[http://cloud.toast.com/dashboard](http://cloud.toast.com/dashboard)
+[https://cloud.toast.com/dashboard](https://cloud.toast.com/dashboard)
 
 #### 맞춤법 검사기 API *(2016년 1월 ~ 2016년 7월)*
 
