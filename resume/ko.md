@@ -3,13 +3,9 @@ layout: page
 title: 이력서
 excerpt: "이력서 - 김은호"
 search_omit: true
+share: false
+sitemap: false
 ---
-
-{% if site.production == true and page.sitemap != false  %}
-    <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-{% else %}
-    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-{% endif %}
 
 # 기본정보
 

@@ -3,13 +3,9 @@ layout: page
 title: Resume
 excerpt: "Uno's Resume"
 search_omit: true
+share: false
+sitemap: false
 ---
-
-{% if site.production == true and page.sitemap != false  %}
-    <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
-{% else %}
-    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-{% endif %}
 
 # Basic info.
 

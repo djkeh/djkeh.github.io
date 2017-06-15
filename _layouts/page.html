@@ -6,6 +6,12 @@
 <head>
 {% include head.html %}
   <link href="/css/syntax.css" rel="stylesheet">
+
+  {% if site.production == true and page.sitemap != false  %}
+  <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  {% else %}
+  <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+  {% endif %}
 </head>
 
 <body id="page">
