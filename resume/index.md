@@ -41,7 +41,7 @@ Server Programmer (Java, Spring)
 #### Unsudowon, Friend Recommendation Event *(Mar 2017 - Jan 2017)*
 
 * Used techniques: Java(Spring), HTML/CSS/Javascript, Shell Script, Python, MySQL, Git(GitHub)
-* Project description: 
+* Project description: Unsudowon offers a variety of fortune tellings using Tensor Flow and over 1500 sample images of human faces and palms. Unsudowon handles user data using Payco account and OAuth login system, and it mainly consists of 3 parts: Tensor Flow core engine, web application and mobile app. This project was about holding an national holiday event to have more Payco users ..............
 * Product page: [https://play.google.com/store/apps/details?id=com.nhnent.unse](https://play.google.com/store/apps/details?id=com.nhnent.unse)
 * Achivements
   * 
