@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Resume
+title: Eunho Kim
 excerpt: "Uno's Resume"
 search_omit: true
 share: false
@@ -11,7 +11,7 @@ sitemap: false
 
 Eunho Kim (김은호)  
 Server Programmer (Java, Spring)  
-13, Gaepo-ro 22-gil, Gangnam-gu, Seoul, Republic of Korea, zipcode 06308  
+Gangnam-gu, Seoul, Republic of Korea  
 +82-10-2778-5309  
 [djkehh@gmail.com](mailto:djkehh@gmail.com)
 
@@ -20,10 +20,18 @@ Server Programmer (Java, Spring)
 
 ### Graduate, Soongsil University, Seoul, South Korea *(Feb 2014 – Mar 2005)*
 
-* A Bachelor Degree in Telecommunications & Electronic Engineering
+* A Bachelor Degree in Telecommunications & Electronic Engineering (GPA: 3.3/4.5)
+* Relevant Courses
+  * C/C++
+  * Data Structure
+  * Algorithm
+  * OS
+  * Embedded Programming
+  * Data Communication
+  * Computer Network
 
 
-# Work Experience (Major)
+# Work Experience
 
 ## NHN Entertainment, Gyeonggi-do, South Korea *(Now – Jan 2015)*
 
@@ -32,42 +40,48 @@ Server Programmer (Java, Spring)
 #### TOAST Meetup *(Now - Apr 2017)*
 
 * Used techniques: Java(Spring Boot), HTML/CSS/Javascript, MySQL, Git(GitHub)
-* Project description: TOAST Meetup is the technical blog run by NHN Entertainment. Its goal is to share valuable information and programming trends to public and thereby drag other programmers' attention to the brand TOAST and to the related products.
-  * [http://meetup.toast.com](http://meetup.toast.com)
+* Project description: TOAST Meetup is the technical blog run by NHN Entertainment. Its goal is to share valuable information and programming trends to the public and thereby drag other programmers' attention to the brand TOAST and relevant products. NHN Entertainment is thinking of developing a brand new version of TOAST Meetup from the inside, which I simply call "V2(Version 2)" for now, to improve the service quality and reduce its operation cost. This is currently ongoing project.
+  * Product page: [http://meetup.toast.com](http://meetup.toast.com)
 * Achievements
-  * Performing renewal project from service planning to the server-front development only with graphic design and markdown support.
-  * Managing blog articles including contacting the author, uploading, revising and reporting 
+  * Analyzing current TOAST Meetup service to find out what the problem is and what should be corrected to enhance work efficiency.
+  * Performing V2 project from service planning to the development only with design and markdown support.
+  * Conducting blog article managements such as contacting the author, revising articles and publishing them to the blog
 
 #### Unsudowon, Friend Recommendation Event *(Mar 2017 - Jan 2017)*
 
 * Used techniques: Java(Spring), HTML/CSS/Javascript, Shell Script, Python, MySQL, Git(GitHub)
-* Project description: Unsudowon offers a variety of fortune tellings using Tensor Flow and over 1500 sample images of human faces and palms. Unsudowon handles user data using Payco account and OAuth login system, and it mainly consists of 3 parts: Tensor Flow core engine, web application and mobile app. This project was about holding an national holiday event to have more Payco users ..............
-* Product page: [https://play.google.com/store/apps/details?id=com.nhnent.unse](https://play.google.com/store/apps/details?id=com.nhnent.unse)
+* Project description: Unsudowon is mobile app which offers a variety of fortune telling servicess using Tensor Flow and over 1500 sample images of human faces and palms. Unsudowon mainly consists of 3 parts: Tensor Flow core engine, web application server and mobile app. This project is about holding the New Year holiday event to have new Payco users, as Unsudowon uses Payco account and OAuth login system for operating member service.
+* Product page
+  * Android: [https://play.google.com/store/apps/details?id=com.nhnent.unse](https://play.google.com/store/apps/details?id=com.nhnent.unse)
+  * iPhone: [https://itunes.apple.com/app/id1177304977](https://itunes.apple.com/app/id1177304977)
 * Achivements
-  * 
+  * Designed the event purpose data model
+  * Developed REST API for the event, interlocking logic between the service and the external Payco member API, the entire front page, and the script that draws the event winners and matches user delivery information 
+  * Completed the project in time with cooperation of 2 programmers despite given 8 business days of very tight schedule
 
 #### TOAST Cloud Health Dashboard *(Nov 2016 - Dec 2017)*
 
 * Used techniques: Java(Spring), HTML/CSS/Javascript, MySQL, Git(GitHub)
-* Project description: TOAST Cloud Health Dashboard is the web service which shows the availability of the entire services of TOAST Cloud and related products in real time. Health checking 
+* Project description: TOAST Cloud Health Dashboard is the web service which shows the availability of the entire services of TOAST Cloud and related products in real time. [Amazon AWS Service Health Dashboard](http://status.aws.amazon.com) is one of good comparison to this service. The main purpose of this project is to manage every TOAST Cloud service availability in real time, provide it to the customer and most of all, respond to the unexpected service failure as fast as possible.
 * Product page(in Korean): [https://cloud.toast.com/dashboard](https://cloud.toast.com/dashboard)
 * Achivements
-  * 
+  * Analyzed other service dashboard products from major competitors leading the market such as Amazon, and composed summarized feature list from every detailed aspects from them for the report
+  * Conducted 
 
 TOAST Cloud([http://cloud.toast.com](http://cloud.toast.com)) 클라우드 서비스의 인프라를 포함해 내부에 있는 전 부가 상품들의 서버 상태를 모니터링하기 위한 대시보드 서비스 개발 건입니다. TOAST Cloud의 하위 서비스 형태로 진행했으며, 상품 기획부터 서버 - 프론트엔드까지 직접 설계하였습니다. 모니터링 기능은 사내 운영 중인 별도의 와치독 api를 활용하였습니다.
 
 #### Spell Checker API *(Jul 2016 - Jan 2016)*
 
-* Used techniques: C/C++(Apache module), Java(Spring), HTML/CSS/Javascript, Git(GitHub)
-* Project description: Spell Checker API is an another [TOAST Cloud](https://cloud.toast.com) product designed in RESTful web API. This API takes user input which is expected to have typos and with a few options returns back the corrected result. The spell checker engine was present but was made of unsustainable old legacy code written in C programming language. The main objective of this project is to analyze, debug, refine and then port the engine code to Apache module code using C++ to build more convenient and sustainable web API. The product presentation page is made of Java, Spring.
+* Used techniques: C/C++(Apache module), Java(Spring), HTML/CSS/Javascript, Git(GitHub), Markdown(Confluence Wiki, Github)
+* Project description: Spell Checker API is an another [TOAST Cloud](https://cloud.toast.com) product designed in RESTful web API. This API takes certain Korean paragraph which is expected to have typos and returns back the corrected paragraph as the result. The spell checker engine was present but was made of unsustainable old legacy code written in C programming language. The main objective of this project is to analyze, debug, refine the engine code and move it to Apache module program using C++ to build more convenient and sustainable web API. The product presentation page is made of Java, Spring.
 * Product description page(in Korean): [https://cloud.toast.com/service/spellchecker](https://cloud.toast.com/service/spellchecker)
 * User manual(in Korean): [http://docs.cloud.toast.com/ko/Upcoming%20Products/Spell%20Checker/ko/Overview](http://docs.cloud.toast.com/ko/Upcoming%20Products/Spell%20Checker/ko/Overview)
 * Achivements
+  * Analyzed old legacy errata correction engine code written in C programming language, corrected critical bugs and vague header files, and thereby increased engine performance up to ????????????
   * Designed API server, TOAST Cloud product web page and program architecture on basis of the old legacy engine codes
   * Developed the API server using apache module programming, and the product presentation server using Java, Spring
   * Acknowledged in refactoring project source codes, and in writing and organizing documentation
-
-기존 네이버 맞춤법 검사기의 소스코드를 분석한 뒤 프로젝트 요구사항에 맞춰 RESTful한 아파치 모듈 API로 개발하였습니다. 이 외에 토스트 클라우드의 콘솔 화면에 보이는 제품 사용 화면, 제품 소개 및 샘플 화면을 개발하였고, 업무를 위한 내부 위키 문서와 사용자를 위한 설명 문서를 작성하였습니다. 개발 이후는 지속적인 서비스 운영 업무를 맡았습니다.
+  * Documented service description, manual, very detailed and well structered operating guide for internal service operators and developers in markdown language
 
 #### PAYCO Data Analysis *(Jan 2016 - Oct 2015)*
 
@@ -79,7 +93,7 @@ TOAST Cloud([http://cloud.toast.com](http://cloud.toast.com)) 클라우드 서�
 
 #### Address Search API *(Jul 2016 - Apr 2015)*
 
-* Used techniques: C++, Java(Spring Boot), HTML/CSS/Javascript, Python, Shell Script, Git(GitHub)
+* Used techniques: C++, Java(Spring Boot), HTML/CSS/Javascript, Python, Shell Script, Git(GitHub), Markdown(Confluence Wiki, Github)
 * Project description: Address Search API is a [TOAST Cloud](https://cloud.toast.com) product which provides user the unified address search experience. South Korea currently has 2 different local address systems, one of which is old, deprecated but still present. Most competitors provide the service to search two addresses separately, which means the user can't search old address in new address search input box and vice versa, even two addresses mean same location. It also means it needs to be sure for users to know which kind of address it is before searching. This product has single search input to query two types of addresses without care. The address search engine distinguishes address query and gives the search result. The Address Search API is designed in RESTful way, Richardson Maturity Level 2.
 * Product description page(in Korean): [[/service/addresssearch](https://cloud.toast.com)](https://cloud.toast.com/service/addresssearch)
 * User manual(in Korean): [http://docs.cloud.toast.com/ko/Common/Address%20Search/ko/Overview](http://docs.cloud.toast.com/ko/Common/Address%20Search/ko/Overview)
@@ -91,11 +105,12 @@ TOAST Cloud([http://cloud.toast.com](http://cloud.toast.com)) 클라우드 서�
   * TOAST Cloud Console front-end
 * Achivements
   * Designed API server and program architecture applying MVC web application design pattern
-  * Developed and maintained API service using Spring Boot, batch scripts and web front-end pages
-  * Acknowledged in refactoring and rearranging project source codes, and in writing and organizing documentation
+  * Developed and maintained API web application, batch scripts and web front-end pages
+  * Performed code refactoring to the legacy Java codes that are written in combination of relatively old C programming style and unorganized file hierarchy, based on MVC design pattern
+  * Documented service description, manual, very detailed and well structered operating guide for internal service operators and developers in markdown language
 
 
-# Work Experience (Internship & Etc.)
+# Internship Experience & Etc.
 
 ## BC Card, Seoul, South Korea *(Aug 2014 – June 2014)*
 
@@ -163,7 +178,7 @@ TOAST Cloud([http://cloud.toast.com](http://cloud.toast.com)) 클라우드 서�
 # Languages
 
 * Korean, native
-* English, extra fluent
+* English, fluent
   * TOEIC: 855, 2013-05-25
   * OPIc: IH, 2012-09-22
 

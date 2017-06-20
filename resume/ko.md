@@ -11,7 +11,7 @@ sitemap: false
 
 김은호 (Eunho Kim)  
 서버 프로그래머 (Java, Spring)  
-대한민국, 서울시 강남구 개포로22길 13, 우편번호 06308  
+대한민국, 서울시 강남구 거주
 010-2778-5309  
 [djkehh@gmail.com](mailto:djkehh@gmail.com)
 
@@ -20,7 +20,15 @@ sitemap: false
 
 ## 숭실대, 졸업 *(2005년 3월 ~ 2014년 2월)*
 
-* 정보통신전자공학부
+* 정보통신전자공학부 (GPA: 3.3/4.5)
+* 주요 수강 과목
+  * C/C++
+  * 자료구조
+  * 알고리즘
+  * 운영체제
+  * 임베디드 프로그래밍 실습
+  * 데이터 통신
+  * 컴퓨터 통신망
 
 
 # 주업무 경험
@@ -51,7 +59,8 @@ TOAST Meetup은 NHN 엔터테인먼트에서 운영하는 기술 블로그입니
 
 운수도원은 사용자에게 사주/운세/손금/관상/궁합 정보를 제공하는 앱 서비스이며, 회원 관리를 위해 페이코 회원 시스템을 사용합니다.
 
-[https://play.google.com/store/apps/details?id=com.nhnent.unse&hl=ko](https://play.google.com/store/apps/details?id=com.nhnent.unse&hl=ko)
+* Android: [https://play.google.com/store/apps/details?id=com.nhnent.unse&hl=ko](https://play.google.com/store/apps/details?id=com.nhnent.unse&hl=ko)
+* iPhone: [https://itunes.apple.com/app/운수도원-페이코-회원을-위한-프리미엄-운세/id1177304977](https://itunes.apple.com/app/운수도원-페이코-회원을-위한-프리미엄-운세/id1177304977)
 
 본 프로젝트는 페이코 신규 회원 유치를 목적으로 운수도원 앱의 설날 명절 이벤트를 진행하여 신규 운수도원 가입 유저와 그 추천인들에게 경품을 제공하는 프로젝트입니다. 기존까지 참여했던 프로젝트와는 다른 다음의 특징을 갖고 있었습니다.
 
