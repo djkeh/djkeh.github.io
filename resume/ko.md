@@ -71,8 +71,8 @@ TOAST Meetup은 NHN 엔터테인먼트에서 운영하는 기술 블로그입니
 이에 다음과 같이 프로젝트에 참여하였고, 기한에 맞춰 무사히 이벤트 진행하였습니다.
 
 * 이벤트 페이지 개발 (4일)
-  * 웹, 웹뷰에 보여지는 화면 및 내부 api 개발 
-  * 페이코 회원 정보 조회를 위해 타부서의 페이코 회원 api 연동 
+  * 웹, 웹뷰에 보여지는 화면 및 내부 API 개발 
+  * 페이코 회원 정보 조회를 위해 타부서의 페이코 회원 API 연동 
 * 추첨 및 당첨자 리스트 출력 로직 개발 (4일)
   * DB로부터 당첨자를 뽑아 배송을 위한 개인정보를 매칭하여 출력하는 스크립트 개발
 
@@ -80,7 +80,7 @@ TOAST Meetup은 NHN 엔터테인먼트에서 운영하는 기술 블로그입니
 
 * 주사용기술: Java(Spring), 웹프로그래밍(HTML/CSS/Javascript), MySQL, Git(GitHub)
 
-TOAST Cloud([https://cloud.toast.com](https://cloud.toast.com)) 클라우드 서비스의 인프라를 포함해 내부에 있는 전 부가 상품들의 서버 상태를 모니터링하기 위한 대시보드 서비스 개발 건입니다. TOAST Cloud의 하위 서비스 형태로 진행했으며, 상품 기획부터 서버 - 프론트엔드까지 직접 설계하였습니다. 모니터링 기능은 사내 운영 중인 별도의 와치독 api를 활용하였습니다.
+TOAST Cloud([https://cloud.toast.com](https://cloud.toast.com)) 클라우드 서비스의 인프라를 포함해 내부에 있는 전 부가 상품들의 서버 상태를 모니터링하기 위한 대시보드 서비스 개발 건입니다. TOAST Cloud의 하위 서비스 형태로 진행했으며, 상품 기획부터 서버 - 프론트엔드까지 직접 설계하였습니다. 모니터링 기능은 사전에 개발하여 운영 중인 별도의 사내 모니터링 API를 활용하였습니다.
 
 [https://cloud.toast.com/dashboard](https://cloud.toast.com/dashboard)
 
