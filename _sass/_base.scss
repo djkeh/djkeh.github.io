@@ -60,6 +60,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
 	@include font-size(28);
+    margin-top: 0px + ($doc-line-height);
 }
 
 h1:not([class]) {
@@ -70,6 +71,7 @@ h1:not([class]) {
 
 h2 {
 	@include font-size(24);
+    margin-top: 0px + ($doc-line-height);
 }
 
 h2:not([class]) {
