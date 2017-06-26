@@ -65,6 +65,7 @@ h1 {
 h1:not([class]) {
     padding-bottom: 7px;
     border-bottom: 3px double $h-line-color;
+    margin-top: 0px + ($doc-line-height * 3);
 }
 
 h2 {
@@ -74,6 +75,7 @@ h2 {
 h2:not([class]) {
     padding-bottom: 5px;
     border-bottom: 1px solid $h-line-color;
+    margin-top: 0px + ($doc-line-height * 3);
 }
 
 h3 {
