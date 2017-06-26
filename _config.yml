@@ -3,9 +3,9 @@
 title: Uno's Blog
 description: Welcome to Uno's Blog.
 logo: site-logo.png
-search: true
+search: false
 comments: true
-url: //djkeh.github.io/
+url: //djkeh.github.io
 
 # Jekyll configuration
 
