@@ -8,8 +8,7 @@ date: 2017-06-26 18:09:49
 modified: 2017-06-26 18:09:49
 image:
   feature:
-share: false
-sitemap: false
+share: true
 ---
 
 # Altassian SourceTree for Windows 2.0 업데이트
