@@ -3,7 +3,7 @@
 title: Uno's Blog
 description: Welcome to Uno's Blog.
 logo: site-logo.png
-search: false
+search: true
 comments: true
 url: //djkeh.github.io
 
