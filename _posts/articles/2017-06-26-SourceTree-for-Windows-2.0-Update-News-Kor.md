@@ -1,9 +1,9 @@
 ---
 layout: post
 categories: articles
-title:  "Altassian SourceTree for Windows 2.0 업데이트"
+title:  "Atlassian SourceTree for Windows 2.0 업데이트"
 excerpt: "업데이트 개선 사항 정리"
-tags: [altassian, sourcetree, windows, 2.0, update, performance, gvfs, lookandfeel, tab, 아틀라시안, 소스트리, 윈도우, 업데이트, 정리, 성능]
+tags: [atlassian, sourcetree, windows, 2.0, update, performance, gvfs, lookandfeel, tab, 아틀라시안, 소스트리, 윈도우, 업데이트, 정리, 성능]
 date: 2017-06-26 18:09:49
 modified: 2017-06-26 18:09:49
 image:
@@ -11,7 +11,7 @@ image:
 share: true
 ---
 
-# Altassian SourceTree for Windows 2.0 업데이트
+# Atlassian SourceTree for Windows 2.0 업데이트
 
 지난 2017년 4월 27일, [소스트리 공식 블로그](https://blog.sourcetreeapp.com/)를 통해 소스트리의 윈도우용 2.0 첫 릴리즈 소식이 들려왔습니다. [소스트리](https://www.sourcetreeapp.com/)는 많은 개발자들에게 사랑받고 있는 [Git](https://git-scm.com/) 클라이언트입니다. 원래는 맥 전용으로만 쓰이던 도구였는데, 공식 블로그에 의하면 이제는 오늘날 반 이상의 유저가 윈도우를 사용한다고 하는군요. 그런 만큼 소스트리도 윈도우 유저를 아주 중요하게 생각할텐데요, 윈도우용 2.0 버젼의 개발이 한창 진행되더니 며칠 전부터는 1.x 버젼대의 소스트리를 구동만 하면 자동 업데이트로 2.0 버젼을 추천받아 다운로드 받을 수 있게 되었습니다.
 
