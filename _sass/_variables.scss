@@ -5,8 +5,8 @@ $caption-font             : $base-font;
 $code-font                : 'source-code-pro', monospace;
 $alt-font                 : 'volkhov', serif;
 
-$doc-font-size            : 16;
-$doc-line-height          : 24;
+$doc-font-size            : 14;
+$doc-line-height          : 20;
 
 $border-radius            : 3px;
 
@@ -28,6 +28,7 @@ $white                    : #fff;
 $black                    : #000;
 $accent-color             : $black;
 $link-color               : #222;
+$h-line-color             : #aaa;
 
 $table-border-color       : $border-color;
 $table-border             : 1px solid $table-border-color;

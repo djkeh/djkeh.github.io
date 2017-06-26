@@ -27,12 +27,12 @@
     float: left;
     list-style: none;
     text-align: center;
-    @include font-size(24,no);
+    @include font-size(18, no);
     text-transform: uppercase;
     color: $white;
 
     @include media($medium) {
-      @include font-size(14,no);
+      @include font-size(12, no);
     }
 
     a:hover {
