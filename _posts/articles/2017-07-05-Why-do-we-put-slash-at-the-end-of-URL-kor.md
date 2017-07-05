@@ -1,7 +1,7 @@
 ---
 layout: post
 categories: articles
-title:  "URL 끝에 "/" 는 왜 붙이는 걸까?"
+title:  "URL 끝에 \"/\" 는 왜 붙이는 걸까?"
 excerpt: "트레일링 슬래시(trailing slash) 기초 복습 및 관련 내용"
 tags: [url, trailingslash, trailing, slash, end, resource, uri, link, http, request, response, performance, 트레일링슬래시, 트레일링, 슬래시, 성능, 문법]
 date: 2017-07-05 20:16:50
