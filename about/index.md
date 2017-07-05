@@ -14,4 +14,10 @@ share: false
 Welcome to Uno's Blog.  
 This blog mainly deals with technical issues, my concerns, stories and any other stuffs especially related to the computer programming. Postings are written in Korean and English, so if you want to understand all my postings here, please learn Korean :P
 
-You can also read my *resume* here: [Korean](http://djkeh.github.io/resume/Korean), [English](http://djkeh.github.io/resume/English)
+
+#### Uno Kim
+
+* Server Programmer, [NHN Entertainment](https://www.nhnent.com/en/index.nhn)
+* Seoul, South Korea
+* Java, Spring, Web Application
+* [djkehh@gmail.com](mailto:djkehh@gmail.com)
