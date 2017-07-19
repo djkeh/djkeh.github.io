@@ -4,8 +4,8 @@ categories: articles
 title:  "왜 자바에서 final 멤버 변수는 관례적으로 static을 붙일까?"
 excerpt: "자바 final, static 키워드와 코딩 best practice 고찰"
 tags: [java, final, static, member, variable, field, class, local, instance, scope, convention, practice, bestpractice, 자바, 파이널, 스타틱, 정적, 상수, 변수, 멤버, 필드, 어트리뷰트, 클래스, 인스턴스, 로컬, 스코프, 관례, 컨벤션, 프랙티스, 베스트프랙티스, 습관]
-date: 2017-07-06 15:39:13
-modified: 2017-07-06 15:39:13
+date: 2017-07-18 23:19:51
+modified: 2017-07-18 23:19:53
 image: 
   feature: 
 share: false
@@ -15,7 +15,7 @@ sitemap: false
 오늘도 기초 정리입니다! 오늘은 자바 개발에서 꽤나 보편적으로 볼 수 있는 코드를 하나 정리해보려고 합니다. 바로 클래스의 `private static final` 멤버 변수 이야기입니다. 저는 현업에서 클래스 상수나 로그 구현체를 이런 식으로 만드는 것을 자주 보았는데요, 관련한 내용들을 가능한 짧고 간단하게 메모 스타일로 정리해 보겠습니다.
 
 
-# 왜 final 변수는 static 이야?
+# 왜 final 변수는 꼭 static 이야?
 
 흔히 클래스의 멤버 변수를 상수(`final`)로 만들고자 할 땐, 클래스 상수(`static final`)로 만들어주곤 합니다. 사실 이 말 속에 답이 대략 나타나는 것 같은데요^^; 하지만 이참에 자바 기본을 정리해 보죠.
 
@@ -39,10 +39,12 @@ sitemap: false
 
 ### 몇가지 세부 분석
 
-final 멤버 변수는 반드시 상수가 아닙니다. 왜냐면 `final`의 정의가 '상수이다'가 아니라 '한 번만 초기화 가능하다'이기 때문입니다. 다음의 코드를 보시죠.
+#### 1. final 멤버 변수가 반드시 상수는 아닙니다.
+
+왜냐면 `final`의 정의가 '상수이다'가 아니라 '한 번만 초기화 가능하다'이기 때문입니다. 다음의 코드를 보시죠.
 
 ```java
-public final class Test {
+public class Test {
   private final int value;
 
   public Test(int value) {
@@ -57,7 +59,9 @@ public final class Test {
 
 이 코드에서 final 멤버 변수 `value`는 생성자를 통해 초기화 되었습니다. 즉 이 클래스의 인스턴스들은 각기 다른 `value` 값을 갖게 되겠죠. 각 인스턴스 안에서는 변하지 않겠지만, 클래스 레벨에서 통용되는 상수라고는 할 수 없습니다.
 
-한 편, private 메소드와 final 클래스의 모든 메소드는 명시하지 않아도 `final` 처럼 동작합니다. 왜냐면 오버라이드가 불가능하기 때문이죠.
+#### 2.private 메소드와 final 클래스의 모든 메소드는 명시하지 않아도 `final` 처럼 동작합니다.
+
+왜냐면 오버라이드가 불가능하기 때문이죠.
 
 * 참고: [jls-8.4.3.3](http://docs.oracle.com/javase/specs/jls/se8/html/jls-8.html#jls-8.4.3.3)
 
@@ -66,7 +70,7 @@ public final class Test {
 * private: 자식 클래스에서 안 보입니다. (오버라이드도 물론 금지입니다.)
 * final: 자식 클래스에서 보이지만, 오버라이드가 금지됩니다.
 
-이렇게 불필요한 명시를 그렇다고 특별 취급해서 막을 필요는 없기 때문에, 컴파일러가 에러를 내거나 하지는 않습니다. 비슷한 예로 인터페이스의 메소드에 `public`을 붙이거나, final 클래스 메소드에 `final`을 붙이는 등의 경우도 문제가 생기지는 않지요. 
+이렇게 불필요한 명시를 그렇다고 특별 취급해서 막을 필요는 없기 때문에, 컴파일러가 에러를 내거나 경고하지는 않습니다. 비슷한 예로 인터페이스의 메소드에 `public`을 붙이거나, final 클래스 메소드에 `final`을 붙이는 등의 경우도 문제가 생기지는 않지요. 
 
 그렇다면 private 메소드와 final 메소드는 inline 메소드로 컴파일러 최적화가 될까요? 확인해보진 않았습니다만, 가능은 하더라도 항상 보장되진 않을 것으로 보입니다. 최적화 동작은 컴파일러와 내부 세팅에 의해 일어나기 때문입니다.
 
@@ -78,6 +82,7 @@ public final class Test {
 * static 멤버 변수
   * 클래스 변수라고도 부릅니다.
   * 모든 해당 클래스는 같은 메모리를 공유합니다.
+  * 특정한 인스턴스에 종속되지 않습니다.
   * 인스턴스를 만들지 않고 사용 가능합니다.
 * static 메소드
   * 클래스 메소드라고도 부릅니다.
@@ -98,7 +103,7 @@ public final class Test {
 * `기독교` 클래스에서 멤버 변수 `신의 이름`을 만들어 사용한다면 해당 클래스를 언제 어디서 어떻게 쓰든 변함없이 `하나님`이겠죠?
 * `중학교 성적` 클래스에서 `과목 최대 점수` 변수를 만든다면 `100`일 것입니다.
 
-이 값들은 모든 클래스 인스턴스에서 똑같이 써야할 값이고, 프로그래머는 이들을 프로그램 처음부터 끝까지 바뀌지 않는 논리로 의도할 것입니다. 그렇다면 **인스턴스가 만들어질 때마다 새로 메모리를 잡고 초기화시키지 말고**, 클래스 레벨에서 한 번만 잡아서 하나의 메모리 공간을 쭉 쓰면 되지 않을까요? 상수로 만들 의도였으니 동시성 문제도 없고요. 그렇다면~
+이 값들은 모든 클래스 인스턴스에서 똑같이 써야할 값이고, 프로그래머는 이들을 프로그램 처음부터 끝까지 바뀌지 않는 논리로 의도할 것입니다. 그렇다면 **인스턴스가 만들어질 때마다 새로 메모리를 잡고 초기화시키지 말고**, 클래스 레벨에서 한 번만 잡아서 하나의 메모리 공간을 쭉 쓰면 되지 않을까요? 그렇게 하면 어차피 다 같은 값을 가질 데이터를 위해 인스턴스 생성마다 매번 같은 메모리를 잡는 것보다 더 효율적일 것입니다. 상수로 만들 의도였으니 동시성 문제도 없고요. 그렇다면~
 
 ```
 public static final String NAME_OF_GOD = "하나님";
@@ -107,20 +112,25 @@ public static final int MAX_SUBJECT_SCORE = 100;
 
 와 같이 만들어두면 효율적이겠죠~
 
-이것이 코딩 관례가 되어, 멤버 상수는 `static final`로 만드는 practice가 생겼다 하겠습니다.
+이것이 코딩 관례가 되어, 멤버 상수는 `static final`로 만드는 practice가 생겼다고 볼 수 있을 것 같습니다.
 
 
-# final 변수를 final static으로 디자인하지 않는 경우가 있을까?
+# (사족1) final 변수를 final static으로 디자인하지 않는 경우가 있을까?
 
-위에서 잠시 언급한 것처럼, 각 인스턴스마다 서로 다른 final 멤버 변수를 생성사에서 초기화시키는 식으로 사용하는 경우에는 `static`을 사용하지 말아야 하겠네요~
+위에서 잠시 언급한 것처럼, 각 인스턴스마다 서로 다른 final 멤버 변수를 생성자에서 초기화시키는 식으로 사용하는 경우에는 `static`을 사용하지 않겠네요!
 
 
-# static 멤버 변수는 final이어야 할까?
+# (사족2) static 멤버 변수는 final이어야 할까?
+
+기술적으로는 그렇지 않지만, 좋은 코딩 관례(practice)로 보긴 어려울 듯 합니다. static 필드는 클래스 스코프의 전역 변수라 볼 수 있습니다. final을 쓰지 않았다면 값이 얼마든지 바뀔 수 있는 상태이므로, 이를 mutable하다고 말합니다. 이는 모든 클래스 인스턴스에서 접근하여 그 값을 변경할 수 있음을 의미하므로, 값을 추론하거나 테스트하기 어렵게 만드는 요인이 될 것입니다. 또한 동시성 프로그래밍을 어렵게 만드는 요인이 되겠죠.
+
 
 
 # 참조
 
+* [https://stackoverflow.com/questions/7026507/why-are-static-variables-considered-evil](https://stackoverflow.com/questions/7026507/why-are-static-variables-considered-evil)
 * [https://stackoverflow.com/questions/1415955/private-final-static-attribute-vs-private-final-attribute](https://stackoverflow.com/questions/1415955/private-final-static-attribute-vs-private-final-attribute)
 * [http://www.javaworld.com/article/2077399/core-java/private-and-final.html](http://www.javaworld.com/article/2077399/core-java/private-and-final.html)
 * [https://en.wikipedia.org/wiki/Final_(Java)](https://en.wikipedia.org/wiki/Final_(Java))
 * [https://en.wikipedia.org/wiki/Static_(keyword)](https://en.wikipedia.org/wiki/Static_(keyword))
+* [http://ojava.tistory.com/50](http://ojava.tistory.com/50)
