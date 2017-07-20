@@ -2,14 +2,13 @@
 layout: post
 categories: articles
 title:  "왜 자바에서 final 멤버 변수는 관례적으로 static을 붙일까?"
-excerpt: "자바 final, static 키워드와 코딩 best practice 고찰"
+excerpt: "자바 final, static 키워드와 코딩 best practice 되짚어보기"
 tags: [java, final, static, member, variable, field, class, local, instance, scope, convention, practice, bestpractice, 자바, 파이널, 스타틱, 정적, 상수, 변수, 멤버, 필드, 어트리뷰트, 클래스, 인스턴스, 로컬, 스코프, 관례, 컨벤션, 프랙티스, 베스트프랙티스, 습관]
 date: 2017-07-18 23:19:51
 modified: 2017-07-18 23:19:53
 image: 
   feature: 
-share: false
-sitemap: false
+share: true
 ---
 
 오늘도 기초 정리입니다! 오늘은 자바 개발에서 꽤나 보편적으로 볼 수 있는 코드를 하나 정리해보려고 합니다. 바로 클래스의 `private static final` 멤버 변수 이야기입니다. 저는 현업에서 클래스 상수나 로그 구현체를 이런 식으로 만드는 것을 자주 보았는데요, 관련한 내용들을 가능한 짧고 간단하게 메모 스타일로 정리해 보겠습니다.
