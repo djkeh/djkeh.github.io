@@ -3,14 +3,9 @@ layout: post
 categories: articles
 title:  "기타"
 excerpt: "기타"
-tags: []
 date: 2015-03-17 15:08:17
-modified: 2015-03-17 15:08:17
-image: 
-  feature: filename
-  credit: image owner
-  creditlink: original link
-share: true
+modified: 2017-07-27 16:57:04
+share: false
 sitemap: false
 ---
 
@@ -60,7 +55,7 @@ http://blog.woniper.net/231
   => gradle 편하다. 아무 설정 없이 폴더 안에 지정된 이름으로 넣어놓는 것으로 알아서 됨.
   => 톰캣이 정해놓은 기본 이름 : application.properties
   => 여러 프로퍼티를 만들고 톰캣이 지정하게 함으로써 알파 서버, 베타 서버, 리얼 서버 등 여러 서버에 올리고 바꿔가며 개발 가능
-  => 스프링 프로젝트에서 그 값을 @Value 어노테이션으로 가져와 사용한다. ( ex: @Value("${propertie_text}") private String text; )
+  => 스프링 프로젝트에서 그 값을 @Value 어노테이션으로 가져와 사용한다. ( ex: @Value("${properties_text}") private String text; )
 
  - url 이 변할 수도 있나요? 변할 이름을 변수로도 활용할 수 있나요?
   => @RequestMapping("http://test.com/url/url2/url3.html"): 일반적인 고정 url 스프링 어노테이션
