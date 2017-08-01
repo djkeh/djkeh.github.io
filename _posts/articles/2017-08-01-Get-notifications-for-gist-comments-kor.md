@@ -11,7 +11,7 @@ image:
   credit: 
   creditlink: 
 share: true
-sitemap: false
+sitemap: true
 ---
 
 # Gist는 편리합니다!
@@ -40,11 +40,11 @@ Gist는 꽤 오래된 서비스이고, 이와 관련된 이슈도 2013년에 이
 
 Giscus는 Gist의 알림을 깃헙 계정의 이메일로 보내주는 간단한 서비스를 제공합니다.
 
-![Giscus 메인 화면](./giscus.png)
+![Giscus 메인 화면](/images/20170801_gist_notification/giscus.png)
 
 무료이고, 사용법도 아주 간단합니다. 그저 OAuth 로그인을 통해 계정 정보 접근을 허용해주면 됩니다.
 
-![접근 허용 화면](./giscus2.png)
+![접근 허용 화면](/images/20170801_gist_notification/giscus2.png)
 
 별다른 라이선스가 명시되어 있지 않지만, 소스코드도 깃헙에 공개되어 있습니다.
 
@@ -60,7 +60,7 @@ Giscus는 Gist의 알림을 깃헙 계정의 이메일로 보내주는 간단한
 
 GistWatch 또한 Gist의 댓글 알림을 보내주는 심플한 서비스입니다. Giscus와의 차별점이라면, 이메일 뿐만 아니라 추가로 슬랙(Slack)과 트위터(twitter)를 통해 알림을 보내주는 기능이 있습니다. 홈피도 조금 더 예뻐요.
 
-![GIstWatch 메인 화면](./gistwatch.png)
+![GIstWatch 메인 화면](/images/20170801_gist_notification/gistwatch.png)
 
 역시 무료이고, Giscus와 비슷하게 사용법도 간단합니다.
 
@@ -71,4 +71,4 @@ GistWatch 또한 Gist의 댓글 알림을 보내주는 심플한 서비스입니
 
 # 결론
 
-짧은 코드를 작성하고 주변 사람들과 커뮤니케이션할 때, 위 서비스들 한 번 믿고 함께 Gist를 사용해 볼..까요!
+짧은 코드를 작성하고 주변 사람들과 커뮤니케이션할 때, 위 서비스들 한 번 믿고 함께 Gist를 사용해 볼..까요!;
