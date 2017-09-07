@@ -1,8 +1,8 @@
 ---
 layout: post
 categories: blog
-title:  "새로운 레스토랑 - 소울팟(Soul Pot)"
-excerpt: "새로운 맛집 탐방기"
+title:  "A new restaurant - Soul Pot"
+excerpt: "Fresh, neat, tasty homemade dish"
 tags: [restaurant, soulpot, homefood, homemade, walleyepollockroe, avocado, 소울팟, 가정식, 홈메이드, 명란젓아보카도덮밥]
 date: 2017-09-07 16:40:44
 modified: 2017-09-07 16:40:44
@@ -33,8 +33,10 @@ Beautiful food... I pretty much enjoyed it. Not salty, not colorful, not much, y
 
 ### Location & Contact Info.
 
-116, Samseong-dong, Kangnam-gu, Seoul, Korea
-02-538-3960
+소울 팟 (Soul Pot)
+
+116, Samseong-dong, Kangnam-gu, Seoul, Korea  
+02-538-3960  
 Mon ~ Sat, 11:30 ~ 8:30 (Breaktime - 2:30 ~ 5:30)
 
 p.s: You search walleye pollock roe in Korean internet dictionary, you may get "salted spawn of walley pollack".
