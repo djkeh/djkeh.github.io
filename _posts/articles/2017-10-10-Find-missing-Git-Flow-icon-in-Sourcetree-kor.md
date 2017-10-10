@@ -24,6 +24,6 @@ OMG!
 
 ![add icon](/images/20171010_sourcetree_gitflow/2.png "Git Flow 아이콘을 도구 막대에 추가")
 
-이제 잘 보입니다.
+커스터마이징 윈도우가 나타나고, 위 그림과 같이 사라진 깃 플로우 아이콘을 발견할 수 있습니다. 이를 도구 막대로 원하는 위치에 드래그 앤 드롭해 줍니다. 이제 잘 보이네요.
 
 ![added icon](/images/20171010_sourcetree_gitflow/3.png "완성")
