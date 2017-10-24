@@ -1,7 +1,7 @@
 # Site wide configuration
 
 title: Uno's Blog
-description: Welcome to Uno's Blog.
+description: Programming issues and everyday thoughts
 logo: site-logo.png
 search: true
 comments: true
@@ -45,7 +45,7 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 owner:
   name: Uno Kim
   avatar: Uno-photo.jpg
-  email: uno@nhnent.com
+  email: djkehh@gmail.com
   disqus-shortname: djkeh
   twitter: djkehh
   facebook: djkehh
