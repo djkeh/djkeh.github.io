@@ -14,19 +14,19 @@ share: true
 sitemap: true
 ---
 
-리베이스(rebase)는 상황에 따라 유용한 머지 전략 중 하나이지만, 어떻게 작동하는지 잘 이해하지 않은 상태에서 사용하면 큰 불편을 초래하기도 합니다.
+리베이스(`rebase`)는 상황에 따라 유용한 머지 전략 중 하나이지만, 어떻게 작동하는지 잘 이해하지 않은 상태에서 사용하면 예상치 못한 결과로 혼란을 초래하기도 합니다.
 제게 그런 일이 일어났었죠.
 
 ![wrong rebase](/images/20180125_wrong_rebase/1.png "rebase 했는데, 뭔가 이상하다")
 
-`feature/v.2.0` 브랜치에서 새로운 feature 브랜치를 만들어, `feature/#462-uno-xxx-helper`를 진행합니다. 이 개발 내용은 `feature/v.2.0` 개발 내용의 일부를 독립적으로 작업한 뒤 다시 `feature/v.2.0`에 하나로 합칠 목적입니다. 작업을 진행했고, 그 사이 동료 프로그래머도 `feature/v.2.0` 개발에 진척이 있었습니다. `feature/v.2.0`는 `feature/#462-uno-xxx-helper`의 모체이므로, `feature/v.2.0`의 변경사항을 가져오기 위해 `rebase`를 선택한다면 브랜치 정리가 보다 깔끔히 될 것 같은 기분이 듭니다.
+`feature/v.2.0` 브랜치에서 새로운 feature 브랜치를 만들어, `feature/#462-uno-xxx-helper`를 진행합니다. 이 브랜치에서 `feature/v.2.0` 개발 내용의 일부를 독립적으로 작업한 뒤 다시 `feature/v.2.0`에 하나로 합칠 목적입니다. 작업을 진행했고, 그 사이 동료 프로그래머도 `feature/v.2.0` 개발에 진척이 있었습니다. `feature/v.2.0`는 `feature/#462-uno-xxx-helper`의 모체이므로, `feature/v.2.0`의 최신 변경사항을 가져오기 위해 `rebase`를 선택한다면 브랜치 히스토리가 복잡해지는 것을 막을 수 있을 것 같은 기분이 듭니다.
 
 그리하여 실행하고, 그 결과가 위와 같이 되었습니다.
 
 어딘가.. 기분이 좀 쎄하죠.
 
 
-# 공용 저장소에 이미 푸시했던 작업물(commits)을 리베이스(rebase)하지 마세요!
+# 원격(공용) 저장소에 이미 푸시했던 작업물(commits)을 리베이스(rebase)하지 마세요!
 
 ![wrong rebase explanation](/images/20180125_wrong_rebase/2.png "같은 commit 내용이 이동하지 않고 복제되어 중복이 발생해 버렸다")
 
@@ -37,5 +37,5 @@ sitemap: true
 
 # Reference
 
-* https://git-scm.com/book/no-nb/v1/Git-Branching-Rebasing#The-Perils-of-Rebasing
-* https://stackoverflow.com/questions/9264314/git-commits-are-duplicated-in-the-same-branch-after-doing-a-rebase
+* [https://git-scm.com/book/no-nb/v1/Git-Branching-Rebasing#The-Perils-of-Rebasing](https://git-scm.com/book/no-nb/v1/Git-Branching-Rebasing#The-Perils-of-Rebasing)
+* [https://stackoverflow.com/questions/9264314/git-commits-are-duplicated-in-the-same-branch-after-doing-a-rebase](https://stackoverflow.com/questions/9264314/git-commits-are-duplicated-in-the-same-branch-after-doing-a-rebase)
