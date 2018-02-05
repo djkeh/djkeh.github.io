@@ -91,7 +91,7 @@ Date:   Fri Jan 01 00:00:00 1982 -0200
  Derezz the master control program
 
  MCP turned out to be evil and had become intent on world domination.
- This commit throws Tron's disc into MCP (causing its deresolution)
+ This commit throws disc of Tron into MCP (causing its deresolution)
  and turns it back into a chess game.
 ```
 
@@ -106,7 +106,7 @@ $ git log --oneline
 
 ```sh
 $ git log --oneline
-42e769 Derezz the master control program MCP turned out to be evil and had become intent on world domination. This commit throws Tron's disc into MCP (causing its deresolution) and turns it back into a chess game.
+42e769 Derezz the master control program MCP turned out to be evil and had become intent on world domination. This commit throws disc of Tron into MCP (causing its deresolution) and turns it back into a chess game.
 ```
 
 더 뚱뚱한 본문을 가진 커밋 메시지였더라면 어떻게 보였을지 예상이 되시죠?
@@ -256,7 +256,7 @@ Implement #58 - Company 클래스 메소드 3개
 
 이렇게 하면 제목 한 줄만 보고도 해당 커밋이 Github의 어느 이슈와 연관된 작업물인지 빠르게 알 수 있습니다. 더욱 뛰어난 것은, Github가 이슈 번호가 메시지에 포함된 커밋을 자동으로 이슈 페이지에 정리해준다는 것이죠! 그 결과물이 아래와 같습니다.
 
-##### Github 이슈 관리 화면에 반영된 커밋 기록들
+###### Github 이슈 관리 화면에 반영된 커밋 기록들
 
 ![1](/images/20170316_git_commit_message/4.png)
 
@@ -271,12 +271,12 @@ git은 자동으로 커밋 메시지 줄바꿈을 하지 않습니다. `git log`
 $ git config --global alias.lg "log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold red)%h%C(reset) : %C(bold green)(%ar)%C(reset) - %C(cyan)<%an>%C(reset)%C(bold yellow)%d%C(reset)%n%n%w(90,1,2)%C(white)%B%C(reset)%n'"
 ```
 
-##### `git lg` 실행 결과
+###### `git lg` 실행 결과
 
 ![2](/images/20170316_git_commit_message/2.png)
 
 
-##### `git lg --oneline` 실행 결과
+###### `git lg --oneline` 실행 결과
 
 ![3](/images/20170316_git_commit_message/3.png)
 
@@ -308,6 +308,8 @@ Date:   Fri Aug 1 22:57:55 2014 +0200
    fail(), clear(n) and exceptions() are just never called. Delete
    them.
 ```
+
+저는 이와 같은 Github의 기능들 덕분에 사실상 Github 플랫폼이 JIRA와 같은 issue tracker를 상당히 대체할 수 있다고 생각하며 활용하고 있습니다.
 
 
 # PLUS TIP! 커밋 메시지로 Github 이슈(issue)를 자동 종료시키기
