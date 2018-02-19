@@ -5,7 +5,7 @@ title:  "왜 자바에서 final 멤버 변수는 관례적으로 static을 붙�
 excerpt: "자바 final, static 키워드와 코딩 best practice 되짚어보기"
 tags: [java, final, static, member, variable, field, class, local, instance, scope, convention, practice, bestpractice, 자바, 파이널, 스타틱, 정적, 상수, 변수, 멤버, 필드, 어트리뷰트, 클래스, 인스턴스, 로컬, 스코프, 관례, 컨벤션, 프랙티스, 베스트프랙티스, 습관]
 date: 2017-07-18 23:19:51
-modified: 2017-07-18 23:19:53
+modified: 2018-02-19 14:39:11
 image: 
   feature: 
 share: true
@@ -58,7 +58,7 @@ public class Test {
 
 이 코드에서 final 멤버 변수 `value`는 생성자를 통해 초기화 되었습니다. 즉 이 클래스의 인스턴스들은 각기 다른 `value` 값을 갖게 되겠죠. 각 인스턴스 안에서는 변하지 않겠지만, 클래스 레벨에서 통용되는 상수라고는 할 수 없습니다.
 
-#### 2.private 메소드와 final 클래스의 모든 메소드는 명시하지 않아도 `final` 처럼 동작합니다.
+#### 2. private 메소드와 final 클래스의 모든 메소드는 명시하지 않아도 `final` 처럼 동작합니다.
 
 왜냐면 오버라이드가 불가능하기 때문이죠.
 
@@ -114,15 +114,14 @@ public static final int MAX_SUBJECT_SCORE = 100;
 이것이 코딩 관례가 되어, 멤버 상수는 `static final`로 만드는 practice가 생겼다고 볼 수 있을 것 같습니다.
 
 
-# (사족1) final 변수를 final static으로 디자인하지 않는 경우가 있을까?
+# (사족1) final 멤버 변수에 static을 사용하지 않는 경우가 있을까?
 
 위에서 잠시 언급한 것처럼, 각 인스턴스마다 서로 다른 final 멤버 변수를 생성자에서 초기화시키는 식으로 사용하는 경우에는 `static`을 사용하지 않겠네요!
 
 
-# (사족2) static 멤버 변수는 final이어야 할까?
+# (사족2) static 멤버 변수에 final을 사용하지 않는 경우가 있을까?
 
 기술적으로는 그렇지 않지만, 좋은 코딩 관례(practice)로 보긴 어려울 듯 합니다. static 필드는 클래스 스코프의 전역 변수라 볼 수 있습니다. final을 쓰지 않았다면 값이 얼마든지 바뀔 수 있는 상태이므로, 이를 mutable하다고 말합니다. 이는 모든 클래스 인스턴스에서 접근하여 그 값을 변경할 수 있음을 의미하므로, 값을 추론하거나 테스트하기 어렵게 만드는 요인이 될 것입니다. 또한 동시성 프로그래밍을 어렵게 만드는 요인이 되겠죠.
-
 
 
 # 참조
