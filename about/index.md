@@ -12,12 +12,11 @@ share: false
 ---
 
 Welcome to Uno's Blog.  
-This blog mainly deals with technical issues, my concerns, stories and any other stuffs especially related to the computer programming. Postings are written in Korean and English, so if you want to understand all my postings here, please learn Korean :P
-
+This blog mainly deals with technical issues, my concerns, stories and any other stuffs especially related to the computer programming. All writings will be uploaded mostly in Korean and in English for the rest, so doing Korean would be much convenient here if you want to understand all my postings :P
 
 #### Uno Kim
 
-* Server Programmer, [NHN Entertainment](https://www.nhnent.com/en/index.nhn)
+* Server Programmer, [Kakaopay](https://www.kakaopay.com/)
 * Seoul, South Korea
 * Java, Spring, Web Application
 * [djkehh@gmail.com](mailto:djkehh@gmail.com)
