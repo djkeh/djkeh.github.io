@@ -234,7 +234,7 @@ Merge pull request #123 from someuser/somebranch
 
 ## 6. Github - 제목(이나 본문)에 이슈 번호 붙이기
 
-만약 Github을 사용하고 있다면, 커밋 메시지에 사용하기 좋은 테그닉이 있습니다. 그것은 이슈 번호를 사용하는 것입니다. 방금 전에 봤었던 머지(merge) 커밋의 자동 커밋 메시지를 다시 한 번 살펴보죠.
+만약 Github을 사용하고 있다면, 커밋 메시지에 사용하기 좋은 테크닉이 있습니다. 그것은 이슈 번호를 사용하는 것입니다. 방금 전에 봤었던 머지(merge) 커밋의 자동 커밋 메시지를 다시 한 번 살펴보죠.
 
 ```
 Merge pull request #123 from someuser/somebranch
