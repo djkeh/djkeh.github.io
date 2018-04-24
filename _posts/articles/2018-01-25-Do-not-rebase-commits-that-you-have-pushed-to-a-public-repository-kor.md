@@ -5,7 +5,7 @@ title:  "리모트 저장소에 푸시한 커밋은 리베이스하지 말 것"
 excerpt: "\"Pro Git\"에서 배우는 리베이스 주의사항"
 tags: [git, rebase, merge, pro, progit, caution, technique, versioncontrol, 깃, 프로, 프로깃, 리베이스, 머지, 형상관리, 요령]
 date: 2018-01-25 17:20:00
-modified: 2018-01-25 17:20:00
+modified: 2018-04-24 10:52:42
 image: 
   feature: 
   credit: 
@@ -30,12 +30,17 @@ sitemap: true
 
 ![wrong rebase explanation](/images/20180125_wrong_rebase/2.png "같은 commit 내용이 이동하지 않고 복제되어 중복이 발생해 버렸다")
 
-자세히 살펴보니, 중복 커밋이 만들어지고 말았습니다. 이미 원격(공용) 저장소에 만들어진 브랜치를 `rebase` 하려 한다면, 새로운 커밋 히스토리를 작성하기 위해 `push --force`와 같은 동작을 하는 것이 되는데요, 이는 예상과 같은 "이동"이 아니라 "복제"를 의미합니다. 이 때 `rebase` 명령은 새롭게 복제하는 브랜치 노드가 새 것처럼 보이게 하기 위해 SHA-1 해시값을 바꿉니다. 그 결과 로컬과 원격 저장소에는 해시 값만 다르고 변경점과 커밋 메시지까지 똑같은 커밋 노드 두 개가 공존하게 되지요. 이것은 프로그래머가 `rebase`를 하면서 가장 의도하지 않은 장면일 겁니다.
+자세히 살펴보니, 중복 커밋이 만들어지고 말았습니다.
 
-`rebase`는 아직 업로드하지 않은 로컬 작업물을 원격 저장소에 붙이기 직전, 원격 브랜치의 커밋 히스토리를 어지럽히지 않은 채 원격 브랜치의 최신 변경 사항으로 업데이트할 때 바람직한 머지(`merge`) 전략입니다. `rebase`를 하기 전에는 자신의 작업물이 이미 원격 저장소에 나가지 않았는지 잘 살펴보시고, 이미 나간 경우에는 `merge`를 이용해 주세요!
+`rebase`의 내부 메커니즘은 겉보기와 달리 단순한 "이동" 이 아니라, 노드 변경점의 역추적을 통한 "복제" 입니다. 복제된 커밋은 내용은 같지만 새로운 노드이므로, 기존 노드와 SHA-1 해시값이 다릅니다. 그 결과 저장소에는 해시 값만 다를 뿐, 변경점과 커밋 메시지까지 똑같은 커밋 노드들 두 줄이 공존하게 되지요. 이것은 프로그래머가 `rebase`를 하면서 가장 의도하지 않은 장면일 겁니다. 이 때문에 원격 저장소에 작업물을 내보낸 사이 `rebase` 대상 브랜치에 변경점이 있었다면, `rebase`를 해서는 안됩니다. `merge`보다 훨씬 더 복잡하고 의도하지 않은 히스토리를 남기게 되거든요.
+
+위와 같은 부작용은 내 작업물 브랜치가 원격 저장소에 아직 푸시되지 않았거나, 원격 저장소에 작업 브랜치가 나간 상태라도 모체가 되는 `rebase` 대상 브랜치에 변경점이 없다면 일어나지 않습니다. 문제는 이미 원격 저장소에 존재하는 기존 노드들과, 로컬에서 `rebase` 작업을 통해 새롭게 발생한 복제 노드들이 공존할 때 발생합니다.
+
+그럼 기억합시다. `rebase`는 원격 저장소의 커밋 히스토리를 어지럽히지 않고, 로컬 작업물을 원격 저장소의 최신 변경 사항으로 업데이트하려 할 때 바람직한 머지(`merge`) 전략입니다. 자신의 작업물이 이미 원격 저장소에도 나가 있다면, `rebase` 하려는 대상 원격 작업물에 변경 사항이 있었는지 신중히 확인해 주세요. `rebase` 대상 브랜치에 변경점이 있었을 경우에는 `merge`를 이용하는 것이 좋습니다.
 
 
 # Reference
 
+* [https://git-scm.com/book/ko/v1/Git-브랜치-Rebase하기#Rebase의-위험성](https://git-scm.com/book/ko/v1/Git-브랜치-Rebase하기#Rebase의-위험성)
 * [https://git-scm.com/book/no-nb/v1/Git-Branching-Rebasing#The-Perils-of-Rebasing](https://git-scm.com/book/no-nb/v1/Git-Branching-Rebasing#The-Perils-of-Rebasing)
 * [https://stackoverflow.com/questions/9264314/git-commits-are-duplicated-in-the-same-branch-after-doing-a-rebase](https://stackoverflow.com/questions/9264314/git-commits-are-duplicated-in-the-same-branch-after-doing-a-rebase)

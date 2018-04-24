@@ -65,3 +65,6 @@ System.out.println("[Log] value: " + value);
 
 # 6. 프레임워크 IoC 컨테이너를 이용하기
 
+# 7. 반례
+
+- https://github.com/spring-projects/spring-boot/issues/8106
