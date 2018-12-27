@@ -160,7 +160,7 @@ server.tomcat.access-log-pattern=%{X-Forwarded-For}i (, %h) %l %u %t &quot;%r&qu
 
 이것은 Apache Tomcat의 `server.xml` 내부에 `<Valve>` 형태로 설정하는 내용을 스프링 부트 프로퍼티를 통해 전달하는 문장입니다. 원격 IP 헤더를 `X-Forwarded-For`로 선택하도록 한 후 액세스 로그를 활성화시키고 로그 패턴을 정의했습니다. 관련 문서는 [여기](http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html)를 참조하세요.
 
-만약 서버를 스프링 부트가 제공하는 Emgedded Tomcat으로 쓰지 않고 직접 시스템에 설치한 Tomcat으로 구성하려는 경우에는 방법이 달라집니다. 더 이상 자바 코드나 프로퍼티를 통해서는 어플리케이션 밖에 있는 외부 서버의 설정을 변경할 수 없습니다. 이 때는 위 2번 소제목에서 설명드린 대로 서버의 설정을 직접 수정하셔야 합니다.
+만약 서버를 스프링 부트가 제공하는 Embedded Tomcat으로 쓰지 않고 직접 시스템에 설치한 Tomcat으로 구성하려는 경우에는 방법이 달라집니다. 더 이상 자바 코드나 프로퍼티를 통해서는 어플리케이션 밖에 있는 외부 서버의 설정을 변경할 수 없습니다. 이 때는 위 2번 `서버에서 제어하기`에서 살펴본 바와 같이 서버의 설정을 직접 수정하셔야 합니다.
 
 
 ## 4. 마무리
