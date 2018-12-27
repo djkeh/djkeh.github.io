@@ -144,7 +144,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 이제 위 방법으로 접근 IP를 제어해보겠습니다. 다음과 같이 하면 됩니다.
 
 ```java
-http.authorizeRequests().antMatchers("/**").access(hasIpAddress('10.24.0.0/16'));
+http.authorizeRequests().antMatchers("/**").access(hasIpAddress("10.24.0.0/16"));
 ```
 
 이제 IP가 `10.24`로 시작하는 유저들만 서비스에 접근이 가능해졌습니다.
