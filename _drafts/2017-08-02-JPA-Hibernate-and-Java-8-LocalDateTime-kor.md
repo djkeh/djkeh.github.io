@@ -14,6 +14,7 @@ share: true
 sitemap: false
 ---
 
+https://mvnrepository.com/artifact/org.hibernate/hibernate-entitymanager
 https://stackoverflow.com/questions/39761619/why-is-hibernate-java8-hibernate-5-x-jar-shown-deprecated
 https://stackoverflow.com/questions/22858265/could-not-deserialize-invalid-stream-header-30003100
 http://blog.eomdev.com/java/2016/01/04/jpa_with_java8.html
