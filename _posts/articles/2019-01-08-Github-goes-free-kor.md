@@ -21,7 +21,7 @@ sitemap: true
 
 개발자는 무제한으로 개인 저장소(private repository)를 만들고 사용 가능합니다. 저장소 당 최대 3 협업자(collaborators)까지만 둘 수 있다는 점이 공용 저장소(public repository)와 다른 점입니다.
 
-![GitHub Free WTF](/images/20190108_github_for_free/1.png "깃헙 개인저장소가 무료여 어머나 세상에")
+![GitHub Free WTF](/images/20190108_github_goes_free/1.png "깃헙 개인저장소가 무료여 어머나 세상에")
 
 
 ## 깃헙 엔터프라이즈(GitHub Enterprise)
