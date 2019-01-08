@@ -26,7 +26,7 @@ sitemap: true
 
 ## 깃헙 엔터프라이즈(GitHub Enterprise)
 
-깃헙 엔터프라이즈는 Enterprise Cloud(cf. GitHub Business Cloud)에 맞춰 새로운 통합 솔루션으로 제공됩니다.
+깃헙 엔터프라이즈는 Enterprise Cloud(cf. GitHub Business Cloud)에 맞춰 새로운 통합 솔루션으로 제공됩니다. 클라우드 기능과 관련 지원을 강화한다는 뜻으로 풀이됩니다.
 
 
 ## 그밖에
