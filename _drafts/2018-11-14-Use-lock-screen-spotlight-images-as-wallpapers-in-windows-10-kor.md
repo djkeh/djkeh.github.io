@@ -5,12 +5,7 @@ title:  "윈도우 10에서 잠금화면 추천(스포트라이트) 이미지를
 excerpt: "정식적인 방법은 없지만 다운로드 받은 추천 이미지를 사용할 수 있다"
 tags: [microsoft,windows,lockscreen]
 date: 2018-06-04 15:27:09
-modified: 2018-06-04 15:27:12
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2018-06-04 15:27:12
 sitemap: false
 ---
 

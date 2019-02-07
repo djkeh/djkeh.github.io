@@ -3,15 +3,9 @@ layout: post
 categories: articles
 title:  "소스트리에서 사라진 Git Flow 아이콘 되찾기"
 excerpt: "SourceTree에서 Git Flow 아이콘을 찾아 도구 막대에 등록하기"
-tags: [sourcetree, git, gitflow, icon, toolbar, customize, 소스트리, 깃, 깃플로우, 아이콘, 도구 막대, 커스토마이즈]
+tags: [git]
 date: 2017-10-10 17:52:34
-modified: 2017-10-10 17:52:34
-image: 
-  feature: 
-  credit: 
-  creditlink: 
-share: true
-sitemap: true
+last_modified_at: 2019-02-07 10:37:09
 ---
 
 소스트리가 버젼 2.2로 업데이트되면서 일어난 작은 변화 중에 하나가 충격적입니다. 어느날 들어가 봤더니 깃 플로우 아이콘이 사라져 있더군요.

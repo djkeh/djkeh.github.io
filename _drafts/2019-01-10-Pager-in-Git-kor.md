@@ -5,12 +5,7 @@ title:  "Git"
 excerpt: "Git 문서에 담겨있는 정체불명의 단어들"
 tags: [git]
 date: 2019-01-10 17:42:25
-modified: 2019-01-10 17:42:25
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2019-01-10 17:42:25
 sitemap: false
 ---
 

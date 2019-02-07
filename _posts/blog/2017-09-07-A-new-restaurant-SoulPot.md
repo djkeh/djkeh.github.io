@@ -3,13 +3,9 @@ layout: post
 categories: blog
 title:  "A new restaurant - Soul Pot"
 excerpt: "Fresh, neat, tasty homemade dish"
-tags: [restaurant, soulpot, homefood, homemade, walleyepollockroe, avocado, 소울팟, 가정식, 홈메이드, 명란젓아보카도덮밥]
+tags: [diary]
 date: 2017-09-07 16:40:44
-modified: 2018-03-05 19:04:32
-image: 
-  feature: 
-  credit: 
-  creditlink: 
+last_modified_at: 2019-02-07 07:44:56
 share: true
 sitemap: true
 ---
@@ -24,14 +20,12 @@ And.. It was quite satisfactory.
 
 This was my choice.
 
-![The meal - A bowl of rice topped with walleye pollock roe, avocado, onion and vegetables](/images/20170907_soulpot/supper.jpg)
-
-###### The meal - A bowl of rice topped with walleye pollock roe, avocado, onion and vegetables (10,000 won)
+![The meal - A bowl of rice topped with walleye pollock roe, avocado, onion and vegetables](/images/20170907_soulpot/supper.jpg "A bowl of rice topped with walleye pollock roe, avocado, onion and vegetables (10,000 won)")
 
 Beautiful food... I pretty much enjoyed it. Not salty, not colorful, not much, yet fresh, simple and tasty. It'd be glad to visit here once again.
 
 
-### Location & Contact Information
+## Location & Contact Information
 
 소울 팟 (Soul Pot)
 

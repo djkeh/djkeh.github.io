@@ -5,12 +5,7 @@ title:  "Gradle을 사용할 때 알면 좋은 소소한 팁"
 excerpt: "지나친 디테일일까"
 tags: [gradle,java,lombok,cache,scan]
 date: 2018-12-11 07:22:50
-modified: 2018-12-11 07:22:50
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2018-12-11 07:22:50
 sitemap: false
 ---
 
@@ -23,7 +18,7 @@ sitemap: false
 3. 
 
 
-### Reference
+## Reference
 
 * [https://discuss.gradle.org/t/regarding-the-annotation-processors-on-compile-classpath-warning-in-gradle-4-6/26144/12](https://discuss.gradle.org/t/regarding-the-annotation-processors-on-compile-classpath-warning-in-gradle-4-6/26144/12)
 * [https://www.holaxprogramming.com/2017/07/04/devops-gradle-is-faster-than-maven/](https://www.holaxprogramming.com/2017/07/04/devops-gradle-is-faster-than-maven/)

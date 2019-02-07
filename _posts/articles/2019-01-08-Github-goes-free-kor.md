@@ -3,15 +3,9 @@ layout: post
 categories: articles
 title:  "GitHub 개인저장소 전면 무료화 선언"
 excerpt: "free private repository, unified enterprise offering"
-tags: [git,github]
+tags: [git, github]
 date: 2019-01-08 14:05:27
-modified: 2019-01-08 14:05:27
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
-sitemap: true
+last_modified_at: 2019-02-07 10:37:58
 ---
 
 깃허브가 전면 무료에 돌입합니다. 쇼킹한 뉴스네요. 세부 내용을 요약해 보겠습니다.

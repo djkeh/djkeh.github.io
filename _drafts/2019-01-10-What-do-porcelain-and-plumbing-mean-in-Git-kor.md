@@ -5,12 +5,7 @@ title:  "Porcelain, Plumbing이 무슨 뜻이지?"
 excerpt: "Git 문서에 담겨있는 정체불명의 단어들"
 tags: [git,english]
 date: 2019-01-10 16:03:05
-modified: 2019-01-10 16:03:05
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2019-01-10 16:03:05
 sitemap: false
 ---
 

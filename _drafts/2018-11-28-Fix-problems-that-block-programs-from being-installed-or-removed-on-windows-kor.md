@@ -5,12 +5,7 @@ title:  "윈도우 프로그램 제거(또는 설치)가 잘 되지 않을 때 �
 excerpt: "마이크로소프트에서 제공하는 윈도우 프로그램 설치/삭제 문제 해결 도구"
 tags: [microsoft,windows,install,registry]
 date: 2018-11-28 11:01:28
-modified: 2018-11-28 11:01:28
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2018-11-28 11:01:28
 sitemap: false
 ---
 

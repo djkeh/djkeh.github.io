@@ -5,12 +5,7 @@ title:  "title"
 excerpt: "excerpt"
 tags: []
 date: 2017-08-02 14:05:22
-modified: 2017-08-02 14:05:22
-image: 
-  feature: 
-  credit: 
-  creditlink: 
-share: true
+last_modified_at: 2017-08-02 14:05:22
 sitemap: false
 ---
 

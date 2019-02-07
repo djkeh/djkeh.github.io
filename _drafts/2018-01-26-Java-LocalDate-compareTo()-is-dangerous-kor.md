@@ -5,12 +5,7 @@ title:  "Java LocalDate compareTo()는 위험하다"
 excerpt: "전통적인 compareTo()와 LocalDate.compareTo()의 차이점"
 tags: []
 date: 2018-01-26 15:30:00
-modified: 2018-01-26 15:30:00
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2018-01-26 15:30:00
 sitemap: false
 ---
 

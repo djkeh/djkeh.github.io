@@ -5,12 +5,7 @@ title:  "Gradle 4 버젼을 5로 올리기"
 excerpt: "릴리즈 노트로 알아보는 5의 장점과 유의 사항"
 tags: [gradle,version,upgrade,releasenote,그래들,버젼,업그레이드,릴리즈노트]
 date: 2018-12-12 16:35:28
-modified: 2018-12-12 16:35:28
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2018-12-12 16:35:28
 sitemap: false
 ---
 

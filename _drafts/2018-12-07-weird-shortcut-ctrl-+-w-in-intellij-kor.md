@@ -5,12 +5,7 @@ title:  "인텔리제이의 이상한 단축키 - ctrl + w"
 excerpt: "소스코드 탭을 닫을 줄 알았는데?!"
 tags: [intellij,windows,shortcut]
 date: 2018-12-07 01:50:38
-modified: 2018-12-07 01:50:38
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2018-12-07 01:50:38
 sitemap: false
 ---
 

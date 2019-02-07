@@ -5,12 +5,7 @@ title:  "눈치채기 어려운 BigDecimal.multiply() 의 위험"
 excerpt: "곱셈 후 반올림을 하려고 할 때 주의사항"
 tags: [java]
 date: 2018-06-04 15:27:09
-modified: 2018-06-04 15:27:12
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2018-06-04 15:27:12
 sitemap: false
 ---
 
