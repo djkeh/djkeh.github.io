@@ -38,6 +38,7 @@ twitter:
   username: # site's Twitter username, e.g. "mmistakes"
 
 # Build settings
+permalink: /:categories/:title/
 markdown: kramdown
 #theme: minima
 remote_theme: "mmistakes/so-simple-theme"
