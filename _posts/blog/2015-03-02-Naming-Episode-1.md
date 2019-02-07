@@ -3,11 +3,9 @@ layout: post
 categories: blog
 title: "Naming Episode 1"
 excerpt: "How would you shorten the name, \"Page Rank\"?"
-tags: [page, rank, prank, shorten, abbreviate, abbreviation]
-date: 2015-03-02T14:51:00-09:00
-modified: 2015-03-02T16:58:00-09:00
-image:
-  feature:
+tags: [diary,naming]
+date: 2015-03-02T14:51:00+09:00
+last_modified_at: 2019-02-07T07:46:40+09:00
 share: false
 ---
 

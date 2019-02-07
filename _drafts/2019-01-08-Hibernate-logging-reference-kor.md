@@ -5,12 +5,7 @@ title:  "Hibernate 공식 문서로 살펴보는 로그 종류"
 excerpt: "JPA 쿼리 로깅을 위해 꼭 필요한 정보"
 tags: [java,jpa,hibernate,db]
 date: 2019-01-08 13:44:16
-modified: 2019-01-08 13:44:16
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2019-01-08 13:44:16
 sitemap: false
 ---
 

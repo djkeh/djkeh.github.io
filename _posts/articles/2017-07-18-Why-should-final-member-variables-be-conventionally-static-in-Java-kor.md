@@ -3,28 +3,24 @@ layout: post
 categories: articles
 title:  "왜 자바에서 final 멤버 변수는 관례적으로 static을 붙일까?"
 excerpt: "자바 final, static 키워드와 코딩 best practice 되짚어보기"
-tags: [java, final, static, member, variable, field, class, local, instance, scope, convention, practice, bestpractice, 자바, 파이널, 스타틱, 정적, 상수, 변수, 멤버, 필드, 어트리뷰트, 클래스, 인스턴스, 로컬, 스코프, 관례, 컨벤션, 프랙티스, 베스트프랙티스, 습관]
+tags: [java]
 date: 2017-07-18 23:19:51
-modified: 2018-02-19 14:39:11
-image: 
-  feature: 
-share: true
+last_modified_at: 2019-02-07 10:34:52
 ---
 
 오늘도 기초 정리입니다! 오늘은 자바 개발에서 꽤나 보편적으로 볼 수 있는 코드를 하나 정리해보려고 합니다. 바로 클래스의 `private static final` 멤버 변수 이야기입니다. 저는 현업에서 클래스 상수나 로그 구현체를 이런 식으로 만드는 것을 자주 보았는데요, 관련한 내용들을 가능한 짧고 간단하게 메모 스타일로 정리해 보겠습니다.
 
 
-# 왜 final 변수는 꼭 static 이야?
+## 왜 final 변수는 꼭 static 인가
 
 흔히 클래스의 멤버 변수를 상수(`final`)로 만들고자 할 땐, 클래스 상수(`static final`)로 만들어주곤 합니다. 사실 이 말 속에 답이 대략 나타나는 것 같은데요^^; 하지만 이참에 자바 기본을 정리해 보죠.
 
 
 ## final 키워드
 
-`final` 키워드는 프로그래밍 언어에서 'constant', '상수'와 같은 단어와 비교되는 단어인데요, 자바에서 기본적으로 다음의 의미를 가집니다.
+`final` 키워드는 프로그래밍 언어에서 'constant', '상수'와 같은 단어와 비교되는 단어인데요, 위키피디아에 따르면 자바에서 기본적으로 다음의 의미를 가집니다.
 
 > final은 해당 entity가 오로지 한 번 할당될 수 있음을 의미합니다.
-> - 위키피디아
 
 그래서 위 의미를 바탕으로 다음 세 경우에 따라 구체적으로 작용합니다.
 
@@ -38,7 +34,7 @@ share: true
 
 ### 몇가지 세부 분석
 
-#### 1. final 멤버 변수가 반드시 상수는 아닙니다.
+#### 1. final 멤버 변수가 반드시 상수는 아닙니다
 
 왜냐면 `final`의 정의가 '상수이다'가 아니라 '한 번만 초기화 가능하다'이기 때문입니다. 다음의 코드를 보시죠.
 
@@ -58,7 +54,7 @@ public class Test {
 
 이 코드에서 final 멤버 변수 `value`는 생성자를 통해 초기화 되었습니다. 즉 이 클래스의 인스턴스들은 각기 다른 `value` 값을 갖게 되겠죠. 각 인스턴스 안에서는 변하지 않겠지만, 클래스 레벨에서 통용되는 상수라고는 할 수 없습니다.
 
-#### 2. private 메소드와 final 클래스의 모든 메소드는 명시하지 않아도 `final` 처럼 동작합니다.
+#### 2. private 메소드와 final 클래스의 모든 메소드는 명시하지 않아도 `final` 처럼 동작합니다
 
 왜냐면 오버라이드가 불가능하기 때문이죠.
 
@@ -114,17 +110,17 @@ public static final int MAX_SUBJECT_SCORE = 100;
 이것이 코딩 관례가 되어, 멤버 상수는 `static final`로 만드는 practice가 생겼다고 볼 수 있을 것 같습니다.
 
 
-# (사족1) final 멤버 변수에 static을 사용하지 않는 경우가 있을까?
+## (사족1) final 멤버 변수에 static을 사용하지 않는 경우가 있을까
 
 위에서 잠시 언급한 것처럼, 각 인스턴스마다 서로 다른 final 멤버 변수를 생성자에서 초기화시키는 식으로 사용하는 경우에는 `static`을 사용하지 않겠네요!
 
 
-# (사족2) static 멤버 변수에 final을 사용하지 않는 경우가 있을까?
+## (사족2) static 멤버 변수에 final을 사용하지 않는 경우가 있을까
 
 기술적으로는 충분히 가능합니다. 명확한 목적이 있는 경우는 사용할 수 있을 것 같습니다. 하지만 보통의 경우엔 좋은 코딩 관례(practice)로 보기 어려울 듯 합니다. `static` 필드는 클래스 스코프의 전역 변수라 볼 수 있습니다. `final`을 쓰지 않았다면 값이 얼마든지 바뀔 수 있는 상태이므로, 이를 mutable하다고 말합니다. 이는 모든 클래스 인스턴스에서 접근하여 그 값을 변경할 수 있음을 의미하므로, 값을 추론하거나 테스트하기 어렵게 만드는 요인이 될 것입니다. 또한 동시성 프로그래밍을 어렵게 만드는 요인이 되겠죠.
 
 
-# 참조
+## Reference
 
 * [https://stackoverflow.com/questions/7026507/why-are-static-variables-considered-evil](https://stackoverflow.com/questions/7026507/why-are-static-variables-considered-evil)
 * [https://stackoverflow.com/questions/1415955/private-final-static-attribute-vs-private-final-attribute](https://stackoverflow.com/questions/1415955/private-final-static-attribute-vs-private-final-attribute)

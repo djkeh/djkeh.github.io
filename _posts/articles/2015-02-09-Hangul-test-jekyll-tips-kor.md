@@ -3,18 +3,15 @@ layout: post
 categories: articles
 title: "Hangul test : 지킬(Jekyll)로 깃헙 블로그 만들 때"
 excerpt: "한글 테스트 + 지킬(Jekyll)로 블로그 만들면서 부딪쳤던 문제들 정리"
-tags: [hangul, korean, jekyll, tip, ruby, gem, frontmatter, pygments, numbering, 지킬, 블로그, 정리]
-date: 2015-02-09T02:01:11-09:00
-modified:
-image:
-  feature:
-share: false
+tags: [jekyll]
+date: 2015-02-09T02:01:11+09:00
+last_modified_at: 2019-02-07T09:29:08+09:00
 ---
 
 이 포스팅은 한글 출력이 잘 되는지를 시험할 겸 이 깃헙 블로그를 만들면서 만났던 문제점을 한글로 정리한다.
 
 
-#### 1. 루비 gem 패키지 다운로드
+## 1. 루비 gem 패키지 다운로드
 
 윈도우에서 이와 관련해 뭔가 경로를 찾거나 권한 문제로 잘 되지 않는다면  
 보안 프로토콜 문제일 가능성이 있으므로 리포지터리 url 을 `http`에서 `https`로 수정해 주어야 한다.  
@@ -36,7 +33,7 @@ Gemfile 안에는 별도의 리포지터리 url 이 설정되어있을 수 있�
 이 정도면 보안이나 권한 문제로 패키지 다운로드를 실패하지는 않을 것이다.
 
 
-#### 2. markdown 파일 내에서 HTML 태그 사용
+## 2. markdown 파일 내에서 HTML 태그 사용
 
 가능하다. 별도의 설정 없이 곧바로 자유롭게 태그를 사용하면 된다.  
 단 주의할 것은, block-level HTML 엘리먼트는 사용 규칙이 정해져있다.  
@@ -56,18 +53,18 @@ block-level element 에 속하는 것은 `<div>, <table>, <pre>, <p>` 등이 있
 {% endhighlight %}
 
 
-#### 3. 왜 disqus가 jekyll로 만든 포스트에 나타나질 않지?
+## 3. 왜 disqus가 jekyll로 만든 포스트에 나타나질 않지?
 
 `localhost:4000` 에서 보고 있지 않는가? 그렇다면 보이지 않는다.  
 웹으로 푸시하고 웹에서 봐라. 잘 될 것이다.
 
 
-#### 4. octopress 라는게 있는 모양인데 잘 되지 않는다
+## 4. octopress 라는게 있는 모양인데 잘 되지 않는다
 
 나도 안 된다. 이유는 모르겠다. 포기한 상태다. 아는 분은 댓글좀 굽신굽신
 
 
-#### 5. Front Matter
+## 5. Front Matter
 
 `Front Matter` 란 [jekyll](http://jekyllrb.com/) 에서 포스트나 페이지를 관리하는데 사용하기 위해 읽어들이는  
 [YAML](http://yaml.org/) 방식의 문서의 헤더 양식이다.  
@@ -92,7 +89,7 @@ comments: true // 블로그 포스트 하나하나마다 개별적으로 disqus 
 {% endhighlight %}
 
 
-#### 6. Jekyll 에서 Pygments 코드 색깔 처리와 줄 번호
+## 6. Jekyll 에서 Pygments 코드 색깔 처리와 줄 번호
 
 [jekyll](http://jekyllrb.com/)은 [pygments](http://pygments.org/)를 이용한 syntax highlighting 을 지원한다.  
 md 파일 안에서 다음의 코드를 이용한다.
@@ -141,7 +138,7 @@ md 파일 안에서 다음의 코드를 이용한다.
 {% endhighlight %}
 
 
-#### 7. [Updated] 더 나은 Pygments 줄 번호 처리법 - thanks to [박현재](http://hyeonjae.github.io/)
+## 7. [Updated] 더 나은 Pygments 줄 번호 처리법 - thanks to [박현재](http://hyeonjae.github.io/)
 
 [http://demisx.github.io/jekyll/2014/01/13/improve-code-highlighting-in-jekyll.html](http://demisx.github.io/jekyll/2014/01/13/improve-code-highlighting-in-jekyll.html)  
 이 사이트를 참고하면 linenos로 출력되는 줄번호를 소스코드 복사에서 제외시키고  
@@ -168,7 +165,7 @@ end
 > 따라서 위 내용이 제대로 표시되지 않을 수 있다.
 
 
-#### 8. 2017/06/02 Update: 코드 표현 방식 변화
+## 8. 2017/06/02 Update: 코드 표현 방식 변화
 
 Jykell이 버젼업하고, `Pygments` 기능을 다른 기능으로 대체함에 따라  
 기존의 코드 블럭 표시 방법을 더이상 사용할 수 없게 되었다.  

@@ -1,19 +1,14 @@
 ---
 layout: post
 categories: articles
-title:  "JAVA 8에서 javax.json 라이브러리를 사용 못하는 이유"
-excerpt: "Java EE와  Java SE의 차이점"
-tags: [java, se, ee, jdk, json, import, package]
-date:   2015-03-10 15:11:16
-modified:   2015-03-10 15:11:16
-image:
-  feature: 
-  credit: image 
-  creditlink: 
-share: true
+title: "JAVA 8에서 javax.json 라이브러리를 사용 못하는 이유"
+excerpt: "Java EE와 Java SE의 차이점"
+tags: [java, json]
+date: 2015-03-10 15:11:16
+last_modified_at: 2019-02-07 09:11:15
 ---
 
-Q: JAVA 8을 쓰는데도 javax.json.*; 이 임포트(import) 되지 않아요!
+**Q: JAVA 8을 쓰는데도 javax.json.*; 이 임포트(import) 되지 않아요!**
 
 A: 그것은 해당 JSON 라이브러리 그룹이 Java EE 라이브러리이기 때문이다. JDK 버젼이 최신인 8인데 왜 안되지? 라며 쩔쩔 매고 있었다면 자신이 컴퓨터에 설치한 개발도구가 Java SE 인지 확인해봐야 한다.
 

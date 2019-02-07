@@ -3,25 +3,19 @@ layout: post
 categories: articles
 title:  "Gist 댓글 알림 받기"
 excerpt: "Giscus, GistWatch를 통해 Gist 댓글 알림 받는 법"
-tags: [git, gist, github, giscus, gistwatch, comment, notification, noti, notify, email, twitter, slack, 깃, 깃허브, 깃헙, 지스트, 댓글, 코멘트, 알림, 노티, 메일, 트위터, 슬랙]
+tags: [git, gist]
 date: 2017-08-01 11:44:10
-modified: 2017-08-01 11:44:10
-image: 
-  feature: 
-  credit: 
-  creditlink: 
-share: true
-sitemap: true
+last_modified_at: 2019-02-07 10:35:13
 ---
 
-# Gist는 편리합니다!
+## Gist는 편리하다
 
 [Gist](https://gist.github.com/)는 [Github](https://github.com/)에서 제공하는 문서 공유 서비스입니다. 즉석에서 간단한 문서 한 개, 코드 한 토막, 작은 솔루션, 아이디어를 작성하고 공유하기에 최적화된 도구입니다. 검색이 가능한 public 문서와 검색 노출이 제한된 secret 문서, 로그인 없이 바로 작성하는 anonymous 문서를 만들 수 있고, 파일 포맷에 따라 적당한 수준의 syntax highlighting을 지원합니다. 문서에 관한 피드백을 댓글로 주고 받을 수 있고, 댓글 속에서 깃헙의 특정 사용자를 멘션할 수도 있습니다. Gist 에디터는 [CodeMirror](https://codemirror.net/)를 사용하고 있습니다.
 
 재밌는 것은 Gist도 Git 저장소로 만들어져 있다는 점이죠. 따라서 `fork`, `clone`이 가능하고, 문서의 변경 내역(revisions)도 모두 볼 수 있습니다.
 
 
-# 근데 알림을 못 받아??
+## 근데 알림을 못 받는다
 
 Gist는 꽤 오래된 서비스이고, 이와 관련된 이슈도 2013년에 이미 나왔지만, 아직 알림 기능이 없습니다! 내가 만든 Gist 문서에 누군가 댓글을 달아도 직접 들어가서 보기 전에는 댓글이 달렸다는 사실을 알 방법이 없는 상태입니다.
 
@@ -30,7 +24,7 @@ Gist는 꽤 오래된 서비스이고, 이와 관련된 이슈도 2013년에 이
 이것 굉장히 난감하군요!
 
 
-# 방법 없습니까?
+## 방법
 
 있습니다!
 
@@ -50,11 +44,11 @@ Giscus는 Gist의 알림을 깃헙 계정의 이메일로 보내주는 간단한
 
 * [https://github.com/tightenco/giscus](https://github.com/tightenco/giscus)
 
-#### 쓸만한가요?
+#### 쓸만한가
 
 저도 방금 발견해서, 해두기는 했는데.. 아직 알림을 못 받아봤습니다 ㅎㅎ 받게 되면 문서를 밑에 업데이트 하겠습니다.
 
-##### 사용 후기 업데이트
+#### 사용 후기 업데이트
 
 * 자신이 쓴 댓글의 알림은 안오고 있습니다..
 
@@ -68,11 +62,11 @@ GistWatch 또한 Gist의 댓글 알림을 보내주는 심플한 서비스입니
 
 역시 무료이고, Giscus와 비슷하게 사용법도 간단합니다.
 
-#### 쓸만한가요?
+#### 쓸만한가
 
 저도 방금 발견했어요 ㅎㅎ 써보는 중입니다. 알림을 받게 되면 문서를 밑에 업데이트 하겠습니다.
 
-##### 사용 후기 업데이트
+#### 사용 후기 업데이트
 
 ![알림 모습](/images/20170801_gist_notification/gistwatch-noti.png)
 
@@ -80,6 +74,6 @@ GistWatch 또한 Gist의 댓글 알림을 보내주는 심플한 서비스입니
 * 자신이 쓴 댓글의 알림이 오네요.
 
 
-# 결론
+## 결론
 
 짧은 코드를 작성하고 주변 사람들과 커뮤니케이션할 때, 위 서비스들 한 번 믿고 함께 Gist를 사용해 볼..까요!;

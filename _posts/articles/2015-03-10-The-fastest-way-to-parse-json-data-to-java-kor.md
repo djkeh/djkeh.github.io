@@ -1,16 +1,11 @@
 ---
 layout: post
 categories: articles
-title:  "JSON 데이터를 자바로 파싱하는 가장 빠른 방법"
+title: "JSON 데이터를 자바로 파싱하는 가장 빠른 방법"
 excerpt: "7종류의 자바 JSON 라이브러리 벤치마크"
 tags: [java, json, restful]
-date:   2015-03-10 15:08:19
-modified:   2019-01-29 16:22:10
-image:
-  feature:
-  credit:
-  creditlink:
-share: true
+date: 2015-03-10 15:08:19
+last_modified_at: 2019-02-07 09:11:58
 ---
 
 ## 다양한 Java JSON 라이브러리들

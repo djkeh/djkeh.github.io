@@ -5,12 +5,7 @@ title:  "Java 10의 새로운 기능 : var"
 excerpt: "지역 변수 타입 추론을 가능하게 하는 새로운 방법"
 tags: []
 date: 2018-03-15 13:48:37
-modified: 2018-03-15 13:48:40
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2018-03-15 13:48:40
 sitemap: false
 ---
 

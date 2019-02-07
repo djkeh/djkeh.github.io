@@ -5,12 +5,7 @@ title:  "CI/CD: 항상 제품화 준비가 되어있는 소프트웨어"
 excerpt: "Pivotal 공식 사이트 번역"
 tags: [pivotal,software,integration]
 date: 2019-01-18 15:06:08
-modified: 2019-01-18 15:06:08
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2019-01-18 15:06:08
 sitemap: false
 ---
 
@@ -45,6 +40,7 @@ CI/CD compliments Agile methodology and DevOps by providing the functionality re
 In the rare instances when failures do occur in production, CI/CD enables teams to reduce their mean time to recovery (MTTR) by quickly pinpointing bad code and pushing fixes to production to minimize the impact on end-users.
 
 ### The Big Differences: CI/CD Versus Traditional Development
+
 | CI/CD | TRADITIONAL DEVELOPMENT |
 |---|---|
 | Software is developed iteratively in small chunks based on frequent user feedback. | Software is developed in large, complex units with less timely user feedback. |
