@@ -3,17 +3,12 @@ layout: post
 categories: articles
 title:  "Desktop Calendar"
 excerpt: "Very useful on-screen desktop calendar for Windows"
-tags: [desktop, calendar, desktopcal, windows, cal]
+tags: [windows, utility]
 date: 2015-04-05 10:03:07
-modified: 2015-04-07 11:28:07
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2019-02-07 09:10:31
 ---
 
-### Desktop Calendar: Very useful on-screen desktop calendar for Windows
+## Desktop Calendar: Very useful on-screen desktop calendar for Windows
 
 <figure>
     <a href="http://www.desktopcal.com/images/default/first_look_bid_usa.jpg" class="image-popup">

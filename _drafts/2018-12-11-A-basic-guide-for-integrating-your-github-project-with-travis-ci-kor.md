@@ -5,12 +5,7 @@ title:  "깃헙 프로젝트와 Travis-ci 연동하기"
 excerpt: "기초 매뉴얼"
 tags: [github,travis,ci,integration]
 date: 2018-12-11 06:14:09
-modified: 2018-12-11 06:14:09
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2018-12-11 06:14:09
 sitemap: false
 ---
 
@@ -20,7 +15,7 @@ sitemap: false
 4. `gradlew` 실행 권한 확인
 5. `travis.yml` 몇가지 디테일
 
-### Reference
+## Reference
 
 * [https://docs.travis-ci.com/user/tutorial/](https://docs.travis-ci.com/user/tutorial/)
 * [https://docs.travis-ci.com/user/status-images/](https://docs.travis-ci.com/user/status-images/)

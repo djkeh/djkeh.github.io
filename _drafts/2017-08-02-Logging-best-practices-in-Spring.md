@@ -5,12 +5,7 @@ title:  "스프링에서 사용할 수 있는 최선, 최신의 로깅 베스트
 excerpt: "stdout 출력부터 slf4j의 스프링 싱글톤 로거 사용까지"
 tags: [java, spring, boot, best, practice, bestpractice, log, logging, slf4j, log4j, log4j2, logback, 자바, 스프링, 베스트프랙티스, 로그, 로깅]
 date: 2017-08-02 14:09:58
-modified: 2017-08-02 14:09:58
-image: 
-  feature: 
-  credit: 
-  creditlink: 
-share: true
+last_modified_at: 2017-08-02 14:09:58
 sitemap: false
 ---
 

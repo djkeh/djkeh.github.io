@@ -5,12 +5,7 @@ title:  "Git 로컬 변경점을 무시하는 2가지 테크닉: --skip-worktree
 excerpt: "update-index 명령어로 로컬 변경점을 무시하는 방법"
 tags: [git,updateindex,skipworktree,assumeunchanged,gitignore,local,깃,업데이트인덱스,인덱스,로컬]
 date: 2018-12-27 17:48:16
-modified: 2018-12-27 17:48:16
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2018-12-27 17:48:16
 sitemap: false
 ---
 

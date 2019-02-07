@@ -3,15 +3,9 @@ layout: post
 categories: articles
 title:  "리모트 저장소에 푸시한 커밋은 리베이스하지 말 것"
 excerpt: "\"Pro Git\"에서 배우는 리베이스 주의사항"
-tags: [git, rebase, merge, pro, progit, caution, technique, versioncontrol, 깃, 프로, 프로깃, 리베이스, 머지, 형상관리, 요령]
+tags: [git]
 date: 2018-01-25 17:20:00
-modified: 2018-04-24 10:52:42
-image: 
-  feature: 
-  credit: 
-  creditlink: 
-share: true
-sitemap: true
+last_modified_at: 2019-02-07 10:38:08
 ---
 
 리베이스(`rebase`)는 상황에 따라 유용한 머지 전략 중 하나이지만, 어떻게 작동하는지 잘 이해하지 않은 상태에서 사용하면 예상치 못한 결과로 혼란을 초래하기도 합니다.
@@ -26,7 +20,7 @@ sitemap: true
 어딘가.. 기분이 좀 쎄하죠.
 
 
-# 원격(공용) 저장소에 이미 푸시했던 작업물(commits)을 리베이스(rebase)하지 마세요!
+## 원격(공용) 저장소에 이미 푸시했던 작업물(commits)을 리베이스(rebase)하지 마세요
 
 ![wrong rebase explanation](/images/20180125_wrong_rebase/2.png "같은 commit 내용이 이동하지 않고 복제되어 중복이 발생해 버렸다")
 
@@ -39,7 +33,7 @@ sitemap: true
 그럼 기억합시다. `rebase`는 원격 저장소의 커밋 히스토리를 어지럽히지 않고, 로컬 작업물을 원격 저장소의 최신 변경 사항으로 업데이트하려 할 때 바람직한 머지(`merge`) 전략입니다. 자신의 작업물이 이미 원격 저장소에도 나가 있다면, `rebase` 하려는 대상 원격 작업물에 변경 사항이 있었는지 신중히 확인해 주세요. `rebase` 대상 브랜치에 변경점이 있었을 경우에는 `merge`를 이용하는 것이 좋습니다.
 
 
-# Reference
+## Reference
 
 * [https://git-scm.com/book/ko/v1/Git-브랜치-Rebase하기#Rebase의-위험성](https://git-scm.com/book/ko/v1/Git-브랜치-Rebase하기#Rebase의-위험성)
 * [https://git-scm.com/book/no-nb/v1/Git-Branching-Rebasing#The-Perils-of-Rebasing](https://git-scm.com/book/no-nb/v1/Git-Branching-Rebasing#The-Perils-of-Rebasing)

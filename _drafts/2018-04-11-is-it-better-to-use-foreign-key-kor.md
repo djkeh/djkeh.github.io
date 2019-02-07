@@ -5,12 +5,7 @@ title:  "외래키를 쓰는게 더 좋을까?"
 excerpt: "외래키의 장단점 살피기"
 tags: []
 date: 2018-04-11 15:15:34
-modified: 2018-04-11 15:15:37
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2018-04-11 15:15:37
 sitemap: false
 ---
 

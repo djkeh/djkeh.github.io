@@ -5,12 +5,7 @@ title:  "NOT NULL vs. DEFAULT"
 excerpt: "기본값이 있는데 뭐하러 NULL 체크를 하나요?"
 tags: [db, database, mysql, oracle, constraint, null, default, index, ddl, dml, schema, 디비, 데이터베이스, 오라클, 제약, 초기화, 스키마]
 date: 2018-04-03 13:08:01
-modified: 2018-04-03 13:08:04
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2018-04-03 13:08:04
 sitemap: false
 ---
 

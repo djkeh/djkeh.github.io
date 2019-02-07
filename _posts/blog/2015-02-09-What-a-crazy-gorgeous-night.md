@@ -3,11 +3,9 @@ layout: post
 categories: blog
 title: "What a crazy gorgeous night"
 excerpt: "in Pangyo"
-tags: [night, sleep, flaw, simple, tough]
-date: 2015-02-08T20:39:51-09:00
-modified: 2015-02-09T07:58:30-09:00
-image:
-  feature:
+tags: [diary]
+date: 2015-02-08T20:39:51+09:00
+last_modified_at: 2019-02-07T07:18:52+09:00
 share: false
 ---
 

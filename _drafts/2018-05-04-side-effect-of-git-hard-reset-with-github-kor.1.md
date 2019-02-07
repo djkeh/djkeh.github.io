@@ -5,12 +5,7 @@ title:  "git reset --hard 의 부작용"
 excerpt: "github과 잘못 쓰면 무슨 일이 일어날까"
 tags: []
 date: 2018-05-04 17:45:20
-modified: 2018-05-04 17:45:20
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2018-05-04 17:45:20
 sitemap: false
 ---
 

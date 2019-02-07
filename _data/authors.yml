@@ -1,9 +1,21 @@
 # Authors
 
-uno_kim:
+Uno Kim:
   name: Uno Kim
-  web: http://djkeh.github.io
-  email: uno@nhnent.com
+  picture: /images/Uno-photo.jpg
+  web: https://djkeh.github.io/
+  email: djkehh@gmail.com
   bio: "Wanna sleep more"
-  avatar: Uno-photo.jpg
-  facebook: djkehh
+  links:
+    - title: Email
+      url: mailto:djkehh@gmail.com
+      icon: fas fa-envelope-square
+    - title: Facebook
+      url: https://www.facebook.com/djkehh
+      icon: fab fa-facebook-square
+    - title: Instagram
+      url: https://instagram.com/djuno.pianoguy
+      icon: fab fa-instagram
+    - title: GitHub
+      url: https://github.com/djkeh
+      icon: fab fa-github-square

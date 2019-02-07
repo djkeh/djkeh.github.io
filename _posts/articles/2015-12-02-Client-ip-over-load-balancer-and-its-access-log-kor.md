@@ -3,15 +3,9 @@ layout: post
 categories: articles
 title:  "Load Balancer 바깥 클라이언트의 IP 알아내고 Access Log 남기기"
 excerpt: "서버, 어플리케이션 레벨에서 X-Forwarded-For 헤더에 접근하는 방법"
-tags: [아파치, 톰캣, 스프링, x-forwarded-for, 로그, accesslog, apache, tomcat, httpd, spring, security]
+tags: [java, web, spring]
 date: 2015-12-02 15:52:10
-modified: 2015-12-02 15:52:10
-image: 
-  feature: 
-  credit: 
-  creditlink: 
-share: true
-sitemap: true
+last_modified_at: 2019-02-07 09:09:32
 ---
 
 이번 글은 스프링 프레임워크 및 톰캣 레벨에서 `X-Forwarded-For` 헤더 정보를 이용해 로드밸런서 바깥에서 들어오는 클라이언트의 IP를 알아내고 ACL을 만들어 접근을 통제하는 방법을 다룹니다.

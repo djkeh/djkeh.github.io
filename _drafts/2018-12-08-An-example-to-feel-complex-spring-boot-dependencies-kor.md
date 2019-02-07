@@ -5,12 +5,7 @@ title:  "스프링 부트의 복잡한 디펜던시를 보여주는 예"
 excerpt: "부트의 디펜던시를 담백하게 사용하기 어려운 이유"
 tags: [java,spring,boot,dependency,gradle]
 date: 2018-12-08 03:52:08
-modified: 2018-12-08 03:52:08
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2019-02-07 10:54:29
 sitemap: false
 ---
 
@@ -76,6 +71,6 @@ dependencies {
     * `spring-webmvc`
 
 
-### Reference
+## Reference
 
 * [https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html)
