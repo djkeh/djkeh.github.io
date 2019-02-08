@@ -4,6 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% if site.owner.google.verify %}<meta name="google-site-verification" content="{{ site.owner.google.verify }}">{% endif %}
     {% if site.owner.bing-verify %}<meta name="msvalidate.01" content="{{ site.owner.bing-verify }}">{% endif %}
+    {% if site.production == true and page.sitemap != false  %}
+      <meta name="ROBOTS" content="INDEX, FOLLOW">
+    {% else %}
+      <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+    {% endif %}
   
     {% if site.plugins contains 'jekyll-seo-tag' or site.gems contains 'jekyll-seo-tag' %}
       {% comment %}
