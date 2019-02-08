@@ -1,6 +1,6 @@
 ---
 layout: null
-permalink: robots.txt
+permalink: /resume/
 search_omit: true
 sitemap: false
 ---
