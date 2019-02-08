@@ -21,4 +21,4 @@ Disallow: {{ node.url }}
 Disallow:
 {% endif %}
 {% endif %}
-Sitemap: https://djkeh.github.io/sitemap.xml
+Sitemap: {{ site.url }}/sitemap.xml
