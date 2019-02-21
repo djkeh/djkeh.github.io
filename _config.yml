@@ -126,5 +126,5 @@ footer_links:
     url: atom.xml
     icon: fas fa-rss-square
 
-# Robots.txt setting
+# robots.txt setting
 production: true
