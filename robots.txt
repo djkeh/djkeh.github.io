@@ -9,7 +9,7 @@ permalink: robots.txt
 
 User-agent: *
 
-{%- assign noindexPages = site.pages | where_exp: "node", "node.sitemap == false and node.url != '/atom.xml''" -%}
+{%- assign noindexPages = site.pages | where_exp: "node", "node.sitemap == false and node.url != '/atom.xml'" -%}
 {%- assign noindexDocuments = site.documents | where_exp: "node", "node.sitemap == false and node.url != '/atom.xml'" -%}
 {%- if site.production != true -%}
   Disallow: /
