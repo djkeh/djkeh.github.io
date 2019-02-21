@@ -2,30 +2,25 @@
 layout: null
 permalink: robots.txt
 ---
-# filter pages and documents for the noindex key
-# filter execption:
-#   - `atom.xml`: It internally has `sitemap: false` property from `jekyll-feed` plugin, but should not be blocked from `robots.txt`
-# robotstxt.org - if `_config` production variable is false, robots will be disallowed.
+# Filter pages and documents for the noindex key
 
+{%- assign
+  noindex = site.pages |
+    concat: site.documents |
+    where: "sitemap", false |
+    where_exp: "node", "node.url != '/atom.xml'"
+%}
+{%- assign noindexSize = noindex | size %}
 
 User-agent: *
 
-{%- assign noindexPages = site.pages | where: "sitemap", false | where_exp: "node", "node.url != '/atom.xml'" -%}
-{%- assign noindexDocuments = site.documents | where: "sitemap", false -%}
-
-{% if site.production != true %}
+{% if site.production != true -%}
 Disallow: /
-{% else %}
-{% if noindexDocuments or noindexPages %}
-{% for node in noindexPages %}
-Disallow: {{ node.url }}
-{% endfor %}
-{% for node in noindexDocuments %}
-Disallow: {{ node.url }}
-{% endfor %}
-{% else %}
+{% elsif noindexSize > 0 -%}
+{% for item in noindex -%}
+Disallow: {{ item.url }}
+{% endfor -%}
+{% else -%}
 Disallow:
 {% endif %}
-{% endif %}
-
 Sitemap: {{ site.url }}/sitemap.xml

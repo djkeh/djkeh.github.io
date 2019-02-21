@@ -127,4 +127,4 @@ footer_links:
     icon: fas fa-rss-square
 
 # robots.txt setting
-production: true
+production: true # If false, robots.txt will disallow every crawling.
