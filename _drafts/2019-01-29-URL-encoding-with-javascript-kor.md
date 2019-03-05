@@ -5,12 +5,7 @@ title:  "Javascript로 URL 인코딩하기"
 excerpt: "escape() vs. encodeURI() vs. encodeURICompoenent()"
 tags: [javascript]
 date: 2019-01-29 15:48:08
-modified: 2019-01-29 15:48:08
-image: 
-  feature:
-  credit:
-  creditlink:
-share: true
+last_modified_at: 2019-01-29 15:48:08
 sitemap: false
 ---
 
