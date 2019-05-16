@@ -42,4 +42,4 @@ macOS Mojave (모하비) 10.14.4 에서 생긴 변경점으로, `shift-command-a
 ## Reference
 
 * ​[https://intellij-support.jetbrains.com/hc/en-us/community/posts/360003367639-2019-1-Find-Action-shortcut-opens-terminal-securityuploadd-](https://intellij-support.jetbrains.com/hc/en-us/community/posts/360003367639-2019-1-Find-Action-shortcut-opens-terminal-securityuploadd-)
-* ​[https://youtrack.jetbrains.com/issue/IDEA-209726#focus=streamItem-27-3361953.0-0](https://youtrack.jetbrains.com/issue/IDEA-209726#focus=streamItem-27-3361953.0-0)
+* ​[https://youtrack.jetbrains.com/issue/IDEA-209726](https://youtrack.jetbrains.com/issue/IDEA-209726)
