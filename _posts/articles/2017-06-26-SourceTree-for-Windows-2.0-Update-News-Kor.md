@@ -3,7 +3,7 @@ layout: post
 categories: articles
 title:  "Atlassian SourceTree for Windows 2.0 업데이트"
 excerpt: "소스트리 2 업데이트 개선 사항 정리"
-tags: [git]
+tags: [git,utility]
 date: 2017-06-26 18:09:49
 last_modified_at: 2019-02-07 10:27:12
 ---
