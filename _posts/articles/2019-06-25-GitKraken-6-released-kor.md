@@ -12,7 +12,7 @@ last_modified_at: 2019-06-25 15:17:20
 
 지난 2019년 6월 17일, 깃크라켄([GitKraken](https://www.gitkraken.com/))이 v6.0으로 업데이트 되었습니다. 깃크라켄을 사용하시던 분들은 자동으로 업데이트 알림을 받으셨겠지만, 혹시 미뤄두셨던 분들은 얼른 업데이트를 받고 더 강력해진 기능들을 체험해 보세요.
 
-{% include youtubePlayer.html id=RxqxEyuqOEY %}
+{% include youtubePlayer.html id="RxqxEyuqOEY" %}
 
 ### 빨라졌다
 
