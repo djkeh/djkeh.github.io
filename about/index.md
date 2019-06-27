@@ -21,3 +21,11 @@ This blog mainly deals with technical issues, my concerns and personal stories e
 * Java, Spring
 * Javascript and markup languages
 * [djkehh@gmail.com](mailto:djkehh@gmail.com)
+
+### FAQ
+
+#### What's wrong with your face?
+
+Ah, please don't mind. It's a symbol of my favorite music duo [Disclosure](https://www.disclosureofficial.com/). This is how they do.
+
+![Disclosure](/images/disclosure.jpeg "This is what they look like.")
