@@ -5,7 +5,7 @@ title:  "왜 자바에서 final 멤버 변수는 관례적으로 static을 붙�
 excerpt: "자바 final, static 키워드와 코딩 best practice 되짚어보기"
 tags: [java]
 date: 2017-07-18 23:19:51
-last_modified_at: 2019-02-07 10:34:52
+last_modified_at: 2019-07-26 19:51:22
 ---
 
 오늘도 기초 정리입니다! 오늘은 자바 개발에서 꽤나 보편적으로 볼 수 있는 코드를 하나 정리해보려고 합니다. 바로 클래스의 `private static final` 멤버 변수 이야기입니다. 저는 현업에서 클래스 상수나 로그 구현체를 이런 식으로 만드는 것을 자주 보았는데요, 관련한 내용들을 가능한 짧고 간단하게 메모 스타일로 정리해 보겠습니다.
@@ -72,7 +72,13 @@ public class Test {
 
 ## static 키워드
 
-`static` 키워드는 프로그래밍 언어에서 '전역', '정적'의 의미로 통용합니다. 자바에서는 다음과 같이 작용합니다.
+`static` 키워드는 프로그래밍 언어에서 '전역', '정적'의 의미로 통용됩니다.
+
+> static은 해당 데이터의 메모리 할당을 컴파일 시간에 할 것임을 의미합니다.
+
+이에 `static` 데이터는 런타임 중에 필요할 때마다 동적으로 할당 및 해제되는 동적 데이터와는 기능과 역할이 구분됩니다. 동적 데이터와 달리, `static` 데이터는 프로그램 실행 직후부터 끝날 때까지 메모리 수명이 유지됩니다.
+
+자바에서는 구체적으로 다음과 같이 작용합니다.
 
 * static 멤버 변수
   * 클래스 변수라고도 부릅니다.
@@ -86,6 +92,15 @@ public class Test {
 * static 블록
   * 클래스 내부에 만들 수 있는 초기화 블록입니다.
   * 클래스가 초기화될 때 실행되고, `main()` 보다 먼저 수행됩니다.
+* static 클래스
+  * 일반적인 클래스, 즉 top-level 클래스에 적용하면 문법 오류입니다.
+    * 그러나 이것이 top-level 클래스가 `static`하지 않다는 뜻이 아닙니다.
+  * 중첩 클래스(nested class)에만 사용할 수 있습니다.
+    * static nested class: `static`으로 정의된 nested class
+    * inner class: `static`으로 정의되지 않은(non-static) nested class
+  * 부모 클래스의 멤버 필드 중에는 `static` 필드에만 접근할 수 있습니다.
+  * 사실상 일반적인 top-level 클래스와 동일하게 동작하지만, 그 위치가 하나의 top-level 클래스 안에 들어있는 것입니다.
+    * 이것은 유사한 클래스 집합을 하나로 묶고, 클래스 패키징 구조를 편리하게 정리하는 테크닉으로 사용될 수 있습니다.
 * static import
   * 다른 클래스에 존재하는 static 멤버들을 불러올 때 사용합니다.
   * 멤버 메소드를 곧바로 사용할 수 있습니다.
@@ -128,3 +143,5 @@ public static final int MAX_SUBJECT_SCORE = 100;
 * [https://en.wikipedia.org/wiki/Final_(Java)](https://en.wikipedia.org/wiki/Final_(Java))
 * [https://en.wikipedia.org/wiki/Static_(keyword)](https://en.wikipedia.org/wiki/Static_(keyword))
 * [http://ojava.tistory.com/50](http://ojava.tistory.com/50)
+* [https://www.baeldung.com/java-static](https://www.baeldung.com/java-static)
+* [https://ko.wikipedia.org/wiki/정적_변수](https://ko.wikipedia.org/wiki/정적_변수)
