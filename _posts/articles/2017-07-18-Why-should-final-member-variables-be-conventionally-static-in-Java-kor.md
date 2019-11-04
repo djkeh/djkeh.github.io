@@ -148,9 +148,9 @@ public class MovieRecommender {
 }
 ```
 
-위는 스프링 [공식 문서](https://docs.spring.io/spring/docs/5.2.1.RELEASE/spring-framework-reference/core.html#beans-autowired-annotation)에 포함된 예제를 그대로 가져온 것입니다. `MovieRecommender` 클래스가 `CustomerPreferenceDao`를 `private final` 멤버 필드로 가지고 있으며, 생성자를 통해 주입받아 한 번 초기화되고 있습니다. 이제 `MovieRecommender`의 인스턴스는 작동 내내 변하지 않는 `customerPreferenceDao` 멤버 필드를 사용하게 될 것입니다. 코드를 풀이하여 읽어본다면, *"영화 추천 클래스는 소비자 선호도 자료에 접근하는 외부 기능을 가져다 사용하고 있다(소비자 선호도 데이터 접근 기능에 의존성이 있다)"* 정도가 되지 않을까요?
+위 소스코드는 스프링 [공식 문서](https://docs.spring.io/spring/docs/5.2.1.RELEASE/spring-framework-reference/core.html#beans-autowired-annotation)에 포함된 예제를 그대로 가져온 것입니다. `MovieRecommender` 클래스가 `CustomerPreferenceDao`를 `private final` 멤버 필드로 가지고 있으며, 생성자를 통해 주입받아 한 번 초기화되고 있습니다. 이제 `MovieRecommender`의 인스턴스는 작동 내내 변하지 않는 `customerPreferenceDao` 멤버 필드를 사용하게 될 것입니다. 코드를 풀이하여 읽어본다면, *"영화 추천 클래스는 소비자 선호도 자료에 접근하는 외부 기능을 가져다 사용하고 있다(소비자 선호도 데이터 접근 기능에 의존성이 있다)"* 정도가 되지 않을까요?
 
-이는 "영화 추천" 기능과 "소비자 선호도 자료 접근" 기능이 서로 독립적이며, "영화 추천" 기능을 사용 중에 "소비자 선호도 자료 접근" 기능이 바뀌지 않을 것임을 의미합니다. 복잡한 기능을 갖춘 소프트웨어를 디자인할 때 이러한 설계가 아주 중요합니다. 위와 같은 상황에서는 오히려 `CustomerPreferenceDao` 멤버 필드를 `static`으로 만들지 않습니다. 멤버 필드로 의존성 주입을 표현할 때 `private static final`로 하는 것이 왜 적절하지 않은지, 실제로 스프링 프레임워크 상에서 사용해보면 어떤 오류가 발생하는지는 여기서 다루지 않겠습니다.
+이는 "영화 추천" 기능과 "소비자 선호도 자료 접근" 기능이 서로 독립적이며, "영화 추천" 기능 사용 중에 "소비자 선호도 자료 접근" 기능이 바뀌지 않을 것임을 의미합니다. 복잡한 기능을 갖춘 소프트웨어를 디자인할 때 이러한 설계가 아주 중요합니다. 위와 같은 상황에서는 오히려 `CustomerPreferenceDao` 멤버 필드를 `static`으로 만들지 않습니다. 멤버 필드로 의존성 주입을 표현할 때 `private static final`로 하는 것이 왜 적절하지 않은지, 실제로 스프링 프레임워크 상에서 사용해보면 어떤 오류가 발생하는지는 여기서 다루지 않겠습니다.
 
 이것이 DI 입니다.
 
