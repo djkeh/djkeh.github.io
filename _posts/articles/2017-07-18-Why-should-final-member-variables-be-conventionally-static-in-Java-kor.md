@@ -127,12 +127,37 @@ public static final int MAX_SUBJECT_SCORE = 100;
 
 ## (사족1) final 멤버 변수에 static을 사용하지 않는 경우가 있을까
 
-위에서 잠시 언급한 것처럼, 각 인스턴스마다 서로 다른 final 멤버 변수를 생성자에서 초기화시키는 식으로 사용하는 경우에는 `static`을 사용하지 않겠네요!
+위에서 잠시 언급한 것처럼, 각 인스턴스마다 서로 다른 final 멤버 변수를 생성자에서 초기화시키는 식으로 사용하는 경우에는 `static`을 사용하지 않겠네요! 즉, 인스턴스를 생성할 때 한 번만 초기화하고 쭉 변화 없이 사용할 내용이라면 아주 잘 어울릴 것 같습니다.
+
+그런 경우가 있냐고요?
+실무에서, 매우, 있습니다.
+
+DI(Dependency Injection) 기법을 사용해 클래스 내부에 외부 클래스 의존성을 집어넣는 경우가 그것입니다. 대표적으로 [Spring Framework](https://spring.io/projects/spring-framework)가 있습니다. 코드 예제로 살펴볼까요?
+
+```java
+public class MovieRecommender {
+
+    private final CustomerPreferenceDao customerPreferenceDao;
+
+    @Autowired
+    public MovieRecommender(CustomerPreferenceDao customerPreferenceDao) {
+        this.customerPreferenceDao = customerPreferenceDao;
+    }
+
+    // ...
+}
+```
+
+위는 스프링 [공식 문서](https://docs.spring.io/spring/docs/5.2.1.RELEASE/spring-framework-reference/core.html#beans-autowired-annotation)에 포함된 예제를 그대로 가져온 것입니다. `MovieRecommender` 클래스가 `CustomerPreferenceDao`를 `private final` 멤버 필드로 가지고 있으며, 생성자를 통해 주입받아 한 번 초기화되고 있습니다. 이제 `MovieRecommender`의 인스턴스는 작동 내내 변하지 않는 `customerPreferenceDao` 멤버 필드를 사용하게 될 것입니다. 코드를 풀이하여 읽어본다면, *"영화 추천 클래스는 소비자 선호도 자료에 접근하는 외부 기능을 가져다 사용하고 있다(소비자 선호도 데이터 접근 기능에 의존성이 있다)"* 정도가 되지 않을까요?
+
+이는 "영화 추천" 기능과 "소비자 선호도 자료 접근" 기능이 서로 독립적이며, "영화 추천" 기능을 사용 중에 "소비자 선호도 자료 접근" 기능이 바뀌지 않을 것임을 의미합니다. 복잡한 기능을 갖춘 소프트웨어를 디자인할 때 이러한 설계가 아주 중요합니다. 위와 같은 상황에서는 오히려 `CustomerPreferenceDao` 멤버 필드를 `static`으로 만들지 않습니다. 멤버 필드로 의존성 주입을 표현할 때 `private static final`로 하는 것이 왜 적절하지 않은지, 실제로 스프링 프레임워크 상에서 사용해보면 어떤 오류가 발생하는지는 여기서 다루지 않겠습니다.
+
+이것이 DI 입니다.
 
 
 ## (사족2) static 멤버 변수에 final을 사용하지 않는 경우가 있을까
 
-기술적으로는 충분히 가능합니다. 명확한 목적이 있는 경우는 사용할 수 있을 것 같습니다. 하지만 보통의 경우엔 좋은 코딩 관례(practice)로 보기 어려울 듯 합니다. `static` 필드는 클래스 스코프의 전역 변수라 볼 수 있습니다. `final`을 쓰지 않았다면 값이 얼마든지 바뀔 수 있는 상태이므로, 이를 mutable하다고 말합니다. 이는 모든 클래스 인스턴스에서 접근하여 그 값을 변경할 수 있음을 의미하므로, 값을 추론하거나 테스트하기 어렵게 만드는 요인이 될 것입니다. 또한 동시성 프로그래밍을 어렵게 만드는 요인이 되겠죠.
+이 역시 기술적으로 충분히 가능합니다. 명확한 목적이 있는 경우는 사용할 수 있을 겁니다. 하지만 보통의 경우엔 좋은 코딩 관례(practice)로 보기 어려울 듯 합니다. `static` 필드는 클래스 스코프(범위)의 전역 변수라 볼 수 있습니다. `final`을 쓰지 않았다면 값이 얼마든지 바뀔 수 있는 상태이므로, 이를 mutable 하다고 말합니다. 이는 모든 클래스 인스턴스에서 접근하여 그 값을 변경할 수 있음을 의미하므로, 값을 추론하거나 테스트하기 어렵게 만들 것입니다. 또한 동시성 프로그래밍을 어렵게 만드는 요인이 되겠죠.
 
 
 ## Reference
@@ -145,3 +170,4 @@ public static final int MAX_SUBJECT_SCORE = 100;
 * [http://ojava.tistory.com/50](http://ojava.tistory.com/50)
 * [https://www.baeldung.com/java-static](https://www.baeldung.com/java-static)
 * [https://ko.wikipedia.org/wiki/정적_변수](https://ko.wikipedia.org/wiki/정적_변수)
+* [https://docs.spring.io/spring/docs/5.2.1.RELEASE/spring-framework-reference/core.html#beans-autowired-annotation](https://docs.spring.io/spring/docs/5.2.1.RELEASE/spring-framework-reference/core.html#beans-autowired-annotation)
