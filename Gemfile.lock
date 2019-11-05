@@ -246,6 +246,7 @@ DEPENDENCIES
   github-pages
   jekyll-feed (~> 0.6)
   jekyll-paginate
+  jekyll-remote-theme
   jekyll-seo-tag
   jekyll-sitemap
   minima (~> 2.0)
