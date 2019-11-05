@@ -17,7 +17,7 @@ locale: en-US
 title:  Uno's Blog
 description: >- # this means to ignore newlines until "baseurl:"
   Programming issues and everyday thoughts
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://djkeh.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 repository: "djkeh/djkeh.github.io"
 logo: /images/site-logo.png
@@ -42,6 +42,7 @@ permalink: /:categories/:title/
 markdown: kramdown
 #theme: minima
 remote_theme: "mmistakes/so-simple-theme"
+skin: "/assets/css/skins/default.css"
 feed:
   path: atom.xml
 plugins:
