@@ -3,7 +3,7 @@ layout: page
 title: About Uno
 excerpt: "About Uno and this blog"
 date: 2015-02-08 19:44:38
-last_modified_at: 2019-02-07 11:05:04
+last_modified_at: 2019-11-06 12:09:00
 image:
   path: /images/my-image-1.jpg
 share: false
@@ -18,8 +18,6 @@ This blog mainly deals with technical issues, my concerns and personal stories e
 
 * Web Application Programmer at [KakaoCommerce](https://www.kakaocommerce.com/)
 * Gyeonggi-do, South Korea
-* Java, Spring
-* Javascript and markup languages
 * [djkehh@gmail.com](mailto:djkehh@gmail.com)
 
 ### FAQ
