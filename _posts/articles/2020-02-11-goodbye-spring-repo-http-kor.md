@@ -12,8 +12,6 @@ last_modified_at: 2020-02-11 17:30:35
 
 ![gradle error](/images/20200211_goodbye_http/gradle_error.png "gradle이 먹통이 되었다")
 
-![gradle error detail](/images/20200211_goodbye_http/gradle_error_detail.png "에러 메시지 상세")
-
 프로젝트 캐시를 지운 후 예상치 못한 문제를 만나 당황하였는데, 원인은 비교적 빨리 알아낼 수 있었습니다.
 
 > beginning January 15 2020, Spring’s Maven Repository will no longer support HTTP.
