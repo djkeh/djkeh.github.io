@@ -3,7 +3,7 @@ layout: post
 categories: articles
 title:  "소스트리에서 사라진 Git Flow 아이콘 되찾기"
 excerpt: "SourceTree에서 Git Flow 아이콘을 찾아 도구 막대에 등록하기"
-tags: [git,utility]
+tags: [git, utility]
 date: 2017-10-10 17:52:34
 last_modified_at: 2019-02-07 10:37:09
 ---

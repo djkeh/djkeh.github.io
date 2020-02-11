@@ -3,7 +3,7 @@ layout: post
 categories: articles
 title:  "GitKraken 6.0.0 릴리즈 소식"
 excerpt: "더욱 쓸만해진 대세 git 클라이언트"
-tags: [git,utility]
+tags: [git, utility]
 date: 2019-06-25 15:17:20
 last_modified_at: 2019-06-25 15:17:20
 ---
