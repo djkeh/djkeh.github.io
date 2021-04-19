@@ -1,0 +1,86 @@
+---
+layout: post
+categories: articles
+title:  "그건 CI가 아니야, CI인 척 하는거지"
+excerpt: "CI 정확히 이해하기 - 무엇이 CI가 아닌가?"
+tags: [software, integration]
+date: 2021-04-19 15:36:03
+last_modified_at: 2021-04-19 15:36:03
+sitemap: false
+---
+
+번역
+
+## It’s not CI, it’s just CI theatre
+
+Suzie Prince (Head of Product), ThoughtWorks Products
+
+The [ThoughtWorks tech radar](https://www.thoughtworks.com/radar/techniques/ci-theatre) recently recommended putting a "Hold" on the tech team antipattern, "CI Theatre". "CI theatre" describes the illusion of practising continuous integration (CI) while not really practising it. Based on continuous integration research [my colleague, Emily Luke, and I conducted](https://www.gocd.org/2017/05/09/continuous-integration-devops-research/), I will share what CI Theatre looks like, why we recommend you "Hold" on that, and ways to combat CI theatre.
+
+### Continuous Integration
+
+My favorite definition of [CI comes from Jez Humble](http://continuousdelivery.com/) on continuousdelivery.com
+
+> "CI developers integrate all their work into trunk (also known as mainline or master) on a regular basis (at least daily)."
+
+There are two fundamental principles of the CI practice hiding in this quote. The first is "integrate all their work into trunk" and the second, "at least daily".
+
+There are also a whole host of other principles and practices that make CI, such as checking everything into your source repository, building every commit, automating the build, keeping the build fast, having self testing code, showing visible failures and fixing failures immediately [as detailed by Martin Fowler in his reference post on Continuous Integration](https://martinfowler.com/articles/continuousIntegration.html). Personally I believe that **checking into master at least once daily** is a fundamental cornerstone to good CI. And without it, you are not practising CI but CI theatre.
+
+### What does CI theatre look like?
+
+Here’s a story from our research. An experienced developer, (let’s call him David) is from a medium sized startup in the Bay Area and delivers to production twice a week. David described his organization as practising CI by saying, "Yeah, we use Circle CI.", He described a challenging situation where he worked on a branch for a while, changed 100 files and 7000 lines of code, entered a code review and became overwhelmed explaining all his changes to his colleagues.
+
+"The most challenging thing is when you end up with a lot of features piled together in one commit because they're all part of one story", he said "I wish there was a nicer way to decompose commits because it's hard to keep everything in your head."
+
+If this situation sounds familiar to you, you have a case of CI theater. You have CI Theatre if you:
+
+* Say "we have a CI server" and "we use x tool" when asked "are you practising CI?"
+
+In our study only 10% of participants acknowledged that having a CI server was not the same as practising CI. Conversely, 90% of individuals said they were practising CI regardless of whether they were specifically practising the fundamentals of CI or not. Therefore, thinking that simply by having a CI server is "doing CI" is a clear indicator of "CI theatre".
+
+* Use long-lived branches and do not regularly check into your master branch
+
+In David’s story, not checking into master on a daily basis was a sign of "CI Theatre". It’s a pattern we saw in our research where teams ran CI against the master but with infrequent, less than daily commits. Or they ran CI against their branches without integrating to master frequently. Running CI against feature branches leads to a different definition of CI called continuous isolation.
+
+* Feel anxiety and fatigue when merging branches
+
+True continuous integration distributes code ownership. This changes the perspective of people within the team and their attitude towards broken builds. It’s no longer "my precious branch" or "my fault the build is broken", but "our code" and "our failure". The fact that David experienced anxiety and fatigue is a clear indication that he was missing one important benefit of CI: continuous feedback and collective ownership.
+
+There are more signs of CI theater that we found to be less common but still challenging and problematic like,
+
+* running a build with poor test coverage and
+* allowing the build to stay red for long periods.
+
+Although David’s team had a well respected CI tool in place and common processes such as feature branching and code reviews, they were not practising the full set of CI practices and therefore missed many of its benefits. We sadly find that it’s happened in 90% of organisations in our research.
+
+> Key benefits missed by organizations practising CI Theatre are - fast feedback, collective ownership and being ready to move to continuous delivery.
+
+### How to avoid, combat and resolve CI theatre?
+
+If you have identified that you might be suffering from CI theatre, here are three ways to combat the problem and make lasting change.
+
+#### 1. Commit more often
+
+Go back to basics. Commit more often. Committing at least daily, is the minimum you should be aiming for. If you are not doing CI, this is where you can get started and even if you are "doing CI" there is always room to improve. I love the saying "Frequency reduces difficulty". In doing something more often, the task becomes smaller, making it easier to achieve. Continuous integration is a key example of something becoming easier the more often you do it. My advice is commit code to your repos more often and integrate branches to ‘master’ at least daily.
+
+#### 2. Trunk based development
+
+There are many forums for discussion about trunk based development vs branch based development and I don’t want to get into the gory details. However, in our research when we talked to people who experienced pain with their CI process, the teams that didn’t practice trunk based development, experienced it the most. [The State of DevOps report 2016](https://puppet.com/resources/whitepaper/2016-state-of-devops-report) also found that practising trunk based development and continuous integration were important aspects of continuous delivery and contributed to higher performance of teams.
+
+Trunk based development certainly has its own challenges, but it brings the pain forward rather than storing it up for merges, code reviews or delaying releases. I recommend doing trunk based development if you want to do better CI and CD, or if you prefer, use short lived branches with very short lifetimes (less than a day before merging to master), and have less than three active branches in total.
+
+#### 3. Automate
+
+Automation is a cornerstone of strong continuous integration so if you haven’t automated everything already, now is a good time to start. If you think you have automated all you can, then every time anyone on the team does anything manually more than once, ask yourself "Why can’t this be automated?". I’ve seen that not only does automation help you get better at CI, it helps you to start practising continuous delivery as well.
+
+### Summary
+
+Now you know what CI theatre is, if your team is practising it and ways you can avoid it. If you are still confused I recommend you check out the tongue in cheek "CI Certification test" on Martin Fowler’s blog to confirm if your organisation is doing credible CI or not. And if you passed the CI test, great. Now it’s time to consider whether you are ready for Continuous Delivery.
+
+
+## Reference
+
+* [https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre/](https://www.gocd.org/2017/05/16/its-not-CI-its-CI-theatre/)
+* []()
+* []()
