@@ -3,7 +3,7 @@ layout: post
 categories: articles
 title:  "CI/CD: 항상 제품화 준비가 되어있는 소프트웨어"
 excerpt: "Pivotal 공식 사이트 번역"
-tags: [pivotal,software,integration]
+tags: [pivotal, software, integration]
 date: 2019-01-18 15:06:08
 last_modified_at: 2019-01-18 15:06:08
 sitemap: false
