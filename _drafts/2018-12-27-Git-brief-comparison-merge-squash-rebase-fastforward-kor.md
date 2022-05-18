@@ -3,7 +3,7 @@ layout: post
 categories: articles
 title:  "Git 머지 전략 간략 정리 - Merge, Squash, Rebase, Fast-Forward"
 excerpt: "정확한 차이를 이해하여 더 멋진 브랜치 정리를 해봅시다"
-tags: [git,github,merge,squash,rebase,fastforward,technique,technic,vcs,versioncontrol,branch,깃,깃허브,깃헙,머지,스쿼시,리베이스,패스트포워드,테크닉,버전컨트롤,버전,관리,브랜치]
+tags: [git]
 date: 2018-12-27 16:31:05
 last_modified_at: 2018-12-27 16:31:05
 sitemap: false
