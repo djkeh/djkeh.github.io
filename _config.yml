@@ -22,6 +22,7 @@ url: "https://djkeh.github.io" # the base hostname & protocol for your site, e.g
 repository: "djkeh/djkeh.github.io"
 logo: /images/site-logo.png
 date_format: "%Y-%m-%d"
+timezone: Asia/Seoul
 read_time: # reading time estimates, e.g. true
 words_per_minute: # 200
 mathjax: # MathJax equations, e.g. true
