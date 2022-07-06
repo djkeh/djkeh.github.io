@@ -4,8 +4,8 @@ categories: articles
 title:  "새로운 스프링 부트 프로젝트 강의를 만들었습니다"
 excerpt: "패스트캠퍼스, 10개 프로젝트로 완성하는 백엔드 웹개발 - 강의 오픈 이야기"
 tags: [fastcampus, java, spring]
-date: 2022-07-06 17:37:38
-last_modified_at: 2022-07-06 17:37:41
+date: 2022-07-06 17:37:38 +0900
+last_modified_at: 2022-07-06 17:37:41 +0900
 sitemap: true
 ---
 
