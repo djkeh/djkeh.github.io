@@ -4,8 +4,8 @@ categories: articles
 title:  "Gitkraken에서 AI로 더 똑똑하게 형상관리하기"
 excerpt: "Gitkraken AI를 활용한 자동 커밋 메시지, PR 작성, 머지 충돌 해결과 커밋 정리"
 tags: [git]
-date: 2025-12-24 17:57:27
-last_modified_at: 2025-12-24 17:57:27
+date: 2025-12-24 08:57:27
+last_modified_at: 2025-12-24 09:25:11
 sitemap: true
 ---
 
@@ -41,7 +41,7 @@ sitemap: true
 
 한 편, 깃크라켄은 출시 초기부터 다른 깃 클라이언트와 차별화되는 장점이 있었죠. 그것은 다른 형상관리 플랫폼과 매끄러운 통합이었습니다. 깃크라켄은 깃헙(GitHub), 깃랩(GitLab), 비트버킷(Bitbucket), 지라(Jira), 애져(Azure DevOps) 등 웬만한 주요 협업 도구들의 연동을 아주 매끄럽게 지원하는데요,
 
-![깃크라켄 도구 연동 지원 목록](/images/20251224_gitkraken_ai/gitkraken-integrations.gif)
+![깃크라켄 도구 연동 지원 목록](/images/20251224_gitkraken_ai/gitkraken-integrations.jpg)
 
 그래서 깃크라켄 화면 안에서 깃헙의 이슈나 PR을 작성하는 것도 이미 다 가능한 상태였죠. 여기에도 AI 기능을 쓸 수 있게 된 겁니다. 변경점을 분석해서 PR 본문을 자동으로 작성할 수 있는 것이죠. 다만 이 기능은 국내에서는 다른 깃크라켄 AI 기능과 비교했을 때 상대적으로 아주 널리 퍼지진 못할 것 같습니다.
 
@@ -50,7 +50,7 @@ sitemap: true
 
 회사와 같은 협업 환경에서 프로젝트를 관리하면서 가장 자연스럽게 만나는 순간이 바로 머지 충돌(merge conflict)입니다. 프로젝트가 클 수록, 참여 인원이 많을 수록 머지 충돌 문제는 피할 수 없습니다. 깃크라켄은 자체 Merge Conflict Tool을 제공하여 훌륭한 사용자 경험을 기존에 제공하고 있었는데요, 여기서 한 발 더 나아가 충돌이 발생한 코드의 전후 맥락을 파악하고 스스로 최적의 머지 방안을 제안합니다.
 
-![Auto-resolve with AI 버튼 클릭 결과](/images/20251224_gitkraken_ai/auto-conflict-resolve.jpg)
+![Auto-resolve with AI 버튼 클릭 결과](/images/20251224_gitkraken_ai/auto-conflict-resolve.gif)
 
 머지 충돌을 해결한 결과와 함께 왜 그렇게 작업했는지 설명을 보여주는데요, 여기서 각 충돌을 해결한 부분마다 `confidence` 수치를 확인할 수 있습니다. 이 충돌 해결이 상황에 맞을 것이라는 확신을 일정한 수치로 평가하여 보여주는 점이 재미있습니다. 굉장히 똑똑한 기능이긴 한데, 어쨌든 사람의 검수를 아예 생략할 수는 없겠죠. 이 기능은 `11.2` 버전에서 추가되었습니다.
 
@@ -90,7 +90,7 @@ sitemap: true
 
 이토록 강력한 GitKraken AI 기능들이지만, 한 가지 아쉬운 점이 있습니다. 깃크라켄 AI 기능은 유료 구독 회원(Pro 이상)에게만 제공된다는 점이에요. 아무래도 AI 토큰 사용료가 공짜가 아니다보니 어쩔 수가 없는 부분이죠. 현재 상용 서비스 대부분의 AI 연동 기능이 유료로 제공된다는 점을 생각하면 납득은 됩니다.
 
-그래도 좀 더 저렴하게 사용해볼 수 있는 기회는 있습니다. 저는 오랫동안 깃크라켄 앰배서더로 활동하고 있어서 저를 통한 할인 링크를 이용하실 수도 있거든요. 할인을 받으시면 한 달에 3천원 가격이니 상당히 가볍습니다. 관심이 가셨던 분이라면 [이 쪽 링크](https://gitkraken.cello.so/rcr7uWnNUdm)를 통해 시도해 보시길 바랍니다. 또한 유료 구독을 하지 않아도, 깃헙 퍼블릭 저장소를 다룰 때는 깃크라켄의 거의 대부분의 기능을 사용할 수 있으니 우선 무료(community) 버전으로 시작하시는 것도 좋습니다.
+그래도 좀 더 저렴하게 사용해볼 수 있는 기회는 있습니다. 저는 오랫동안 깃크라켄 앰배서더로 활동하고 있어서 저를 통한 할인 링크를 이용하실 수도 있거든요. 할인을 받으시면 한 달에 3천원 가격이니 상당히 가볍습니다. 평소 git에 AI 기능을 함께 써보는 것에 관심이 가셨던 분이라면 **[이 쪽 링크](https://gitkraken.cello.so/rcr7uWnNUdm)**를 통해 깃크라켄 프로를 시도해 보시길 바랍니다. 또한 유료 구독을 하지 않아도, 깃헙 퍼블릭 저장소를 다룰 때는 깃크라켄의 거의 대부분의 기능을 사용할 수 있으니 우선 무료(community) 버전으로 시작하시는 것도 좋습니다.
 
 
 ## AI 경쟁: 주요 Git Client 비교
@@ -106,7 +106,7 @@ Atlassian의 [Sourcetree](https://www.sourcetreeapp.com/)는 대표적인 무료
 
 ### IntelliJ VCS
 
-그에 비해 자바 진영에서 국내 시장을 장악하고 있는 JetBrains의 [IntelliJ](https://www.jetbrains.com/idea/) 안에 내장되어있는 [VCS(Version Control System)](https://www.jetbrains.com/help/idea/enabling-version-control.html) 기능은 IDE와의 완벽한 통합을 바탕으로 깃크라켄의 가장 강력한 경쟁자로 꼽힙니다. 깃크라켄이 제공하는 것과 거의 비슷한 수준의 기능들을 갖추고 있고, 개발 환경 내에서 모든 것을 처리할 수 있다는 장점이 있습니다. 대략 아래와 같은 기능들을 지원하고요,
+그에 비해 자바 진영에서 국내 시장을 장악하고 있는 JetBrains의 [IntelliJ](https://www.jetbrains.com/idea/) 안에 내장되어있는 [VCS(Version Control System)](https://www.jetbrains.com/help/idea/enabling-version-control.html) 기능은 IDE와의 완벽한 통합을 바탕으로 깃크라켄의 가장 강력한 경쟁자로 꼽힙니다. 깃크라켄이 제공하는 것과 거의 비슷한 수준의 기능들을 갖추고 있고, 개발 환경 내에서 모든 것을 처리할 수 있다는 장점이 있습니다. 인텔리제이 VCS에서 AI를 사용하는 기능은 유료이기 때문에 얼티밋(ultimate) 라이선스를 구매해야 한다는 점에서 깃크라켄과 비슷한데요, 회사에서 사용할 땐 회사가 라이선스를 사주니까 접근성 면에서 깃크라켄보다 약간 더 낫다고 할 수 있겠네요. 인텔리제이 VCS에서는 대략 아래와 같은 AI 기능들을 지원합니다.
 
 * 커밋 메시지 작성
 * AI 셀프 리뷰
