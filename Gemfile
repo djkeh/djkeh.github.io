@@ -20,6 +20,9 @@ gem "activesupport", "6.1.7.5"
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
 #gem "github-pages", "~> 232", group: :jekyll_plugins
 
+# 만약 github-pages 를 사용하지 않는다면 so-simple-theme gem을 직접 추가해야 함
+gem "jekyll-theme-so-simple"
+
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-seo-tag"
