@@ -21,6 +21,8 @@ _site/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+vendor/bundle/
+.bundle/
 
 ### macOS ###
 # General
