@@ -24,8 +24,8 @@ logo: /images/site-logo.png
 date_format: "%Y-%m-%d"
 timezone: Asia/Seoul
 future: true
-read_time: # reading time estimates, e.g. true
-words_per_minute: # 200
+read_time: true # reading time estimates, e.g. true
+words_per_minute: 200 # 200
 mathjax: # MathJax equations, e.g. true
 google_fonts:
   - name: "Source Sans Pro"
