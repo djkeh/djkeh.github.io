@@ -5,7 +5,7 @@ title: "프롬프트 대신 계약을 남겨라: AXPORT Ouroboros 빌더밋 후�
 excerpt: "우로보로스(Ouroboros) 개발자 이재규님의 발표 정리: AX 동향, 루프 엔지니어링, 그리고 하네스가 나아갈 길"
 tags: [ai]
 date: 2026-08-01 14:30:00
-last_modified_at: 2026-08-01 14:30:00
+last_modified_at: 2026-08-01 16:46:38
 sitemap: true
 ---
 
@@ -115,13 +115,13 @@ Judge가 trace를 읽고 다음 시도에 반영하면 **성찰(reflect)**이고
 
 > LLM은 제안한다. 인간의 의도가 경계를 만든다. 오라클이 판정한다.
 
-세 역할 중 하나라도 빠지면 에이전트 시스템은 균형을 잃습니다.
+이 세 가지 역할 중 하나라도 빠지면 에이전트 시스템은 균형을 잃습니다.
 
 * **LLM이 없으면** 에이전트가 아니죠.
 * **인간이 없으면** 무엇이 옳은지 정할 의도와 권위가 사라집니다.
 * **오라클이 판정하지 않으면** 조직은 결과를 믿고 실제 업무를 맡기기 어렵습니다.
 
-발표를 들을 때는 오라클이 무엇인지 바로 이해하지 못했습니다. 오라클이 설마 그 ["오라클"](https://www.oracle.com/)은 아니었겠죠. 찾아보니, 소프트웨어 테스트에서 오라클은 입력에 대해 기대하는 정답이나 결과를 알려주는 판정 기준을 뜻하더라고요. AI 에이전트에서도 테스트, 타입 검사, 정책 코드, 스키마 검증처럼 결과가 계약을 지켰는지 외부에서 판정하는 기준을 오라클로 볼 수 있습니다.
+발표를 들을 때는 오라클이 무엇인지 바로 이해하지 못했습니다. 오라클이 설마 그 ["오라클"](https://www.oracle.com/)은 아니었겠죠. 찾아보니, 소프트웨어 테스트에서 오라클은 입력에 대해 기대하는 정답이나 결과를 알려주는 판정 기준을 뜻하더라고요. AI 에이전트 작업 중에 테스트, 타입 검사, 정책 코드, 스키마 검증처럼 결과가 계약을 지켰는지 외부에서 판정하는 역할을 일종의 Agentic Oracle로 볼 수 있겠죠. 이러한 용어가 등장하는 학술 문서가 마침 아카이브에 있어서 몇 가지 가져왔으니 관심 있으신 분은 본문 하단의 참조 링크를 확인해 보시고요, 또한 AI 에이전트의 평가(evaluation) 방법에 관한 글을 [앤트로픽](https://www.anthropic.com/)에서도 소개하고 있어 함께 가져왔습니다. 역시 하단의 참고 링크를 확인해 보세요.
 
 발표에서 소개된 [TraceGuard](https://github.com/Q00/rlm-forge#traceguard)는 에이전트가 만든 사실과 이를 뒷받침하는 실행 증거를 연결하고, 현재 실행의 증거로 뒷받침되지 않은 주장을 통과시키지 않는 결정론적 검증 장치입니다. 기본 태도도 이와 닿아 있었습니다.
 
@@ -215,23 +215,22 @@ flowchart LR
 * 모델이 좋아져도 인간의 의도와 오라클의 판정을 연결하는 계약 계층은 남습니다.
 * 앞으로는 작업 시간뿐 아니라 통과한 결과 하나를 만드는 토큰 비용도 중요한 지표가 될 수 있습니다.
 
+그 밖에 이재규님의 달달한 참고 사이트 공유로:
+
+* 발표자료나 잘 정형화된 문서를 AI로 만들고자 할 때는: [LaTeX](https://www.latex-project.org/)
+* 연구 논문을 즐겨 찾는 곳은: [Arxiv (아카이브)](https://arxiv.org/)
+* 토비(Toby)님의 문서를 발표 중에 샤라웃 하셨습니다. 저서 "토비의 스프링"으로 유명하신 토비님께서 최근에 ooo를 직접 공부하신 내용을 정리해서 블로그로 공유해주신 적이 있는데요, 이것도 여기 함께 소개해 드립니다.
+  * [https://codex.epril.com/wiki/ouroboros-manual-guide-usage](https://codex.epril.com/wiki/ouroboros-manual-guide-usage)
+  * [https://codex.epril.com/wiki/ouroboros-code-analysis-why-code-over-prompts](https://codex.epril.com/wiki/ouroboros-code-analysis-why-code-over-prompts)
+
 루프 엔지니어링과 관련 개념을 많이 듣고 올 수 있어서 유익한 시간이었네요. 실습이나 데모를 볼 수 있었더라면 더 와닿고 좋았을걸 하는 아쉬움은 남습니다.
 
 ## Reference
 
+* [https://ouroboros.is/](https://ouroboros.is/)
 * [https://ouroboros.page/](https://ouroboros.page/)
-* [https://github.com/Q00/ouroboros](https://github.com/Q00/ouroboros)
-* [https://github.com/Q00/rlm-forge](https://github.com/Q00/rlm-forge)
-* [https://story.inflab.com/](https://story.inflab.com/)
+* [All Smoke, No Alarm: Oracle Signals in Agent-Authored Test Code](https://arxiv.org/abs/2606.18168)
+* [LogicHunter: Testing LLM Agent Frameworks with an Agentic Oracle](https://arxiv.org/abs/2607.06195)
+* [https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents)
 * [https://www.latex-project.org/](https://www.latex-project.org/)
-* [https://langfuse.com/docs/observability/overview](https://langfuse.com/docs/observability/overview)
-* [https://arxiv.org/abs/2507.19457](https://arxiv.org/abs/2507.19457)
-* [https://arxiv.org/abs/2601.17223](https://arxiv.org/abs/2601.17223)
-* [https://arxiv.org/abs/2512.24601](https://arxiv.org/abs/2512.24601)
-* [https://github.com/microsoft/SkillOpt](https://github.com/microsoft/SkillOpt)
-* [https://hermes-agent.nousresearch.com/docs/](https://hermes-agent.nousresearch.com/docs/)
-* [https://www.hermesbible.com/flows/hermes-dreaming-reviewable-self-improvement](https://www.hermesbible.com/flows/hermes-dreaming-reviewable-self-improvement)
-* [https://csrc.nist.gov/projects/automated-combinatorial-testing-for-software/automated-test-generation-using-model-checking](https://csrc.nist.gov/projects/automated-combinatorial-testing-for-software/automated-test-generation-using-model-checking)
-* [https://owasp.org/www-community/Fail_securely](https://owasp.org/www-community/Fail_securely)
-* [https://github.com/garrytan/gbrain/blob/master/docs/ethos/THIN_HARNESS_FAT_SKILLS.md](https://github.com/garrytan/gbrain/blob/master/docs/ethos/THIN_HARNESS_FAT_SKILLS.md)
-* [https://github.com/mattpocock/skills](https://github.com/mattpocock/skills)
+* [https://arxiv.org/](https://arxiv.org/)
