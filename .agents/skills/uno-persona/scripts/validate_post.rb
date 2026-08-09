@@ -220,6 +220,9 @@ module UnoPersona
       missing.each do |key|
         add_post(post, 2, 1, "error", "FM010", "Missing front matter key: #{key}.", "Add #{key} to front matter.")
       end
+      if post.data.key?("mermaid")
+        add_at_key(post, "mermaid", "error", "FM020", "mermaid front matter is unnecessary.", "Remove the mermaid key; fenced Mermaid diagrams render without it.")
+      end
       return unless missing.empty?
 
       typed_value(post, "layout", String, "FM011")
@@ -423,8 +426,6 @@ module UnoPersona
           info = match[2].strip
           if info.empty?
             add_post(post, file_line, 1, "error", "CODE001", "Fenced code block has no language.", "Add a language after the opening fence.")
-          elsif info.split.first == "mermaid" && post.data["mermaid"] != true
-            add_post(post, file_line, 1, "error", "CODE002", "Mermaid fence requires front matter mermaid: true.", "Add mermaid: true or remove the diagram.")
           end
           in_fence = true
           fence_char = marker[0]

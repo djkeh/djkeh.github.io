@@ -37,12 +37,26 @@ class ValidatePostTest < Minitest::Test
     assert_empty err
   end
 
-  def test_valid_published_post_with_declared_mermaid_passes
+  def test_valid_published_post_with_mermaid_and_no_front_matter_flag_passes
     file = fixture("_posts/articles/2026-08-08-Contract-first-writing-kor.md")
     status, out, = run_cli("--root", FIXTURES, file)
 
     assert_equal 0, status
     assert_equal "OK\n", out
+  end
+
+  def test_mermaid_front_matter_is_rejected_as_unnecessary
+    with_root do |root|
+      path = File.join(root, "_posts/articles/2026-08-08-Contract-first-writing-kor.md")
+      source = File.read(path)
+      File.write(path, source.sub("sitemap: true\n", "sitemap: true\nmermaid: true\n"))
+
+      status, out, = run_cli("--root", root, path)
+
+      assert_equal 1, status
+      assert_includes out, "FM020"
+      assert_includes out, "Remove the mermaid key"
+    end
   end
 
   def test_duplicate_yaml_key_and_unsafe_alias_fail_without_execution
@@ -110,7 +124,7 @@ class ValidatePostTest < Minitest::Test
 
       assert_equal 1, status
       refute result.fetch("valid")
-      %w[TAG002 DATE003 DATE004 STATE003 HEAD001 CODE001 CODE002 REF006].each do |code|
+      %w[TAG002 DATE003 DATE004 STATE003 HEAD001 CODE001 REF006].each do |code|
         assert_includes codes, code
       end
       sorted = result.fetch("diagnostics").sort_by do |item|

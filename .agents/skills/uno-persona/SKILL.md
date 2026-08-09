@@ -24,6 +24,7 @@ Create accurate, readable posts for `djkeh.github.io` while preserving Uno's voi
 2. Determine language and category from the request or target file. Default new content to Korean (`kor`) and `articles`; use `eng` only when English is requested and `blog` only for personal or daily-life writing.
 3. Preserve the target file's language, category, publication state, and original `date` when revising unless the user explicitly asks to change them.
 4. For newly generated filenames and image directories, derive date segments from the current calendar date in `Asia/Seoul`. Write front matter `date` and `last_modified_at` as UTC timestamps without a timezone suffix. Do not rename an existing file solely to refresh its date.
+5. When using Mermaid, write a `mermaid` fenced code block and do not add a `mermaid` key to front matter. Jekyll renders these diagrams without that key.
 
 ### Short or underspecified prompt
 

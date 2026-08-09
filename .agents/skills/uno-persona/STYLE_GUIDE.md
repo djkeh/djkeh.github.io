@@ -65,6 +65,7 @@ Do not simulate energy with stock phrasing. Replace it with a concrete claim, ob
 * Keep blank lines between headings, paragraphs, lists, code fences, tables, images, and other block elements.
 * Use `*` for unordered lists. Keep list items grammatically parallel when they form a set.
 * Add a language identifier to every non-plain-text code fence, such as `java`, `kotlin`, `yaml`, `bash`, or `mermaid`.
+* Write diagrams in `mermaid` fences without adding a `mermaid` key to front matter; Jekyll does not require that metadata to render them.
 * Use inline code for commands, identifiers, versions, configuration keys, and short literals, not as decorative emphasis.
 * Link an official product or specification at its first useful mention. Use descriptive link text in prose so the sentence remains readable.
 * Put `## Reference` at the very end of every article and list the external sources that informed or extend it.

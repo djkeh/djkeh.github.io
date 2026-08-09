@@ -7,7 +7,6 @@ tags: [ai, writing]
 date: 2026-08-07 16:00:00
 last_modified_at: 2026-08-07 16:00:00
 sitemap: true
-mermaid: true
 ---
 
 글을 쓰기 전에 기준부터 정리해 보겠습니다.
