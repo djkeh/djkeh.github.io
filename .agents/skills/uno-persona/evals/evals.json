@@ -1,0 +1,74 @@
+{
+  "skill_name": "uno-persona",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Java의 가상 스레드가 기존 플랫폼 스레드와 어떻게 다른지 Uno 스타일의 기술 블로그 글로 써줘.",
+      "expected_output": "A conversational response containing an initial outline and introduction draft, followed by a request for feedback or technical points; no file is created or edited.",
+      "files": [],
+      "expectations": [
+        "The response contains both a proposed outline and an introduction draft.",
+        "The response asks for feedback or technical points needed for the full post.",
+        "No file is created or modified."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "멱등성 키로 결제 API의 중복 요청을 막는 방법을 한국어 기술 글 초안으로 완성해줘. 독자는 실무 경험이 많지 않은 백엔드 개발자야. 다음 내용을 포함해줘: 네트워크 재시도 때문에 POST 결제가 두 번 처리되는 상황, HTTP 멱등성의 의미, Idempotency-Key와 요청 fingerprint·처리 상태·응답을 영속 저장하는 흐름, 같은 키와 다른 payload가 오면 409를 반환하는 정책, 동시 요청은 DB unique constraint로 막는 방법, TTL과 모니터링 시 주의점, Java/Spring 의사 코드. 첨부한 idempotency.md를 이번 평가의 고정 근거로 사용하고 웹을 다시 조회하지 마. 개인 경험은 만들지 말고 완성된 초안 파일을 작성해줘.",
+      "expected_output": "A complete Korean article draft under _drafts with safe draft front matter, the requested technical sections and language-tagged code, ending with the two supplied references.",
+      "files": [
+        "evals/files/source-notes/idempotency.md"
+      ],
+      "expectations": [
+        "Exactly one new Markdown post is created under _drafts and none under _posts.",
+        "The front matter has categories: articles, sitemap: false, and identical date and last_modified_at values.",
+        "The filename ends in -kor.md and follows the repository date-title-language naming convention.",
+        "The post contains no H1 heading and every fenced code block declares a language.",
+        "The post explains that a lost response can cause a retried POST payment to execute twice and distinguishes HTTP method idempotency from an application-level idempotency-key policy.",
+        "The proposed record includes the idempotency key, request fingerprint, processing status, and stored response; a retry with the same key and matching payload replays the stored response.",
+        "The post specifies a 409 response for the same key with a different payload and uses a database unique constraint to serialize concurrent creation of the same key.",
+        "The post discusses both record TTL and operational monitoring for idempotency failures or conflicts.",
+        "The implementation example is in a fenced block tagged java and reflects the described key, fingerprint, conflict, and response-replay flow.",
+        "No first-person experience, measurement, conversation, or opinion absent from the prompt and source notes is introduced.",
+        "The final section is ## Reference and contains both supplied URLs with link text identical to each URL target."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "실행 환경에서 첨부 포스트는 _posts/articles/2025-11-14-Jekyll-build-troubleshooting-kor.md로, 첨부 이미지는 /images/20251114_jekyll_build/build-log.png로 복사되어 있어. 기존 공개 포스트의 핵심 내용은 유지하면서 Uno의 문체로 더 자연스럽게 다듬어줘. 설명의 흐름과 문장만 개선하고, 확인되지 않은 개인 경험은 추가하지 마. 기존 date, categories, sitemap, 본문 링크, 이미지, Reference 항목은 보존해줘. 대상 포스트를 제자리에서 수정해줘.",
+      "expected_output": "A revised copy of the supplied published post that improves the prose while preserving its publication state, durable metadata, links, image, and references; only last_modified_at changes.",
+      "files": [
+        "evals/files/2025-11-14-Jekyll-build-troubleshooting-kor.md",
+        "evals/files/images/20251114_jekyll_build/build-log.png"
+      ],
+      "expectations": [
+        "The result remains at _posts/articles/2025-11-14-Jekyll-build-troubleshooting-kor.md.",
+        "The front matter still contains categories: articles, date: 2025-11-14 02:30:00, and sitemap: true.",
+        "last_modified_at is later than 2025-11-14 02:30:00 and is the only changed front matter field.",
+        "The exact inline link [Jekyll](https://jekyllrb.com/) remains present outside the Reference section.",
+        "The exact image structure ![Jekyll 빌드 로그 확인 화면](/images/20251114_jekyll_build/build-log.png) remains present.",
+        "The final Reference section retains the exact list items * [https://jekyllrb.com/docs/](https://jekyllrb.com/docs/) and * [https://jekyllrb.com/docs/troubleshooting/](https://jekyllrb.com/docs/troubleshooting/) in the same order.",
+        "No first-person experience, measurement, conversation, or opinion absent from the input is introduced."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "GitOps 환경에서 configuration drift를 발견하고 줄이는 방법을 한국어 기술 글로 작성해서 바로 공개해줘. categories는 articles로 해줘. 독자는 Kubernetes를 운영하기 시작한 백엔드 개발자야. 글에는 선언한 Git 상태와 실제 클러스터 상태의 차이, 수동 kubectl 변경이 drift를 만드는 예, reconciliation과 pull request 중심 변경 절차, 자동 동기화 전에 diff·health check·rollback 정책을 확인해야 한다는 점, secret 값 자체를 Git에 평문으로 두지 않는다는 주의를 포함해줘. 첨부한 gitops.md를 이번 평가의 고정 근거로 사용하고 웹을 다시 조회하지 마. 개인 경험은 만들지 마.",
+      "expected_output": "A complete Korean article published under _posts/articles with public front matter, the requested GitOps guidance, and the supplied references.",
+      "files": [
+        "evals/files/source-notes/gitops.md"
+      ],
+      "expectations": [
+        "Exactly one new Markdown post is created under _posts/articles and none under _drafts or _posts/blog.",
+        "The front matter has categories: articles, sitemap: true, and identical date and last_modified_at values.",
+        "The filename ends in -kor.md and follows the repository date-title-language naming convention.",
+        "The post defines configuration drift as a difference between Git-declared desired state and observed cluster state and gives a manual kubectl change as an example.",
+        "The post explains continuous reconciliation and a pull-request-centered change flow rather than treating Git as passive storage.",
+        "Before automatic synchronization, the post requires reviewing a diff and defines concrete health-check and rollback policy considerations.",
+        "The post states that plaintext secret values must not be committed to Git.",
+        "No first-person experience, measurement, conversation, or opinion absent from the prompt and source notes is introduced.",
+        "The final section is ## Reference and contains both supplied URLs with link text identical to each URL target."
+      ]
+    }
+  ]
+}
