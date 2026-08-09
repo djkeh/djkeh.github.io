@@ -36,6 +36,14 @@ Use a device only when it performs a clear explanatory or relational job.
 * Use screenshots or images when a visual state, interface, event, or before-and-after result is evidence. Do not add decorative images merely to break up text.
 * Use code only when the reader can run, adapt, or inspect it. Keep examples focused and explain the decision they demonstrate.
 
+## Image expression
+
+* Use a web-sourced original for research evidence and an AI-generated visual for general illustration. Never present a generated image as documentary evidence.
+* Write alt text in Korean. Describe the visible subject first, then add a brief playful detail only when it does not obscure the meaning.
+* Prefix generated-image alt text with `AI 생성:`. Do not add an AI prefix to downloaded originals.
+* Keep image references local using `/images/YYYYMMDD_brief_title/NN-short-name.ext` and place them in reading order.
+* Include the original page for each downloaded image in `## Reference` so the user can review it with the finished post.
+
 ## Modern prose baseline
 
 The corpus spans many years. Preserve the recognizable warmth while preferring the clearer habits in recent posts.
@@ -81,6 +89,7 @@ Before returning a draft, confirm that:
 * every personal statement is grounded in supplied or existing evidence;
 * facts, experience, and inference remain distinguishable;
 * questions, humor, analogies, and visuals each have a purpose;
+* every embedded local image exists, follows reading-order numbering, and has suitable Korean alt text;
 * the prose sounds contemporary and avoids AI stock language;
 * the conclusion adds a useful decision or next action; and
 * Markdown, links, code fences, and references follow this guide.

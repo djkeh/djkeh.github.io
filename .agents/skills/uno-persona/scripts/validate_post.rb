@@ -42,7 +42,8 @@ module UnoPersona
     DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
     FILE_PATTERN = /\A(?<date>\d{4}-\d{2}-\d{2})-(?<slug>[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*)-(?<lang>kor|eng)\.md\z/
     TAG_PATTERN = /\A[a-z0-9]+(?:-[a-z0-9]+)*\z/
-    IMAGE_DIR_PATTERN = /\A\d{8}_[a-z0-9]+(?:_[a-z0-9]+)?\z/
+    IMAGE_DIR_PATTERN = /\A\d{8}_[a-z0-9]+(?:_[a-z0-9]+){0,4}\z/
+    IMAGE_FILE_PATTERN = /\A(?<sequence>\d{2})-[a-z0-9]+(?:-[a-z0-9]+)*\.(?:png|jpg|jpeg|gif|webp|svg)\z/
     FRONT_MATTER_KEYS = %w[layout categories title excerpt tags date last_modified_at sitemap].freeze
     MODES = %w[auto draft publish].freeze
     LIFECYCLES = %w[auto new update].freeze
@@ -411,6 +412,7 @@ module UnoPersona
       fence_size = nil
       headings = []
       previous_body_line = nil
+      image_state = { next_sequence: 1 }
 
       lines.each_with_index do |line, index|
         file_line = post.body_start_line + index
@@ -441,7 +443,7 @@ module UnoPersona
           add_post(post, file_line - 1, 1, "error", "HEAD002", "Setext H1 headings are not allowed.", "Replace the underline with a ## heading.")
         end
         headings << [file_line, line.strip] if line.match?(/^##(?:\s+|$)/)
-        validate_images_in_line(post, line, file_line)
+        validate_images_in_line(post, line, file_line, image_state)
         validate_hangul_ascii_typos(post, line, file_line)
         previous_body_line = line
       end
@@ -469,16 +471,25 @@ module UnoPersona
       end
     end
 
-    def validate_images_in_line(post, line, file_line)
+    def validate_images_in_line(post, line, file_line, image_state)
       line.to_enum(:scan, /!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/).each do
         match = Regexp.last_match
         alt = match[1]
         target = match[2]
         column = match.begin(0) + 1
+        new_post = resolved_lifecycle == "new"
         if alt.strip.empty?
-          add_post(post, file_line, column, "warning", "IMG001", "Image alt text is empty.", "Add a concise Korean description.")
+          severity = new_post ? "error" : "warning"
+          add_post(post, file_line, column, severity, "IMG001", "Image alt text is empty.", "Add a concise Korean description.")
+        elsif new_post && !alt.match?(/[가-힣]/)
+          add_post(post, file_line, column, "error", "IMG010", "New image alt text must contain Korean.", "Describe the visible image in concise Korean.")
         end
-        next if target.match?(/\Ahttps?:\/\//)
+        if target.match?(/\Ahttps?:\/\//)
+          if new_post
+            add_post(post, file_line, column, "error", "IMG011", "New posts must embed a downloaded local image.", "Save the image below /images/ and use its local path.")
+          end
+          next
+        end
 
         unless target.start_with?("/images/")
           add_post(post, file_line, column, "error", "IMG002", "Local image paths must start with /images/.", "Move the asset under the blog images directory.")
@@ -493,11 +504,26 @@ module UnoPersona
 
         directory = target.split("/")[2]
         unless directory&.match?(IMAGE_DIR_PATTERN)
-          add_post(post, file_line, column, "error", "IMG003", "Image directory must be YYYYMMDD_one_or_two_words.", "Rename the image directory using lowercase snake_case.")
+          add_post(post, file_line, column, "error", "IMG003", "Image directory must be YYYYMMDD with one to five words.", "Use lowercase snake_case, aiming for three brief title words.")
         end
         expected_prefix = post.filename_date&.delete("-")
         if expected_prefix && directory && !directory.start_with?("#{expected_prefix}_")
           add_post(post, file_line, column, "error", "IMG004", "Image directory date does not match the post filename.", "Use an image directory beginning #{expected_prefix}_.")
+        end
+
+        if new_post
+          filename = components.length == 3 ? components.last : nil
+          filename_match = filename&.match(IMAGE_FILE_PATTERN)
+          expected_sequence = image_state[:next_sequence]
+          unless filename_match
+            add_post(post, file_line, column, "error", "IMG008", "New image filename must be NN-short-name.ext.", "Use a two-digit reading-order prefix and lowercase kebab-case name.")
+          else
+            actual_sequence = filename_match[:sequence].to_i
+            if actual_sequence != expected_sequence
+              add_post(post, file_line, column, "error", "IMG009", "Image sequence does not match reading order.", "Rename this image with #{format('%02d', expected_sequence)} as its prefix.")
+            end
+          end
+          image_state[:next_sequence] += 1
         end
 
         asset = @root.join(target.delete_prefix("/"))

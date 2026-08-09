@@ -69,6 +69,35 @@
         "No first-person experience, measurement, conversation, or opinion absent from the prompt and source notes is introduced.",
         "The final section is ## Reference and contains both supplied URLs with link text identical to each URL target."
       ]
+    },
+    {
+      "id": 5,
+      "prompt": "Java 가상 스레드가 요청 하나당 플랫폼 스레드를 점유하는 방식과 어떻게 다른지 설명하는 한국어 기술 글 초안을 완성해줘. 독자는 Java 동시성에 익숙하지 않은 백엔드 개발자야. 일반적인 개념 설명용 이미지를 AI로 직접 만들어 글에 넣고, 작성 중간에 내 승인을 기다리지 마. 개인적인 사용 경험은 만들지 마.",
+      "expected_output": "A complete Korean draft with a generated explanatory image saved under the repository images directory and embedded with compliant alt text.",
+      "files": [],
+      "expectations": [
+        "Exactly one new Markdown post is created under _drafts.",
+        "At least one generated image file exists under an images/YYYYMMDD_brief_title directory whose date matches the post filename.",
+        "Generated image filenames begin at 01 and follow their reading order using two-digit prefixes and lowercase kebab-case names.",
+        "Every generated image is embedded through a local /images/ path and its Korean alt text begins with AI 생성:.",
+        "The post does not pause for image approval or leave an image placeholder.",
+        "The completion report identifies each generated image and its saved path."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Kubernetes 컨트롤 플레인의 주요 구성 요소를 처음 운영하는 백엔드 개발자에게 설명하는 한국어 기술 글 초안을 완성해줘. 공식 Kubernetes 문서에서 구성 요소를 보여주는 관련 원본 이미지를 찾아 실제 파일로 다운로드하고 글에 넣어줘. 이미지 선택을 중간에 묻지 말고 바로 적용한 다음, 마지막에 원본 페이지와 저장 경로를 알려줘. 개인 경험은 만들지 마.",
+      "expected_output": "A complete Korean draft with a relevant web-sourced evidence image downloaded into the repository, embedded locally, and reported with its original page.",
+      "files": [],
+      "expectations": [
+        "Exactly one new Markdown post is created under _drafts.",
+        "At least one relevant downloaded image file exists under an images/YYYYMMDD_brief_title directory whose date matches the post filename.",
+        "Downloaded image filenames begin at 01 and follow their reading order using two-digit prefixes and lowercase kebab-case names.",
+        "Every downloaded image is embedded through a local /images/ path with concise Korean alt text and no AI 생성: prefix.",
+        "The official original page URL for each downloaded image appears in the final ## Reference section.",
+        "The post does not pause for image approval or leave an image placeholder.",
+        "The completion report lists each downloaded image path and original page URL."
+      ]
     }
   ]
 }

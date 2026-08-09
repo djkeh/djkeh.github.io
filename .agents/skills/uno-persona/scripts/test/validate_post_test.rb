@@ -157,13 +157,84 @@ class ValidatePostTest < Minitest::Test
     with_root do |root|
       path = File.join(root, "_drafts/2026-08-08-Image-check-kor.md")
       source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
-      source = source.sub("글을 쓰기 전에", "![설명](/images/20260808_image_check/missing.png)\n\n글을 쓰기 전에")
+      source = source.sub("글을 쓰기 전에", "![빠진 그림이 조용히 자리만 지키는 화면](/images/20260808_image_check/01-missing.png)\n\n글을 쓰기 전에")
       File.write(path, source)
 
       status, out, = run_cli("--root", root, path)
 
       assert_equal 1, status
       assert_includes out, "IMG005"
+    end
+  end
+
+  def test_new_images_accept_up_to_five_directory_words_and_reading_order
+    with_root do |root|
+      path = File.join(root, "_drafts/2026-08-08-Image-order-kor.md")
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      image_dir = File.join(root, "images/20260808_practical_ai_blog_image_flow")
+      FileUtils.mkdir_p(image_dir)
+      File.write(File.join(image_dir, "01-overview.png"), "image")
+      File.write(File.join(image_dir, "02-running-demo.jpg"), "image")
+      images = <<~MARKDOWN.chomp
+        ![전체 구조를 한눈에 보여주는 그림](/images/20260808_practical_ai_blog_image_flow/01-overview.png)
+
+        ![AI 생성: 데모를 실행하며 식은땀 흘리는 로봇](/images/20260808_practical_ai_blog_image_flow/02-running-demo.jpg)
+
+        글을 쓰기 전에
+      MARKDOWN
+      File.write(path, source.sub("글을 쓰기 전에", images))
+
+      status, out, = run_cli("--root", root, path)
+
+      assert_equal 0, status
+      assert_equal "OK\n", out
+    end
+  end
+
+  def test_new_images_reject_bad_directory_filename_order_alt_and_remote_path
+    with_root do |root|
+      path = File.join(root, "_drafts/2026-08-08-Image-rules-kor.md")
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      image_dir = File.join(root, "images/20260808_one_two_three_four_five_six")
+      FileUtils.mkdir_p(image_dir)
+      File.write(File.join(image_dir, "02-wrong-order.png"), "image")
+      File.write(File.join(image_dir, "bad-name.png"), "image")
+      images = <<~MARKDOWN.chomp
+        ![overview](/images/20260808_one_two_three_four_five_six/02-wrong-order.png)
+
+        ![번호표를 잃어버린 그림](/images/20260808_one_two_three_four_five_six/bad-name.png)
+
+        ![원격 이미지](https://example.com/remote.png)
+
+        글을 쓰기 전에
+      MARKDOWN
+      File.write(path, source.sub("글을 쓰기 전에", images))
+
+      status, out, = run_cli("--root", root, path)
+
+      assert_equal 1, status
+      %w[IMG003 IMG008 IMG009 IMG010 IMG011].each { |code| assert_includes out, code }
+    end
+  end
+
+  def test_update_preserves_legacy_image_filename
+    with_root do |root|
+      target = File.join(root, "_posts/articles/2026-08-08-Contract-first-writing-kor.md")
+      source = File.read(target).sub(
+        "글을 쓰기 전에",
+        "![기존 빌드 로그 화면](/images/20260808_legacy_image/build-log.png)\n\n글을 쓰기 전에"
+      )
+      image_dir = File.join(root, "images/20260808_legacy_image")
+      FileUtils.mkdir_p(image_dir)
+      File.write(File.join(image_dir, "build-log.png"), "image")
+      original = File.join(root, "original.md")
+      File.write(original, source)
+      File.write(target, source.sub("last_modified_at: 2026-08-07 16:00:00", "last_modified_at: 2026-08-07 17:00:00"))
+
+      status, out, = run_cli("--root", root, "--lifecycle", "update", "--original", original, target)
+
+      assert_equal 0, status
+      assert_equal "OK\n", out
     end
   end
 
@@ -199,19 +270,32 @@ class ValidatePostTest < Minitest::Test
     assert_equal "OK\n", out
   end
 
-  def test_strict_turns_warning_into_failure
+  def test_empty_alt_is_an_error_for_new_posts
     with_root do |root|
       path = File.join(root, "_drafts/2026-08-08-Empty-alt-kor.md")
       source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
       FileUtils.mkdir_p(File.join(root, "images/20260808_empty_alt"))
-      File.write(File.join(root, "images/20260808_empty_alt/present.png"), "image")
-      File.write(path, source.sub("글을 쓰기 전에", "![](/images/20260808_empty_alt/present.png)\n\n글을 쓰기 전에"))
+      File.write(File.join(root, "images/20260808_empty_alt/01-present.png"), "image")
+      File.write(path, source.sub("글을 쓰기 전에", "![](/images/20260808_empty_alt/01-present.png)\n\n글을 쓰기 전에"))
+
+      normal_status, normal_out, = run_cli("--root", root, path)
+
+      assert_equal 1, normal_status
+      assert_includes normal_out, "IMG001"
+    end
+  end
+
+  def test_strict_turns_text_warning_into_failure
+    with_root do |root|
+      path = File.join(root, "_drafts/2026-08-08-Strict-warning-kor.md")
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      File.write(path, source.sub("글을 쓰기 전에", "잘못된 한a글 표현입니다.\n\n글을 쓰기 전에"))
 
       normal_status, normal_out, = run_cli("--root", root, path)
       strict_status, = run_cli("--root", root, "--strict", path)
 
       assert_equal 0, normal_status
-      assert_includes normal_out, "IMG001"
+      assert_includes normal_out, "TEXT001"
       assert_equal 1, strict_status
     end
   end
