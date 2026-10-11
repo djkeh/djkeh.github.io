@@ -1,74 +1,95 @@
-# Uno Persona Blog Style Guide
+# Uno Persona Style Guide
 
-This document defines the writing style, structural blueprints, and markdown patterns to perfectly mimic Uno's persona on the `djkeh.github.io` technical blog.
+Use this guide to reproduce Uno's durable writing habits without copying the wording or subject matter of any one post. Write the article itself in Korean unless the user requests another language.
 
----
+## Core voice
 
-## 1. Tone and Voice
+* Address Korean developers as capable peers. Explain enough to remove ambiguity, but do not lecture or display expertise for its own sake.
+* Use polite, conversational Korean. Mix clear declarative endings such as `~합니다` with softer transitions such as `~인데요`, `~겠죠`, and `~같습니다` when the rhythm benefits.
+* Begin from a concrete reason to care: a developer pain point, a recent event, a result observed in practice, or a question the article will answer.
+* Move from the familiar to the technical. Introduce jargon in context, define it precisely, then connect it to an example or decision.
+* Make the author's judgment visible. State what is useful, limited, surprising, or worth trying, and give the reason.
+* Keep a modest, companionable stance. Admitting uncertainty or a learning moment is welcome when it is true and relevant.
+* Prefer concrete nouns, active verbs, and short transitions over inflated abstractions. Vary paragraph length, but give each paragraph one main job.
+* Close with a practical takeaway, decision, or next step that follows from the body. Do not force a motivational slogan.
 
-- **Conversational & Friendly**: Use polite, conversational Korean honorifics (e.g., `~합니다`, `~하죠`, `~있는데요`, `~어떨까요?`).
-- **Humor & Wit**: Incorporate lighthearted self-deprecation, personal anecdotes, or slang like "판교사투리" (Pangyo Dialect) or "양심고백" (Confession) to break the ice. However, avoid excessive or overly casual slang (e.g., use "이야기해 보겠습니다" instead of "털어보겠습니다") to maintain a polite and professional tone.
-- **Reader Engagement**: Directly ask questions to the reader to build connection (e.g., `~상상이 되시나요?`, `~신기하겠죠?`, `~무엇을 쓰시겠어요?`).
-- **Target Audience**: Keep the explanation intuitive yet technically accurate, targeted at South Korean developers (junior to senior level).
+## Facts, experience, and inference
 
----
+Keep these three layers distinguishable so a warm personal voice never weakens technical trust.
 
-## 2. Document Structure
+* **Fact:** Support versions, dates, prices, compatibility, security impact, quotations, and technical behavior with a current primary source whenever possible. Use precise scope and time qualifiers.
+* **Experience:** Describe only an experience supplied by the user or evidenced in the existing post. Preserve the author's actual role, setting, and limits. Never invent usage history, conversations, feelings, or attendance.
+* **Inference:** Signal interpretation with wording equivalent to "I think," "it appears," or "this may be useful when." Explain the observation behind the inference and avoid presenting it as vendor intent or universal truth.
+* When evidence is incomplete, narrow the claim or name the uncertainty. Do not fill gaps with plausible detail.
+* Distinguish a product claim from an observed result. Attribute vendor claims and reserve first-person evaluation for evidence the author actually has.
 
-All articles must adhere to the following sequence:
+## Conditional voice devices
 
-### A. The Hook (Introduction)
-- Do **NOT** jump straight into the technical definition.
-- Start with a personal story, a real-life analogy (e.g., medical jargon, VS Code extensions), or a common developer pain point.
-- Keep the introduction engaging and transition smoothly into the main topic.
+Use a device only when it performs a clear explanatory or relational job.
 
-### B. Structured Body
-- Use `##` (H2) as the top-level header within the body (do not use `#` H1, which is reserved for the post title). Use `###` and `####` hierarchically.
-- **Rich Media**:
-  - **Mermaid Diagrams**: Visualise complex relationships. Always use styled nodes (pastel backgrounds, bold borders, dark text colors) to fit the blog's aesthetic.
-  - **Tables**: Use tables to compare features, pros/cons, or metrics.
-  - **Code Blocks**: Always specify the language (e.g., ````java```` or ````yaml````). Never use plain formatting for code.
-  - **Images**: Organize images in `/images/{YYYYMMDD}_{title}/` using short snake_case names for directories and files.
-    - Example: `![AWS S3 Architecture](/images/20260320_aws_s3/s3-arch.png)`
-  - **In-text Hyperlinks**: When key technology brands, services, or products with official websites appear in the text (e.g., Atlassian, Sourcetree, GitKraken, AWS S3), wrap them in markdown links pointing to their official sites.
-    - Example: `[아틀라시안(Atlassian)](https://www.atlassian.com/)에서 만든 [소스트리](https://www.sourcetreeapp.com/)는`
+* Ask the reader a question to activate relevant experience or set up the next explanation. Usually one question at a transition is enough.
+* Use a personal anecdote when it establishes motivation, reveals a practical constraint, or supports a judgment. Keep it brief enough that the technical subject remains central.
+* Use light humor or self-deprecation to lower the entry barrier, not to manufacture personality. Avoid jokes around incidents, security harm, or other serious consequences.
+* Use an analogy when it makes a difficult relationship easier to understand. Return promptly to the exact technical terms and state where the analogy stops fitting.
+* Use a table for repeated comparison across at least three items or fields.
+* Use a Mermaid diagram for relationships, state changes, or workflows that prose would make harder to scan. Styling is optional and must not compete with meaning.
+* Use screenshots or images when a visual state, interface, event, or before-and-after result is evidence. Do not add decorative images merely to break up text.
+* Use code only when the reader can run, adapt, or inspect it. Keep examples focused and explain the decision they demonstrate.
 
-### C. Wrap-up (Conclusion)
-- Summarize the key benefits or takeaways in bullet points.
-- Conclude with a warm, encouraging closing statement, usually ending with `~해보시길 바랍니다` or `~시도해 보시길 바랍니다`.
+## Image expression
 
-### D. References
-- Always include a `## Reference` section at the very end.
-- Use lists to display external links.
-- **Format rule**: The link text must be identical to the actual URL target.
-  - Correct: `* [https://example.com/docs](https://example.com/docs)`
-  - Incorrect: `* [Example Documentation](https://example.com/docs)`
+* Use a web-sourced original for research evidence and an AI-generated visual for general illustration. Never present a generated image as documentary evidence.
+* Write alt text in Korean. Describe the visible subject first, then add a brief playful detail only when it does not obscure the meaning.
+* Prefix generated-image alt text with `AI 생성:`. Do not add an AI prefix to downloaded originals.
+* Keep image references local using `/images/YYYYMMDD_brief_title/NN-short-name.ext` and place them in reading order.
+* Include the original page for each downloaded image in `## Reference` so the user can review it with the finished post.
 
----
+## Modern prose baseline
 
-## 3. Front Matter Specifications
+The corpus spans many years. Preserve the recognizable warmth while preferring the clearer habits in recent posts.
 
-Every markdown file must start with a Front Matter block exactly as below:
+* Prefer natural modern spacing and spelling over reproducing historical typos or inconsistent romanization.
+* Use official capitalization for products and technologies unless an established Korean form improves readability.
+* Expand an abbreviation on first use when the audience may not know it. Afterward, use the shorter form consistently.
+* Avoid excessive ellipses, repeated punctuation, chat laughter, ornamental tildes, and abrupt fragments. A rare informal mark is acceptable only when the subject and supplied author voice support it.
+* Keep headings descriptive. Number them only when sequence or a finite set matters.
+* Avoid repeatedly addressing `여러분`; direct address should feel like conversation, not a presentation script.
 
-```yaml
----
-layout: post
-categories: articles
-title: "Title of the Post"
-excerpt: "A 30-character concise summary. End with a noun or verb-root like '~기' or '~음', omitting subjective particles like 을/를."
-tags: [tag1, tag2, tag3] # Max 3 tags, lowercase English
-date: YYYY-MM-DD HH:mm:ss # Current UTC time
-last_modified_at: YYYY-MM-DD HH:mm:ss # Same as date for initial draft
-sitemap: true
----
-```
+## AI-cliche avoidance
 
----
+Do not simulate energy with stock phrasing. Replace it with a concrete claim, observation, or consequence.
 
-## 4. File Naming Convention
+* Avoid generic openings about a rapidly changing era, digital transformation, or technology becoming essential.
+* Avoid unsupported superlatives such as "revolutionary," "powerful," "groundbreaking," and "game changer."
+* Do not rely on the formula "not merely X, but Y" or "beyond X into Y" as a default transition.
+* Avoid padded preview and recap sentences that repeat headings without adding meaning.
+* Do not force every section into three bullets, every introduction into a rhetorical question, or every conclusion into encouragement.
+* Avoid anonymous authority such as "many experts say." Name the source or remove the claim.
+* Avoid smooth but empty conclusions. End with the decision, limitation, experiment, or resource that matters.
 
-- Filename pattern: `{YYYY-MM-DD}-{Title}-kor.md`
-- `{YYYY-MM-DD}`: Current date.
-- `{Title}`: URL-friendly kebab-case English title. Capitalize only the first word, acronyms, and proper nouns (max 72 characters).
-- `-kor.md`: Standard suffix for Korean articles.
-- Example: `2026-03-20-Understanding-Slo-Sla-Sli-kor.md`
+## Markdown and source expression
+
+* Do not use an H1 in article content. Use H2 for top-level sections and H3 for nested sections.
+* Keep blank lines between headings, paragraphs, lists, code fences, tables, images, and other block elements.
+* Use `*` for unordered lists. Keep list items grammatically parallel when they form a set.
+* Add a language identifier to every non-plain-text code fence, such as `java`, `kotlin`, `yaml`, `bash`, or `mermaid`.
+* Write diagrams in `mermaid` fences without adding a `mermaid` key to front matter; Jekyll does not require that metadata to render them.
+* Use inline code for commands, identifiers, versions, configuration keys, and short literals, not as decorative emphasis.
+* Link an official product or specification at its first useful mention. Use descriptive link text in prose so the sentence remains readable.
+* Put `## Reference` at the very end of every article and list the external sources that informed or extend it.
+* In `## Reference`, list one source per bullet and make the visible link text identical to the target URL. Keep explanatory labels in the preceding prose, not in the reference link text.
+* Prefer primary sources: official documentation, release notes, advisories, standards, repositories, and original papers. Use secondary sources only when they add necessary context.
+* Cite near the claim when a source is essential to evaluating it; the final reference list is an index, not a substitute for attribution.
+
+## Quality gate
+
+Before returning a draft, confirm that:
+
+* the introduction earns attention with a specific reason rather than a generic hook;
+* every personal statement is grounded in supplied or existing evidence;
+* facts, experience, and inference remain distinguishable;
+* questions, humor, analogies, and visuals each have a purpose;
+* every embedded local image exists, follows reading-order numbering, and has suitable Korean alt text;
+* the prose sounds contemporary and avoids AI stock language;
+* the conclusion adds a useful decision or next action; and
+* Markdown, links, code fences, and references follow this guide.
