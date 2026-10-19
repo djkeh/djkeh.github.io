@@ -6,6 +6,7 @@ excerpt: "Giscus, GistWatch를 통해 Gist 댓글 알림 받는 법"
 tags: [git, gist]
 date: 2017-08-01 11:44:10
 last_modified_at: 2019-02-07 10:35:13
+image: "/images/20170801_gist_notification/giscus.png"
 ---
 
 ## Gist는 편리하다

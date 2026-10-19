@@ -6,6 +6,7 @@ excerpt: "트레일링 슬래시(trailing slash) 기초 복습 및 관련 내용
 tags: [web]
 date: 2017-07-05 20:16:50
 last_modified_at: 2019-02-07 10:46:28
+image: "/images/20170705_trailing_slash/0.jpg"
 ---
 
 웹사이트에 있는 URL을 스크랩하려고 복사해서 가져오다 보면, 이렇게 생긴 URL을 볼 수 있습니다.

@@ -7,6 +7,7 @@ tags: [git, ai]
 date: 2026-08-17 10:00:00 +09:00
 last_modified_at: 2026-08-17 10:00:00 +09:00
 sitemap: true
+image: "/images/20260817_gitkraken_12_4_release/01-release-hero.png"
 ---
 
 [지난 12.0 업데이트 소개 글](/articles/Gitkraken-desktop-12-0-0-release-kor/)에서 깃크라켄이 **에이전트 세션 뷰(Agent Sessions View)**를 들고 나오면서, 여러 개의 워크트리(worktree) 위에서 AI 코딩 에이전트들을 동시에 굴리는 '멀티 에이전트 시대'에 본격적으로 올라탔다는 이야기를 했었는데요. 그 뒤로 몇 번의 마이너 업데이트를 거치면서, 깃크라켄은 이 방향을 꾸준히 다듬어 오고 있습니다.

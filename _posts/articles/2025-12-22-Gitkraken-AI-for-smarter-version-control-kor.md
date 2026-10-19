@@ -7,6 +7,7 @@ tags: [git]
 date: 2025-12-24 08:57:27
 last_modified_at: 2025-12-24 09:25:11
 sitemap: true
+image: "/images/20251224_gitkraken_ai/explain-changes-1.gif"
 ---
 
 여러분은 평소에 Git Client를 사용하면서 얼마나 AI 기술을 활용하고 계신가요? 프로그램 코드를 작성할 때 뿐만 아니라, 코드를 관리하는 형상관리 영역에서도 AI의 영향력이 점점 커지고 있습니다. Git 저장소에서 당연히 직접 해야 한다고 생각했던 부분들이 AI로 빠르고 정교하게 커버될 수 있다면, 꽤 신기하겠죠?

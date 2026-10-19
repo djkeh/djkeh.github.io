@@ -6,6 +6,7 @@ excerpt: "즉시 대응해야 하는 스프링 뉴스, 2019.09.16"
 tags: [java, spring]
 date: 2020-02-11 17:30:35
 last_modified_at: 2020-02-11 17:30:35
+image: "/images/20200211_goodbye_http/gradle_error.png"
 ---
 
 저는 오늘 회사에서 평소처럼 일을 하다가, 다음과 같은 화면을 발견하였습니다.

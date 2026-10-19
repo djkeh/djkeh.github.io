@@ -6,6 +6,7 @@ excerpt: "똑똑한 커밋 메시지를 작성할 수 있는 한 가지 가이�
 tags: [git]
 date: 2017-03-16 18:30:00
 last_modified_at: 2019-02-07 10:26:19
+image: "/images/20170316_git_commit_message/1.png"
 ---
 
 ![intro](/images/20170316_git_commit_message/1.png)

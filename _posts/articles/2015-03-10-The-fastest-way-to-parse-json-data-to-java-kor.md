@@ -6,6 +6,7 @@ excerpt: "7종류의 자바 JSON 라이브러리 벤치마크"
 tags: [java, json, restful]
 date: 2015-03-10 15:08:19
 last_modified_at: 2019-02-07 09:11:58
+image: "/images/20150310_json_library/benchmark1.png"
 ---
 
 ## 다양한 Java JSON 라이브러리들

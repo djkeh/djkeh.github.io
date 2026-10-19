@@ -7,6 +7,7 @@ tags: [diary]
 date: 2015-02-15T20:39:51-09:00
 last_modified_at: 2019-02-07T07:47:47+09:00
 share: false
+image: "/images/20150215_sunjaryoung/thumbnail/IMG_4120_600x400.JPG"
 ---
 
 Going back to the last day of the regular training program for rookies,  

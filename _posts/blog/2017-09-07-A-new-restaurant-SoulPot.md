@@ -8,6 +8,7 @@ date: 2017-09-07 16:40:44
 last_modified_at: 2019-02-07 07:44:56
 share: true
 sitemap: true
+image: "/images/20170907_soulpot/entrance.jpg"
 ---
 
 Yesterday, it was around 7 and half pm after the meeting with With Innovation. I wanted to have a late supper, so I decided to wander around for a moment. It didn't take long until I found one restaurant, which actually got my attention. The "home food". hmm! That sounds interesting and healthy.

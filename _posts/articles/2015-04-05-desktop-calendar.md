@@ -6,6 +6,7 @@ excerpt: "Very useful on-screen desktop calendar for Windows"
 tags: [windows, utility]
 date: 2015-04-05 10:03:07
 last_modified_at: 2019-02-07 09:10:31
+image: "http://www.desktopcal.com/images/default/first_look_bid_usa.jpg"
 ---
 
 ## Desktop Calendar: Very useful on-screen desktop calendar for Windows

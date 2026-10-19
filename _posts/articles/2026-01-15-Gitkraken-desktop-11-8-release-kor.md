@@ -7,6 +7,7 @@ tags: [git]
 date: 2026-01-15 12:01:32
 last_modified_at: 2026-01-15 12:01:32
 sitemap: true
+image: "/images/20260118_gitkraken_11_8_release/shallow-clone-1.gif"
 ---
 
 2026년 새해가 되고 깃크라켄의 첫 업데이트네요. 1월 14일에 깃크라켄이 `11.8` 버전으로 업데이트 되었습니다. 어떤 변경이 있었는지 빠르게 살펴볼텐데요, 이번 업데이트의 주요 키워드는 **ARM 빌드**와 **Shallow Clone** 입니다.

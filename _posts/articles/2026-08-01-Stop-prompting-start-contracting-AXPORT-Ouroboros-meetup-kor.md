@@ -7,6 +7,7 @@ tags: [ai]
 date: 2026-08-01 14:30:00
 last_modified_at: 2026-08-01 16:46:38
 sitemap: true
+image: "/images/20260801_axport_ooo/axport-meetup.jpg"
 ---
 
 지난 2026년 7월 30일, [인프랩(Inflab)](https://story.inflab.com/) 사옥에서 열린 **Inflab AXPORT 빌더밋**에 다녀왔습니다. 이날 발표는 요즘 가장 핫한 오픈소스, [우로보로스(Ouroboros)](https://github.com/Q00/ouroboros)의 개발자이신 이재규 님의 **"Ouroboros 빌더밋 - 하네스, 에이전트에게 건네는 계약서"**였습니다. 제목에 들어간 하네스(harness)부터 요즘 AI 개발 현장에서 꽤 자주 듣지만, 막상 한 문장으로 설명해 보려면 손이 잠깐 멈추는 단어입니다.

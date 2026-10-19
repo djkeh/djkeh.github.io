@@ -7,6 +7,7 @@ tags: [ai]
 date: 2026-10-18 16:43:01
 last_modified_at: 2026-10-18 17:46:32
 sitemap: true
+image: "/images/20261019_google_deepmind_hackathon/01-hackathon-stage.jpg"
 ---
 
 지난 2026년 10월 16일, 강남 구글 스타트업 캠퍼스에서 열린 **Google DeepMind AI Hackathon**에 참가하고 왔습니다. [Google DeepMind](https://deepmind.google/)와 AttentionX가 함께 연 행사였는데요, [행사 안내 페이지](https://cerebralvalley.ai/e/google-deepmind-ai-hackathon)를 보면 참가자 140명이 각자 4시간 안에 구글의 AI로 무언가를 만들어 내는 **개인전** 형식이었습니다. 팀도 없고, 밤샘도 없고, 딱 4시간입니다.

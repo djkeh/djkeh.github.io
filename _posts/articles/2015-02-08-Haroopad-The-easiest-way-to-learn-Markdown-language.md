@@ -6,6 +6,7 @@ excerpt: "The easiest way to learn Markdown language"
 tags: [markdown]
 date: 2015-02-08T20:39:51+09:00
 last_modified_at: 2015-10-19T16:03:28+09:00
+image: "/images/20150208_haroopad/haroopad.png"
 ---
 
 ## Haroopad: The easiest way to learn Markdown language

@@ -7,6 +7,7 @@ tags: [git]
 date: 2026-02-11 03:29:03
 last_modified_at: 2026-02-11 03:29:03
 sitemap: true
+image: "/images/20260211_gitkraken_promotion/gitkraken-lunar-new-year-promo-1.png"
 ---
 
 ![깃크라켄 병오년 새해맞이 할인](/images/20260211_gitkraken_promotion/gitkraken-lunar-new-year-promo-1.png)

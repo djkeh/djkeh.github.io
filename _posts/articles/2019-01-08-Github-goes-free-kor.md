@@ -6,6 +6,7 @@ excerpt: "free private repository, unified enterprise offering"
 tags: [git, github]
 date: 2019-01-08 14:05:27
 last_modified_at: 2019-02-07 10:37:58
+image: "/images/20190108_github_goes_free/1.png"
 ---
 
 깃헙이 전면 무료에 돌입합니다. 쇼킹한 뉴스네요. 세부 내용을 요약해 보겠습니다.

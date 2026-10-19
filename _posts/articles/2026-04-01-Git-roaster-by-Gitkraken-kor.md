@@ -7,6 +7,7 @@ tags: [git, aprilfool]
 date: 2026-04-01 13:12:28
 last_modified_at: 2026-04-01 13:12:28
 sitemap: true
+image: "/images/20260401_git_roasted/step1.jpg"
 ---
 
 평소에 깃(git) 커밋 메시지를 잘 쓰고 싶다는 생각을 하셨나요? 그런데 마음처럼 안 되시나요? 지금 커밋 메시지를 환상적으로 쓰고 있는지 알고 싶으신가요?

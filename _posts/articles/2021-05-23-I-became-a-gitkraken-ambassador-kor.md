@@ -6,6 +6,7 @@ excerpt: "깃크라켄과 앰배서더에 관한 이야기"
 tags: [git]
 date: 2021-05-23 11:45:41
 last_modified_at: 2021-05-23 11:45:41
+image: "/images/20210523_gitkraken_ambassador/1.png"
 ---
 
 ![Gitkraken Ambassador logo](/images/20210523_gitkraken_ambassador/1.png "깃크라켄 앰배서더 로고")

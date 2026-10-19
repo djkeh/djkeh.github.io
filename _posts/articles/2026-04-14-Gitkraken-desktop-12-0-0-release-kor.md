@@ -7,6 +7,7 @@ tags: [git, ai]
 date: 2026-04-14 10:00:00
 last_modified_at: 2026-04-14 10:00:00
 sitemap: true
+image: "/images/20260414_gk12/gk12-1.gif"
 ---
 
 최근 소프트웨어 개발 생태계에서 가장 뜨거운 화두를 하나만 꼽으라면 단연 **AI 코딩 에이전트(AI Coding Agent)**일 것입니다. [VS Code](https://code.visualstudio.com/)나 [인텔리제이(IntelliJ)](https://www.jetbrains.com/idea/) 같은 IDE 내에서 코드를 자동 완성해 주는 단계를 넘어, 이제는 터미널에서 [클로드 코드(Claude Code)](https://claude.ai/) 같은 에이전트가 알아서 코드를 수정하고, 빌드하고, 테스트까지 돌려보는 시대가 되었죠.

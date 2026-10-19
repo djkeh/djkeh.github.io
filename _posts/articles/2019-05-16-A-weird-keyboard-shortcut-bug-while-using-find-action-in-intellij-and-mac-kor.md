@@ -6,6 +6,7 @@ excerpt: "어처구니 없는 맥OS 단축키 버그 해결"
 tags: [macos, ide]
 date: 2019-05-16 18:53:48
 last_modified_at: 2019-05-16 18:53:48
+image: "/images/20190516_shortcut_bug/1.png"
 ---
 
 ## `shift-command-a` 버그
