@@ -72,6 +72,7 @@ tags: [태그1, 태그2] # 이 포스팅을 가장 잘 설명하는 영문 소�
 date: YYYY-MM-DD HH:mm:ss # 글 작성 현재 일시 (UTC) 기준으로 시, 분, 초까지 정확하게 작성
 last_modified_at: YYYY-MM-DD HH:mm:ss # 첫 작성은 위 `date`와 동일, 수정일 경우 수정 현재 일시 (UTC)
 sitemap: false # 인터넷에 노출할 경우 true
+image: /images/{YYYYMMDD}_{title}/01-xxx.png # 본문에 처음 등장하는 이미지 경로. 공유/추천 썸네일(`og:image`)로 쓰임. 본문 이미지가 없으면 생략
 ---
 ```
 

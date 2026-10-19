@@ -40,3 +40,21 @@ h2 {
   margin-top: 1.5em;
   margin-bottom: 1em;
 }
+
+// Hero image (front matter `image:`)
+// 가로 100%, 세로는 원본 비율대로 늘되 최대 400px (넘으면 object-fit: cover로 상하 크롭)
+// 모바일(768px 미만)에서는 숨김. 필터로 어둡게
+.page-image {
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    object-position: center;
+    filter: brightness(0.5);
+  }
+
+  @media (max-width: 47.99em) {
+    display: none;
+  }
+}
