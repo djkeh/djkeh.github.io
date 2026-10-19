@@ -48,7 +48,7 @@ class ValidatePostTest < Minitest::Test
   def test_mermaid_front_matter_is_rejected_as_unnecessary
     with_root do |root|
       path = File.join(root, "_posts/articles/2026-08-08-Contract-first-writing-kor.md")
-      source = File.read(path)
+      source = File.read(path, encoding: "UTF-8")
       File.write(path, source.sub("sitemap: true\n", "sitemap: true\nmermaid: true\n"))
 
       status, out, = run_cli("--root", root, path)
@@ -70,8 +70,8 @@ class ValidatePostTest < Minitest::Test
         title: &title Unsafe
         excerpt: *title
         tags: [ai]
-        date: 2026-08-07 16:00:00
-        last_modified_at: 2026-08-07 16:00:00
+        date: 2026-08-08 01:00:00 +09:00
+        last_modified_at: 2026-08-08 01:00:00 +09:00
         sitemap: false
         ---
 
@@ -98,8 +98,8 @@ class ValidatePostTest < Minitest::Test
         title: Broken
         excerpt: Broken body
         tags: [AI]
-        date: 2026-08-08 16:00:00
-        last_modified_at: 2026-08-08 16:00:01
+        date: 2026-08-09 01:00:00 +09:00
+        last_modified_at: 2026-08-09 01:00:01 +09:00
         sitemap: true
         ---
 
@@ -136,7 +136,7 @@ class ValidatePostTest < Minitest::Test
 
   def test_reference_accepts_star_and_dash_but_must_be_last
     with_root do |root|
-      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"), encoding: "UTF-8")
       path = File.join(root, "_drafts/2026-08-08-Reference-order-kor.md")
       File.write(path, source.sub("* [https://example.com/docs](https://example.com/docs)", <<~TEXT.chomp))
         - [https://example.com/docs](https://example.com/docs)
@@ -156,7 +156,7 @@ class ValidatePostTest < Minitest::Test
   def test_local_images_follow_convention_and_must_exist
     with_root do |root|
       path = File.join(root, "_drafts/2026-08-08-Image-check-kor.md")
-      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"), encoding: "UTF-8")
       source = source.sub("글을 쓰기 전에", "![빠진 그림이 조용히 자리만 지키는 화면](/images/20260808_image_check/01-missing.png)\n\n글을 쓰기 전에")
       File.write(path, source)
 
@@ -170,7 +170,7 @@ class ValidatePostTest < Minitest::Test
   def test_new_images_accept_up_to_five_directory_words_and_reading_order
     with_root do |root|
       path = File.join(root, "_drafts/2026-08-08-Image-order-kor.md")
-      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"), encoding: "UTF-8")
       image_dir = File.join(root, "images/20260808_practical_ai_blog_image_flow")
       FileUtils.mkdir_p(image_dir)
       File.write(File.join(image_dir, "01-overview.png"), "image")
@@ -194,7 +194,7 @@ class ValidatePostTest < Minitest::Test
   def test_new_images_reject_bad_directory_filename_order_alt_and_remote_path
     with_root do |root|
       path = File.join(root, "_drafts/2026-08-08-Image-rules-kor.md")
-      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"), encoding: "UTF-8")
       image_dir = File.join(root, "images/20260808_one_two_three_four_five_six")
       FileUtils.mkdir_p(image_dir)
       File.write(File.join(image_dir, "02-wrong-order.png"), "image")
@@ -220,7 +220,7 @@ class ValidatePostTest < Minitest::Test
   def test_update_preserves_legacy_image_filename
     with_root do |root|
       target = File.join(root, "_posts/articles/2026-08-08-Contract-first-writing-kor.md")
-      source = File.read(target).sub(
+      source = File.read(target, encoding: "UTF-8").sub(
         "글을 쓰기 전에",
         "![기존 빌드 로그 화면](/images/20260808_legacy_image/build-log.png)\n\n글을 쓰기 전에"
       )
@@ -229,7 +229,7 @@ class ValidatePostTest < Minitest::Test
       File.write(File.join(image_dir, "build-log.png"), "image")
       original = File.join(root, "original.md")
       File.write(original, source)
-      File.write(target, source.sub("last_modified_at: 2026-08-07 16:00:00", "last_modified_at: 2026-08-07 17:00:00"))
+      File.write(target, source.sub("last_modified_at: 2026-08-08 01:00:00 +09:00", "last_modified_at: 2026-08-08 02:00:00 +09:00"))
 
       status, out, = run_cli("--root", root, "--lifecycle", "update", "--original", original, target)
 
@@ -243,8 +243,8 @@ class ValidatePostTest < Minitest::Test
       original = File.join(root, "original.md")
       target = File.join(root, "_posts/articles/2026-08-08-Contract-first-writing-kor.md")
       FileUtils.cp(target, original)
-      updated = File.read(target).sub("date: 2026-08-07 16:00:00", "date: 2026-08-07 17:00:00")
-                                 .sub("last_modified_at: 2026-08-07 16:00:00", "last_modified_at: 2026-08-07 18:00:00")
+      updated = File.read(target, encoding: "UTF-8").sub("date: 2026-08-08 01:00:00 +09:00", "date: 2026-08-08 02:00:00 +09:00")
+                                 .sub("last_modified_at: 2026-08-08 01:00:00 +09:00", "last_modified_at: 2026-08-08 03:00:00 +09:00")
                                  .sub("sitemap: true", "sitemap: false")
       File.write(target, updated)
 
@@ -256,7 +256,41 @@ class ValidatePostTest < Minitest::Test
     end
   end
 
-  def test_fresh_uses_utc_now_and_clock_skew
+  def test_new_post_requires_kst_offset
+    with_root do |root|
+      path = File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md")
+      source = File.read(path, encoding: "UTF-8")
+
+      ["2026-08-08 01:00:00", "2026-08-08 01:00:00 +00:00", "2026-08-08 01:00:00 Z", "2026-08-08T01:00:00+09:00"].each do |value|
+        File.write(path, source.gsub("2026-08-08 01:00:00 +09:00", value))
+        status, out, = run_cli("--root", root, path)
+
+        assert_equal 1, status, value
+        assert_includes out, "DATE001", value
+      end
+    end
+  end
+
+  def test_update_accepts_legacy_date_but_requires_kst_last_modified_at
+    with_root do |root|
+      target = File.join(root, "_posts/articles/2026-08-08-Contract-first-writing-kor.md")
+      legacy = File.read(target, encoding: "UTF-8").gsub("2026-08-08 01:00:00 +09:00", "2026-08-07 16:00:00")
+      original = File.join(root, "original.md")
+      File.write(original, legacy)
+
+      File.write(target, legacy.sub("last_modified_at: 2026-08-07 16:00:00", "last_modified_at: 2026-08-08 02:00:00 +09:00"))
+      status, out, = run_cli("--root", root, "--lifecycle", "update", "--original", original, target)
+      assert_equal 0, status
+      assert_equal "OK\n", out
+
+      File.write(target, legacy.sub("last_modified_at: 2026-08-07 16:00:00", "last_modified_at: 2026-08-07 17:00:00"))
+      status, out, = run_cli("--root", root, "--lifecycle", "update", "--original", original, target)
+      assert_equal 1, status
+      assert_includes out, "DATE001"
+    end
+  end
+
+  def test_fresh_compares_instants_and_clock_skew
     file = fixture("_drafts/2026-08-08-Contract-first-writing-kor.md")
     status, out, = run_cli(
       "--root", FIXTURES,
@@ -273,7 +307,7 @@ class ValidatePostTest < Minitest::Test
   def test_empty_alt_is_an_error_for_new_posts
     with_root do |root|
       path = File.join(root, "_drafts/2026-08-08-Empty-alt-kor.md")
-      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"), encoding: "UTF-8")
       FileUtils.mkdir_p(File.join(root, "images/20260808_empty_alt"))
       File.write(File.join(root, "images/20260808_empty_alt/01-present.png"), "image")
       File.write(path, source.sub("글을 쓰기 전에", "![](/images/20260808_empty_alt/01-present.png)\n\n글을 쓰기 전에"))
@@ -288,7 +322,7 @@ class ValidatePostTest < Minitest::Test
   def test_strict_turns_text_warning_into_failure
     with_root do |root|
       path = File.join(root, "_drafts/2026-08-08-Strict-warning-kor.md")
-      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"), encoding: "UTF-8")
       File.write(path, source.sub("글을 쓰기 전에", "잘못된 한a글 표현입니다.\n\n글을 쓰기 전에"))
 
       normal_status, normal_out, = run_cli("--root", root, path)
@@ -346,7 +380,7 @@ class ValidatePostTest < Minitest::Test
   def test_image_paths_reject_traversal_and_symlink_escape
     with_root do |root|
       path = File.join(root, "_drafts/2026-08-08-Image-security-kor.md")
-      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"), encoding: "UTF-8")
       source = source.sub(
         "글을 쓰기 전에",
         "![이동](/images/20260808_image_security/../outside.png)\n\n" \
@@ -390,7 +424,7 @@ class ValidatePostTest < Minitest::Test
   def test_setext_h1_is_rejected_only_outside_fences
     with_root do |root|
       path = File.join(root, "_drafts/2026-08-08-Setext-heading-kor.md")
-      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"), encoding: "UTF-8")
       source = source.sub("글을 쓰기 전에", <<~BODY.chomp)
         금지된 제목
         ===
@@ -414,7 +448,7 @@ class ValidatePostTest < Minitest::Test
   def test_reference_parser_accepts_balanced_parentheses_and_validates_uri
     with_root do |root|
       valid_path = File.join(root, "_drafts/2026-08-08-Reference-parentheses-kor.md")
-      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"), encoding: "UTF-8")
       valid_url = "https://example.com/spec(v1)"
       File.write(valid_path, source.sub(
         "* [https://example.com/docs](https://example.com/docs)",
@@ -464,7 +498,7 @@ class ValidatePostTest < Minitest::Test
   def test_ascii_letter_between_hangul_syllables_is_reported_in_prose
     with_root do |root|
       path = File.join(root, "_drafts/2026-08-08-Hangul-typo-kor.md")
-      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"), encoding: "UTF-8")
       File.write(path, source.sub("글을 쓰기 전에", "이 블c로그에서는 계약을 먼저 살펴봅니다.\n\n글을 쓰기 전에"))
 
       status, out, = run_cli("--root", root, path)
@@ -482,7 +516,7 @@ class ValidatePostTest < Minitest::Test
   def test_adjacent_single_letter_technical_terms_are_non_blocking_warnings
     with_root do |root|
       path = File.join(root, "_drafts/2026-08-08-Adjacent-technical-terms-kor.md")
-      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"), encoding: "UTF-8")
       prose = "국내e커머스, 배열의i번째 원소, 좌표의x축, 타입T입니다, 한글N그램을 설명합니다."
       File.write(path, source.sub("글을 쓰기 전에", "#{prose}\n\n글을 쓰기 전에"))
 
@@ -496,7 +530,7 @@ class ValidatePostTest < Minitest::Test
   def test_technical_tokens_urls_and_code_do_not_trigger_hangul_typo_check
     with_root do |root|
       path = File.join(root, "_drafts/2026-08-08-Technical-tokens-kor.md")
-      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"))
+      source = File.read(File.join(root, "_drafts/2026-08-08-Contract-first-writing-kor.md"), encoding: "UTF-8")
       prose = <<~BODY.chomp
         JDK와 Spring Boot, Java 21을 사용합니다. OAuth2와 SpringBoot3, k8s클러스터도 독립 식별자입니다.
         자세한 주소는 https://example.com/블c로그 이고, 인라인 예시는 `블c로그`입니다.

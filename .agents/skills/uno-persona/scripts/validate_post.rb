@@ -39,7 +39,10 @@ module UnoPersona
   )
 
   class Validator
-    DATE_FORMAT = "%Y-%m-%d %H:%M:%S"
+    # New posts use KST with an explicit offset. Legacy values (no offset) were written as UTC and are
+    # accepted only as the preserved `date` of an existing post.
+    KST_DATE_PATTERN = /\A\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} \+09:00\z/
+    LEGACY_DATE_PATTERN = /\A\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\z/
     FILE_PATTERN = /\A(?<date>\d{4}-\d{2}-\d{2})-(?<slug>[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*)-(?<lang>kor|eng)\.md\z/
     TAG_PATTERN = /\A[a-z0-9]+(?:-[a-z0-9]+)*\z/
     IMAGE_DIR_PATTERN = /\A\d{8}_[a-z0-9]+(?:_[a-z0-9]+){0,4}\z/
@@ -296,9 +299,9 @@ module UnoPersona
       end
 
       if post.filename_date
-        expected = (date + Rational(9, 24)).strftime("%Y-%m-%d")
+        expected = date.new_offset(Rational(9, 24)).strftime("%Y-%m-%d")
         unless post.filename_date == expected
-          add_post(post, 1, 1, "error", "DATE003", "Filename date must be the KST date of the UTC front matter date (expected #{expected}).", "Rename the file to start with #{expected}.")
+          add_post(post, 1, 1, "error", "DATE003", "Filename date must be the KST date of the front matter date (expected #{expected}).", "Rename the file to start with #{expected}.")
         end
       end
 
@@ -312,14 +315,15 @@ module UnoPersona
 
     def parse_front_matter_date(post, key)
       raw = post.raw_values[key]
-      unless raw&.match?(/\A\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\z/)
-        add_at_key(post, key, "error", "DATE001", "#{key} must use YYYY-MM-DD HH:mm:ss in UTC.", "Remove timezone suffixes and use the exact format.")
+      legacy_allowed = key == "date" && resolved_lifecycle == "update"
+      unless raw&.match?(KST_DATE_PATTERN) || (legacy_allowed && raw&.match?(LEGACY_DATE_PATTERN))
+        add_at_key(post, key, "error", "DATE001", "#{key} must use YYYY-MM-DD HH:mm:ss +09:00 (KST).", "Write the KST time and append the ` +09:00` offset.")
         return nil
       end
-      DateTime.strptime(raw, DATE_FORMAT)
-    rescue Date::Error
-      add_at_key(post, key, "error", "DATE001", "#{key} is not a valid UTC timestamp.", "Use a real calendar date and time.")
-      nil
+      parse_timestamp(raw) || begin
+        add_at_key(post, key, "error", "DATE001", "#{key} is not a valid KST timestamp.", "Use a real calendar date and time.")
+        nil
+      end
     end
 
     def validate_freshness(post, timestamp)
@@ -328,7 +332,7 @@ module UnoPersona
 
       add_at_key(post, resolved_lifecycle == "new" ? "date" : "last_modified_at", "error", "DATE005",
                  "Timestamp differs from --now by #{delta} seconds.",
-                 "Use the current UTC time within #{@config.max_clock_skew} seconds.")
+                 "Use the current KST time within #{@config.max_clock_skew} seconds.")
     end
 
     def validate_state(post)
@@ -384,7 +388,16 @@ module UnoPersona
     end
 
     def safe_date(value)
-      DateTime.strptime(value, DATE_FORMAT) if value&.match?(/\A\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\z/)
+      parse_timestamp(value)
+    end
+
+    # `+09:00` values parse as KST; legacy offset-less values parse as UTC.
+    def parse_timestamp(raw)
+      if raw&.match?(KST_DATE_PATTERN)
+        DateTime.strptime(raw, "%Y-%m-%d %H:%M:%S %z")
+      elsif raw&.match?(LEGACY_DATE_PATTERN)
+        DateTime.strptime(raw, "%Y-%m-%d %H:%M:%S")
+      end
     rescue Date::Error
       nil
     end
@@ -741,7 +754,7 @@ module UnoPersona
         options.on("--lifecycle TYPE", Validator::LIFECYCLES, "auto, new, or update") { |value| config.lifecycle = value }
         options.on("--original FILE", "Original file for update preservation checks") { |value| config.original = value }
         options.on("--fresh", "Require the lifecycle timestamp to be close to --now") { config.fresh = true }
-        options.on("--now ISO8601", "Reference UTC time for --fresh") { |value| config.now = DateTime.iso8601(value).new_offset(0) }
+        options.on("--now ISO8601", "Reference time for --fresh (offset-aware ISO 8601)") { |value| config.now = DateTime.iso8601(value).new_offset(0) }
         options.on("--max-clock-skew SECONDS", Integer, "Allowed --fresh difference (default: 300)") do |value|
           raise OptionParser::InvalidArgument, "clock skew must be non-negative" if value.negative?
 

@@ -21,7 +21,7 @@
       ],
       "expectations": [
         "Exactly one new Markdown post is created under _drafts and none under _posts.",
-        "The front matter has categories: articles, sitemap: false, and identical date and last_modified_at values.",
+        "The front matter has categories: articles, sitemap: false, and identical date and last_modified_at values in `YYYY-MM-DD HH:mm:ss +09:00` format.",
         "The filename ends in -kor.md and follows the repository date-title-language naming convention.",
         "The post contains no H1 heading and every fenced code block declares a language.",
         "The post explains that a lost response can cause a retried POST payment to execute twice and distinguishes HTTP method idempotency from an application-level idempotency-key policy.",
@@ -44,7 +44,7 @@
       "expectations": [
         "The result remains at _posts/articles/2025-11-14-Jekyll-build-troubleshooting-kor.md.",
         "The front matter still contains categories: articles, date: 2025-11-14 02:30:00, and sitemap: true.",
-        "last_modified_at is later than 2025-11-14 02:30:00 and is the only changed front matter field.",
+        "last_modified_at is a `+09:00` KST timestamp later than 2025-11-14 02:30:00 UTC (11:30 KST) and is the only changed front matter field.",
         "The exact inline link [Jekyll](https://jekyllrb.com/) remains present outside the Reference section.",
         "The exact image structure ![Jekyll 빌드 로그 확인 화면](/images/20251114_jekyll_build/build-log.png) remains present.",
         "The final Reference section retains the exact list items * [https://jekyllrb.com/docs/](https://jekyllrb.com/docs/) and * [https://jekyllrb.com/docs/troubleshooting/](https://jekyllrb.com/docs/troubleshooting/) in the same order.",
@@ -60,7 +60,7 @@
       ],
       "expectations": [
         "Exactly one new Markdown post is created under _posts/articles and none under _drafts or _posts/blog.",
-        "The front matter has categories: articles, sitemap: true, and identical date and last_modified_at values.",
+        "The front matter has categories: articles, sitemap: true, and identical date and last_modified_at values in `YYYY-MM-DD HH:mm:ss +09:00` format.",
         "The filename ends in -kor.md and follows the repository date-title-language naming convention.",
         "The post defines configuration drift as a difference between Git-declared desired state and observed cluster state and gives a manual kubectl change as an example.",
         "The post explains continuous reconciliation and a pull-request-centered change flow rather than treating Git as passive storage.",

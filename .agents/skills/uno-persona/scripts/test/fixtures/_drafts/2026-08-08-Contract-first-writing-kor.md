@@ -4,8 +4,8 @@ categories: articles
 title: "계약부터 시작하는 글쓰기"
 excerpt: "기술 글의 품질 기준을 계약으로 남기기"
 tags: [ai, writing]
-date: 2026-08-07 16:00:00
-last_modified_at: 2026-08-07 16:00:00
+date: 2026-08-08 01:00:00 +09:00
+last_modified_at: 2026-08-08 01:00:00 +09:00
 sitemap: false
 ---
 

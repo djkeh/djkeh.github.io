@@ -69,8 +69,8 @@ categories: articles # 개인 일상일 경우, blog
 title: "블로그 포스팅 제목"
 excerpt: "블로그 포스팅 내용을 요약한 한 줄 설명" # `~다` 대신 `~기`로 종결, 조사(~을/~를) 생략 등 간결한 문체로 30자 내외로 요약
 tags: [태그1, 태그2] # 이 포스팅을 가장 잘 설명하는 영문 소문자 키워드를 최대 3개까지 뽑아서 사용
-date: YYYY-MM-DD HH:mm:ss # 글 작성 현재 일시 (UTC) 기준으로 시, 분, 초까지 정확하게 작성
-last_modified_at: YYYY-MM-DD HH:mm:ss # 첫 작성은 위 `date`와 동일, 수정일 경우 수정 현재 일시 (UTC)
+date: YYYY-MM-DD HH:mm:ss +09:00 # 글 작성 현재 일시 (KST) 기준으로 시, 분, 초까지 정확하게 작성하고, 끝에 반드시 KST 오프셋 ` +09:00`을 붙임
+last_modified_at: YYYY-MM-DD HH:mm:ss +09:00 # 첫 작성은 위 `date`와 동일, 수정일 경우 수정 현재 일시 (KST). 마찬가지로 ` +09:00`을 붙임
 sitemap: false # 인터넷에 노출할 경우 true
 image: /images/{YYYYMMDD}_{title}/01-xxx.png # 본문에 처음 등장하는 이미지 경로. 공유/추천 썸네일(`og:image`)로 쓰임. 본문 이미지가 없으면 생략
 ---
