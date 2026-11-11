@@ -14,7 +14,7 @@ gem "jekyll", "~> 4.4"
 gem "minima", "~> 2.0"
 
 # ActiveSupport for security compliance
-gem "activesupport", "7.2.3.1"
+gem "activesupport", "8.0.5.2"
 
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
